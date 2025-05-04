@@ -8,12 +8,17 @@ A collaborative coding platform designed to streamline workflows, enhance projec
 
 ⚙️ Tech Stack
 Part	Tech
+```
 Frontend	React.js + Tailwind CSS
-Backend	Node.js + Express
-Database	MongoDB Atlas
-Authentication	Firebase Auth
-Deployment	Vercel (Frontend) + Render (Backend)
 
+Backend	Node.js + Express
+
+Database	MongoDB Atlas
+
+Authentication	Firebase Auth
+
+Deployment	Vercel (Frontend) + Render (Backend)
+```
 
 🚀 Live Demo
 🌐 Live App Link (Coming Soon…)
