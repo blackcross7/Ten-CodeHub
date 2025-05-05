@@ -1,4 +1,5 @@
 🏗️ Ten CodeHub
+
 A collaborative coding platform designed to streamline workflows, enhance project management, and simplify GitHub integration—built with MERN Stack.
 
 ✨ "Code together, build better!"
