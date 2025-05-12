@@ -5,7 +5,7 @@ function CourseList() {
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
-    <div>
+    <div className='pt-28'>
       {/* Promo Banner Section */}
       <div className="promo-banner">
         <div className="sale-info">
@@ -39,38 +39,42 @@ function PopularNow() {
   const courses = [
     {
       title: "DSA to Development",
+      titleIcon: "/assets/image/dsa-icon.png", // Add your icon path here
+      interested: "556k+ interested learners",
+      rating: "⭐4.4",
       title1: "DSA to Development: A Complete Guide",
-      interested: "556k+ interested Geeks",
-      rating: "4.4 stars",
       level: "Beginner to Advance",
       seats: "2 seats left",
       buttonText: "Explore",
     },
     {
       title: "Backend Development",
+      titleIcon: "/assets/image/backend-icon.png", // Add your icon path here
+      interested: "304k+ interested learners",
+      rating: "⭐4.7",
       title1: "JAVA Backend Development - Live",
-      interested: "304k+ interested Geeks",
-      rating: "4.7 stars",
       level: "Intermediate and Advance",
-      seats: "",
+      seats: "2 seats left",
       buttonText: "Explore",
     },
     {
       title: "ML & DS",
+      titleIcon: "/assets/image/ml-icon.png", // Add your icon path here
       title1: "Complete Machine Learning & Data Science Program",
-      interested: "422k+ interested Geeks",
-      rating: "4.7 stars",
+      interested: "422k+ interested learners",
+      rating: "⭐4.7",
       level: "Beginner to Advance",
       seats: "6 seats left",
       buttonText: "Explore",
     },
     {
       title: "Data Structure and Algorithm with C++/Java",
+      titleIcon: "/assets/image/dsa-icon.png", // Add your icon path here
       title1: "Data Structures and Algorithms - Self Paced [Online Course]",
-      interested: "1369k+ interested Geeks",
-      rating: "4.7 stars",
+      interested: "1369k+ interested learners",
+      rating: "⭐4.7",
       level: "Beginner to Advance",
-      seats: "",
+      seats: "2 seats left",
       buttonText: "Explore",
     },
   ];
@@ -89,28 +93,30 @@ function PopularNow() {
   const classroomCourses = [
     {
       title:"Complete Data Analytics",
+      titleIcon: "/assets/image/completedata-icon.png",// Add your icon path here
       title1: "Complete Data Analytics Program",
       interested: "49k+ interested learners",
-      rating: "4.6 stars",
+      rating: "⭐4.6",
       level: "Beginner to Advance",
       seats: "2 seats left",
-      partner: "IBM",
       buttonText: "Explore",
     },
     {
       title:"DSA Interview",
+      titleIcon: "/assets/image/interview-icon.png",//add your icon path here
       title1: "DSA for Interview Preparation",
       interested: "87k+ interested learners",
-      rating: "4.6 stars",
+      rating: "⭐4.6",
       level: "Beginner to Advance",
       seats: "3 seats left",
       buttonText: "Explore",
     },
     {
       title:"FULL STACK",
+      titleIcon: "/assets/image/mern-icon.png",//add your icon path here
       title1: "MERN Full Stack Web Development",
       interested: "94k+ interested learners",
-      rating: "4.6 stars",
+      rating: "⭐4.6",
       level: "Beginner to Advance",
       seats: "2 seats left",
       buttonText: "Explore",
@@ -120,36 +126,40 @@ function PopularNow() {
   const liveCourses = [
     {
       title:"TECH INTERVIEW",
+      titleIcon: "/assets/image/tech-icon.png",//add your icon path here
       title1: "Tech Interview 101 - From DSA to System Design for Working Professionals",
-      interested: "333k+ interested Geeks",
-      rating: "4.9 stars",
+      interested: "333k+ interested learners",
+      rating: "⭐4.9",
       level: "Beginner to Advance",
       seats: "2 seats left",
       buttonText: "Explore",
     },
     {
       title:"FSRNL",
+      titleIcon: "/assets/image/fsrnl-icon.png",//add your icon path here
       title1: "Full Stack Development with React & Node JS - Live",
-      interested: "354k+ interested Geeks",
-      rating: "4.7 stars",
+      interested: "354k+ interested learners",
+      rating: "⭐4.7",
       level: "Beginner to Advance",
-      seats: "",
+      seats: "2 seats left",
       buttonText: "Explore",
     },
     {
       title:"DEVOPS Engineering",
+      titleIcon: "/assets/image/devops-icon.png",//add your icon path here
       title1: "DevOps Engineering - Planning to Production",
-      interested: "106k+ interested Geeks",
-      rating: "4.6 stars",
+      interested: "106k+ interested learners",
+      rating: "⭐4.6",
       level: "Beginner to Advance",
       seats: "3 seats left",
       buttonText: "Explore",
     },
     {
       title:"Data Analytics Training program",
+      titleIcon: "/assets/image/datatraining-icon.png",//add your icon path here
       title1: "Data Analytics Training using Excel, SQL, Python & PowerBI",
-      interested: "38k+ interested Geeks",
-      rating: "4.5 stars",
+      interested: "38k+ interested learners",
+      rating: "⭐4.5",
       level: "Beginner to Advance",
       seats: "4 seats left",
       buttonText: "Explore",
@@ -157,121 +167,131 @@ function PopularNow() {
   ];
   const selfPacedCourses = [
     {
-      title: "Python Programming - Self-Paced",
-      title1: "Master Python with Hands-On Projects",
+      title: "INTERVIEW Preparation",
+      titleIcon: "/assets/image/interview-icon.png",//add your icon path here
+      title1: "Complete Interview Preparation",
       interested: "200k+ interested learners",
-      rating: "4.8 stars",
+      rating: "⭐4.8",
       level: "Beginner to Advanced",
-      seats: "",
+      seats: "2 seats left",
       buttonText: "Explore",
     },
     {
-      title: "Web Development Bootcamp - Self-Paced",
-      title1: "Learn HTML, CSS, JavaScript & React",
+      title: "Data Structures & Algorithms with Python",
+      titleIcon: "/assets/image/python-icon.png",//add your icon path here
+      title1: "Data Structures & Algorithms in Python-Self Paced",
       interested: "325k+ interested learners",
-      rating: "4.7 stars",
+      rating: "⭐4.7",
       level: "Beginner to Advanced",
-      seats: "",
+      seats: "2 seats left",
       buttonText: "Explore",
     },
     {
-      title: "Data Science & AI - Self-Paced",
-      title1: "Learn Data Analysis, Machine Learning & AI",
+      title: "SYSTEM Design",
+      titleIcon: "/assets/image/system-icon.png",//add your icon path here
+      title1: "Mastering System Design:From Low-Level to High-Level Solutions",
       interested: "180k+ interested learners",
-      rating: "4.6 stars",
+      rating: "⭐4.6",
       level: "Intermediate & Advanced",
-      seats: "",
+      seats: "2 seats left",
       buttonText: "Explore",
     },
     {
-      title: "Cybersecurity Essentials - Self-Paced",
-      title1: "Become a Cybersecurity Expert",
+      title: "JAVA Programming",
+      titleIcon: "/assets/image/java-icon.png",//add your icon path here
+      title1: "Java Programming Online Course [complete Beginner to Advanced]",
       interested: "95k+ interested learners",
-      rating: "4.5 stars",
+      rating: "⭐4.5",
       level: "Beginner to Advanced",
-      seats: "",
+      seats: "2 seats left",
       buttonText: "Explore",
     },
   ];
   const foundationCourses = [
     {
-      title: "Master Data Structures & Algorithms",
-      title1: "Fundamental DSA concepts for coding interviews",
+      title: "JAVA Programming",
+      titleIcon: "/assets/image/java-icon.png",//add your icon path here
+      title1: "Java Programming Online Course [complete Beginner to Advanced]",
       interested: "450k+ interested learners",
-      rating: "4.8 stars",
+      rating: "⭐4.8",
       level: "Beginner to Advanced",
-      seats: "",
+      seats: "2 seats left",
       buttonText: "Explore",
     },
     {
-      title: "Basic Programming with Python & Java",
-      title1: "Learn Python & Java from scratch",
+      title: "C++ Beginner to Advanced",
+      titleIcon: "/assets/image/c++-icon.png",//add your icon path here
+      title1: "C++ Programming Course Online - Complete Beginner to Advanced",
       interested: "375k+ interested learners",
-      rating: "4.7 stars",
+      rating: "⭐4.7",
       level: "Beginner",
-      seats: "",
+      seats: "2 seats left",
       buttonText: "Explore",
     },
     {
-      title: "Mathematical Thinking for Coding",
-      title1: "Learn problem-solving techniques used in programming",
+      title: "JavaScript Basic to Advanced",
+      titleIcon: "/assets/image/javascript-icon.png",//add your icon path here
+      title1: "LJavaScript Full Course Online | Learn JavaScript with Certification",
       interested: "295k+ interested learners",
-      rating: "4.6 stars",
+      rating: "⭐4.6",
       level: "Beginner & Intermediate",
-      seats: "",
+      seats: "2 seats left",
       buttonText: "Explore",
     },
     {
-      title: "Operating System & Computer Networks",
-      title1: "Get a strong foundation in OS & CN concepts",
+      title: "Master C with Data Structures",
+      titleIcon: "/assets/image/c-icon.png",//add your icon here
+      title1: "C Programming Course Online - Learn C with Data Structures",
       interested: "180k+ interested learners",
-      rating: "4.5 stars",
+      rating: "⭐4.5",
       level: "Beginner to Advanced",
-      seats: "",
+      seats: "2 seats left",
       buttonText: "Explore",
     },
   ];
   const freeCourses = [
     {
-      title: "Complete Interview Preparation",
-      title1: "Master DSA, System Design & Problem Solving",
+      title: "Cybersecurity Essentials",
+      titleIcon: "/assets/image/cyber-icon.png",//add your icon path here
+      title1: "Become a Cybersecurity Expert",
       interested: "964k+ interested learners",
-      rating: "4.8 stars",
+      rating: "⭐4.8",
       level: "Beginner to Advanced",
-      seats: "",
+      seats: "2 seats left",
       buttonText: "Explore",
     },
     {
-      title: "Data Structures & Algorithms in Python",
-      title1: "Self-Paced DSA with Python",
+      title: "BOOTCAMP Data Science",
+      titleIcon: "/assets/image/bootcampdata-icon.png",//add your icon path here
+      title1: "Data Science BootCamp - From Analysing Data To Creating ML Models",
       interested: "328k+ interested learners",
-      rating: "4.7 stars",
+      rating: "⭐4.7",
       level: "Beginner to Advanced",
-      seats: "",
+      seats: "2 seats left",
       buttonText: "Explore",
     },
     {
-      title: "System Design",
-      title1: "Master System Design: From Low-Level to High-Level Solutions",
+      title: "FULL STACK Bootcamp",
+      titleIcon: "/assets/image/bootcamp-icon.png",//add your icon path here
+      title1: "Full Stack Developer Bootcamp - Master Frontend to Backend",
       interested: "152k+ interested learners",
-      rating: "4.6 stars",
+      rating: "⭐4.6",
       level: "Beginner to Advanced",
       seats: "3 seats left",
       buttonText: "Explore",
     },
     {
-      title: "Java Programming",
-      title1: "Complete Java Programming Course (Beginner to Advanced)",
+      title: "IOS Development",
+      titleIcon: "/assets/image/ios-icon.png",//add your icon path here
+      title1: "iOS Development for Beginners: Master Swift & App Building for Free",
       interested: "290k+ interested learners",
-      rating: "4.6 stars",
+      rating: "⭐4.6",
       level: "Beginner to Advanced",
       seats: "",
       buttonText: "Explore",
     },
   ];
   
-  
-
   return (
     <div className="popular-now">
       <div className="popular-header">
@@ -287,13 +307,25 @@ function PopularNow() {
         {courses.map((course, index) => (
           <div key={index} className="course-card">
             <div className="course-title-section">
-              <h3 className="course-title">{course.title}</h3>
+            <h3 className="course-title">{course.title}</h3>
+            <div className="course-title-icon">
+            <img src={course.titleIcon} alt={`${course.title} Icon`} />
             </div>
+            </div>
+
+
             <div className="course-details">
+              <div className="course-interested-rating">
+                <p className="course-interested">
+                  <img src="/assets/image/interested-icon.png" alt="Interested Icon" className="interested-icon" />
+                  {course.interested}</p>
+                <p className="course-rating">{course.rating}</p>
+              </div>
               <p className="course-title1">{course.title1}</p>
-              <p className="course-interested">{course.interested}</p>
-              <p className="course-rating">{course.rating}</p>
-              <p className="course-level">{course.level}</p>
+              <p className="course-level">
+                <img src="/assets/image/level-icon.png" alt="Level" className="level-icon" />
+                {course.level}
+              </p>
               {course.seats && <p className="course-seats">{course.seats}</p>}
             </div>
             <button className="explore-btn">{course.buttonText}</button>
@@ -316,143 +348,197 @@ function PopularNow() {
       {/* Classroom Courses Now Inside Popular Now */}
       <div className="classroom-courses">
         <div className="classroom-header">
-          <h3>Classroom Courses Near You</h3>
+          <h3>Classroom Courses</h3>
           <button className="view-all-btn">
             View All
             <img src="/assets/image/arrow-icon.png" alt="Arrow" className="arrow-icon" />
           </button>
         </div>
-        
-        <div className="classroom-container">
+        <div className="courses-container">
           {classroomCourses.map((course, index) => (
-            <div key={index} className="classroom-card">
-              <div className="classroom-title-section">
-                <h4 className="classroom-title">{course.title}</h4>
+            <div key={index} className="course-card">
+              <div className="course-title-section">
+              <h3 className="course-title">{course.title}</h3>
+              <div className="course-title-icon">
+              <img src={course.titleIcon} alt={`${course.title} Icon`} />
               </div>
-              <div className="classroom-details">
-                <p className="classroom-title1">{course.title1}</p>
-                <br></br>
-                <p className="classroom-interested">{course.interested}</p>
-                <p className="classroom-rating">{course.rating}</p>
-                <p className="classroom-level">{course.level}</p>
-                {course.seats && <p className="classroom-seats">{course.seats}</p>}
-                {course.partner && <p className="classroom-partner">Partner: {course.partner}</p>}
-                <button className="explore-btn">{course.buttonText}</button>
               </div>
-            </div>
 
+
+              <div className="course-details">
+                <div className="course-interested-rating">
+                  <p className="course-interested">
+                    <img src="/assets/image/interested-icon.png" alt="Interested Icon" className="interested-icon" />
+                    {course.interested}</p>
+                  <p className="course-rating">{course.rating}</p> {/* This will now have a border */}
+                </div>
+                <p className="course-title1">{course.title1}</p>
+                <p className="course-level">
+                  <img src="/assets/image/level-icon.png" alt="Level" className="level-icon" />
+                  {course.level}
+                </p>
+                {course.seats && <p className="course-seats">{course.seats}</p>}
+                {course.partner && <p className="course-partner">Partner: {course.partner}</p>}
+              </div>
+              <button className="explore-btn">{course.buttonText}</button>
+            </div>
           ))}
         </div>
-{/* ⭐ Live Courses Inside Popular Now ⭐ */}
-<div className="live-courses">
-  <div className="live-header">
-    <h3>Live Courses</h3>
-    <button className="view-all-btn">
-      View All
-      <img src="assets/image/arrow-icon.png" alt="Arrow" className="arrow-icon" />
-    </button>
-  </div>
-  <div className="courses-container">
-    {liveCourses.map((course, index) => (
-      <div key={index} className="course-card">
-        <div className="course-title-section">
-          <h3 className="course-title">{course.title}</h3>
+        {/* ⭐ Live Courses Inside Popular Now ⭐ */}
+        <div className="live-courses">
+          <div className="live-header">
+            <h3>Live Courses</h3>
+            <button className="view-all-btn">
+              View All
+              <img src="/assets/image/arrow-icon.png" alt="Arrow" className="arrow-icon" />
+            </button>
+          </div>
+          <div className="courses-container">
+            {liveCourses.map((course, index) => (
+              <div key={index} className="course-card">
+                <div className="course-title-section">
+                <h3 className="course-title">{course.title}</h3>
+                <div className="course-title-icon">
+                 <img src={course.titleIcon} alt={`${course.title} Icon`} />
+                </div>
+                </div>
+
+
+                <div className="course-details">
+                  <div className="course-interested-rating">
+                    <p className="course-interested">
+                      <img src="/assets/image/interested-icon.png" alt="Interested Icon" className="interested-icon" />
+                      {course.interested}</p>
+                    <p className="course-rating">{course.rating}</p> {/* This will now have a border */}
+                  </div>
+                  <p className="course-title1">{course.title1}</p>
+                  <p className="course-level">
+                    <img src="/assets/image/level-icon.png" alt="Level" className="level-icon" />
+                    {course.level}
+                  </p>
+                  
+                  {course.seats && <p className="course-seats">{course.seats}</p>}
+                </div>
+                <button className="explore-btn">{course.buttonText}</button>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="course-details">
-          <p className="course-title1">{course.title1}</p>
-          <p className="course-interested">{course.interested}</p>
-          <p className="course-rating">{course.rating}</p>
-          <p className="course-level">{course.level}</p>
-          {course.seats && <p className="course-seats">{course.seats}</p>}
-        </div>
-        <button className="explore-btn">{course.buttonText}</button>
-      </div>
-    ))}
-  </div>
-</div>
-{/* ⭐ Self-Paced Courses Section (Below Live Courses) ⭐ */}
-<div className="self-paced-courses">
-  <div className="self-paced-header">
-    <h3>Self-Paced Courses</h3>
-    <button className="view-all-btn">
-      View All
-      <img src="/assets/image/arrow-icon.png" alt="Arrow" className="arrow-icon" />
-    </button>
-  </div>
-  <div className="courses-container">
-    {selfPacedCourses.map((course, index) => (
-      <div key={index} className="course-card">
-        <div className="course-title-section">
-          <h3 className="course-title">{course.title}</h3>
-        </div>
-        <div className="course-details">
-          <p className="course-title1">{course.title1}</p>
-          <p className="course-interested">{course.interested}</p>
-          <p className="course-rating">{course.rating}</p>
-          <p className="course-level">{course.level}</p>
-          {course.seats && <p className="course-seats">{course.seats}</p>}
-        </div>
-        <button className="explore-btn">{course.buttonText}</button>
-      </div>
-    ))}
-  </div>
-</div>
-{/* Build Your Foundation Section */}
-<div className="build-foundation">
-  <div className="foundation-header">
-    <h3>Build Your Foundation</h3>
-    <button className="view-all-btn">
-      View All
-      <img src="/assets/image/arrow-icon.png" alt="Arrow" className="arrow-icon" />
-    </button>
-  </div>
-  <div className="courses-container">
-    {foundationCourses.map((course, index) => (
-      <div key={index} className="course-card">
-        <div className="course-title-section">
-          <h3 className="course-title">{course.title}</h3>
-        </div>
-        <div className="course-details">
-          <p className="course-title1">{course.title1}</p>
-          <p className="course-interested">{course.interested}</p>
-          <p className="course-rating">{course.rating}</p>
-          <p className="course-level">{course.level}</p>
-          {course.seats && <p className="course-seats">{course.seats}</p>}
-        </div>
-        <button className="explore-btn">{course.buttonText}</button>
-      </div>
-    ))}
-  </div>
-</div>
-{/* ⭐ Free Courses Section (Below Build Your Foundation) ⭐ */}
-<div className="free-courses">
-  <div className="free-header">
-    <h3>Free Courses</h3>
-    <button className="view-all-btn">
-      View All
-      <img src="/assets/image/arrow-icon.png" alt="Arrow" className="arrow-icon" />
-    </button>
-  </div>
-  <div className="courses-container">
-    {freeCourses.map((course, index) => (
-      <div key={index} className="course-card">
-        <div className="course-title-section">
-          <h3 className="course-title">{course.title}</h3>
-        </div>
-        <div className="course-details">
-          <p className="course-title1">{course.title1}</p>
-          <p className="course-interested">{course.interested}</p>
-          <p className="course-rating">{course.rating}</p>
-          <p className="course-level">{course.level}</p>
-          {course.seats && <p className="course-seats">{course.seats}</p>}
-        </div>
-        <button className="explore-btn">{course.buttonText}</button>
-      </div>
-    ))}
+        {/* ⭐ Self-Paced Courses Section (Below Live Courses) ⭐ */}
+        <div className="self-paced-courses">
+          <div className="self-paced-header">
+            <h3>Self-Paced Courses</h3>
+            <button className="view-all-btn">
+              View All
+              <img src="/assets/image/arrow-icon.png" alt="Arrow" className="arrow-icon" />
+            </button>
+          </div>
+          <div className="courses-container">
+            {selfPacedCourses.map((course, index) => (
+              <div key={index} className="course-card">
+                <div className="course-title-section">
+  <h3 className="course-title">{course.title}</h3>
+  <div className="course-title-icon">
+    <img src={course.titleIcon} alt={`${course.title} Icon`} />
   </div>
 </div>
 
 
+                <div className="course-details">
+                  <div className="course-interested-rating">
+                    <p className="course-interested">
+                      <img src="/assets/image/interested-icon.png" alt="Interested Icon" className="interested-icon" />
+                      {course.interested}</p>
+                    <p className="course-rating">{course.rating}</p> {/* This will now have a border */}
+                  </div>
+                  <p className="course-title1">{course.title1}</p>
+                  <p className="course-level">
+                    <img src="/assets/image/level-icon.png" alt="Level" className="level-icon" />
+                    {course.level}
+                  </p>
+                  
+                  {course.seats && <p className="course-seats">{course.seats}</p>}
+                </div>
+                <button className="explore-btn">{course.buttonText}</button>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Build Your Foundation Section */}
+        <div className="build-foundation">
+          <div className="foundation-header">
+            <h3>Build Your Foundation</h3>
+            <button className="view-all-btn">
+              View All
+              <img src="/assets/image/arrow-icon.png" alt="Arrow" className="arrow-icon" />
+            </button>
+          </div>
+          <div className="courses-container">
+            {foundationCourses.map((course, index) => (
+              <div key={index} className="course-card">
+                <div className="course-title-section">
+  <h3 className="course-title">{course.title}</h3>
+  <div className="course-title-icon">
+    <img src={course.titleIcon} alt={`${course.title} Icon`} />
+  </div>
+</div>
+
+
+                <div className="course-details">
+                  <div className="course-interested-rating">
+                    <p className="course-interested">
+                      <img src="/assets/image/interested-icon.png" alt="Interested Icon" className="interested-icon" />
+                      {course.interested}</p>
+                    <p className="course-rating">{course.rating}</p> {/* This will now have a border */}
+                  </div>
+                  <p className="course-title1">{course.title1}</p>
+                  <p className="course-level">
+                    <img src="/assets/image/level-icon.png" alt="Level" className="level-icon" />
+                    {course.level}</p>
+                  {course.seats && <p className="course-seats">{course.seats}</p>}
+                </div>
+                <button className="explore-btn">{course.buttonText}</button>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* ⭐ Free Courses Section (Below Build Your Foundation) ⭐ */}
+        <div className="free-courses">
+          <div className="free-header">
+            <h3>Free Courses</h3>
+            <button className="view-all-btn">
+              View All
+              <img src="/assets/image/arrow-icon.png" alt="Arrow" className="arrow-icon" />
+            </button>
+          </div>
+          <div className="courses-container">
+            {freeCourses.map((course, index) => (
+              <div key={index} className="course-card">
+                <div className="course-title-section">
+                <h3 className="course-title">{course.title}</h3>
+                <div className="course-title-icon">
+                <img src={course.titleIcon} alt={`${course.title} Icon`} />
+                </div>
+                </div>
+
+                <div className="course-details">
+                  <div className="course-interested-rating">
+                    <p className="course-interested">
+                      <img src="/assets/image/interested-icon.png" alt="Interested Icon" className="interested-icon" />
+                      {course.interested}</p>
+                    <p className="course-rating">{course.rating}</p> {/* This will now have a border */}
+                  </div>
+                  <p className="course-title1">{course.title1}</p>
+                  <p className="course-level">
+                    <img src="/assets/image/level-icon.png" alt="Level" className="level-icon" />
+                    {course.level}</p>
+                  {course.seats && <p className="course-seats">{course.seats}</p>}
+                </div>
+                <button className="explore-btn">{course.buttonText}</button>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

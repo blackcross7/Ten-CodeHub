@@ -11,7 +11,7 @@
     color: #333;
     line-height: 1.6;
   }
-  
+    
   /* Color Variables */
   :root {
     --primary-color: #FF3366;
@@ -76,6 +76,7 @@
 /* Right Side Section */
 .navbar-right {
   display: flex;
+  align-items: center;
   width: 600px;
   align-items: center;
   gap: 40px;
@@ -89,7 +90,8 @@
   border-radius: 5px;
   padding: 2px 10px;
   height: 40px;
-  width: 80px;
+  width: 90%;
+  position: relative;
 }
 
 .search-input {
@@ -101,6 +103,9 @@
   width: 100%;
   background: transparent;
   color: rgb(8, 8, 8);
+  position: absolute;
+  left: 20px;
+  top: 5px;
 }
 
 .search-icon,
@@ -205,7 +210,7 @@
   .navbar-right{
     position: absolute;
     right: 20px;
-    top: 0;
+    top: 20px;
     gap: 25px;
   }
   
@@ -1588,3 +1593,714 @@
     outline: none;
   }
   
+
+   /*-------profile page-----------*/
+ /* Base Reset */
+.profile-page {
+  display: flex;
+}
+
+/* Fixed Sidebar */
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 60px; /* Offset to appear below navbar */
+  left: 0;
+  width: 220px;
+  height: calc(100% - 60px); /* Adjust height */
+  background-color: #f9f9f9;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Equal spacing between items */
+  z-index: 999;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  transform: translateX(0); /* visible by default */
+  z-index: 999;
+  padding-top: 40px;
+  overflow-y: auto;
+
+}
+
+.sidebar .sidebar-item {
+  padding: 12px 16px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 10px; /* Space between each component */
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.sidebar .sidebar-item:hover {
+  background-color: white; /* White background when hovered */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow effect to show it as a box */
+}
+
+.sidebar .sidebar-item.active {
+  background-color: #28a745; /* Green background when hovered and active */
+  color: white; /* White text */
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-list li {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+.sidebar li {
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2f855a;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+.sidebar li:hover {
+  background: #cdeac0;
+}
+
+.sidebar li i {
+  min-width: 20px;
+}
+
+.sidebar h3 {
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Hide sidebar and show hamburger only on small screens */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .hamburger-icon {
+    display: block;
+  }
+}
+/* Hide sidebar on small screens */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+
+/* Hamburger icon - hidden on desktop, visible on small screens */
+.hamburger-icon {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 28px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 4px 8px;
+  z-index: 1001;
+  cursor: pointer;
+}
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background: #2f855a;
+  color: white;
+  font-size: 20px;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+
+/* Hide sidebar on small screens */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+
+/* Base Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+/* Main Content */
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  margin-top: 140px; /* To ensure main content doesn't go behind the navbar */
+  width: calc(100% - 250px);
+}
+.profile-total-block {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 1000px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+/* Horizontal line between profile and streak */
+.streak-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+}
+
+/* Vertical line between 30% and 70% blocks */
+.left-30 {
+  width: 30%;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  padding-right: 20px;
+}
+
+/* Profile Section */
+.profile-section {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+/* Left Column in Profile Section */
+.left-30 {
+  width: 30%;
+  text-align: center;
+}
+
+.profile-pic-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.profile-pic-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  background-color: #fff;
+}
+
+.edit-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #2e7d32;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Adds spacing between profile and streak section */
+.streak-section {
+  margin-top: 50px; /* Gap from profile block */
+}
+
+/* Aligns label and circle in a row */
+.streak-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* Adjust this gap between text and circle */
+}
+
+/* Underlined label in black */
+.streak-label {
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: black;
+  color: black;
+}
+
+/* Circle style */
+.circular-streak {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #d4edda;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #155724;
+}
+
+/* Inside the circle */
+.streak-content strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.streak-content small {
+  font-size: 0.9rem;
+}
+
+
+/* Right Column in Profile Section */
+.right-70 {
+  width: 70%;
+}
+
+.right-70 h2 {
+  margin-bottom: 1rem;
+}
+
+.institution-info {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.institution-info h4 {
+  margin-bottom: 0.5rem;
+}
+.institution-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.institute-heading {
+  margin: 0;
+}
+
+.edit-button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+   display: inline-block; /* Now acts like a block inside flex */
+    transition: background-color 0.3s ease;
+      font-size: 13px;
+}
+
+.edit-button:hover {
+  background-color: darkgreen;
+}
+
+
+.edit-text {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #2e7d32;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+
+.scores {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-item img {
+  width: 40px;
+  margin-bottom: 0.5rem;
+}
+
+.stat-item span {
+  font-size: 1rem;
+}
+
+.stat-item strong {
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+/* Apply Button */
+.apply-button {
+  background-color: #2e7d32;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.apply-button:hover {
+  background-color: #1c5e2f;
+}
+.apply-button link {
+      text-align: center;
+      color: black;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+.apply-button link:hover {
+      text-decoration: underline;
+    }
+/* Problem Solving Section */
+.problem-solving {
+  display: flex;
+  align-items: center;        /* Vertically align items */
+  gap: 2rem;
+   margin: 30px auto;
+  background-color:#f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 1000px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.problem-image {
+  width: 150px;
+  height: 150px;
+  background-image: url('https://www.geeksforgeeks.org/_next/image/?url=https%3A%2F%2Fmedia.geeksforgeeks.org%2Fauth-dashboard-uploads%2Fcourses.png&w=384&q=75');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.problem-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;      /* Vertically center content */
+  text-align: center;           /* Center heading and text horizontally */
+  flex: 1;
+}
+
+.problem-details h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #1b3c52;
+}
+
+.problem-details p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+.solve-button {
+  background-color: #2e7d32;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  align-self: center; /* Center the button horizontally */
+}
+
+.solve-button:hover {
+  background-color: #1c5e2f;
+}
+
+/* Updated Learning Section */
+.learning {
+  display: flex;
+  align-items: center;       /* Vertically center image and text */
+  gap: 2rem;
+   margin: 30px auto;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 1000px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.learning-image {
+  width: 150px;
+  height: 150px;
+  background-image: url('https://www.geeksforgeeks.org/_next/image/?url=https%3A%2F%2Fmedia.geeksforgeeks.org%2Fauth-dashboard-uploads%2Fpotd.png&w=384&q=75');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.learning-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;     /* Vertically align text */
+  text-align: center;          /* Horizontally center h3 and p */
+  flex: 1;
+}
+
+.learning-details h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #1b3c52;
+}
+
+.learning-details p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.explore-button {
+  background-color: #2e7d32;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  align-self: center; /* Center the button horizontally */
+}
+
+.explore-button:hover {
+  background-color: #1c5e2f;
+}
+
+/* Updated Points System Section */
+/* Main container */
+.points-system {
+  .points-system {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;                        /* Reduced gap between left and right */
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  max-width: 1000px;               /* SAME as other blocks */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+}
+
+/* The main block holding both left and right sections */
+.main-block {
+  display: flex;
+  justify-content: flex-start; /* Align content to the left */
+  width: 100%;
+  max-width: 1400px; /* Adjust this for larger screen widths */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  flex-wrap: nowrap;
+   margin: 30px auto;
+}
+
+/* Left side: All Badges in One Horizontal Line */
+.badges-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;  /* Allow wrapping to the next line if needed */
+  gap: 4 px;  /* Reduced space between badges */
+  width: 75%;  /* Adjust left section width as needed */
+}
+
+.badge-item {
+  display: flex;
+  flex-direction: column;  /* Stack badge text, image, and points */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 18%;  /* Control width of each badge item */
+  margin-bottom: 10px; /* Adjust space between rows */
+}
+
+.badge-item p, .badge-item span {
+  margin: 5px 0;  /* Space between badge text, image, and points */
+}
+
+.badge-item img {
+  width: 50px; /* Image size */
+  height: 50px;
+}
+
+/* Right side (Nested block with Write More and Buttons) */
+.badges-right {
+  width: 25%;  /* Adjust width of right side */
+}
+
+.write-more-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.write-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.write-text {
+  max-width: 50%;
+}
+
+.buttons-row {
+  display: flex;
+  gap: 10px; /* Space between the buttons */
+}
+
+.start-btn, .badge-info-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  background-color:#1c5e2f;
+  color: white;
+}
+
+.start-btn:hover, .badge-info-btn:hover {
+  background-color: #03b300;
+}
+
+/* Image styling */
+.write-image {
+  max-width: 40%;
+  height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-block {
+    flex-direction: column; /* Stack the blocks vertically on smaller screens */
+  }
+
+  .badges-container, .badges-right {
+    width: 100%;
+  }
+
+  .write-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .write-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .write-image {
+    max-width: 80%;
+  }
+}
+
+
+/* Contest Promotion Section */
+.contest-promotion {
+  display: flex;
+  align-items: center;        /* Vertically center image and text */
+  gap: 2rem;
+  margin: 30px auto;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 1000px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.contest-image {
+  width: 150px;
+  height: 150px;
+  background-image: url('https://www.geeksforgeeks.org/_next/image/?url=https%3A%2F%2Fmedia.geeksforgeeks.org%2Fauth-dashboard-uploads%2FcontestBanner.png&w=384&q=75');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.contest-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;       /* Center h3 + p + button vertically */
+  text-align: center;            /* Center text horizontally */
+  flex: 1;
+}
+
+.contest-details h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #1b3c52;
+}
+
+.contest-details p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.explore-button {
+  background-color: #2e7d32;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  align-self: center;  /* center the button horizontally */
+}
+
+.explore-button:hover {
+  background-color: #1c5e2f;
+}

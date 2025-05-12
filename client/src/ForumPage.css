@@ -1,1 +1,230 @@
+.forum-container {
+    width: 70%;
+    margin: auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .create-post {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .create-post input,
+  .create-post textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .create-post button {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .create-post button:hover {
+    background: #0056b3;
+  }
+  
+  .posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .post-card {
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .replies-section {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f1f1f1;
+    border-radius: 6px;
+  }
+  
+  .reply-card {
+    margin-top: 5px;
+    padding: 8px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  /* Smooth Fade-in Animation for Posts */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+.post-card {
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out; /* Posts will fade in when loaded */
+  transition: all 0.3s ease-in-out;
+}
+
+.post-card:hover {
+  transform: scale(1.02); /* Slight zoom effect on hover */
+}
+
+/* Replies Section */
+.replies-section {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f1f1f1;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+.reply-card {
+  margin-top: 5px;
+  padding: 8px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.reply-card:hover {
+  background: #e0e0e0; /* Slight highlight effect on hover */
+}
+
+/* Buttons */
+button {
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.create-post button {
+  background: linear-gradient(to right, #007bff, #0056b3);
+  color: white;
+}
+
+.create-post button:hover {
+  background: linear-gradient(to right, #0056b3, #004080);
+  transform: scale(1.05); /* Button slightly expands on hover */
+}
+
+.upvote-btn {
+  background: black;
+  color: white;
+}
+
+.upvote-btn:hover {
+  background: black;
+  transform: scale(1.05); /* Upvote button expands slightly */
+}
+/* Replies Section */
+.replies-section {
+  margin-top: 15px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+.replies-section h4 {
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 16px;
+}
+
+/* Individual Reply Cards */
+.reply-card {
+  margin-top: 8px;
+  padding: 12px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.reply-card:hover {
+  background: #e9ecef; /* Light hover effect */
+}
+
+/* Reply Input Section */
+.reply-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.reply-input input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.reply-input button {
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.reply-input button:hover {
+  background-color: #0056b3;
+}
+
+
+.reply-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.reply-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+  

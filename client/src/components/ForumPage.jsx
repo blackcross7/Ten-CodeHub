@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../ForumPage.css"; // Import CSS for styling
+import "../ForumPage.css";
 
 const ForumPage = () => {
   const [posts, setPosts] = useState([
@@ -88,7 +88,10 @@ const ForumPage = () => {
             <p>{post.content}</p>
             <div className="post-actions">
               <button className="upvote-btn">👍 {post.likes}</button>
-              <span>💬 {post.replies.length} Replies</span>
+              <div className="reply-info">
+              <img src="/images/reply-icon.png" alt="Reply" className="reply-icon" />
+              <span>{post.replies.length} Replies</span>
+              </div>
             </div>
 
             {/* Replies Section */}

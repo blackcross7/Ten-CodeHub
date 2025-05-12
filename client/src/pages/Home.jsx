@@ -113,7 +113,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="font-sans bg-[linear-gradient(to_bottom,_#bbf7d0_0%,_#ecfccb_10vh,_#fefce8_40vh,_#ffffff_60vh)] ">
+    <div className="font-sans bg-[linear-gradient(to_bottom,_#bbf7d0_0%,_#ecfccb_10vh,_#fefce8_40vh,_#ffffff_60vh)] pt-36 ">
 
       {/* Hero Section */}
       <section className=" py-24 px-4 text-center ">
