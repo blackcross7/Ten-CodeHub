@@ -1,0 +1,209 @@
+/* Wrapper for layout */
+.forum-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 0;
+  background-color: #f5f5f5;
+  width: 100vw;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Top-centered forum title */
+.forum-title {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+  font-weight: bold;
+  z-index: 10;
+  text-align: center;
+  color: #333;
+}
+
+/* Image container (left side) */
+.image-container {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 40px;
+}
+
+/* Ensure image maintains aspect ratio and scales properly */
+.image-container img {
+  width: 100%;
+  max-width: 800px;
+  max-height: 800px;
+  object-fit: contain;
+}
+
+/* Forum container (right side, sticking to edge) */
+.forum-container {
+  width: 400px;
+  margin-right: 150px;
+  margin-left: auto;
+  padding: 30px;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  color: #333; /* Added */
+}
+
+/* Center the buttons */
+.forum-container form button,
+.view-discussions-btn {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Form styling */
+.forum-container form div {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.forum-container form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333; /* Added */
+}
+
+.forum-container form input,
+.forum-container form textarea {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+  background-color: #ffffff; /* Added */
+  color: #000000; /* Added */
+}
+
+/* Textarea specific styling */
+.forum-container form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Button styling */
+.forum-container form button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.forum-container form button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Icon image inside the input fields */
+.icon-img {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Form status message */
+.form-status {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: green;
+}
+
+.form-status.error {
+  color: red;
+}
+
+.view-discussions-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.view-discussions-btn:hover {
+  background-color: #218838;
+}
+
+/* Force light mode styling for browsers that auto-apply dark mode */
+body {
+  background-color: #f5f5f5;
+  color: #333;
+}
+/* For devices smaller than 768px (tablets and below) */
+@media (max-width: 768px) {
+  .forum-wrapper {
+    flex-direction: column; /* Stack items vertically */
+    height: auto;
+    padding: 20px;
+  }
+
+  .image-container {
+    width: 100%;
+    padding-left: 0;
+    padding-bottom: 20px;
+  }
+
+  .forum-container {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .forum-title {
+    font-size: 2rem; /* Adjust font size */
+    top: 10px;
+  }
+}
+
+/* For devices smaller than 480px (mobile phones) */
+@media (max-width: 480px) {
+  .forum-wrapper {
+    padding: 10px;
+  }
+
+  .forum-title {
+    font-size: 1.5rem; /* Adjust font size further for small screens */
+    top: 5px;
+  }
+
+  .forum-container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .forum-container form input,
+  .forum-container form textarea {
+    font-size: 12px; /* Make input fields smaller */
+  }
+
+  .forum-container form button {
+    font-size: 14px; /* Adjust button font size */
+  }
+
+  .view-discussions-btn {
+    font-size: 14px; /* Adjust button font size */
+  }
+}

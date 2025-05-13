@@ -1,0 +1,238 @@
+/* Main layout container for image + discussions */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; /* let children grow evenly */
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+/* Container for discussions page */
+.discussions-container {
+  flex: 1;
+  padding: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+/* Header row for discussions title and back button */
+.discussions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Heading styling */
+.discussions-heading {
+  font-size: 28px;
+  color: #333;
+  margin: 0;
+}
+
+/* Back to forum button */
+.back-to-forum-btn {
+  padding: 10px 20px;
+  background-color: #234f7f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  width: max-content;
+}
+
+.back-to-forum-btn:hover {
+  background-color: #386a9f;
+}
+
+/* Discussion card */
+.discussion-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-left: 5px solid #373a3d;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.discussion-card h3 {
+  margin-top: 0;
+  color: #007bff;
+}
+
+.discussion-card p {
+  margin: 5px 0;
+  color: #444;
+}
+
+/* Discussion actions */
+.discussion-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.discussion-actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  width: max-content;
+}
+
+.discussion-actions .reply-btn {
+  background-color: rgb(51, 107, 51);
+}
+
+.discussion-actions button:hover {
+  opacity: 0.9;
+}
+
+.reply-box {
+  margin-top: 20px;
+}
+
+.reply-textarea {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+  min-height: 40px;
+  font-size: 14px;
+}
+
+.reply-submit-btn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #234f7f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  width: max-content;
+}
+
+.reply-submit-btn:hover {
+  background-color: #386a9f;
+}
+
+.like-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Image container (left side) */
+.image-container {
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+/* Media Queries for Responsiveness */
+
+/* For devices smaller than 768px (tablets and below) */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column; /* Stack items vertically */
+    padding-top: 20px;
+  }
+
+  .image-container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .discussions-container {
+    width: 100%;
+    max-width: none; /* Allow discussions to take full width */
+    padding: 15px;
+  }
+
+  .discussions-heading {
+    font-size: 24px; /* Adjust heading font size */
+  }
+
+  .back-to-forum-btn {
+    font-size: 14px; /* Adjust button font size */
+  }
+
+  .discussion-card {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  .discussion-actions {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    align-items: stretch; /* Make buttons take full width */
+  }
+
+  .discussion-actions button {
+    width: 100%; /* Make buttons take full width */
+    padding: 10px;
+  }
+}
+
+/* For devices smaller than 480px (mobile phones) */
+@media (max-width: 480px) {
+  .discussions-heading {
+    font-size: 20px; /* Adjust font size further for small screens */
+  }
+
+  .discussions-container {
+    padding: 10px;
+  }
+
+  .back-to-forum-btn {
+    padding: 8px 16px;
+    font-size: 12px; /* Adjust button size */
+  }
+
+  .discussion-card {
+    padding: 12px; /* Reduce padding for mobile */
+  }
+
+  .reply-textarea {
+    font-size: 12px; /* Adjust text area font size */
+  }
+
+  .reply-submit-btn {
+    padding: 6px 12px; /* Adjust button padding */
+    font-size: 12px; /* Adjust font size */
+  }
+
+  .image-container {
+    width: 100%;
+    padding: 10px; /* Reduce padding on mobile */
+  }
+}

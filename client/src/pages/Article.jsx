@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Articles.css';
 
 const Articles = () => {
   return (

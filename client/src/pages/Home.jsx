@@ -1,11 +1,31 @@
-import React, {useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CourseCard from '../components/CourseCard';
 import ExploreCard from '../components/ExploreCard';
 import OtherCards from '../components/OtherCards';
 import InfoCard from '../components/OtherCards';
+import { motion } from "framer-motion";
+
+
+
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+    },
+  }),
+};
+
+
 
 const Home = () => {
+
+
 
   const placeholders = [
     "CodeHub Courses",
@@ -94,14 +114,14 @@ const Home = () => {
   ];
 
   const exploreItems = [
-    { title: 'Data Structures and Algorithms', color: 'bg-[linear-gradient(#4caf97,_#51c6ab)] ' },
-    { title: 'Practice DSA', color: 'bg-[linear-gradient(rgb(90,_94,_183),_rgb(112,_117,_234))]' },
-    { title: 'Web Development', color: ' bg-[linear-gradient(rgb(175,_97,_96),_rgb(202,_138,_137))] ' },
-    { title: 'Python', color: 'bg-[linear-gradient(rgb(103,_74,_152),_rgb(165,_148,_195))] ' },
-    { title: 'AI ML & Data Science', color: ' bg-[linear-gradient(rgb(37,_135,_156),_rgb(84,_195,_219))]' },
-    { title: 'Machine Learning', color: 'bg-[linear-gradient(rgb(69,_114,182),_rgb(120,_158,_218))] ' },
-    { title: 'System Design', color: 'bg-[linear-gradient(rgb(204,_115,_62),_rgb(234,_163,_120))]  ' },
-    { title: 'DevOps', color: 'bg-[linear-gradient(rgb(241,99,124),_rgb(227,_153,_166))] ' }
+    { title: 'Data Structures and Algorithms', color: 'bg-[linear-gradient(#4caf97,_#51c6ab)] ', img: '/assets/image/DSA.png' },
+    { title: 'Practice DSA', color: 'bg-[linear-gradient(rgb(90,_94,_183),_rgb(112,_117,_234))]', img: '/assets/image/Practice dsa.png' },
+    { title: 'Web Development', color: ' bg-[linear-gradient(rgb(175,_97,_96),_rgb(202,_138,_137))] ', img: '/assets/image/Webdev.png' },
+    { title: 'Python', color: 'bg-[linear-gradient(rgb(103,_74,_152),_rgb(165,_148,_195))] ', img: '/assets/image/Python.png' },
+    { title: 'AI ML & Data Science', color: ' bg-[linear-gradient(rgb(37,_135,_156),_rgb(84,_195,_219))]', img: '/assets/image/AIML.png' },
+    { title: 'Machine Learning', color: 'bg-[linear-gradient(rgb(69,_114,182),_rgb(120,_158,_218))] ', img: '/assets/image/ML.png' },
+    { title: 'System Design', color: 'bg-[linear-gradient(rgb(204,_115,_62),_rgb(234,_163,_120))]  ', img: '/assets/image/system.png' },
+    { title: 'DevOps', color: 'bg-[linear-gradient(rgb(241,99,124),_rgb(227,_153,_166))] ', img: '/assets/image/devops.png' }
   ];
 
 
@@ -113,296 +133,140 @@ const Home = () => {
   ];
 
   return (
-    <div className="font-sans bg-[linear-gradient(to_bottom,_#bbf7d0_0%,_#ecfccb_10vh,_#fefce8_40vh,_#ffffff_60vh)] pt-36 ">
+    <div className="font-sans bg-[linear-gradient(to_bottom,#bbf7d0_0%,#ecfccb_10vh,#fefce8_40vh,#ffffff_60vh)] ">
 
       {/* Hero Section */}
-      <section className=" py-24 px-4 text-center ">
-        <h1 className="text-3xl md:text-4xl font-mono font-bold mb-8 text-gray-800">
+      <motion.section
+        className="py-32 px-4 text-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold mb-8 text-gray-800">
           Hello, What Do You Want To Learn?
         </h1>
-
-        <div className="max-w-[60vw] p-4 mx-auto mb-6 relative">
+        <div className="w-full max-w-[90vw] sm:max-w-[70vw] p-4 mx-auto mb-6 relative">
           <input
             type="text"
             placeholder={displayedText}
-            className="w-full border border-gray-300 px-4 py-4 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#c4ecc5] font-semibold text-lg"
-            onFocus={(e) => e.target.placeholder = ''}
+            className="w-full border border-gray-300 px-4 py-4 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#c4ecc5] font-semibold text-base sm:text-lg"
+            onFocus={(e) => (e.target.placeholder = "")}
           />
-          <img src="/assets/image/search-icon.gif" alt="Search" 
-          className='absolute top-1/2 right-10 transform -translate-y-1/2 w-8 h-8'
+          <img
+            src="/assets/image/search-icon.gif"
+            alt="Search"
+            className="absolute top-1/2 right-5 sm:right-10 transform -translate-y-1/2 w-6 sm:w-8 h-6 sm:h-8"
           />
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
           {[
-            'Full Stack Live Classes',
-            'DSA: Basic To Advanced Course',
-            'Master DS & ML',
+            "Full Stack Live Classes",
+            "DSA: Basic To Advanced Course",
+            "Master DS & ML",
           ].map((label, idx) => (
             <Link
               to="#"
               key={idx}
-              className="bg-white text-black  border-2 border-gray-300 px-6 py-2 rounded-lg hover:bg-gray-50 hover:border-gray-500 transition duration-300"
+              className="bg-white text-black border-2 border-gray-300 px-4 sm:px-6 py-2 rounded-lg hover:bg-gray-50 hover:border-gray-500 transition duration-300"
             >
               {label}
             </Link>
           ))}
         </div>
-      </section>
+      </motion.section>
+
 
 
 
       {/* Courses Section */}
-      <section className="py-12 px-4 w-[80vw] flex flex-col items-center mx-auto">
-        <div className='flex justify-between items-center w-full '>
-          <h2 className="text-2xl font-bold text-center mb-10">Courses</h2>
-
-          <Link to='/course' className='border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300'>View All</Link>
+      <motion.section
+        className="py-12 px-4 w-full max-w-[90vw] md:w-[80vw] flex flex-col items-center mx-auto"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <div className="flex flex-col sm:flex-row justify-between items-center w-full gap-4">
+          <h2 className="text-xl sm:text-2xl font-bold">Courses</h2>
+          <Link
+            to="/course"
+            className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300"
+          >
+            View All
+          </Link>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10">
           {courses.map((course, idx) => (
-            <CourseCard key={idx} course={course} />
+            <motion.div
+              key={idx}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <CourseCard course={course} />
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
+
+
+
+
 
       {/* Must Explore */}
-      <section className="py-10 px-4 w-[80vw] flex flex-col  mx-auto">
-        <h2 className="text-2xl font-bold  mb-6">Must Explore</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 ">
+      <motion.section
+        className="py-10 px-4 w-full max-w-[90vw] md:w-[80vw] flex flex-col mx-auto"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-xl sm:text-2xl font-bold mb-6">Must Explore</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {infoItems.map((item, idx) => (
-            <InfoCard key={idx} title={item.title} color={item.color} />
+            <motion.div
+              key={idx}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <InfoCard title={item.title} color={item.color} />
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
+
+
+
+
+
 
       {/* Explore Categories */}
-      <section className="py-10 px-4 w-[80vw] flex flex-col mx-auto">
-        <h2 className="text-2xl font-bold mb-6">Explore</h2>
-        <div className="flex flex-wrap gap-10 p-4 justify-center">
+      <motion.section
+        className="py-10 px-4 w-[90vw] md:w-[80vw] flex flex-col mx-auto border border-gray-300 rounded-3xl shadow-xl"
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+      >
+        <h2 className="text-2xl font-bold mb-6 text-center">Explore</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4">
           {exploreItems.map((item, idx) => (
-            <ExploreCard key={idx} title={item.title} color={item.color} />
+            <motion.div
+              key={idx}
+              custom={idx}
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+            >
+              <ExploreCard title={item.title} color={item.color} image={item.img} />
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
-      {/* Web Dev Section */}
-      <section className="py-10 px-4 w-[80vw] flex flex-col mx-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">Web Devlopement</h2>
-          <Link to='/course' className='border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300'>View All</Link>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            'HTML',
-            'CSS',
-            'ReactJS',
-            'Node.js',
-            'Django',
-            'Frontend Development',
-            'Backend Development',
-            'Fullstack Projects'
-          ].map((item, idx) => (
-            <OtherCards key={idx} title={item} color="bg-[#5486bd]" />
-          ))}
-        </div>
-      </section>
 
-      {/* AI Section */}
-      <section className="py-10 px-4 w-[80vw] flex flex-col mx-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">AI ML & Data Science</h2>
-          <Link to='/course' className='border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300'>View All</Link>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {[
-            'Machine Learning',
-            'Data Science',
-            'Data Analysis',
-            'Data Visualization',
-            'Deep Learning',
-            'Natural Language Processing'
-          ].map((item, idx) => (
-            <OtherCards key={idx} title={item} color="bg-[#ae84d1]" />
-          ))}
-        </div>
-      </section>
 
-      {/*Programing Languages*/}
-      <section className="py-10 px-4 w-[80vw] flex flex-col mx-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">Programming Languages</h2>
-          <Link
-            to="/course"
-            className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300"
-          >
-            View All
-          </Link>
-        </div>
-        <div className="flex flex-wrap justify-center gap-2 ">
-          {[
-            'Python',
-            'Java',
-            'C++',
-            'C',
-            'R',
-            'PHP',
-            'Flutter',
-            'Golang'
-          ].map((item, idx) => (
-            <div key={idx} className="w-[240px]">
-              <OtherCards title={item} color="bg-[#d5a05a]" />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/*Interview Preparation*/}
-      <section className="py-10 px-4 w-[80vw] flex flex-col mx-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">Interview Preparation</h2>
-          <Link
-            to="/course"
-            className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300"
-          >
-            View All
-          </Link>
-        </div>
-        <div className="flex flex-wrap justify-center gap-2 ">
-          {[
-            'Company Preparation',
-            'SDE Sheet',
-            'Puzzles',
-            'Aptitude',
-            'Mock Interviews',
-            'Problem of the day',
-            'Interview Experiences',
-            'Interview Questions',
-
-          ].map((item, idx) => (
-            <div key={idx} className="w-[240px]">
-              <OtherCards title={item} color="bg-[#cc8f8e]" />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/*CS subjects*/}
-      <section className="py-10 px-4 w-[80vw] flex flex-col mx-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">CS Subjects</h2>
-          <Link
-            to="/course"
-            className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300"
-          >
-            View All
-          </Link>
-        </div>
-        <div className="flex flex-wrap justify-center gap-2 ">
-          {[
-            'Operating System',
-            'DBMS',
-            'Computer Networks',
-            'Computer Architecture',
-            'Software Engineering',
-            'Compiler Design',
-            'Theory of Computation',
-            'Digital Logic Design'
-          ].map((item, idx) => (
-            <div key={idx} className="w-[240px]">
-              <OtherCards title={item} color="bg-[#79abb6]" />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/*Database*/}
-      <section className="py-10 px-4 w-[80vw] flex flex-col mx-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">Databases</h2>
-          <Link
-            to="/course"
-            className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300"
-          >
-            View All
-          </Link>
-        </div>
-        <div className="flex flex-wrap justify-center gap-2 ">
-          {[
-            'SQL',
-            'MongoDB',
-            'MySQL',
-            'PostgreSQL',
-            'Oracle',
-            'SQLite',
-            'Redis',
-            'Cassandra'
-          ].map((item, idx) => (
-            <div key={idx} className="w-[240px]">
-              <OtherCards title={item} color="bg-[#8591cc]" />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/*Devops*/}
-      <section className="py-10 px-4 w-[80vw] flex flex-col mx-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">DevOps</h2>
-          <Link
-            to="/course"
-            className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300"
-          >
-            View All
-          </Link>
-        </div>
-        <div className="flex flex-wrap justify-center gap-2 ">
-          {[
-            'Docker',
-            'Kubernetes',
-            'Jenkins',
-            'Ansible',
-            'Terraform',
-            'AWS',
-            'Azure',
-            'GCP'
-          ].map((item, idx) => (
-            <div key={idx} className="w-[240px]">
-              <OtherCards title={item} color="bg-[#a0b783]" />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/*Tutorials*/}
-      <section className="py-10 px-4 w-[80vw] flex flex-col mx-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">Tutorials</h2>
-          <Link
-            to="/course"
-            className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300"
-          >
-            View All
-          </Link>
-        </div>
-        <div className="flex flex-wrap justify-center gap-2 ">
-          {[
-            'System Design',
-            'Android',
-            'Linux',
-            'Design Pattern',
-            'Software Testing',
-            'Product Management',
-            'Excel',
-            'Cloud Computing',
-          ].map((item, idx) => (
-            <div key={idx} className="w-[240px]">
-              <OtherCards title={item} color="bg-[#6a93b1]" />
-            </div>
-          ))}
-        </div>
-      </section>
 
     </div>
   );
