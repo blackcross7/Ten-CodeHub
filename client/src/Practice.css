@@ -1,0 +1,284 @@
+/* RESET AND BASE STYLES */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, rgb(211, 131, 131), #d5f2d5);
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+/* MAIN CONTENT */
+/* Large screen default */
+.main-content {
+  max-width: 1200px;
+  margin: 100px auto 40px;
+  padding: 30px 100px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tiles section container */
+.tiles-section {
+  background: white;
+  margin: 10px auto;
+  padding: 30px 40px;
+  border-radius: 30px;
+  max-width: 1200px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Problem of the day */
+.problem-of-the-day {
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+/* Typography */
+h2 {
+  color: var(--text-color, #2C3E50);
+  font-weight: 800;
+  font-size: 30px;
+  margin-bottom: 25px;
+  word-break: break-word;
+}
+
+/* ARTICLES GRID */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Card image */
+.card-image {
+  max-width: 160px;
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* card image separation */
+.card-image-set {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* ARTICLE CARD */
+.article-card {
+  background: var(--card-bg, #fff);
+  border: 2px solid var(--border-color, #E0E6ED);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  color: var(--text-color, #2C3E50);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+.article-card:hover {
+  border-color: var(--info-color, #3498DB);
+  background-color: var(--info-color, #3498DB);
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.article-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  word-break: break-word;
+}
+
+.article-card h3 a {
+  color: var(--primary-color, #FF3366);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.article-card:hover h3 a {
+  color: white;
+}
+
+.article-card p {
+  color: var(--light-text, #7F8C8D);
+  margin-bottom: 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+  overflow-wrap: break-word;
+}
+
+.article-card:hover p {
+  color: #e0e0e0;
+}
+
+.article-meta {
+  display: flex;
+  gap: 15px;
+  color: #888;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.article-meta i {
+  color: var(--accent-color, #4ECDC4);
+  transition: color 0.3s ease;
+}
+
+.article-card:hover .article-meta {
+  color: #d0eaff;
+}
+
+/* PARTICIPATE BUTTON */
+.participate-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--primary-color, #FF3366);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(255, 51, 102, 0.4);
+  white-space: nowrap;
+}
+
+.article-card:hover .participate-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.participate-btn:hover {
+  background-color: white;
+  color: var(--primary-color, #FF3366);
+  box-shadow: 0 4px 12px rgba(255, 51, 102, 0.7);
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablets and small desktops */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 30px 20px;
+    margin: 60px auto 20px;
+    max-width: 100%;
+  }
+
+  .tiles-section {
+    padding: 20px 30px;
+    border-radius: 20px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  .articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 20px 0;
+  }
+
+  .article-card {
+    padding: 25px;
+  }
+
+  .article-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .article-card p {
+    font-size: 0.95rem;
+  }
+
+  .participate-btn {
+    padding: 9px 18px;
+    font-size: 0.95rem;
+  }
+
+  .card-image {
+    max-width: 140px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 15px 12px;
+    margin: 40px auto 10px;
+    max-width: 100%;
+  }
+
+  .tiles-section {
+    padding: 15px 15px;
+    border-radius: 15px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 10px 0;
+  }
+
+  .article-card {
+    padding: 20px;
+  }
+
+  .article-card h3 {
+    font-size: 1rem;
+  }
+
+  .article-card p {
+    font-size: 0.9rem;
+  }
+
+  .participate-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .card-image {
+    max-width: 100px;
+  }
+
+  /* Keep participate button visible and accessible */
+  .participate-btn {
+    white-space: normal;
+    word-break: break-word;
+  }
+}
