@@ -1,3 +1,4 @@
+/* Old css(Correct) */
 /* RESET AND BASE STYLES */
 *, *::before, *::after {
   margin: 0;
@@ -38,6 +39,8 @@ body {
   overflow: hidden;
 }
 
+
+
 /* Problem of the day */
 .problem-of-the-day {
   margin-bottom: 20px;
@@ -51,6 +54,8 @@ h2 {
   font-size: 30px;
   margin-bottom: 25px;
   word-break: break-word;
+  display: flex;
+  justify-content: center;
 }
 
 /* ARTICLES GRID */
