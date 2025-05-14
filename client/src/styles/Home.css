@@ -1,0 +1,11 @@
+.hero-section {
+  background-image: url('/assets/image/Herobg4.jpeg'); /* Update the path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 70vh; /* Ensure it takes enough space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Adjust text color for visibility */
+}

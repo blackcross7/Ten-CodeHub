@@ -1,17 +1,31 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 
-const Navbar = () => {
+const Navbar = ({ isLoggedIn, user }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showSearchInput, setShowSearchInput] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
 
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
-  const toggleSearch = () => setShowSearchInput((prev) => !prev);
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+      // Close menu if window is resized to desktop view
+      if (window.innerWidth >= 1024) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -36,77 +50,67 @@ const Navbar = () => {
     };
   }, [menuOpen]);
 
-  const scrollLeft = () => {
-    const container = document.getElementById('scrollable-links');
-    container.scrollLeft -= 200;
-  };
-
-  const scrollRight = () => {
-    const container = document.getElementById('scrollable-links');
-    container.scrollLeft += 200;
-  };
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   return (
     <div className='nav-whole-container'>
       <nav className="navbar">
+        {/* Hamburger Menu for mobile */}
         <div className="hamburger" onClick={toggleMenu} ref={hamburgerRef}>
-          <i className="fas fa-bars"></i>
+          <FontAwesomeIcon icon={faBars} className="hamburger-icon" />
         </div>
 
-        <div className="navbar-left">
+        {/* Left Navbar Items */}
+        <div className="navbar-left desktop-only">
           <ul className="nav-links">
-            <li><Link to="/"><i className="fas fa-home"></i> Home</Link></li>
-            <li><Link to="/articles"><i className="fas fa-newspaper"></i> Articles</Link></li>
-            <li><Link to="/course"><i className="fas fa-book"></i> Courses</Link></li>
-            <li><Link to="/practice"><i className="fas fa-edit"></i> Practice</Link></li>
-            <li><Link to="/explore"><i className="fas fa-compass"></i> Explore</Link></li>
+            <li><Link to="/"><FontAwesomeIcon icon={faHome} /> Home</Link></li>
+            <li><Link to="/articles"><FontAwesomeIcon icon={faNewspaper} /> Articles</Link></li>
+            <li><Link to="/discussion"><FontAwesomeIcon icon={faComments} /> Discussion</Link></li>
+            <li><Link to="/course"><FontAwesomeIcon icon={faBook} /> Courses</Link></li>
+            <li><Link to="/practice"><FontAwesomeIcon icon={faEdit} /> Practice</Link></li>
+            <li><Link to="/explore"><FontAwesomeIcon icon={faCompass} /> Explore</Link></li>
           </ul>
         </div>
 
+        {/* Logo Center */}
         <div className="navbar-center">
-          <Link to="/">
-            <img src="/assets/image/logo.svg" alt="Ten CodeHub" className="logo-img" />
+          <Link to="/" className="logo-svg">
+            <img src="/assets/image/logo.svg" alt="Logo" className="logo-img" />
           </Link>
         </div>
 
+        {/* Right Navbar Items */}
         <div className="navbar-right">
-          <div className={`search-container desktop-only`}>
-            <i className="fas fa-search search-icon"></i>
+          <div className="search-box">
             <input type="text" placeholder="Search" className="search-input" />
-            <button className="search-btn">
-              <i className="fas fa-times clear-icon"></i>
-            </button>
+            <FontAwesomeIcon icon={faSearch} className="search-icon" />
           </div>
-
-          <div className="mobile-search-icon mobile-only" onClick={toggleSearch}>
-            <i className="fas fa-search"></i>
-          </div>
-
-          {showSearchInput && (
-            <div className="mobile-search-popup">
-              <input type="text" placeholder="Search..." className="search-input" />
-              <button onClick={toggleSearch} className="search-btn">
-                <i className="fas fa-times clear-icon"></i>
-              </button>
+          {isLoggedIn ? (
+            <div className="profile-icon">
+              <Link to="/profile">
+                <img src={user?.picture} alt="Profile" className="user-avatar" />
+              </Link>
+            </div>
+          ) : (
+            <div className="auth-section">
+              <Link to="/signin">
+                <button className="signin-btn">Sign In</button>
+              </Link>
             </div>
           )}
-
-          <div className="profile-wrapper">
-            <Link to="/profile" className="profile-link">
-              <i title="Profile" className="fas fa-user"></i>
-            </Link>
-          </div>
         </div>
       </nav>
 
-      {menuOpen && (
-        <div className="mobile-menu" ref={menuRef}>
+      {/* Mobile Menu */}
+      {windowWidth < 1024 && (
+        <div className={`mobile-menu ${menuOpen ? 'active' : ''}`} ref={menuRef}>
           <ul>
-            <li><Link to="/" onClick={toggleMenu}><i className="fas fa-home"></i> Home</Link></li>
-            <li><Link to="/articles" onClick={toggleMenu}><i className="fas fa-newspaper"></i> Articles</Link></li>
-            <li><Link to="/course" onClick={toggleMenu}><i className="fas fa-book"></i> Courses</Link></li>
-            <li><Link to="/practice" onClick={toggleMenu}><i className="fas fa-edit"></i> Practice</Link></li>
-            <li><Link to="/explore" onClick={toggleMenu}><i className="fas fa-compass"></i> Explore</Link></li>
+            <li><Link to="/" onClick={toggleMenu}><FontAwesomeIcon icon={faHome} /> Home</Link></li>
+            <li><Link to="/articles" onClick={toggleMenu}><FontAwesomeIcon icon={faNewspaper} /> Articles</Link></li>
+            <li><Link to="/discussion" onClick={toggleMenu}><FontAwesomeIcon icon={faComments} /> Discussion</Link></li>
+            <li><Link to="/course" onClick={toggleMenu}><FontAwesomeIcon icon={faBook} /> Courses</Link></li>
+            <li><Link to="/practice" onClick={toggleMenu}><FontAwesomeIcon icon={faEdit} /> Practice</Link></li>
+            <li><Link to="/explore" onClick={toggleMenu}><FontAwesomeIcon icon={faCompass} /> Explore</Link></li>
           </ul>
         </div>
       )}
@@ -115,19 +119,19 @@ const Navbar = () => {
       <div className="secondary-navbar">
         <button className="scroll-btn" onClick={scrollLeft}>‹</button>
         <div className="secondary-links" id="scrollable-links">
-          <Link to="/dsa">DSA</Link>
-          <Link to="/problems">Practice Problems</Link>
-          <Link to="/python">Python</Link>
-          <Link to="/c">C</Link>
-          <Link to="/cpp">C++</Link>
-          <Link to="/java">Java</Link>
-          <Link to="/courses">Courses</Link>
-          <Link to="/ml">Machine Learning</Link>
-          <Link to="/devops">DevOps</Link>
-          <Link to="/webdev">Web Development</Link>
-          <Link to="/systemdesign">System Design</Link>
-          <Link to="/aptitude">Aptitude</Link>
-          <Link to="/projects">Projects</Link>
+          <Link to="/dsa" className="secondary-link">DSA</Link>
+          <Link to="/problems" className="secondary-link">Practice Problems</Link>
+          <Link to="/python" className="secondary-link">Python</Link>
+          <Link to="/c" className="secondary-link">C</Link>
+          <Link to="/cpp" className="secondary-link">C++</Link>
+          <Link to="/java" className="secondary-link">Java</Link>
+          <Link to="/courses" className="secondary-link">Courses</Link>
+          <Link to="/ml" className="secondary-link">Machine Learning</Link>
+          <Link to="/devops" className="secondary-link">DevOps</Link>
+          <Link to="/webdev" className="secondary-link">Web Development</Link>
+          <Link to="/systemdesign" className="secondary-link">System Design</Link>
+          <Link to="/aptitude" className="secondary-link">Aptitude</Link>
+          <Link to="/projects" className="secondary-link">Projects</Link>
         </div>
         <button className="scroll-btn" onClick={scrollRight}>›</button>
       </div>
