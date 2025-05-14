@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import CourseCard from '../components/CourseCard';
-import ExploreCard from '../components/ExploreCard';
-import OtherCards from '../components/OtherCards';
-import InfoCard from '../components/OtherCards';
 import { motion } from "framer-motion";
-
-
-
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -21,12 +14,7 @@ const fadeInUp = {
   }),
 };
 
-
-
 const Home = () => {
-
-
-
   const placeholders = [
     "CodeHub Courses",
     "Data Structures & Algorithms",
@@ -60,176 +48,170 @@ const Home = () => {
     }
   }, [charIndex, currentPlaceholderIndex, placeholders]);
 
-
-
-
   const courses = [
     {
       title: 'DSA to Development: A Complete Guide',
       level: 'Beginner to Advance',
       interested: '558K+',
       img: 'https://media.geeksforgeeks.org/img-practice/prod/courses/504/Mobile/Other/Course_DSA_to_Dev_1720846081.webp',
-      link: '#'
     },
     {
       title: 'JAVA Backend Development - Live',
       level: 'Intermediate and Advance',
       interested: '304K+',
       img: 'https://media.geeksforgeeks.org/img-practice/prod/courses/227/Mobile/Other/Course_Backend_1720846992.webp',
-      link: '#'
     },
     {
       title: 'Tech Interview 101 -From DSA to System Design',
       level: 'Beginner to Advance',
       interested: '425k+',
       img: 'https://media.geeksforgeeks.org/img-practice/prod/courses/458/Mobile/Other/Course_Tech_Int_1720846791.webp',
-      link: '#'
     },
     {
       title: 'Full Stack Development with React & Node JS - Live',
       level: 'Beginner to Advance',
       interested: '345k+',
       img: 'https://media.geeksforgeeks.org/img-practice/prod/courses/241/Web/Content/FSRNL_1705410152.webp',
-      link: '#'
-
     },
     {
       title: 'Java Programming Online Course [Complete Beginner to Advanced]',
       level: 'Beginner to Advance',
       interested: '291k+',
       img: 'https://media.geeksforgeeks.org/img-practice/prod/courses/270/Web/Content/CourseJavaProgrammin_1716371938.webp',
-      link: '#'
-
     },
     {
       title: 'C++ Programming Course Online - Complete Beginner to Advanced',
       level: 'Beginner to Advance',
       interested: '425k+',
       img: 'https://media.geeksforgeeks.org/img-practice/prod/courses/221/Web/Content/cpp_1723009538.webp',
-      link: '#'
-
     },
-
-    // Add more courses here
   ];
 
   const exploreItems = [
-    { title: 'Data Structures and Algorithms', color: 'bg-[linear-gradient(#4caf97,_#51c6ab)] ', img: '/assets/image/DSA.png' },
-    { title: 'Practice DSA', color: 'bg-[linear-gradient(rgb(90,_94,_183),_rgb(112,_117,_234))]', img: '/assets/image/Practice dsa.png' },
-    { title: 'Web Development', color: ' bg-[linear-gradient(rgb(175,_97,_96),_rgb(202,_138,_137))] ', img: '/assets/image/Webdev.png' },
-    { title: 'Python', color: 'bg-[linear-gradient(rgb(103,_74,_152),_rgb(165,_148,_195))] ', img: '/assets/image/Python.png' },
-    { title: 'AI ML & Data Science', color: ' bg-[linear-gradient(rgb(37,_135,_156),_rgb(84,_195,_219))]', img: '/assets/image/AIML.png' },
-    { title: 'Machine Learning', color: 'bg-[linear-gradient(rgb(69,_114,182),_rgb(120,_158,_218))] ', img: '/assets/image/ML.png' },
-    { title: 'System Design', color: 'bg-[linear-gradient(rgb(204,_115,_62),_rgb(234,_163,_120))]  ', img: '/assets/image/system.png' },
-    { title: 'DevOps', color: 'bg-[linear-gradient(rgb(241,99,124),_rgb(227,_153,_166))] ', img: '/assets/image/devops.png' }
+    { title: 'Data Structures and Algorithms', color: 'bg-[linear-gradient(#4caf97,#51c6ab)]' },
+    { title: 'Practice DSA', color: 'bg-[linear-gradient(rgb(90,94,183),rgb(112,117,234))]' },
+    { title: 'Web Development', color: 'bg-[linear-gradient(rgb(175,97,96),rgb(202,138,137))]' },
+    { title: 'Python', color: 'bg-[linear-gradient(rgb(103,74,152),rgb(165,148,195))]' },
+    { title: 'AI ML & Data Science', color: 'bg-[linear-gradient(rgb(37,135,156),rgb(84,195,219))]' },
+    { title: 'Machine Learning', color: 'bg-[linear-gradient(rgb(69,114,182),rgb(120,158,218))]' },
+    { title: 'System Design', color: 'bg-[linear-gradient(rgb(204,115,62),rgb(234,163,120))]' },
+    { title: 'DevOps', color: 'bg-[linear-gradient(rgb(241,99,124),rgb(227,153,166))]' },
   ];
-
 
   const infoItems = [
     { title: 'Job for You', color: 'bg-[#ae84d1]' },
     { title: 'Hire With Us', color: 'bg-[#ae84d1]' },
     { title: 'Advertisement Required', color: 'bg-[#ae84d1]' },
-    { title: 'Placement Time', color: 'bg-[#ae84d1]' }
+    { title: 'Placement Time', color: 'bg-[#ae84d1]' },
   ];
 
   return (
-    <div className="font-sans py-44 bg-[linear-gradient(to_bottom,#bbf7d0_0%,#ecfccb_10vh,#fefce8_40vh,#ffffff_60vh)] ">
-
+    <div className="font-sans bg-gradient-to-b from-[#bbf7d0] to-[#ecfccb] to-[#fefce8] to-white">
       {/* Hero Section */}
       <motion.section
-        className=" px-4 text-center"
+        className="flex items-center justify-center h-screen bg-cover bg-center"
+        style={{ backgroundImage: "url('/assets/image/Herobg4.jpeg')" }}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold mb-8 text-gray-800">
-          Hello, What Do You Want To Learn?
-        </h1>
-        <div className="w-full max-w-[90vw] sm:max-w-[70vw] p-4 mx-auto mb-6 relative">
-          <input
-            type="text"
-            placeholder={displayedText}
-            className="w-full border border-gray-300 px-4 py-4 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#c4ecc5] font-semibold text-base sm:text-lg"
-            onFocus={(e) => (e.target.placeholder = "")}
-          />
-          <img
-            src="/assets/image/search-icon.gif"
-            alt="Search"
-            className="absolute top-1/2 right-5 sm:right-10 transform -translate-y-1/2 w-6 sm:w-8 h-6 sm:h-8"
-          />
-        </div>
+        <div className="text-center">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold mb-8 text-white">
+  Hello, What Do You Want To Learn?
+</h1>
+          <div className="w-full max-w-[90vw] sm:max-w-[70vw] p-4 mx-auto mb-6 relative">
+            <input
+              type="text"
+              placeholder={displayedText}
+              className="w-full border border-gray-300 px-4 py-4 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#c4ecc5] font-semibold text-base sm:text-lg"
+              onFocus={(e) => (e.target.placeholder = "")}
+            />
+            <img
+              src="/assets/image/search-icon.gif"
+              alt="Search"
+              className="absolute top-1/2 right-5 sm:right-10 transform -translate-y-1/2 w-6 sm:w-8 h-6 sm:h-8"
+            />
+          </div>
 
-        <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
-          {[
-            "Full Stack Live Classes",
-            "DSA: Basic To Advanced Course",
-            "Master DS & ML",
-          ].map((label, idx) => (
-            <Link
-              to="#"
-              key={idx}
-              className="bg-white text-black border-2 border-gray-300 px-4 sm:px-6 py-2 rounded-lg hover:bg-gray-50 hover:border-gray-500 transition duration-300"
-            >
-              {label}
-            </Link>
-          ))}
+          <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
+            {[
+              "Full Stack Live Classes",
+              "DSA: Basic To Advanced Course",
+              "Master DS & ML",
+            ].map((label, idx) => (
+              <Link
+                to="#"
+                key={idx}
+                className="bg-white text-black border-2 border-gray-300 px-4 sm:px-6 py-2 rounded-lg hover:bg-gray-50 hover:border-gray-500 transition duration-300"
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
         </div>
       </motion.section>
 
-
-
-
       {/* Courses Section */}
-<motion.section
-  className="py-12 px-4 w-full max-w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col items-center mx-auto"
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5 }}
-  viewport={{ once: true }}
->
-  {/* Header */}
-  <div className="flex flex-col sm:flex-row justify-between items-center w-full gap-4">
-    <h2 className="text-xl my-2 sm:text-2xl font-bold">Courses</h2>
-    <Link
-      to="/course"
-      className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300"
-    >
-      View All
-    </Link>
-  </div>
-
-  {/* Slider for smaller screens */}
-  <div className="flex xl:hidden overflow-x-auto gap-6 w-[100%]  mt-10 pb-4 scrollbar-hide">
-    {courses.map((course, idx) => (
-      <motion.div
-        key={idx}
-        whileHover={{ scale: 1.05 }}
-        transition={{ type: "spring", stiffness: 300 }}
-        className="min-w-[280px] flex-shrink-0"
+      <motion.section
+        className="py-12 px-4 w-full max-w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col items-center mx-auto"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
       >
-        <CourseCard course={course} />
-      </motion.div>
-    ))}
-  </div>
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row justify-between items-center w-full gap-4">
+          <h2 className="text-xl my-2 sm:text-2xl font-bold">Courses</h2>
+          <Link
+            to="/course"
+            className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300"
+          >
+            View All
+          </Link>
+        </div>
 
-  {/* Grid for large screens and up */}
-  <div className="hidden xl:grid gap-6 grid-cols-3 mt-10">
-    {courses.map((course, idx) => (
-      <motion.div
-        key={idx}
-        whileHover={{ scale: 1.05 }}
-        transition={{ type: "spring", stiffness: 300 }}
-      >
-        <CourseCard course={course} />
-      </motion.div>
-    ))}
-  </div>
-</motion.section>
+        {/* Slider for smaller screens */}
+        <div className="flex xl:hidden overflow-x-auto gap-6 w-[100%] mt-10 pb-4 scrollbar-hide">
+          {courses.map((course, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="min-w-[280px] flex-shrink-0"
+            >
+              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <img src={course.img} alt={course.title} className="w-full h-48 object-cover" />
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{course.title}</h3>
+                  <p className="text-gray-600 mb-2">{course.level}</p>
+                  <p className="text-blue-600 font-semibold">{course.interested} interested</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-
-
-
+        {/* Grid for large screens and up */}
+        <div className="hidden xl:grid gap-6 grid-cols-3 mt-10">
+          {courses.map((course, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                <img src={course.img} alt={course.title} className="w-full h-48 object-cover" />
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{course.title}</h3>
+                  <p className="text-gray-600 mb-2">{course.level}</p>
+                  <p className="text-blue-600 font-semibold">{course.interested} interested</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
 
       {/* Must Explore */}
       <motion.section
@@ -247,16 +229,13 @@ const Home = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <InfoCard title={item.title} color={item.color} />
+              <div className={`p-6 rounded-xl text-center ${item.color} hover:shadow-lg transition duration-300`}>
+                <h3 className="text-white font-bold">{item.title}</h3>
+              </div>
             </motion.div>
           ))}
         </div>
       </motion.section>
-
-
-
-
-
 
       {/* Explore Categories */}
       <motion.section
@@ -275,15 +254,14 @@ const Home = () => {
               initial="hidden"
               animate="visible"
             >
-              <ExploreCard title={item.title} color={item.color} image={item.img} />
+              <div className={`p-6 rounded-xl ${item.color} relative overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105`}>
+                <img src={item.img} alt={item.title} className="w-full h-48 object-cover" />
+                <h3 className="text-white font-bold absolute bottom-4 left-4">{item.title}</h3>
+              </div>
             </motion.div>
           ))}
         </div>
       </motion.section>
-
-
-
-
     </div>
   );
 };

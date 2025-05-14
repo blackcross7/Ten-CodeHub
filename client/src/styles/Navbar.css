@@ -6,11 +6,15 @@
   width: 100%;
   z-index: 1000;
   box-sizing: border-box;
+  /* To ensure backdrop-filter applies */
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  backdrop-filter: saturate(180%) blur(10px);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* apply globally */
 }
 
 /* NAVBAR */
 .navbar {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.4); /* increased opacity for less translucency */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,8 +25,21 @@
   z-index: 1000;
   width: 100%;
   height: 70px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  border-radius: 0 0 15px 15px;
   box-sizing: border-box;
+
+  /* Glassmorphism blur */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* Thin red line at bottom to separate from secondary navbar */
+  border-bottom: 2px solid red;
+
+  /* Stylish, formal font */
+  font-family: 'Roboto Slab', serif;
+  font-weight: 500;
 }
 
 /* Logo Centering */
@@ -33,6 +50,7 @@
   display: flex;
   align-items: center;
   height: 100%;
+  z-index: 10;
 }
 
 .logo-svg {
@@ -69,8 +87,9 @@
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 44px;  /* increased gap for more spacing */
   height: 100%;
+  z-index: 10;
 }
 
 .nav-links {
@@ -79,6 +98,9 @@
   gap: 15px;
   padding: 0;
   margin: 0;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 500;
+  font-size: 17px;
 }
 
 .nav-links li a {
@@ -102,17 +124,22 @@
   top: 50%;
   transform: translateY(-50%);
   margin-right: 20px;
+  z-index: 10;
+  font-family: 'Roboto Slab', serif;
 }
 
 /* Search Box Styling */
 .search-box {
   display: flex;
   align-items: center;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.85);
   padding: 6px 12px;
   border-radius: 25px;
   height: 36px;
   margin: 0 10px;
+  color: black;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
 }
 
 .search-box input {
@@ -122,8 +149,10 @@
   background: transparent;
   color: black;
   width: 150px;
+  font-family: inherit;
 }
 
+/* Make search icon inherit font style */
 .search-box i {
   color: black;
   margin-left: 8px;
@@ -141,6 +170,7 @@
   align-items: center;
   height: 36px;
   margin: 0 10px;
+  font-family: 'Roboto Slab', serif;
 }
 
 .profile-icon i {
@@ -160,14 +190,26 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: white;
+  background: rgba(255, 255, 255, 0.85);
   padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 0 0 15px 15px;
   z-index: 1000;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(-20px);
+  opacity: 0;
+  visibility: hidden;
+  font-family: 'Roboto Slab', serif;
 }
 
 .mobile-menu.active {
   display: block;
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
 }
 
 .mobile-menu ul {
@@ -186,6 +228,9 @@
   padding: 8px 0;
   display: block;
   transition: color 0.3s ease;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 .mobile-menu li a:hover {
@@ -205,7 +250,7 @@
 .secondary-navbar {
   width: 100%;
   height: 45px;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -215,6 +260,17 @@
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
+
+  /* glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0 0 15px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+  font-family: 'Roboto Slab', serif;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .secondary-links {
@@ -245,6 +301,7 @@
   white-space: nowrap;
   text-align: center;
   position: relative;
+  font-family: 'Roboto Slab', serif;
 }
 
 .secondary-navbar a:hover {
