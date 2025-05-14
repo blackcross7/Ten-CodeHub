@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ExploreCard = ({ title, color }) => {
   return (
     <div
-      className={`group p-4 shadow-md border w-[500px] h-[241px] flex flex-col justify-center items-center transition duration-300 ease-in-out hover:shadow-lg rounded-xl hover:scale-105 cursor-pointer ${color}`}
+      className={`group p-4 shadow-md border  h-[241px] flex flex-col justify-center items-center transition duration-300 ease-in-out hover:shadow-lg rounded-xl hover:scale-105 cursor-pointer ${color}`}
     >
       <h3 className="font-semibold text-xl text-white">{title}</h3>
       <Link

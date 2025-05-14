@@ -133,11 +133,11 @@ const Home = () => {
   ];
 
   return (
-    <div className="font-sans bg-[linear-gradient(to_bottom,#bbf7d0_0%,#ecfccb_10vh,#fefce8_40vh,#ffffff_60vh)] ">
+    <div className="font-sans py-44 bg-[linear-gradient(to_bottom,#bbf7d0_0%,#ecfccb_10vh,#fefce8_40vh,#ffffff_60vh)] ">
 
       {/* Hero Section */}
       <motion.section
-        className="py-32 px-4 text-center"
+        className=" px-4 text-center"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -181,35 +181,51 @@ const Home = () => {
 
 
       {/* Courses Section */}
-      <motion.section
-        className="py-12 px-4 w-full max-w-[90vw] md:w-[80vw] flex flex-col items-center mx-auto"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
-        <div className="flex flex-col sm:flex-row justify-between items-center w-full gap-4">
-          <h2 className="text-xl sm:text-2xl font-bold">Courses</h2>
-          <Link
-            to="/course"
-            className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300"
-          >
-            View All
-          </Link>
-        </div>
+<motion.section
+  className="py-12 px-4 w-full max-w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col items-center mx-auto"
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+  viewport={{ once: true }}
+>
+  {/* Header */}
+  <div className="flex flex-col sm:flex-row justify-between items-center w-full gap-4">
+    <h2 className="text-xl my-2 sm:text-2xl font-bold">Courses</h2>
+    <Link
+      to="/course"
+      className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300"
+    >
+      View All
+    </Link>
+  </div>
 
-        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10">
-          {courses.map((course, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <CourseCard course={course} />
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
+  {/* Slider for smaller screens */}
+  <div className="flex xl:hidden overflow-x-auto gap-6 w-[100%]  mt-10 pb-4 scrollbar-hide">
+    {courses.map((course, idx) => (
+      <motion.div
+        key={idx}
+        whileHover={{ scale: 1.05 }}
+        transition={{ type: "spring", stiffness: 300 }}
+        className="min-w-[280px] flex-shrink-0"
+      >
+        <CourseCard course={course} />
+      </motion.div>
+    ))}
+  </div>
+
+  {/* Grid for large screens and up */}
+  <div className="hidden xl:grid gap-6 grid-cols-3 mt-10">
+    {courses.map((course, idx) => (
+      <motion.div
+        key={idx}
+        whileHover={{ scale: 1.05 }}
+        transition={{ type: "spring", stiffness: 300 }}
+      >
+        <CourseCard course={course} />
+      </motion.div>
+    ))}
+  </div>
+</motion.section>
 
 
 
@@ -217,7 +233,7 @@ const Home = () => {
 
       {/* Must Explore */}
       <motion.section
-        className="py-10 px-4 w-full max-w-[90vw] md:w-[80vw] flex flex-col mx-auto"
+        className="mb-10 py-20 px-4 w-full max-w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col mx-auto"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -244,7 +260,7 @@ const Home = () => {
 
       {/* Explore Categories */}
       <motion.section
-        className="py-10 px-4 w-[90vw] md:w-[80vw] flex flex-col mx-auto border border-gray-300 rounded-3xl shadow-xl"
+        className="py-10 px-10 w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col mx-auto border border-gray-300 rounded-3xl shadow-xl"
         initial="hidden"
         animate="visible"
         variants={fadeInUp}

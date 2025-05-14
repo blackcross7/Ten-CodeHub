@@ -80,15 +80,15 @@ const Explore = () => {
     ];
 
     return (
-        <div className="font-sans bg-[linear-gradient(to_bottom,#bbf7d0_0%,#ecfccb_10vh,#fefce8_40vh,#ffffff_60vh)]">
+        <div className="font-sans pt-36 bg-[linear-gradient(to_bottom,#bbf7d0_0%,#ecfccb_20vh,#fefce8_40vh,#ffffff_100vh)]">
             <motion.section 
-                className="py-10 px-4 w-[90vw] md:w-[80vw] flex flex-col mx-auto border border-gray-300 rounded-3xl shadow-xl"
+                className=" px-4 w-[90vw] md:w-[80vw] flex flex-col mx-auto border border-gray-300 rounded-3xl shadow-2xl"
                 initial="hidden"
                 animate="visible"
                 variants={fadeInUp}
             >
-                <h2 className="text-2xl font-bold mb-6 text-center">Explore</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4">
+                <h2 className="text-2xl font-bold my-6 text-center">Explore</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 justify-center gap-6 p-4  ">
                     {exploreItems.map((item, idx) => (
                         <motion.div
                             key={idx}
@@ -113,7 +113,7 @@ const Explore = () => {
                     variants={fadeInUp}
                 >
                     <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
-                        <h2 className="text-2xl font-bold text-center md:text-left">{section.title}</h2>
+                        <h2 className="text-2xl font-bold text-center md:text-left my-2">{section.title}</h2>
                         <Link to='/course' className='border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300'>View All</Link>
                     </div>
                     {section.flex ? (

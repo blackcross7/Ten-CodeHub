@@ -3,21 +3,37 @@ import { Link } from 'react-router-dom';
 
 const CourseCard = ({ course }) => {
   return (
-    <div className="group rounded-lg shadow-md p-4 bg-white hover:shadow-lg transition duration-300 hover:scale-105 flex flex-col justify-between cursor-pointer ">
-      <img src={course.img} alt={course.title} className="rounded mb-4" />
-      <h3 className="font-bold text-lg">{course.title}</h3>
-      <p>{course.level}</p>
-      <div className="flex justify-between items-center mt-4 mb-4">
+    <div className="group w-[280px] sm:w-[300px] lg:w-[320px] h-full bg-white rounded-lg shadow-md p-4 flex flex-col justify-between hover:shadow-lg transition duration-300 hover:scale-105 cursor-pointer">
+      {/* Image */}
+      <img
+        src={course.img}
+        alt={course.title}
+        className="rounded mb-3 h-[120px] w-full object-cover"
+      />
+
+      {/* Title and Level */}
+      <div className='py-4 flex flex-col gap-4'>
+        <h3 className="font-bold text-lg leading-snug mb-1 min-h-[20px] line-clamp-2">{course.title}</h3>
+        <p className="text-sm text-gray-600">{course.level}</p>
+      </div>
+
+      {/* Spacer */}
+      <div className="flex-grow" />
+
+      {/* Bottom Row */}
+      <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <img src="https://cdn3.iconfinder.com/data/icons/seo-marketing-19/32/SEO-21-1024.png" alt=""
-          className='w-4 h-4'
+          <img
+            src="https://cdn3.iconfinder.com/data/icons/seo-marketing-19/32/SEO-21-1024.png"
+            alt=""
+            className="w-4 h-4"
           />
-        <p className="text-sm text-gray-500">{course.interested} interested Geeks</p>
+          <p className="text-sm text-gray-500">{course.interested} interested Geeks</p>
         </div>
-        
+
         <Link
           to={course.link}
-          className="text-green-700 mt-2 inline-block group-hover:bg-green-600 group-hover:text-white px-4 py-2 rounded transition duration-200"
+          className="text-green-700 group-hover:bg-green-600 group-hover:text-white px-3 py-2 rounded text-xs font-semibold transition duration-200"
         >
           Explore now
         </Link>
