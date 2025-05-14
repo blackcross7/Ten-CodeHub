@@ -1,3 +1,9 @@
+/* Reset Box Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 /* Promo Banner Styles */
 .promo-banner {
   position: relative;
@@ -5,23 +11,25 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; /* Change from 'left' to 'flex-start' */
   background: linear-gradient(to bottom, #5244eadd, #686add, #797bf0, #8aa5dd, #b7cbf4, #ffffff);
   color: rgb(14, 11, 11);
-  padding: 100px 10px;
+  padding: 100px 60px 250px 60px;
   padding-bottom: 250px;
-  padding-top: 25px;
   width: 100%;
+  flex-direction: row;
+  text-align: left;
 }
-
+/* Sale Info */
 .sale-info {
   text-align: left;
-  margin-left: 10%;
+  margin-left: 0;
   margin-bottom: 20px;
+  padding-left: 100px; /* Adjusted padding to shift towards center */
+  margin-right: 20px; /* Added margin to shift towards center */
 }
-
 .sale-info h1 {
-  font-size: 25px;
+  font-size: 22px;
   margin: 0;
   color: black;
 }
@@ -31,18 +39,26 @@
 }
 
 /* Search Bar Section */
+.search-wrapper {
+  width: 100%; /* Set to 100% to allow centering */
+  display: flex;
+  justify-content: center; /* Center the search bar */
+  margin: 20px 0; /* Add margin for spacing */
+}
+
 .search-container {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: space-between;
-  max-width: 600px;
-  margin: 0 auto;
+  align-items: center;
+  width: 30%;
   padding: 10px;
   border-radius: 8px;
   background: #ffffff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  flex-wrap: wrap;
+  gap: 10px;
 }
+
 
 .search-bar {
   flex: 1;
@@ -52,6 +68,7 @@
   font-size: 14px;
   background-color: white;
   color: black;
+  width: 100%;
 }
 
 .search-btn {
@@ -68,23 +85,24 @@
 /* Popular Now Section Styles */
 .popular-now {
   background: #ffffff;
-  width: 81%;
-  margin: -40px auto 0;
+  width: 90%; /* slightly more narrow than 100% */
+  max-width: 1200px; /* limit how wide it can stretch */
+  margin: -180px auto 0 auto; /* center it with auto margins */
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
-  padding: 30px 20px;
+  padding: 30px 30px; /* adds left and right padding */
   position: relative;
-  margin-top: -180px;
   z-index: 10;
 }
 
-.popular-header {
+
+.foundation-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
 }
+
 
 .popular-header h2 {
   margin: 0;
@@ -92,16 +110,18 @@
   font-weight: bold;
 }
 
+/* View All Button */
 .view-all-btn {
   padding: 8px 16px;
   font-size: 14px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: right !important;
+  justify-content: right;
   border: none;
   background-color: transparent;
   cursor: pointer;
   white-space: nowrap;
+  margin-left: auto;
 }
 
 .arrow-icon {
@@ -111,7 +131,7 @@
   vertical-align: middle;
 }
 
-/* Courses container */
+/* Courses Containers */
 .courses-container,
 .classroom-container,
 .live-courses-container,
@@ -119,14 +139,14 @@
 .build-your-foundation-container,
 .free-courses-container {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
   gap: 20px;
-  flex-wrap: wrap;
   width: 100%;
   padding: 10px 0;
 }
 
-/* Course card */
+/* Course Card */
 .course-card {
   flex: 1 1 250px;
   max-width: 300px;
@@ -146,23 +166,22 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Course title section */
+/* Course Title Section */
 .course-title-section {
   padding: 20px;
   border-radius: 12px 12px 0 0;
   text-align: left;
-  height: 120px; /* Fixed height for consistency */
+  height: 120px;
   display: flex;
-  align-items: left;
-  justify-content: flex-start;
-  gap: 10px; /* spacing between children */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .course-title-section h3 {
   color: white;
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
 }
 
 /* Backgrounds for title section */
@@ -179,7 +198,7 @@
   background: linear-gradient(to right, #084d91, #106197);
 }
 
-/* Course details */
+/* Course Details */
 .course-details {
   flex-grow: 1;
   background: #f4ebeb;
@@ -189,6 +208,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 8px;
 }
 
 .course-details p {
@@ -197,19 +217,19 @@
   color: #070707;
 }
 
-/* Explore button */
+/* Explore Button */
 .explore-btn {
   border: 1px solid black;
   border-radius: 15px;
   background: transparent;
   color: black;
-  padding: 10px 50px;
+  padding: 8px 35px;
   font-size: 14px;
-  width: fit-content;
   margin: 10px auto 0;
   margin-bottom: 20px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  width: fit-content;
 }
 
 .explore-btn:hover {
@@ -217,28 +237,28 @@
   color: white;
 }
 
-/* Interested & rating section */
+/* Interested & Rating Section */
+.course-interested-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
 .course-interested {
   margin: 0;
   font-weight: 600;
-  white-space: nowrap; /* Prevent line break */
-  text-align: left;    /* Align text left */
+  white-space: nowrap;
+  text-align: left;
   display: flex;
-  align-items: center; /* Vertically center if icons are present */
-  gap: 4px;            /* space between icon and text if any */
-  flex-shrink: 0;      /* Prevent shrinking */
+  align-items: center;
+  gap: 4px;
   font-size: 12px;
 }
-.course-interested-rating {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px 0;
-  gap: 10px;           /* Add gap between left and right items */
-}
+
 .course-rating {
   border: 1px solid black;
-  padding: -1px 2px;
+  padding: 0 2px;
   border-radius: 2px;
 }
 
@@ -248,19 +268,13 @@
   margin: 4px 0;
 }
 
-.level-icon {
-  width: 16px;
-  margin-right: 8px;
-}
-
+.level-icon,
 .interested-icon {
   width: 16px;
   height: 14px;
   margin-right: 6px;
   vertical-align: middle;
-  display: inline-block;
 }
-
 
 /* Course Categories Section */
 .course-categories {
@@ -309,14 +323,16 @@
 .category.cloud { background: #1d3557; }
 .category.gate { background: #101011; }
 
-
-
-/* Classroom Courses Section */
+/* Course Sections */
 .classroom-courses,
 .live-courses,
 .self-paced-courses,
 .build-your-foundation,
 .free-courses {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 20px;
   width: 95%;
   margin: 0 auto;
   padding: 20px 0;
@@ -333,18 +349,20 @@
   margin-bottom: 20px;
 }
 
+
 .classroom-header h3,
 .live-header h3,
 .self-paced-header h3,
 .foundation-header h3,
 .free-header h3 {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 20px 0 10px 0; /* pushes heading down from the top */
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
 }
+
 
 /* Classroom Title Backgrounds */
 .classroom-courses .course-card:nth-child(1) .course-title-section {
@@ -365,44 +383,82 @@ body, html {
 
 .container {
   padding: 0;
+  background-color: white; /* reinforce white background */
   max-width: 100%;
 }
+.course-page-wrapper {
+  background-color: white;
+  position: relative;
+  z-index: 0;
+  width: 100%;
+}
 
-
-
+/* Mobile Styles */
 @media screen and (max-width: 768px) {
+  /* Promo Banner */
   .promo-banner {
-    flex-direction: column;
-    padding: 30px 15px;
-    text-align: center;
+    flex-direction: column !important;
+    padding: 30px 15px !important;
+    text-align: center !important;
+    padding-bottom: 120px !important; /* reduce bottom padding so overlap isn't too large */
   }
-
+  /* Sale info full width and centered */
   .sale-info {
-    margin-left: 0;
-    text-align: center;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin-bottom: 20px !important;
   }
-
   .sale-info h1 {
-    font-size: 20px;
+    font-size: 22px;
+  }
+  /* Search Wrapper */
+  .search-wrapper {
+    width: 100%;
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    position: relative; /* make sure it's stacked above others */
   }
 
   .search-container {
-    flex-direction: column;
-    width: 90%;
-    padding: 10px;
+    display: flex;
+    flex-direction: row; /* keep it row to prevent button going below */
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     gap: 10px;
   }
 
   .search-bar {
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     font-size: 14px;
   }
 
+  .search-btn {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .search-icon {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  /* Popular Now Section */
   .popular-now {
     margin-top: -10px;
     padding: 20px 10px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    
   }
 
   .popular-header {
@@ -412,28 +468,35 @@ body, html {
     gap: 10px;
   }
 
-  .courses-container {
+  /* Course Cards - General */
+  .courses-container,
+  .classroom-container,
+  .live-courses,
+  .self-paced-courses,
+  .build-your-foundation,
+  .free-courses {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 20px;
   }
 
   .course-card {
     flex: none;
     width: 100%;
     max-width: 360px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0;
-    margin-bottom: 20px;
   }
 
   .course-title-section {
     padding: 20px;
+    min-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 60px;
     border-radius: 12px 12px 0 0;
     background-size: cover;
     background-position: center;
@@ -446,10 +509,10 @@ body, html {
   .course-details {
     padding: 16px;
     text-align: left;
+    gap: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 8px;
   }
 
   .course-details p {
@@ -464,92 +527,22 @@ body, html {
     width: fit-content;
   }
 
-  .classroom-container {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .classroom-container .course-card {
-    flex: none;
-    width: 100%;
-    max-width: 360px;
-    margin-bottom: 20px;
-  }
-  .classroom-courses,
-  .live-courses,
-  .self-paced-courses,
-  .build-your-foundation,
-  .free-courses {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center children horizontally */
-    gap: 20px; /* Add gap between items */
-  }
-  .classroom-container .course-card,
-  .live-courses .course-card,
-  .self-paced-courses .course-card,
-  .build-your-foundation .course-card,
-  .free-courses .course-card {
-    flex: none; /* Prevent flex-grow */
-    width: 100%; /* Full width on smaller screens */
-    max-width: 360px; /* Set a max width */
-    margin-bottom: 20px; /* Space between cards */
-  }
-  /* Adjust headers for these sections */
+  /* Section Headers */
   .classroom-header h3,
   .live-header h3,
   .self-paced-header h3,
   .foundation-header h3,
   .free-header h3 {
-    font-size: 18px; /* Adjust font size for headers */
-    white-space: normal;  /* Allow wrap */
-    overflow: visible;    /* Show overflow */
-    text-overflow: unset; /* Remove ellipsis */
+    font-size: 18px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
   }
 
+  /* Rating + Interested Section */
   .course-interested-rating {
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
   }
-  .courses-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* center children horizontally */
-  gap: 20px;
-}
-
-.classroom-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* center children horizontally */
-  gap: 20px;
-}
-.courses-container {
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-}
-.promo-banner {
-  flex-direction: column;
-  text-align: center;
-  padding: 30px 15px;
-}
-
-.sale-info {
-  margin-left: 0;
-  text-align: center;
-}
-
-.sale-info h1 {
-  font-size: 22px;
-}
-
-.search-container {
-  flex-direction: row;
-  width: 90%;
-  max-width: 100%;
-  margin: 0 auto;
-  gap: 10px;
-}
-
 }
