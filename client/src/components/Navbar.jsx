@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import  { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSearch,  faHome, faNewspaper, faComments, faBook, faEdit, faCompass } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = ({ isLoggedIn, user }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,7 +10,7 @@ const Navbar = ({ isLoggedIn, user }) => {
 
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
-
+ 
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowWidth(window.innerWidth);
@@ -26,6 +26,11 @@ const Navbar = ({ isLoggedIn, user }) => {
       window.removeEventListener('resize', handleWindowResize);
     };
   }, []);
+
+  const scrollLeft = () => {}
+
+  const scrollRight = () => {}
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {

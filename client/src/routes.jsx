@@ -10,6 +10,8 @@ import Profile from './pages/Profile';
 import EditProfile from './components/EditProfile';
 import Courses from './pages/Courses';
 import Explore from './pages/Explore'; // ✅ Added import for Explore
+import DiscussionsPage from './pages/DiscussionPage';
+
 
 const AppRoutes = () => {
   return (
@@ -22,7 +24,7 @@ const AppRoutes = () => {
       <Route path="/profile" element={<Profile />} />
       <Route path="/edit-profile" element={<EditProfile />} />
       <Route path="/course" element={<Courses />} />
-      <Route path="/discussion" element={<Courses />} />
+      <Route path="/discussion" element={<DiscussionsPage />} />
       <Route path="/explore" element={<Explore />} /> {/* ✅ Added explore route */}
 
       <Route path="*" element={<h1 className="text-center text-2xl mt-10">404 - Page Not Found</h1>} />

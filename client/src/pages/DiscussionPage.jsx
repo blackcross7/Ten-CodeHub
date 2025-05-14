@@ -1,7 +1,7 @@
 // src/components/DiscussionsPage.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./DiscussionsPage.css";
+import "../styles/Discussion.css";
 
 const DiscussionsPage = () => {
   const navigate = useNavigate();
