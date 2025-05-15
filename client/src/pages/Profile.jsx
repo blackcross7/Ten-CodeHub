@@ -16,14 +16,13 @@ const ProfilePage = () => {
         <button className="hamburger" onClick={toggleSidebar}>☰</button>
         <nav className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
           <ul>
-            <li><i className="fas fa-user"></i><span>Profile</span></li>
             <li><i className="fas fa-chart-line"></i><span>Contributions</span></li>
             <li><i className="fas fa-bookmark"></i><span>Saved Items</span></li>
             <li><i className="fas fa-university"></i><span>Colleges</span></li>
             <li><i className="fas fa-building"></i><span>Companies</span></li>
             <li><i className="fas fa-user-graduate"></i><span>Campus Ambassadors</span></li>
             <li><i className="fas fa-user-plus"></i><span>Invite</span></li>
-            **<li><Link to="/edit-profile"><i className="fas fa-edit"></i><span>Edit Profile</span></Link></li>** {/* ✅ Added functional link */}
+            <li><Link to="/edit-profile"><i className="fas fa-edit"></i><span>Edit Profile</span></Link></li> {/* ✅ Added functional link */}
             <li><i className="fas fa-cog"></i><span>Account Settings</span></li>
             <li><i className="fas fa-sign-out-alt"></i><span>Logout</span></li>
           </ul>
@@ -60,7 +59,7 @@ const ProfilePage = () => {
           <div className="institution-info-row">
             <div className="institution-header">
               <h2 className="institute-heading">Institute</h2>
-              **<button className="edit-button"><Link to="/edit-profile">Edit</Link></button>** {/* ✅ Added functional edit button */}
+              <button className="edit-button"><Link to="/edit-profile">Edit</Link></button> {/* ✅ Added functional edit button */}
             </div>
             <div className="institution-info">
               <h3>Andhra Loyola Institute of Engineering & Technology</h3>

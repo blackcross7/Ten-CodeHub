@@ -1,20 +1,3 @@
- /* Base Reset */
-.profile-page {
-  display: flex;
-}
-
-/* Fixed Sidebar */
-.sidebar {
-  display: none;
-  background-color: #008000;
-  color: white;
-  padding: 10px;
-}
-
-/* Show sidebar when 'open' class is added */
-.sidebar.open {
-  display: block;
-}
 
 /* Hamburger styles */
 .hamburger {
@@ -34,19 +17,15 @@
   .hamburger {
     display: none;
   }
-
-  .sidebar {
-    display: block; /* always show sidebar on large screens */
-  }
 }
 
 /* Sidebar Style */
 .sidebar {
-  position: fixed;
+  position: absolute;
   top: 60px; /* Offset to appear below navbar */
   left: 0;
   width: 220px;
-  height: calc(100% - 60px); /* Adjust height */
+  height: 93%; /* Adjust height */
   background-color: #f9f9f9;
   padding: 10px;
   display: flex;
@@ -59,46 +38,14 @@
   z-index: 999;
   padding-top: 40px;
   overflow-y: auto;
-}
-
-/* Sidebar items */
-.sidebar .sidebar-item {
-  padding: 12px 16px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  text-align: center;
-  margin-bottom: 10px; /* Space between each component */
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.sidebar .sidebar-item:hover {
-  background-color: white; /* White background when hovered */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow effect to show it as a box */
-}
-
-.sidebar .sidebar-item.active {
-  background-color: #28a745; /* Green background when hovered and active */
-  color: white; /* White text */
-}
-
-.sidebar-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar-list li {
-  padding: 12px 16px;
-  border-bottom: 1px solid #ddd;
-  cursor: pointer;
+  border-radius: 10px;
 }
 
 .sidebar li {
   padding: 15px 20px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 4px;
   color: #2f855a;
   cursor: pointer;
   margin: 10px 0;
@@ -110,45 +57,13 @@
 }
 
 .sidebar li:hover {
-  background: #cdeac0;
+  background: #ead2c0;
 }
 
 .sidebar li i {
   min-width: 20px;
 }
 
-.sidebar h3 {
-  margin-bottom: 20px;
-}
-
-/* Hide sidebar and show hamburger only on small screens */
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%); /* Initially hide sidebar */
-  }
-
-  .sidebar.open {
-    transform: translateX(0); /* Slide in the sidebar */
-  }
-
-  .hamburger {
-    display: block; /* Show hamburger button on smaller screens */
-  }
-}
-
-/* Main Content */
-.main-content {
-  margin-left: 250px;
-  padding: 20px;
-  margin-top: 60px; /* To ensure main content doesn't go behind the navbar */
-}
-
-@media (max-width: 768px) {
-  .main-content {
-    margin-left: 0;
-    width: 100%;
-  }
-}
 
 /* Base Reset */
 * {
@@ -163,14 +78,15 @@
   margin-left: 250px;
   padding: 20px;
   margin-top: 60px; /* To ensure main content doesn't go behind the navbar */
-
 }
+
 @media (max-width: 768px) {
   .main-content {
     margin-left: 0;
     width: 100%;
   }
 }
+
 .profile-total-block {
   background-color: #f8f9fa;
   border-radius: 10px;
@@ -182,6 +98,7 @@
   flex-direction: column;
   gap: 1.5rem;
 }
+
 /* Horizontal line between profile and streak */
 .streak-section {
   margin-top: 30px;
@@ -201,6 +118,7 @@
 .profile-section {
   display: flex;
   gap: 2rem;
+  margin-top: 50px;
   margin-bottom: 2rem;
   align-items: center;
 }
@@ -239,11 +157,6 @@
   width: 80%;
   height: auto;
   border-radius: 50%;
-}
-
-.badge-item {
-  width: 100%;
-  margin-bottom: 1rem;
 }
 
 .edit-icon {
@@ -323,7 +236,7 @@
   position: relative;
 }
 
-.institution-info h4 {
+.institution-info h3 {
   margin-bottom: 0.5rem;
 }
 .institution-header {
@@ -344,15 +257,14 @@
   border-radius: 5px;
   cursor: pointer;
   font-weight: 500;
-   display: inline-block; /* Now acts like a block inside flex */
-    transition: background-color 0.3s ease;
-      font-size: 13px;
+  display: inline-block; /* Now acts like a block inside flex */
+  transition: background-color 0.3s ease;
+  font-size: 13px;
 }
 
 .edit-button:hover {
   background-color: darkgreen;
 }
-
 
 .edit-text {
   position: absolute;
@@ -363,54 +275,6 @@
   font-size: 0.9rem;
 }
 
-
-.scores {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.stat-item img {
-  width: 40px;
-  margin-bottom: 0.5rem;
-}
-
-.stat-item span {
-  font-size: 1rem;
-}
-
-.stat-item strong {
-  font-size: 1rem;
-  margin-top: 0.25rem;
-}
-
-/* Apply Button */
-.apply-button {
-  background-color: #2e7d32;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-}
-.apply-button:hover {
-  background-color: #1c5e2f;
-}
-.apply-button link {
-      text-align: center;
-      color: black;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-.apply-button link:hover {
-      text-decoration: underline;
-    }
 /* Problem Solving Section */
 .problem-solving {
   display: flex;

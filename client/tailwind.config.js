@@ -9,3 +9,12 @@ export default {
   },
   plugins: [],
 }
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}", // <-- This tells Tailwind to scan your source files for class names
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
