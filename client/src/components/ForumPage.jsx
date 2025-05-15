@@ -27,7 +27,7 @@ const ForumPage = () => {
   };
 
   const goToDiscussions = () => {
-    navigate('/discussions');
+    navigate('/discussion'); // Ensure the route matches your `routes.jsx` definition
   };
 
   return (
@@ -91,6 +91,7 @@ const ForumPage = () => {
           </p>
         )}
 
+        {/* Button to navigate to DiscussionPage */}
         <div style={{ textAlign: 'center' }}>
           <button className="view-discussions-btn" onClick={goToDiscussions}>
             View Discussions

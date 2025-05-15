@@ -70,7 +70,7 @@ const Navbar = ({ isLoggedIn, user }) => {
           <ul className="nav-links">
             <li><Link to="/"><FontAwesomeIcon icon={faHome} /> Home</Link></li>
             <li><Link to="/articles"><FontAwesomeIcon icon={faNewspaper} /> Articles</Link></li>
-            <li><Link to="/discussion"><FontAwesomeIcon icon={faComments} /> Discussion</Link></li>
+            <li><Link to="/forum"><FontAwesomeIcon icon={faComments} /> Discussion</Link></li>
             <li><Link to="/course"><FontAwesomeIcon icon={faBook} /> Courses</Link></li>
             <li><Link to="/practice"><FontAwesomeIcon icon={faEdit} /> Practice</Link></li>
             <li><Link to="/explore"><FontAwesomeIcon icon={faCompass} /> Explore</Link></li>
