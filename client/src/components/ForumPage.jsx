@@ -34,7 +34,7 @@ const ForumPage = () => {
     <div className="forum-wrapper">
       {/* Side image container */}
       <div className="image-container">
-        <img src="/assets/images/discussion.png" alt="Discussion" />
+        <img src="/assets/image/discussion.png" alt="Discussion" />
       </div>
 
       {/* Main forum content */}
@@ -44,7 +44,7 @@ const ForumPage = () => {
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="name">
-              <img src="/assets/images/user-icon.png" alt="User" className="icon-img" /> Name:
+              <img src="/assets/image/user-icon.png" alt="User" className="icon-img" /> Name:
             </label>
             <input
               type="text"
@@ -57,7 +57,7 @@ const ForumPage = () => {
 
           <div className="input-group">
             <label htmlFor="topic">
-              <img src="/assets/images/topic-icon.png" alt="Topic" className="icon-img" /> Discussion Topic:
+              <img src="/assets/image/topic-icon.png" alt="Topic" className="icon-img" /> Discussion Topic:
             </label>
             <input
               type="text"
@@ -70,7 +70,7 @@ const ForumPage = () => {
 
           <div className="input-group">
             <label htmlFor="views">
-              <img src="/assets/images/views-icon.png" alt="Views" className="icon-img" /> Your Views:
+              <img src="/assets/image/views-icon.png" alt="Views" className="icon-img" /> Your Views:
             </label>
             <textarea
               id="views"

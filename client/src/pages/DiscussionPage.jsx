@@ -45,7 +45,7 @@ const DiscussionsPage = () => {
  return (
   <div className="main-container">
     <div className="image-container">
-      <img src="/assets/images/discussion.png" alt="Discussion" />
+      <img src="/assets/image/discussion.png" alt="Discussion" />
     </div>
 
     <div className="discussions-container">
@@ -69,7 +69,7 @@ const DiscussionsPage = () => {
             <div className="discussion-actions">
               <button className="like-btn">
                 <img
-                  src="/assets/images/like-icon.png"
+                  src="/assets/image/like-icon.png"
                   alt="Like"
                   className="like-icon"
                 />{" "}

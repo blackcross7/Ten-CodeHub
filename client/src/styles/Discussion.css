@@ -15,6 +15,7 @@ html, body {
   width: 100%;
   box-sizing: border-box;
   background-color: #fff;
+  margin-top: 130px;
 }
 
 /* Container for discussions page */
