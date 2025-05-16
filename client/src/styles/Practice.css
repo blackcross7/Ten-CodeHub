@@ -13,15 +13,15 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   background: linear-gradient(to bottom, rgb(211, 131, 131), #d5f2d5);
-  overflow-x: hidden; /* prevent horizontal scroll */
+  overflow-x: hidden; 
 }
 
 /* MAIN CONTENT */
 /* Large screen default */
-.main-content {
+.main-content-practice {
   max-width: 1200px;
   margin: 100px auto 40px;
-  padding: 30px 100px;
+  padding: 20px 100px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -29,7 +29,7 @@ body {
 /* Tiles section container */
 .tiles-section {
   background: white;
-  margin: 10px auto;
+  margin-top: 60px;
   padding: 30px 40px;
   border-radius: 30px;
   max-width: 1200px;
@@ -199,12 +199,14 @@ h2 {
   }
 
   .tiles-section {
+    margin-top: 80px;
     padding: 20px 30px;
     border-radius: 20px;
   }
 
   h2 {
     font-size: 26px;
+    text-align: center;
   }
 
   .articles-grid {

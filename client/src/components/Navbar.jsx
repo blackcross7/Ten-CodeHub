@@ -1,21 +1,25 @@
-import  { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faSearch,  faHome, faNewspaper, faComments, faBook, faEdit, faCompass } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSearch, faHome, faNewspaper, faComments, faBook, faEdit, faCompass } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = ({ isLoggedIn, user }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [showSearchSmall, setShowSearchSmall] = useState(false);
+  const toggleSearch = () => {
+    setShowSearchSmall(prev => !prev);
+  };
 
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
- 
+
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowWidth(window.innerWidth);
       // Close menu if window is resized to desktop view
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 1025) {
         setMenuOpen(false);
       }
     };
@@ -27,9 +31,9 @@ const Navbar = ({ isLoggedIn, user }) => {
     };
   }, []);
 
-  const scrollLeft = () => {}
+  const scrollLeft = () => { }
 
-  const scrollRight = () => {}
+  const scrollRight = () => { }
 
 
   useEffect(() => {
@@ -61,7 +65,7 @@ const Navbar = ({ isLoggedIn, user }) => {
     <div className='nav-whole-container'>
       <nav className="navbar">
         {/* Hamburger Menu for mobile */}
-        <div className="hamburger" onClick={toggleMenu} ref={hamburgerRef}>
+        <div className="hamburger-nav" onClick={toggleMenu} ref={hamburgerRef}>
           <FontAwesomeIcon icon={faBars} className="hamburger-icon" />
         </div>
 
@@ -90,6 +94,24 @@ const Navbar = ({ isLoggedIn, user }) => {
             <input type="text" placeholder="Search" className="search-input" />
             <FontAwesomeIcon icon={faSearch} className="search-icon" />
           </div>
+
+          {/* Small screen search icon */}
+          <div className='search-box-small'>
+            <FontAwesomeIcon
+              icon={faSearch}
+              className="search-icon-small"
+              onClick={toggleSearch}
+            />
+            {/* Conditionally render input on small screens when icon clicked */}
+            {showSearchSmall && (
+              <input
+                type="text"
+                placeholder="Search"
+                className="search-input-small"
+                autoFocus
+              />
+            )}
+          </div>
           {isLoggedIn ? (
             <div className="profile-icon">
               <Link to="/profile">
@@ -98,7 +120,7 @@ const Navbar = ({ isLoggedIn, user }) => {
             </div>
           ) : (
             <div className="auth-section">
-              <Link to="/signin">
+              <Link to="/loginModal">
                 <button className="signin-btn">Sign In</button>
               </Link>
             </div>
@@ -107,7 +129,7 @@ const Navbar = ({ isLoggedIn, user }) => {
       </nav>
 
       {/* Mobile Menu */}
-      {windowWidth < 1024 && (
+      {windowWidth < 1025 && (
         <div className={`mobile-menu ${menuOpen ? 'active' : ''}`} ref={menuRef}>
           <ul>
             <li><Link to="/" onClick={toggleMenu}><FontAwesomeIcon icon={faHome} /> Home</Link></li>

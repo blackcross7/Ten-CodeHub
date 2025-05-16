@@ -4,7 +4,7 @@ import '../styles/Practice.css';
 function Practice() {
   return (
     <div>
-      <main className="main-content">
+      <main className="main-content-practice">
       <section className="tiles-section">
         <h2>Challenges And Contests</h2>
         {/* Problem of the Day Section */}
