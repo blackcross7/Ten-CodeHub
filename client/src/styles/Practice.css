@@ -12,15 +12,21 @@ body {
   color: #333;
   line-height: 1.6;
   min-height: 100vh;
-  background: linear-gradient(to bottom, rgb(211, 131, 131), #d5f2d5);
   overflow-x: hidden; 
 }
 
 /* MAIN CONTENT */
 /* Large screen default */
+
+.main-div-practice{
+  background: linear-gradient(to bottom, rgb(211, 131, 131), #d5f2d5);
+  min-height: 100vh;
+  padding-top: 100px;
+}
 .main-content-practice {
+
   max-width: 1200px;
-  margin: 100px auto 40px;
+  margin: 0px auto 0px;
   padding: 20px 100px;
   width: 100%;
   box-sizing: border-box;

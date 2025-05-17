@@ -3,7 +3,7 @@ import '../styles/Practice.css';
 
 function Practice() {
   return (
-    <div>
+    <div className='main-div-practice'>
       <main className="main-content-practice">
       <section className="tiles-section">
         <h2>Challenges And Contests</h2>

@@ -91,43 +91,43 @@ const Home = () => {
  {
   title: 'Data Structures and Algorithms',
   color: 'bg-[linear-gradient(#4caf97,#51c6ab)]',
-  img: '/assets/images/DSA.png',  // Corrected path
+  img: '/assets/image/DSA.png',  // Corrected path
 },
 
  {
     title: 'Practice DSA',
     color: 'bg-[linear-gradient(rgb(90,94,183),rgb(112,117,234))]',
-    img: '/assets/images/practice dsa.png',
+    img: '/assets/image/Practice dsa.png',
   },
   {
     title: 'Web Development',
     color: 'bg-[linear-gradient(rgb(175,97,96),rgb(202,138,137))]',
-    img: '/assets/images/webdev.png',
+    img: '/assets/image/Webdev.png',
   },
   {
     title: 'Python',
     color: 'bg-[linear-gradient(rgb(103,74,152),rgb(165,148,195))]',
-    img: '/assets/images/python.png',
+    img: '/assets/image/Python.png',
   },
   {
     title: 'AI ML & Data Science',
     color: 'bg-[linear-gradient(rgb(37,135,156),rgb(84,195,219))]',
-    img: '/assets/images/AIML.png',
+    img: '/assets/image/AIML.png',
   },
   {
     title: 'Machine Learning',
     color: 'bg-[linear-gradient(rgb(69,114,182),rgb(120,158,218))]',
-    img: '/assets/images/ML.png',
+    img: '/assets/image/ML.png',
   },
   {
     title: 'System Design',
     color: 'bg-[linear-gradient(rgb(204,115,62),rgb(234,163,120))]',
-    img: '/assets/images/system.png',
+    img: '/assets/image/system.png',
   },
   {
     title: 'DevOps',
     color: 'bg-[linear-gradient(rgb(241,99,124),rgb(227,153,166))]',
-    img: '/assets/images/devops.png',
+    img: '/assets/image/devops.png',
   },
 ];
 
@@ -285,35 +285,45 @@ const Home = () => {
       </motion.section>
 
       {/* Explore Categories */}
-      <motion.section
-        className="pt-2 pb-10 px-6 md-10 w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col mx-auto border-2 border-red-600 rounded-3xl shadow-xl"
-        style={{
-          maxWidth: "1200px",
-          margin: "0.5rem auto 0.5rem",
-          background: "#000000"
-        }}
+<motion.section
+  className="pt-2 px-6 md:pt-10 md:px-10 mb-0 w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col space-y-0 mx-auto border-2 border-red-600 rounded-3xl shadow-xl"
+  style={{
+    maxWidth: "1200px",
+    margin: "0.5rem auto 0.5rem",
+    background: "#000000"
+  }}
+  initial="hidden"
+  animate="visible"
+  variants={fadeInUp}
+>
+  <h2 className="text-2xl font-bold mb-4 text-center text-white">Explore</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-2">
+    {exploreItems.map((item, idx) => (
+      <motion.div
+        key={idx}
+        custom={idx}
+        variants={fadeInUp}
         initial="hidden"
         animate="visible"
-        variants={fadeInUp}
+        className="flex justify-center"
+
       >
-        <h2 className="text-2xl font-bold mb-4 text-center text-white">Explore</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-2">
-          {exploreItems.map((item, idx) => (
-            <motion.div
-              key={idx}
-              custom={idx}
-              variants={fadeInUp}
-              initial="hidden"
-              animate="visible"
-            >
-              <div className={`p-6 rounded-xl ${item.color} relative overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105`}>
-                <img src={item.img} alt={item.title} className="w-full h-48 object-cover" />
-                <h3 className="text-white font-bold absolute bottom-4 left-4">{item.title}</h3>
-              </div>
-            </motion.div>
-          ))}
+        <div className={`p-6 rounded-xl ${item.color} relative overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105`}
+        style={{ width: "250px", height: "320px" }} // fixed card size
+>
+          <div className="w-full h-[150px] bg-white rounded-lg flex items-center justify-center p-4">
+            <img
+              src={item.img}
+              alt={item.title}
+              className="w-full h-full object-contain rounded"
+            />
+          </div>
+          <h3 className="text-white font-bold mt-2 text-center">{item.title}</h3>
         </div>
-      </motion.section>
+      </motion.div>
+    ))}
+  </div>
+</motion.section>
     </div>
   );
 };

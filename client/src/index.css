@@ -9,3 +9,14 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Hide scrollbar for all browsers */
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+/* For WebKit-based browsers (Chrome, Safari) */
+body::-webkit-scrollbar {
+  display: none;
+}

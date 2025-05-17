@@ -150,7 +150,7 @@ const Navbar = ({ isLoggedIn, user }) => {
           <Link to="/problems" className="secondary-link">Practice Problems</Link>
           <Link to="/python" className="secondary-link">Python</Link>
           <Link to="/c" className="secondary-link">C</Link>
-          <Link to="/cpp" className="secondary-link">C++</Link>
+          <Link to="/cpp" className="secondary-link">C++</Link> 
           <Link to="/java" className="secondary-link">Java</Link>
           <Link to="/courses" className="secondary-link">Courses</Link>
           <Link to="/ml" className="secondary-link">Machine Learning</Link>
