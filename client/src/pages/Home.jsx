@@ -88,15 +88,48 @@ const Home = () => {
   ];
 
   const exploreItems = [
-    { title: 'Data Structures and Algorithms', color: 'bg-[linear-gradient(#4caf97,#51c6ab)]' },
-    { title: 'Practice DSA', color: 'bg-[linear-gradient(rgb(90,94,183),rgb(112,117,234))]' },
-    { title: 'Web Development', color: 'bg-[linear-gradient(rgb(175,97,96),rgb(202,138,137))]' },
-    { title: 'Python', color: 'bg-[linear-gradient(rgb(103,74,152),rgb(165,148,195))]' },
-    { title: 'AI ML & Data Science', color: 'bg-[linear-gradient(rgb(37,135,156),rgb(84,195,219))]' },
-    { title: 'Machine Learning', color: 'bg-[linear-gradient(rgb(69,114,182),rgb(120,158,218))]' },
-    { title: 'System Design', color: 'bg-[linear-gradient(rgb(204,115,62),rgb(234,163,120))]' },
-    { title: 'DevOps', color: 'bg-[linear-gradient(rgb(241,99,124),rgb(227,153,166))]' },
-  ];
+ {
+  title: 'Data Structures and Algorithms',
+  color: 'bg-[linear-gradient(#4caf97,#51c6ab)]',
+  img: '/assets/images/DSA.png',  // Corrected path
+},
+
+ {
+    title: 'Practice DSA',
+    color: 'bg-[linear-gradient(rgb(90,94,183),rgb(112,117,234))]',
+    img: '/assets/images/practice dsa.png',
+  },
+  {
+    title: 'Web Development',
+    color: 'bg-[linear-gradient(rgb(175,97,96),rgb(202,138,137))]',
+    img: '/assets/images/webdev.png',
+  },
+  {
+    title: 'Python',
+    color: 'bg-[linear-gradient(rgb(103,74,152),rgb(165,148,195))]',
+    img: '/assets/images/python.png',
+  },
+  {
+    title: 'AI ML & Data Science',
+    color: 'bg-[linear-gradient(rgb(37,135,156),rgb(84,195,219))]',
+    img: '/assets/images/AIML.png',
+  },
+  {
+    title: 'Machine Learning',
+    color: 'bg-[linear-gradient(rgb(69,114,182),rgb(120,158,218))]',
+    img: '/assets/images/ML.png',
+  },
+  {
+    title: 'System Design',
+    color: 'bg-[linear-gradient(rgb(204,115,62),rgb(234,163,120))]',
+    img: '/assets/images/system.png',
+  },
+  {
+    title: 'DevOps',
+    color: 'bg-[linear-gradient(rgb(241,99,124),rgb(227,153,166))]',
+    img: '/assets/images/devops.png',
+  },
+];
 
   const infoItems = [
     { title: 'Job for You', color: 'bg-[#ae84d1]' },
@@ -106,7 +139,12 @@ const Home = () => {
   ];
 
   return (
-    <div className="font-sans bg-gradient-to-b from-[#bbf7d0] to-[#ecfccb] to-[#fefce8] to-white">
+    <div
+      className="font-sans min-h-screen"
+      style={{
+        background: "#000000"
+      }}
+    >
       {/* Hero Section */}
       <motion.section
         className="flex items-center justify-center h-screen bg-cover bg-center"
@@ -154,7 +192,11 @@ const Home = () => {
 
       {/* Courses Section */}
       <motion.section
-        className="py-12 px-4 w-full max-w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col items-center mx-auto"
+        className="py-4 px-4 w-full max-w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col items-center mx-auto border-2 border-red-600 rounded-3xl shadow-xl"
+        style={{
+          background: "#000000",
+          marginTop: "2rem"
+        }}
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -162,10 +204,10 @@ const Home = () => {
       >
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-center w-full gap-4">
-          <h2 className="text-xl my-2 sm:text-2xl font-bold">Courses</h2>
+          <h2 className="text-xl my-2 sm:text-2xl font-bold text-white">Courses</h2>
           <Link
             to="/course"
-            className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300"
+            className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300 text-white"
           >
             View All
           </Link>
@@ -178,14 +220,14 @@ const Home = () => {
               key={idx}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="min-w-[280px] flex-shrink-0"
+              className="min-w-[250px] w-[250px] flex-shrink-0"
             >
-              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                <img src={course.img} alt={course.title} className="w-full h-48 object-cover" />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{course.title}</h3>
-                  <p className="text-gray-600 mb-2">{course.level}</p>
-                  <p className="text-blue-600 font-semibold">{course.interested} interested</p>
+              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 h-[320px] flex flex-col">
+                <img src={course.img} alt={course.title} className="w-full h-[150px] object-cover" />
+                <div className="p-4 flex-1 flex flex-col">
+                  <h3 className="text-lg font-bold mb-2 line-clamp-2">{course.title}</h3>
+                  <p className="text-gray-600 mb-2 text-sm">{course.level}</p>
+                  <p className="text-blue-600 font-semibold mt-auto text-sm">{course.interested} interested</p>
                 </div>
               </div>
             </motion.div>
@@ -199,13 +241,14 @@ const Home = () => {
               key={idx}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
+              className="w-full"
             >
-              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                <img src={course.img} alt={course.title} className="w-full h-48 object-cover" />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{course.title}</h3>
-                  <p className="text-gray-600 mb-2">{course.level}</p>
-                  <p className="text-blue-600 font-semibold">{course.interested} interested</p>
+              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 h-[320px] flex flex-col">
+                <img src={course.img} alt={course.title} className="w-full h-[150px] object-cover" />
+                <div className="p-4 flex-1 flex flex-col">
+                  <h3 className="text-lg font-bold mb-2 line-clamp-2">{course.title}</h3>
+                  <p className="text-gray-600 mb-2 text-sm">{course.level}</p>
+                  <p className="text-blue-600 font-semibold mt-auto text-sm">{course.interested} interested</p>
                 </div>
               </div>
             </motion.div>
@@ -215,21 +258,25 @@ const Home = () => {
 
       {/* Must Explore */}
       <motion.section
-        className="mb-10 py-20 px-4 w-full max-w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col mx-auto"
+        className="mb-0 py-10 px-4 w-full max-w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col mx-auto"
+        style={{
+          background: "#000000",
+          marginTop: "2rem"
+        }}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-xl sm:text-2xl font-bold mb-6">Must Explore</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <h2 className="text-cl sm:text-2xl font-bold mb-2 text-white">Must Explore</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {infoItems.map((item, idx) => (
             <motion.div
               key={idx}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <div className={`p-6 rounded-xl text-center ${item.color} hover:shadow-lg transition duration-300`}>
+              <div className={`p-4 rounded-xl text-center ${item.color} hover:shadow-lg transition duration-300`}>
                 <h3 className="text-white font-bold">{item.title}</h3>
               </div>
             </motion.div>
@@ -239,13 +286,18 @@ const Home = () => {
 
       {/* Explore Categories */}
       <motion.section
-        className="py-10 px-10 w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col mx-auto border border-gray-300 rounded-3xl shadow-xl"
+        className="pt-2 pb-10 px-6 md-10 w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col mx-auto border-2 border-red-600 rounded-3xl shadow-xl"
+        style={{
+          maxWidth: "1200px",
+          margin: "0.5rem auto 0.5rem",
+          background: "#000000"
+        }}
         initial="hidden"
         animate="visible"
         variants={fadeInUp}
       >
-        <h2 className="text-2xl font-bold mb-6 text-center">Explore</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4">
+        <h2 className="text-2xl font-bold mb-4 text-center text-white">Explore</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-2">
           {exploreItems.map((item, idx) => (
             <motion.div
               key={idx}
