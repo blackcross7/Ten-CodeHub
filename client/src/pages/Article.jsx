@@ -11,7 +11,7 @@ const Articles = () => {
         <div className="featured-grid">
           <article className="featured-card">
             <div className="article-image">
-              <img src="/assets/image/Screenshot 2025-02-07 223101.png" alt="Article" />
+              <img src="/assets/Web_Dev_Article.png" alt="Article" />
               <span className="article-category"><i className="fas fa-code"></i> Web Development</span>
             </div>
             <div className="article-content">
@@ -26,8 +26,7 @@ const Articles = () => {
 
           <article className="featured-card">
             <div className="article-image">
-              <img src="/assets/image/Screenshot 2025-02-07 223101.png" alt="Article" />
-              <span className="article-category"><i className="fas fa-sitemap"></i> Data Structures</span>
+              <img src="/assets/image/BST.jpeg" alt="Article" />
             </div>
             <div className="article-content">
               <h3>Mastering Binary Search Trees</h3>

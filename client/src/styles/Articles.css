@@ -1,3 +1,5 @@
+
+
 /* GENERAL STYLES */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-color);
@@ -40,7 +42,7 @@ p, span {
 .featured-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 6rem;
 }
 
 /* ARTICLE CARDS */
@@ -51,6 +53,7 @@ p, span {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
   border: 2px solid var(--border-color);
+  
 }
 
 .featured-card {
@@ -91,15 +94,17 @@ p, span {
 
 /* ARTICLE IMAGE */
 .article-image {
-  position: relative;
-  height: 200px;
+  position:relative;
+  height: 280px;
   overflow: hidden;
+  margin-bottom: 30px;
 }
 
 .article-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 20px;
 }
 
 .article-category {
@@ -129,7 +134,7 @@ p, span {
 
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
 }
 
