@@ -13,7 +13,7 @@ const BackendPage = () => {
   <Link to="/home">
     <p className="breadcrumb">All Courses &gt; Live</p>
     <h1 className="course-title">JAVA Backend Development - Live</h1>
-  </Link>
+  </Link> 
 </div>
 
         <p className="course-meta">
@@ -21,14 +21,14 @@ const BackendPage = () => {
           <a href="#">4.7/5 ratings</a>
         </p>
         
-        <div className="course-card">
+        <div className="course-card-java">
             {/* Left side image */}
           <img
             src="/assets/image/backend2-icon.png"
             alt="Backend Course"
             className="thumbnail-image"
           />
-          <div className="course-details">
+          <div className="course-details-java">
             <p className="interested">
                 <img src="/assets/image/interested-icon.png" alt="Interested" className="stat-icon" /> 
                  307k+ interested Coders</p>
