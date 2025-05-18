@@ -140,9 +140,11 @@ const Home = () => {
 
   return (
     <div
-      className="font-sans min-h-screen"
+      className="font-sans min-h-screen "
       style={{
-        background: "#000000"
+        background: "#000000",
+        height: "100%",
+
       }}
     >
       {/* Hero Section */}
@@ -286,7 +288,7 @@ const Home = () => {
 
       {/* Explore Categories */}
 <motion.section
-  className="pt-2 px-6 md:pt-10 md:px-10 mb-0 w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col space-y-0 mx-auto border-2 border-red-600 rounded-3xl shadow-xl"
+  className="pt-2 px-6 md:pt-10 md:px-10 mb-24 w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col space-y-0 mx-auto border-2 border-red-600 rounded-3xl shadow-xl pb-10 "
   style={{
     maxWidth: "1200px",
     margin: "0.5rem auto 0.5rem",
@@ -309,7 +311,7 @@ const Home = () => {
 
       >
         <div className={`p-6 rounded-xl ${item.color} relative overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105`}
-        style={{ width: "250px", height: "320px" }} // fixed card size
+        style={{ width: "250px", height: "260px" }} // fixed card size
 >
           <div className="w-full h-[150px] bg-white rounded-lg flex items-center justify-center p-4">
             <img
