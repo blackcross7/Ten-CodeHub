@@ -333,7 +333,7 @@ const BackendPage = () => {
       <span>03</span> Is there any number to contact for query?
     </label>
     <div className="faq-answer">
-      Call us at: <strong>(+91) (0)8069289001</strong> or email: <strong>courses@geeksforgeeks.org</strong>
+      Call us at: <strong>(+91) (0)8069267321</strong> or email: <strong>courses@tencodehub.org</strong>
     </div>
   </div>
 
