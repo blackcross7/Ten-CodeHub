@@ -96,31 +96,29 @@ const BackendPage = () => {
 
       <h3 className="overview-title">JAVA Backend Development Course - Key Highlights:</h3>
       <ul className="course-highlights">
-        <li><span className="highlight-bullet">•</span> <strong>20+ hours</strong> of recorded content.</li>
-        <li><span className="highlight-bullet">•</span> <strong>100+</strong> Practice Problems</li>
-        <li><span className="highlight-bullet">•</span> Project <strong>Training/Internship</strong> Certificate.</li>
-        <li><span className="highlight-bullet">•</span> Weekday <strong>Doubt Solving</strong> Sessions</li>
-        <li><span className="highlight-bullet">•</span> Skill Assessment Contests</li>
-        <li><span className="highlight-bullet">•</span> 6 Months of 24/7 <strong>One-on-One</strong> Doubt Assistance</li>
-        <li><span className="highlight-bullet">•</span> Live Project Building:
-          <ul>
-            <li>Minor Project: <strong>Digital Library</strong></li>
-            <li>Major Project: <strong>E-Wallet App (e.g., Paytm)</strong></li>
-          </ul>
-        </li>
-        <li><span className="highlight-bullet">•</span> Additional Recorded Projects:
-          <ul>
-            <li><strong>Movie Review System</strong></li>
-            <li><strong>Movie Ticket Booking System</strong></li>
-          </ul>
-        </li>
-        <li><span className="highlight-bullet">•</span> Supporting Notes/Documentation for every lecture.</li>
-        <li><span className="highlight-bullet">•</span> <strong>Note:</strong> Students who complete the project within
-          <strong> 15 days of course completion</strong> and <strong>upload it to the GitHub repository link</strong> provided
-          on the noticeboard will be <strong>eligible for an internship certificate upon evaluation</strong>.
-        </li>
-      </ul>
-
+        <ul>
+  <li><span className="highlight-bullet">•</span> <strong>20+ hours</strong> of on-demand video lessons.</li>
+  <li><span className="highlight-bullet">•</span> Over <strong>100 practice questions</strong> to master core concepts.</li>
+  <li><span className="highlight-bullet">•</span> Includes <strong>project-based training</strong> with an option for an <strong>internship certificate</strong>.</li>
+  <li><span className="highlight-bullet">•</span> Regular <strong>weekday sessions</strong> for doubt clarification.</li>
+  <li><span className="highlight-bullet">•</span> Participate in <strong>skill evaluation challenges</strong>.</li>
+  <li><span className="highlight-bullet">•</span> Get <strong>24/7 personal doubt support</strong> for <strong>6 months</strong>.</li>
+  <li><span className="highlight-bullet">•</span> Build real-world projects live:
+    <ul>
+      <li><strong>Minor Project:</strong> Digital Library System</li>
+      <li><strong>Major Project:</strong> E-Wallet Platform (like Paytm)</li>
+    </ul>
+  </li>
+  <li><span className="highlight-bullet">•</span> Explore extra recorded projects:
+    <ul>
+      <li><strong>Movie Review Application</strong></li>
+      <li><strong>Online Movie Ticket Booking</strong></li>
+    </ul>
+  </li>
+  <li><span className="highlight-bullet">•</span> Access <strong>lecture notes and documentation</strong> for each session.</li>
+  <li><span className="highlight-bullet">•</span> <strong>Note:</strong> Students who finish their project within <strong>15 days post-course</strong> and <strong>submit via the GitHub link</strong> on the noticeboard will be <strong>considered for an internship certificate after review</strong>.</li>
+</ul>
+</ul>
       {showMore && (
         <>
           <h3 className="overview-title">Java Backend Development - Course Coverage</h3>
@@ -163,19 +161,21 @@ const BackendPage = () => {
     <div className="instructor-details">
       <h3 className="instructor-name">Avishkar Deogharia</h3>
       <p className="instructor-title">
-        Senior Member Of Technical Staff at Salesforce | Ex Naukri.com | NIT Surat | 8+ years of Exp
-      </p>
-      <p className="instructor-bio">
-        With a deep understanding of Java, Springboot, Redis, Kafka, & MySQL, Shashikant is a master of his craft.
-        He has completed his graduation from NIT, Surat. He has an overall experience of 7+ years & is currently
-        working as a Senior MTS at Salesforce. Previously he was associated with Naukri as a Lead Engineer.
-      </p>
-      <p className="instructor-bio">
-        He has also left his mark on the industry, having worked with esteemed companies like Paytm & Snapdeal. He
-        has designed and developed multiple microservices and data processing pipelines in the existing distributed
-        systems. His wealth of experience in teaching is matched only by his ability to mentor & guide both
-        students & working professionals.
-      </p>
+  Lead Backend Architect at TechVerse Labs | Ex CodeNation | IIT Indore | 9+ years of Exp
+</p>
+<p className="instructor-bio">
+  With strong expertise in Java, Spring Boot, MongoDB, RabbitMQ, and PostgreSQL, Avishkar Deogharia stands out as a
+  seasoned backend engineer. He completed his graduation from IIT Indore and brings over 9 years of experience
+  in the software industry. Currently, he works as a Lead Backend Architect at TechVerse Labs. Previously, he was
+  part of CodeNation as a Senior Software Engineer.
+</p>
+<p className="instructor-bio">
+  Avishkar has also contributed to several high-impact projects during his time at companies like InstaShop and
+  Zylotech. He has played a key role in building distributed systems, microservices, and scalable data pipelines.
+  Alongside his engineering work, Avishkar has a passion for teaching and mentoring, helping students and working
+  professionals build real-world development skills.
+</p>
+
 
       <div className="instructor-links">
         <a href="#" className="demo-video-link">Demo Video</a>
@@ -191,11 +191,11 @@ const BackendPage = () => {
     <div className="row">
       <div className="info-block">
         <p className="label">BATCH</p>
-        <p className="value bold">JBDL 85</p>
+        <p className="value bold">JBDL 74</p>
       </div>
       <div className="info-block">
         <p className="label">MENTOR</p>
-        <p className="value">Shashikant Kushwaha</p>
+        <p className="value">Avishkar Deogharia</p>
       </div>
     </div>
 
@@ -204,19 +204,19 @@ const BackendPage = () => {
     <div className="row">
       <div className="info-block">
         <p className="label">STARTING FROM</p>
-        <p className="value">May 24, 2025</p>
+        <p className="value">June 30, 2025</p>
       </div>
       <div className="info-block">
         <p className="label">TIMINGS</p>
-        <p className="value bold">10:00 AM IST -Sat, Sun</p>
+        <p className="value bold">09:00 AM IST -Sat, Sun</p>
       </div>
     </div>
 
     <div className="bottom-row">
       <button className="signup-button">Sign Up Now</button>
       <div className="pricing">
-        <p className="old-price">₹ 19999</p>
-        <p className="new-price">₹ 8999</p>
+        <p className="old-price">₹ 19789</p>
+        <p className="new-price">₹ 8499</p>
       </div>
     </div>
   </div>
