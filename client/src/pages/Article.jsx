@@ -11,7 +11,7 @@ const Articles = () => {
         <div className="featured-grid">
           <article className="featured-card">
             <div className="article-image">
-              <img src="/assets/Web_Dev_Article.png" alt="Article" />
+              <img src="/assets/image/Web_Dev_Article.png" alt="Article" />
               <span className="article-category"><i className="fas fa-code"></i> Web Development</span>
             </div>
             <div className="article-content">

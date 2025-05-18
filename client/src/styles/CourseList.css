@@ -1,4 +1,15 @@
 /* Reset Box Sizing */
+:root {
+  --text-color: rgb(252, 245, 245);
+  --heading-white: white;
+}
+
+/* Global */
+ h1, h2, h3, h4, h5, h6 { 
+    color: var(--text-color);
+    font-weight: 700;
+} 
+
 *,
 *::before,
 *::after {
@@ -7,45 +18,87 @@
 /* Promo Banner Styles */
 .promo-banner {
   position: relative;
-  z-index: 4;
+  z-index: 2;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center; /* Change from 'left' to 'flex-start' */
-  background: linear-gradient(to bottom, #5244eadd, #686add, #797bf0, #8aa5dd, #b7cbf4, #ffffff);
+  align-items: center;
+  background: url('/assets/image/course_bg2.jpg');
+  background-size: cover; /* This makes the image cover the full area */
   color: rgb(14, 11, 11);
-  padding: 100px 60px 250px 60px;
-  padding-bottom: 250px;
+  padding: 100px 60px; /* Top and sides */
   width: 100%;
+  height: 100vh; /* This makes it take full screen height */
   flex-direction: row;
   text-align: left;
 }
+.promo-banner * {
+  color: white !important;
+}
+.promo-banner::after {
+  content: "";
+  position: absolute;
+  bottom: -4000px; /* double the previous bottom */
+  left: 0;
+  width: 100%;
+  height: 4000px; /* double the previous height */
+  background: linear-gradient( #050a30 ); 
+  z-index: 1;
+  pointer-events: none;
+  color: var(--text-color);
+}
+footer {
+  background-color: #ffffff; /* or any fixed color like black or dark gray */
+  color: #000000;            /* ensure text color contrasts the background */
+  position: relative;
+  z-index: 100;              /* ensure it's above any gradient overlays */
+  width: 100%;
+  padding: 20px;
+}
+.course-card {
+  background: linear-gradient(135deg, #10b981, #059669); /* Emerald green shades */
+  border-radius: 12px;
+  color: white;
+  padding: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+.course-card:hover {
+  transform: translateY(-5px);
+}
+.course-card h3, 
+.course-card p, 
+.course-card span {
+  color: #ffffff; /* Ensure all text is white */
+}
+
 /* Sale Info */
 .sale-info {
   text-align: left;
   margin-left: 0;
   margin-bottom: 20px;
   padding-left: 100px; /* Adjusted padding to shift towards center */
-  margin-right: 20px; /* Added margin to shift towards center */
+  margin-right: 20px; 
+    margin-top: -350px; /* Added margin to shift towards center */
 }
 .sale-info h1 {
   font-size: 22px;
   margin: 0;
-  color: black;
+  color: rgb(253, 251, 251);
 }
 
 .sale-info p {
-  color: black;
+  color: rgb(250, 244, 244);
 }
 
 /* Search Bar Section */
 .search-wrapper {
-  width: 50%; /* Set to 100% to allow centering */
+  width: 100%; /* Set to 100% to allow centering */
   display: flex;
   justify-content: center; /* Center the search bar */
-  margin: 20px 0; /* Add margin for spacing */
+  margin: 20px 0;
+  
 }
-
 .search-container {
   display: flex;
   flex-direction: row;
@@ -57,10 +110,8 @@
   background: #ffffff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   gap: 10px;
-  margin-right: 120px;
+  margin-top: -350px; 
 }
-
-
 .search-bar {
   flex: 1;
   padding: 5px;
@@ -69,15 +120,13 @@
   font-size: 14px;
   background-color: white;
   color: black;
-  width: 100%;
+  width: 100%;  
 }
-
 .search-btn {
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
-
 .search-icon {
   width: 20px;
   height: 20px;
@@ -85,7 +134,7 @@
 
 /* Popular Now Section Styles */
 .popular-now {
-  background: #ffffff;
+  background:linear-gradient(   #050a30);
   width: 90%; /* slightly more narrow than 100% */
   max-width: 1200px; /* limit how wide it can stretch */
   margin: -180px auto 0 auto; /* center it with auto margins */
@@ -97,20 +146,16 @@
   z-index: 10;
 }
 
-
 .foundation-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-
 .popular-header h2 {
   margin: 0;
   font-size: 24px;
   font-weight: bold;
 }
-
 /* View All Button */
 .view-all-btn {
   padding: 8px 16px;
@@ -119,19 +164,17 @@
   align-items: right !important;
   justify-content: right;
   border: none;
-  background-color: transparent;
+  background-color: whitesmoke;
   cursor: pointer;
   white-space: nowrap;
   margin-left: auto;
 }
-
 .arrow-icon {
   width: 20px;
   height: auto;
   margin-left: 5px;
   vertical-align: middle;
 }
-
 /* Courses Containers */
 .courses-container,
 .classroom-container,
@@ -145,6 +188,28 @@
   gap: 20px;
   width: 100%;
   padding: 10px 0;
+  
+}
+.classroom-header h3,
+.live-header h3,
+.self-paced-header h3,
+.foundation-header h3,
+.free-header h3 {
+  color: rgb(163, 19, 19) !important;
+}
+.courses-container,
+.classroom-container,
+.live-courses-container,
+.self-paced-courses-container,
+.build-your-foundation-container,
+.free-courses-container 
+{ 
+   outline: 2px solid rgb(0, 42, 255);
+  padding: 15px; /* or 5px if you want smaller gap */
+  box-sizing: border-box; /* important to keep padding inside outline */
+}
+.courses-container{
+   background-color:  linear-gradient(#050a30);
 }
 
 /* Course Card */
@@ -177,10 +242,11 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+  color: rgb(255, 255, 255);
 }
 
 .course-title-section h3 {
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 16px;
   font-weight: bold;
 }
@@ -217,6 +283,7 @@
   font-size: 14px;
   color: #070707;
 }
+
 
 /* Explore Button */
 .explore-btn {
@@ -282,22 +349,22 @@
   text-align: left;
   padding: 20px;
   max-width: 95%;
-  margin: 0 auto;
+  margin: 50px auto 0 auto;  /* Move section down by adding top margin */
+  border: 2px solid rgb(0, 42, 255);     /* Add red border around the section */
+  border-radius: 10px;       /* Optional: for rounded corners */
+ /* Optional: ensure contrast with background */
 }
-
 .course-categories h3 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 15px;
 }
-
 .category-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
 }
-
 .category {
   font-size: 14px;
   font-weight: bold;
@@ -309,12 +376,10 @@
   text-align: center;
   transition: transform 0.3s ease-in-out;
 }
-
 .category:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(250, 241, 241, 0.956);
 }
-
 .category.all { background: #f4a261; }
 .category.certification { background: #5e548e; }
 .category.dsa { background: #2a9d8f; }
@@ -323,7 +388,6 @@
 .category.programming { background: #457b9d; }
 .category.cloud { background: #1d3557; }
 .category.gate { background: #101011; }
-
 /* Course Sections */
 .classroom-courses,
 .live-courses,
@@ -338,7 +402,6 @@
   margin: 0 auto;
   padding: 20px 0;
 }
-
 .classroom-header,
 .live-header,
 .self-paced-header,
@@ -349,8 +412,6 @@
   align-items: center;
   margin-bottom: 20px;
 }
-
-
 .classroom-header h3,
 .live-header h3,
 .self-paced-header h3,
@@ -363,8 +424,6 @@
   overflow: visible;
   text-overflow: unset;
 }
-
-
 /* Classroom Title Backgrounds */
 .classroom-courses .course-card:nth-child(1) .course-title-section {
   background: linear-gradient(to right, #ff7f50, #ff6347);
@@ -375,13 +434,11 @@
 .classroom-courses .course-card:nth-child(3) .course-title-section {
   background: linear-gradient(to right, #20b2aa, #3cb371);
 }
-
 /* General Reset */
 body, html {
   overflow-x: hidden;
   width: 100%;
 }
-
 .container {
   padding: 0;
   background-color: white; /* reinforce white background */
@@ -399,9 +456,12 @@ body, html {
   /* Promo Banner */
   .promo-banner {
     flex-direction: column !important;
+    justify-content: space-around !important;
+    gap: 0;
     padding: 30px 15px !important;
     text-align: center !important;
     padding-bottom: 120px !important; /* reduce bottom padding so overlap isn't too large */
+    height:90vh;
   }
   /* Sale info full width and centered */
   .sale-info {
@@ -409,8 +469,7 @@ body, html {
     margin-left: 0 !important;
     text-align: center !important;
     width: 100% !important;
-    margin-bottom: 20px !important;
-    margin-right: 100px;
+    margin-top: 120px !important;
   }
   .sale-info h1 {
     font-size: 22px;
@@ -425,7 +484,6 @@ body, html {
     z-index: 20;
     position: relative; /* make sure it's stacked above others */
   }
-
   .search-container {
     display: flex;
     flex-direction: row; /* keep it row to prevent button going below */
@@ -437,13 +495,11 @@ body, html {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     gap: 10px;
   }
-
   .search-bar {
     flex: 1;
     min-width: 0;
     font-size: 14px;
   }
-
   .search-btn {
     flex-shrink: 0;
     display: flex;
@@ -460,16 +516,13 @@ body, html {
     padding: 20px 10px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    
   }
-
   .popular-header {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 10px;
   }
-
   /* Course Cards - General */
   .courses-container,
   .classroom-container,
@@ -482,7 +535,6 @@ body, html {
     justify-content: center;
     gap: 20px;
   }
-
   .course-card {
     flex: none;
     width: 100%;
@@ -492,7 +544,6 @@ body, html {
     flex-direction: column;
     justify-content: space-between;
   }
-
   .course-title-section {
     padding: 20px;
     min-height: 60px;
@@ -503,11 +554,10 @@ body, html {
     background-size: cover;
     background-position: center;
   }
-
   .course-title-section h3 {
     font-size: 16px;
+    
   }
-
   .course-details {
     padding: 16px;
     text-align: left;
@@ -539,6 +589,7 @@ body, html {
     white-space: normal;
     overflow: visible;
     text-overflow: unset;
+    
   }
 
   /* Rating + Interested Section */
