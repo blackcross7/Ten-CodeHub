@@ -15,6 +15,7 @@ import ForumPage from './components/ForumPage';
 import Dsa from './pages/Dsa';
 import JavaPage from './components/JavaPage';
 import Ml from './components/ml';
+import Webdev from './components/webdev';
 
 
 const AppRoutes = () => {
@@ -34,6 +35,7 @@ const AppRoutes = () => {
       <Route path= "/dsa" element={<Dsa/>} />
       <Route path="/java" element={<JavaPage/>} />
       <Route path="/ml" element={<Ml/>} />
+      <Route path="/webdev" element={<Webdev/>} />
   
 
       <Route path="*" element={<h1 className="text-center text-2xl mt-10">404 - Page Not Found</h1>} />

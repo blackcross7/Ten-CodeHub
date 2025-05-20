@@ -1,7 +1,6 @@
-/* src/styles/BackendPage.css */
-.ml-page {
-  width: 100vw; /* Ensure full width */
-  background: linear-gradient(to bottom, #0b0e27, #e9f3f6, #f0f4f3,#f4f6fb); /* Gradient Blue */
+.webdev-page {
+  width: 100vw;
+  background: linear-gradient(to bottom, #040610, #e9f3f6, #f0f4f3,#f4f6fb);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,13 +9,13 @@
   padding-top: 150px;
 }
 
-.ml-container {
+.webdev-container {
   width: 100%;
-  max-width: 1100px; /* Slightly wider */
+  max-width: 1100px;
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center inner content */
+  align-items: center;
   text-align: left;
 }
 
@@ -26,20 +25,20 @@
   width: 100%;
 }
 
-.mlcourse-title {
+.webdevcourse-title {
   font-size: 2.2rem;
   font-weight: 700;
   margin: 0.5rem 0;
   width: 100%;
 }
 
-.mlcourse-meta {
+.webdevcourse-meta {
   font-size: 1rem;
   margin-bottom: 1.5rem;
   width: 100%;
 }
 
-.mlcourse-meta .stars {
+.webdevcourse-meta .stars {
   color: gold;
 }
 
@@ -48,7 +47,7 @@
   text-decoration: underline;
 }
 
-.course-card-ml {
+.course-card-webdev {
   flex: 1 1 350px;
   display: flex;
   flex-direction: row;
@@ -59,7 +58,7 @@
   background: white;
   border-radius: 1rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  overflow: hidden; /* prevents scrollbars due to overflow */
+  overflow: hidden;
 }
 
 .thumbnail-placeholder {
@@ -70,26 +69,26 @@
   flex-shrink: 0;
 }
 
-.mlcourse-details {
+.webdevcourse-details {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   color: #333;
-  padding: 1rem 0.5rem;
+  padding: 0.5rem 0.5rem;
 }
 
-.mlcourse-details .interested {
+.webdevcourse-details .interested {
   font-weight: bold;
   margin-bottom: 0;
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Space between icon and text */
+  gap: 0.5rem;
 }
 
-.mlcourse-details .description {
+.webdevcourse-details .description {
   margin: 0.5rem 0 1rem;
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
 .course-stats {
@@ -102,13 +101,12 @@
 }
 
 .course-stats li {
- display: flex;
+  display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 1rem;
   margin-bottom: 0.4rem;
 }
-
 
 .signup-button {
   background-color: #28a745;
@@ -134,44 +132,28 @@
   font-weight: 500;
 }
 
-.course-stats li {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.4rem;
-}
-
 .stat-icon {
-   width: 18px;
+  width: 18px;
   height: 18px;
   object-fit: contain;
 }
+
 .thumbnail-image {
   width: 500px;
-  height: 350px; /* LIMIT vertical height */
-  object-fit: cover; /* OR use 'contain' if you want full image but less height */
+  height: 350px;
+  object-fit: cover;
   border-radius: 1rem 0 0 1rem;
   display: block;
-}
-.signup-button {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 0.7rem 1.4rem;
-  border-radius: 0.4rem;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-left: 2rem; /* ← this shifts it to the right */
-  margin-bottom: 0.5rem;
 }
 
 .button-group {
   display: flex;
-  gap: 3.5rem; /* Adds more horizontal space between buttons */
+  gap: 3.5rem;
   flex-wrap: wrap;
   margin-top: 0;
   align-items: center;
 }
+
 .access-demo-button {
   display: flex;
   align-items: center;
@@ -186,7 +168,7 @@
 }
 
 .access-demo-button:hover {
-  background-color: rgba(0, 123, 255, 0.1); /* subtle hover effect */
+  background-color: rgba(0, 123, 255, 0.1);
   border-radius: 0.5rem;
 }
 
@@ -217,7 +199,7 @@
   color: #007bff;
   margin: 0;
 }
-/* Bottom pills */
+
 .bottom-info-bar {
   display: flex;
   flex-wrap: wrap;
@@ -226,7 +208,7 @@
   margin-top: 2rem;
 }
 
-.mlinfo-pill {
+.webdevinfo-pill {
   background-color: #f0fdfa;
   color: #0d0e28;
   font-weight: 500;
@@ -241,13 +223,14 @@
   background-color: #d1fae5;
   cursor: default;
 }
+
 .early-bird-alert {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  flex-direction: column; /* Stack the lines vertically */
-  align-items: center;     /* Center horizontally */
-  justify-content: center; /* Center vertically */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #e2eef9;
   border: 2px solid #b6dff6;
   border-radius: 0.75rem;
@@ -258,7 +241,6 @@
   width: 80%;
   max-width: 1100px;
 }
-
 
 .alert-icon {
   background-color: #c8f4fb;
@@ -288,6 +270,7 @@
   color: #047857;
   font-weight: 600;
 }
+
 .course-overview-section {
   max-width: 900px;
   margin: 40px auto;
@@ -298,14 +281,14 @@
   color: #333;
 }
 
-.mlsection-heading {
+.webdevsection-heading {
   font-size: 28px;
   text-align: center;
   margin-bottom: 20px;
   color: #1d1a42;
 }
 
-.mloverview-title {
+.webdevoverview-title {
   font-size: 20px;
   margin-top: 30px;
   font-weight: bold;
@@ -317,46 +300,45 @@
 }
 .course-overview-section {
   padding: 20px;
-  line-height: 1.6; /* slightly tighter spacing */
+  line-height: 1.6;
 }
 
-.mlcourse-overview-section h2,
-.mlcourse-overview-section h3 {
+.webdevcourse-overview-section h2,
+.webdevcourse-overview-section h3 {
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
-.mlcourse-overview-section p,
-.mlcourse-overview-section ul {
+.webdevcourse-overview-section p,
+.webdevcourse-overview-section ul {
   margin: 10px 0;
 }
 
-.mlcourse-highlights {
+.webdevcourse-highlights {
   list-style: none;
   padding-left: 0;
 }
 
-.mlcourse-highlights li {
+.webdevcourse-highlights li {
   margin-bottom: 10px;
   padding-left: 20px;
   position: relative;
-  margin-bottom: 5px; /* Reduce vertical space between bullets */
-
+  margin-bottom: 5px;
 }
 
-.mlhighlight-bullet {
+.webdevhighlight-bullet {
   position: absolute;
   left: 0;
   color: #1c1a5d;
   font-weight: bold;
 }
 
-.mlread-more-toggle {
+.webdevread-more-toggle {
   text-align: center;
   margin-top: 20px;
 }
 
-.mlread-more-btn {
+.webdevread-more-btn {
   background: none;
   border: none;
   outline: none;
@@ -367,12 +349,12 @@
   cursor: pointer;
   text-decoration: underline;
 }
-.mlread-more-btn:focus {
+.webdevread-more-btn:focus {
   outline: none;
   box-shadow: none;
 }
 
-.mlread-more-btn:focus:not(:focus-visible) {
+.webdevread-more-btn:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
@@ -382,7 +364,7 @@
   font-style: italic;
   color: #333;
 }
-.mlinstructor-section {
+.webdevinstructor-section {
   max-width: 1100px;
   margin: 80px auto;
   padding: 30px;
@@ -392,14 +374,14 @@
   margin-bottom: 40px;
 }
 
-.mlinstructor-heading {
+.webdevinstructor-heading {
   text-align: center;
   font-size: 28px;
   color: #1a2a5d;
   margin-bottom: 30px;
 }
 
-.mlinstructor-container {
+.webdevinstructor-container {
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
@@ -422,7 +404,7 @@
   color: #333;
 }
 
-.mlinstructor-name {
+.webdevinstructor-name {
   font-size: 24px;
   font-weight: bold;
   color: #1a2a5d;
@@ -558,7 +540,7 @@
   font-weight: 600;
   color: #111827;
 }
-.mltestimonial-review-section {
+.webdevtestimonial-review-section {
   display: flex;
   justify-content: space-between;
   margin-top: 60px;
@@ -566,7 +548,7 @@
   flex-wrap: wrap;
 }
 
-.mltestimonial-card {
+.webdevtestimonial-card {
   flex: 1;
   background-color: #080917;
   color: white;
@@ -688,7 +670,7 @@
   display: none;
 }
 
-.mlfaq-question {
+.webdevfaq-question {
   display: flex;
   align-items: center;
   font-weight: bold;
@@ -700,7 +682,7 @@
   color: #000;
 }
 
-.mlfaq-question span {
+.webdevfaq-question span {
   color: #291e62;
   font-weight: 700;
   margin-right: 10px;
@@ -721,16 +703,16 @@
 }
 
 @media (max-width: 1024px) {
-  .ml-page {
+  .webdev-page {
     padding: 2rem 1rem;
     padding-top: 150px;
   }
 
-  .course-card-ml {
-   flex-direction: column !important;
+  .course-card-webdev {
+    flex-direction: column !important;
     width: 100%;
     max-width: 100%;
-    overflow: visible; /* allow content to flow */
+    overflow: visible;
   }
 
   .thumbnail-image {
@@ -739,20 +721,20 @@
     border-radius: 1rem 1rem 0 0;
   }
 
-  .mlcourse-details {
+  .webdevcourse-details {
     padding: 1rem;
   }
 
-  .mltestimonial-card,
+  .webdevtestimonial-card,
   .review-section {
     max-width: 100%;
   }
 
-  .mltestimonial-review-section {
+  .webdevtestimonial-review-section {
     flex-direction: column;
   }
 
-  .mlinstructor-container {
+  .webdevinstructor-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -767,22 +749,21 @@
   }
 }
 
-/* Mobile Devices (<= 768px) */
 @media (max-width: 768px) {
-  .mlcourse-title {
+  .webdevcourse-title {
     font-size: 1.6rem;
   }
 
-  .mlcourse-meta {
+  .webdevcourse-meta {
     font-size: 0.95rem;
   }
 
-  .mltestimonial-card,
+  .webdevtestimonial-card,
   .review-section {
     padding: 20px;
   }
 
-  .mlcourse-details {
+  .webdevcourse-details {
     padding: 1rem 0.5rem;
   }
 
@@ -814,7 +795,7 @@
     padding: 1rem;
   }
 
-  .mlinfo-pill {
+  .webdevinfo-pill {
     font-size: 0.85rem;
     padding: 0.4rem 1rem;
   }
@@ -853,3 +834,4 @@
     font-size: 14px;
   }
 }
+
