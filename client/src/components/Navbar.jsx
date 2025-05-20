@@ -160,18 +160,18 @@ const Navbar = ({ isLoggedIn, user }) => {
         <button className="scroll-btn" onClick={scrollLeft}>&lt;</button> {/* Changed to HTML entity for less confusion */}
         <div className="secondary-links" id="scrollable-links" ref={scrollContainerRef}>
           <Link to="/dsa" className="secondary-link">DSA</Link>
-          <Link to="/problems" className="secondary-link">Practice Problems</Link>
+          <Link to="/practice" className="secondary-link">Practice Problems</Link>
           <Link to="/python" className="secondary-link">Python</Link>
           <Link to="/c" className="secondary-link">C</Link>
           <Link to="/cpp" className="secondary-link">C++</Link>
           <Link to="/java" className="secondary-link">Java</Link>
-          <Link to="/courses" className="secondary-link">Courses</Link>
+          <Link to="/course" className="secondary-link">Courses</Link>
           <Link to="/ml" className="secondary-link">Machine Learning</Link>
           <Link to="/devops" className="secondary-link">DevOps</Link>
           <Link to="/webdev" className="secondary-link">Web Development</Link>
           <Link to="/systemdesign" className="secondary-link">System Design</Link>
           <Link to="/aptitude" className="secondary-link">Aptitude</Link>
-          <Link to="/projects" className="secondary-link">Projects</Link>
+          
         </div>
         <button className="scroll-btn" onClick={scrollRight}>&gt;</button> {/* Changed to HTML entity */}
       </div>
