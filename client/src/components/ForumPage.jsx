@@ -31,19 +31,19 @@ const ForumPage = () => {
   };
 
   return (
-    <div className="forum-wrapper">
+    <div className="forum-wrapper bg-[url('/assets/image/HeroBg3.jpeg')] bg-cover bg-center text-white">
       {/* Side image container */}
       <div className="image-container">
         <img src="/assets/image/discussion.png" alt="Discussion" />
       </div>
 
       {/* Main forum content */}
-      <div className="forum-container">
+      <div className="forum-container bg-white text-white-800">
         <h1 className="forum-title">Discussion Forum</h1>
 
         <form onSubmit={handleSubmit}>
           <div className="input-group">
-            <label htmlFor="name">
+            <label htmlFor="name" className="text-gray-800">
               <img src="/assets/image/user-icon.png" alt="User" className="icon-img" /> Name:
             </label>
             <input
@@ -56,7 +56,7 @@ const ForumPage = () => {
           </div>
 
           <div className="input-group">
-            <label htmlFor="topic">
+            <label htmlFor="topic" className="text-gray-800">
               <img src="/assets/image/topic-icon.png" alt="Topic" className="icon-img" /> Discussion Topic:
             </label>
             <input
@@ -69,7 +69,7 @@ const ForumPage = () => {
           </div>
 
           <div className="input-group">
-            <label htmlFor="views">
+            <label htmlFor="views" className="text-gray-800">
               <img src="/assets/image/views-icon.png" alt="Views" className="icon-img" /> Your Views:
             </label>
             <textarea
@@ -77,6 +77,7 @@ const ForumPage = () => {
               name="views"
               value={views}
               onChange={(e) => setViews(e.target.value)}
+              className="text-gray-800"
             ></textarea>
           </div>
 
@@ -86,7 +87,7 @@ const ForumPage = () => {
         </form>
 
         {statusMessage && (
-          <p className={`status-message ${statusMessage.includes('successfully') ? 'success' : 'error'}`}>
+          <p className={`status-message ${statusMessage.includes('successfully') ? 'success' : 'error'} text-gray-800`}>
             {statusMessage}
           </p>
         )}

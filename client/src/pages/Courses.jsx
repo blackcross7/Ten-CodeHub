@@ -7,7 +7,7 @@ const Courses = () => {
     <div className="App">
       {/* Section with custom background */}
       <section className="courses-section">
-        <div className="course-section-wrapper">
+        <div className="course-section-wrapper relative z-10">
           <CourseList />
         </div>
       </section>

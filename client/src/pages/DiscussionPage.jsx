@@ -47,12 +47,12 @@ const DiscussionsPage = () => {
   };
 
   return (
-    <div className="main-container">
+    <div className="main-container bg-[url('/assets/image/HeroBg3.jpeg')] bg-cover bg-center">
       <div className="image-container">
         <img src="/assets/image/discussion.png" alt="Discussion" />
       </div>
 
-      <div className="discussions-container">
+      <div className="discussions-container text-white">
         <div className="discussions-header">
           <h2 className="discussions-heading">Discussions</h2>
           <button onClick={handleGoBack} className="back-to-forum-btn">
@@ -62,7 +62,7 @@ const DiscussionsPage = () => {
 
         {dummyDiscussions.length > 0 ? (
           dummyDiscussions.map((discussion) => (
-            <div key={discussion.id} className="discussion-card">
+            <div key={discussion.id} className="discussion-card bg-white text-gray-800">
               <h3>{discussion.topic}</h3>
               <p><strong>By:</strong> {discussion.name}</p>
               <p>{discussion.views}</p>
@@ -84,7 +84,7 @@ const DiscussionsPage = () => {
                     placeholder="Write your reply..."
                     value={replies[discussion.id] || ""}
                     onChange={(e) => handleReplyChange(discussion.id, e.target.value)}
-                    className="reply-textarea"
+                    className="reply-textarea text-gray-800"
                   ></textarea>
                   <button type="submit" className="reply-submit-btn">
                     Submit Reply

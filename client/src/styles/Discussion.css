@@ -4,7 +4,7 @@ html, body {
   padding: 0;
   overflow-x: hidden;
   height: 100%;
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; Remove conflicting background */
 }
 
 .main-container {
@@ -15,7 +15,7 @@ html, body {
   flex-wrap: wrap;
   width: 100%;
   box-sizing: border-box;
-  background-color: #fff;
+  /* background-color: #fff; Remove conflicting background */
   margin-top: 130px;
 }
 
@@ -25,7 +25,7 @@ html, body {
   padding: 20px;
   max-width: 700px;
   margin: 0 auto;
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; Remove conflicting background */
   box-sizing: border-box;
 }
 

@@ -14,6 +14,8 @@ import DiscussionsPage from './pages/DiscussionPage';
 import ForumPage from './components/ForumPage';
 import Dsa from './pages/Dsa';
 import JavaPage from './components/JavaPage';
+import Python from './pages/Python'; // Added Python import
+import C from './pages/C'; // Added C import
 
 
 const AppRoutes = () => {
@@ -32,6 +34,9 @@ const AppRoutes = () => {
       <Route path="/forum" element={<ForumPage/>} /> 
       <Route path= "/dsa" element={<Dsa/>} />
       <Route path="/java" element={<JavaPage/>} />
+      <Route path="/python" element={<Python/>} /> {/* Added Python route */}
+      <Route path="/python-programming" element={<Python/>} />
+      <Route path="/c" element={<C/>} /> {/* Added C route */}
 
       <Route path="*" element={<h1 className="text-center text-2xl mt-10">404 - Page Not Found</h1>} />
     </Routes>

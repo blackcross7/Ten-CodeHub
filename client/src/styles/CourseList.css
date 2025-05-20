@@ -77,7 +77,7 @@ footer {
   text-align: left;
   margin-left: 0;
   margin-bottom: 20px;
-  padding-left: 100px; /* Adjusted padding to shift towards center */
+  padding-left: 120px; /* Increase padding to move it further inwards */
   margin-right: 20px; 
     margin-top: -350px; /* Added margin to shift towards center */
 }
@@ -93,7 +93,7 @@ footer {
 
 /* Search Bar Section */
 .search-wrapper {
-  width: 100%; /* Set to 100% to allow centering */
+  width: 70px; /* Set to 100% to allow centering */
   display: flex;
   justify-content: center; /* Center the search bar */
   margin: 20px 0;
@@ -104,13 +104,15 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 30%;
+  width: 300px; /* Reduce width */
   padding: 10px;
   border-radius: 8px;
   background: #ffffff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  gap: 10px;
+  gap: 6px;
   margin-top: -350px; 
+  margin-left: auto; /* Push to the right */
+  margin-right: 110px; /* Increase margin further inwards */
 }
 .search-bar {
   flex: 1;
@@ -120,7 +122,7 @@ footer {
   font-size: 14px;
   background-color: white;
   color: black;
-  width: 100%;  
+  width: 50%;  
 }
 .search-btn {
   background-color: transparent;
@@ -137,13 +139,20 @@ footer {
   background:linear-gradient(   #050a30);
   width: 90%; /* slightly more narrow than 100% */
   max-width: 1200px; /* limit how wide it can stretch */
-  margin: -180px auto 0 auto; /* center it with auto margins */
+  margin: -500px auto 0 auto; /* center it with auto margins */
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
   padding: 30px 30px; /* adds left and right padding */
   position: relative;
   z-index: 10;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 30px; /* Add left padding to align with course containers */
 }
 
 .foundation-header {
@@ -205,8 +214,9 @@ footer {
 .free-courses-container 
 { 
    outline: 2px solid rgb(0, 42, 255);
-  padding: 15px; /* or 5px if you want smaller gap */
+  padding: 6px; /* or 5px if you want smaller gap */
   box-sizing: border-box; /* important to keep padding inside outline */
+  border-radius: 15px; /* Added curved border */
 }
 .courses-container{
    background-color:  linear-gradient(#050a30);
@@ -217,7 +227,7 @@ footer {
   flex: 1 1 250px;
   max-width: 300px;
   min-width: 250px;
-  min-height: 340px;
+  min-height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -234,10 +244,10 @@ footer {
 
 /* Course Title Section */
 .course-title-section {
-  padding: 20px;
+  padding: 15px;
   border-radius: 12px 12px 0 0;
   text-align: left;
-  height: 120px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -269,13 +279,13 @@ footer {
 .course-details {
   flex-grow: 1;
   background: #f4ebeb;
-  padding: 16px;
+  padding: 12px;
   text-align: left;
   border-radius: 0 0 12px 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 8px;
+  gap: 6px;
 }
 
 .course-details p {
@@ -346,6 +356,7 @@ footer {
 
 /* Course Categories Section */
 .course-categories {
+  margin-top: 50px; /* Add top margin to push it down */
   text-align: left;
   padding: 20px;
   max-width: 95%;
