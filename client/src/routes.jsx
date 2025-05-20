@@ -17,7 +17,7 @@ import JavaPage from './components/JavaPage';
 import C from './pages/C'
 import Python from './pages/Python'
 import Ml from './components/ml'
-import Webdev from './components/Webdev'
+import Webdev from './components/webdev'
 import DevOps from './components/DevOps'
 
 
