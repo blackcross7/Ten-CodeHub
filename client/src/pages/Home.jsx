@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
+import CourseCard from '../components/CourseCard';
+import OtherCards from '../components/OtherCards';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -54,36 +56,42 @@ const Home = () => {
       level: 'Beginner to Advance',
       interested: '558K+',
       img: 'https://media.geeksforgeeks.org/img-practice/prod/courses/504/Mobile/Other/Course_DSA_to_Dev_1720846081.webp',
+      link: "/dsa"
     },
     {
       title: 'JAVA Backend Development - Live',
       level: 'Intermediate and Advance',
       interested: '304K+',
       img: 'https://media.geeksforgeeks.org/img-practice/prod/courses/227/Mobile/Other/Course_Backend_1720846992.webp',
+      link: "/java"
     },
     {
       title: 'Tech Interview 101 -From DSA to System Design',
       level: 'Beginner to Advance',
       interested: '425k+',
       img: 'https://media.geeksforgeeks.org/img-practice/prod/courses/458/Mobile/Other/Course_Tech_Int_1720846791.webp',
+      link: "#"
     },
     {
       title: 'Full Stack Development with React & Node JS - Live',
       level: 'Beginner to Advance',
       interested: '345k+',
       img: 'https://media.geeksforgeeks.org/img-practice/prod/courses/241/Web/Content/FSRNL_1705410152.webp',
+      link: "#"
     },
     {
       title: 'Java Programming Online Course [Complete Beginner to Advanced]',
       level: 'Beginner to Advance',
       interested: '291k+',
       img: 'https://media.geeksforgeeks.org/img-practice/prod/courses/270/Web/Content/CourseJavaProgrammin_1716371938.webp',
+      link: "#"
     },
     {
       title: 'C++ Programming Course Online - Complete Beginner to Advanced',
       level: 'Beginner to Advance',
       interested: '425k+',
       img: 'https://media.geeksforgeeks.org/img-practice/prod/courses/221/Web/Content/cpp_1723009538.webp',
+      link: "#"
     },
   ];
 
@@ -140,7 +148,7 @@ const Home = () => {
 
   return (
     <div
-      className="font-sans min-h-screen "
+      className="font-sans min-h-screen py-24 "
       style={{
         background: "#000000",
         height: "100%",
@@ -174,7 +182,7 @@ const Home = () => {
             />
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
+          <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base ">
             {[
               "Full Stack Live Classes",
               "DSA: Basic To Advanced Course",
@@ -194,7 +202,7 @@ const Home = () => {
 
       {/* Courses Section */}
       <motion.section
-        className="py-4 px-4 w-full max-w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col items-center mx-auto border-2 border-red-600 rounded-3xl shadow-xl"
+        className="py-4 px-4 w-full max-w-[95vw] md:w-[90vw] xl:w-[85vw] flex flex-col items-center mx-auto border-2 border-red-600 rounded-3xl shadow-xl"
         style={{
           background: "#000000",
           marginTop: "2rem"
@@ -205,18 +213,18 @@ const Home = () => {
         viewport={{ once: true }}
       >
         {/* Header */}
-        <div className="flex flex-col sm:flex-row justify-between items-center w-full gap-4">
+        <div className="flex justify-between items-center w-full gap-4">
           <h2 className="text-xl my-2 sm:text-2xl font-bold text-white">Courses</h2>
           <Link
             to="/course"
-            className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300 text-white"
+            className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300 hover:text-black text-white"
           >
             View All
           </Link>
         </div>
 
         {/* Slider for smaller screens */}
-        <div className="flex xl:hidden overflow-x-auto gap-6 w-[100%] mt-10 pb-4 scrollbar-hide">
+        <div className="flex xl:hidden overflow-x-auto gap-16 lg:gap-24 w-[100%] mt-10 py-8 px-4 scrollbar-hide">
           {courses.map((course, idx) => (
             <motion.div
               key={idx}
@@ -224,20 +232,21 @@ const Home = () => {
               transition={{ type: "spring", stiffness: 300 }}
               className="min-w-[250px] w-[250px] flex-shrink-0"
             >
-              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 h-[320px] flex flex-col">
+              {/* <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 h-[320px] flex flex-col">
                 <img src={course.img} alt={course.title} className="w-full h-[150px] object-cover" />
                 <div className="p-4 flex-1 flex flex-col">
-                  <h3 className="text-lg font-bold mb-2 line-clamp-2">{course.title}</h3>
+                  <h3 className="text-lg text-black font-bold mb-2 line-clamp-2">{course.title}</h3>
                   <p className="text-gray-600 mb-2 text-sm">{course.level}</p>
                   <p className="text-blue-600 font-semibold mt-auto text-sm">{course.interested} interested</p>
                 </div>
-              </div>
+              </div> */}
+              <CourseCard key={idx} course={course} />
             </motion.div>
           ))}
         </div>
 
         {/* Grid for large screens and up */}
-        <div className="hidden xl:grid gap-6 grid-cols-3 mt-10">
+        <div className="hidden xl:grid gap-6 grid-cols-3 mt-10 p-6 ">
           {courses.map((course, idx) => (
             <motion.div
               key={idx}
@@ -245,14 +254,15 @@ const Home = () => {
               transition={{ type: "spring", stiffness: 300 }}
               className="w-full"
             >
-              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 h-[320px] flex flex-col">
+              {/* <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 h-[320px] flex flex-col">
                 <img src={course.img} alt={course.title} className="w-full h-[150px] object-cover" />
                 <div className="p-4 flex-1 flex flex-col">
-                  <h3 className="text-lg font-bold mb-2 line-clamp-2">{course.title}</h3>
+                  <h3 className="text-lg text-black font-bold mb-2 line-clamp-2">{course.title}</h3>
                   <p className="text-gray-600 mb-2 text-sm">{course.level}</p>
                   <p className="text-blue-600 font-semibold mt-auto text-sm">{course.interested} interested</p>
                 </div>
-              </div>
+              </div> */}
+               <CourseCard key={idx} course={course} />
             </motion.div>
           ))}
         </div>
@@ -271,16 +281,17 @@ const Home = () => {
         viewport={{ once: true }}
       >
         <h2 className="text-cl sm:text-2xl font-bold mb-2 text-white">Must Explore</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-          {infoItems.map((item, idx) => (
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {infoItems.map((items, idx) => (
             <motion.div
               key={idx}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <div className={`p-4 rounded-xl text-center ${item.color} hover:shadow-lg transition duration-300`}>
+              {/* <div className={`p-4 rounded-xl text-center ${item.color} hover:shadow-lg transition duration-300`}>
                 <h3 className="text-white font-bold">{item.title}</h3>
-              </div>
+              </div> */}
+              <OtherCards key={idx} title= {items.title } color={items.color} />
             </motion.div>
           ))}
         </div>
@@ -288,7 +299,7 @@ const Home = () => {
 
       {/* Explore Categories */}
 <motion.section
-  className="pt-2 px-6 md:pt-10 md:px-10 mb-24 w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col space-y-0 mx-auto border-2 border-red-600 rounded-3xl shadow-xl pb-10 "
+  className="pt-2 px-6 md:pt-10 md:px-10 mb-24 w-[90vw] md:w-[90vw] xl:w-[85vw] flex flex-col space-y-0 mx-auto border-2 border-red-600 rounded-3xl shadow-xl pb-10 "
   style={{
     maxWidth: "1200px",
     margin: "0.5rem auto 0.5rem",

@@ -12,13 +12,14 @@ import Courses from './pages/Courses';
 import Explore from './pages/Explore'; // ✅ Added import for Explore
 import DiscussionsPage from './pages/DiscussionPage';
 import ForumPage from './components/ForumPage';
-import Dsa from './pages/Dsa';
+import Dsa from './components/Dsa';
 import JavaPage from './components/JavaPage';
 import Ml from './components/ml';
+import DevOps from './components/DevOps';
 
 
 const AppRoutes = () => {
-  return (
+  return ( 
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
@@ -34,6 +35,7 @@ const AppRoutes = () => {
       <Route path= "/dsa" element={<Dsa/>} />
       <Route path="/java" element={<JavaPage/>} />
       <Route path="/ml" element={<Ml/>} />
+      <Route path="/devops" element={<DevOps/>} />
   
 
       <Route path="*" element={<h1 className="text-center text-2xl mt-10">404 - Page Not Found</h1>} />

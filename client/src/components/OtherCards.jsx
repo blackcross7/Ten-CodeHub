@@ -2,7 +2,7 @@ import React from 'react';
 
 const OtherCards = ({ title, color }) => {
     return (
-        <div className={`group flex flex-col text-xl p-4 border rounded-md hover:shadow-md ${color}`}>
+        <div className={`group flex flex-col text-xl p-4 border rounded-xl hover:shadow-md ${color}`}>
             <span className="text-white font-bold truncate overflow-hidden whitespace-nowrap">
                 {title}
             </span>
@@ -12,7 +12,7 @@ const OtherCards = ({ title, color }) => {
                 </button>
             </div>
         </div>
-    );
+    ); 
 };
 
 export default OtherCards;
