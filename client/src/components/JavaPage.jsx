@@ -76,8 +76,8 @@ const BackendPage = () => {
   <div className="alert-icon">i</div>
   <div className="alert-text">
     <p><strong>Early Bird Alert -</strong> Grab your seats <span className="highlight-red">NOW</span> &amp; save <span className="highlight-red">FLAT 25%OFF</span></p>
-    <p>USE CODE : <strong className="highlight-red">GET25OFF</strong></p>
-    <p>For further queries reach us via Call/WhatsApp on: <span className="whatsapp-number">+91-8130806629</span></p>
+    <p>USE CODE : <strong className="highlight-red">GET40OFF</strong></p>
+    <p>For further queries reach us via Call/WhatsApp on: <span className="whatsapp-number">+91-8130806439</span></p>
   </div>
 </div>
 <div className="course-overview-section">
