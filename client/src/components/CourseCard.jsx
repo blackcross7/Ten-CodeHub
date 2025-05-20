@@ -13,10 +13,10 @@ const CourseCard = ({ course }) => {
 
       {/* Title and Level */}
       <div className='py-4 flex flex-col gap-4'>
-        <h3 className="font-bold text-lg leading-snug mb-1 min-h-[20px] line-clamp-2">{course.title}</h3>
+        <h3 className="font-bold text-black text-lg leading-snug mb-1 min-h-[20px] line-clamp-2">{course.title}</h3>
         <p className="text-sm text-gray-600">{course.level}</p>
       </div>
-
+ 
       {/* Spacer */}
       <div className="flex-grow" />
 
@@ -30,10 +30,10 @@ const CourseCard = ({ course }) => {
           />
           <p className="text-sm text-gray-500">{course.interested} interested Geeks</p>
         </div>
-
+ 
         <Link
           to={course.link}
-          className="text-green-700 group-hover:bg-green-600 group-hover:text-white px-3 py-2 rounded text-xs font-semibold transition duration-200"
+          className="text-green-700 group-hover:bg-green-600 group-hover:text-white px-3 py-2 rounded text-center text-xs font-semibold transition duration-200"
         >
           Explore now
         </Link>

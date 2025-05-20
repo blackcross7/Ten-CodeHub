@@ -1,7 +1,7 @@
 /* src/styles/BackendPage.css */
-.backend-page {
+.ml-page {
   width: 100vw; /* Ensure full width */
-  background: linear-gradient(to bottom, #24373b,#dde2e4, #f0f4f3,#f4f6fb); /* Gradient Blue */
+  background: linear-gradient(to bottom, #0b0e27, #e9f3f6, #f0f4f3,#f4f6fb); /* Gradient Blue */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,8 +10,8 @@
   padding-top: 150px;
 }
 
-.backend-container {
-  width: 200%;
+.ml-container {
+  width: 100%;
   max-width: 1100px; /* Slightly wider */
   color: white;
   display: flex;
@@ -19,35 +19,27 @@
   align-items: center; /* Center inner content */
   text-align: left;
 }
- 
+
 .breadcrumb {
   color: #cbd5e0;
   margin-bottom: 0.5rem;
   width: 100%;
-  text-align: left;
-}
-.course-header {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* ← this left-aligns breadcrumb & title */
 }
 
-
-.course-title {
+.mlcourse-title {
   font-size: 2.2rem;
   font-weight: 700;
   margin: 0.5rem 0;
   width: 100%;
 }
 
-.course-meta {
+.mlcourse-meta {
   font-size: 1rem;
   margin-bottom: 1.5rem;
   width: 100%;
 }
 
-.course-meta .stars {
+.mlcourse-meta .stars {
   color: gold;
 }
 
@@ -56,7 +48,7 @@
   text-decoration: underline;
 }
 
-.course-card-java{
+.course-card-ml {
   flex: 1 1 350px;
   display: flex;
   flex-direction: row;
@@ -70,22 +62,6 @@
   overflow: hidden; /* prevents scrollbars due to overflow */
 }
 
-.thumbnail-image {
-  width: 400px;
-  height: 300%; /* Makes image stretch to match content height */
-  object-fit: cover;
-  border-radius: 1rem 0 0 1rem;
-  display: block;
-}
-
-.course-details-java {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: #333;
-  padding: 2rem 2rem;
-}
 .thumbnail-placeholder {
   width: 300px;
   height: 200px;
@@ -94,7 +70,16 @@
   flex-shrink: 0;
 }
 
-.course-details-java .interested {
+.mlcourse-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #333;
+  padding: 1rem 0.5rem;
+}
+
+.mlcourse-details .interested {
   font-weight: bold;
   margin-bottom: 0;
   display: flex;
@@ -102,7 +87,7 @@
   gap: 0.5rem; /* Space between icon and text */
 }
 
-.course-details-java .description {
+.mlcourse-details .description {
   margin: 0.5rem 0 1rem;
   line-height: 1.6;
 }
@@ -117,18 +102,13 @@
 }
 
 .course-stats li {
-  display: flex;
+ display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 1rem;
   margin-bottom: 0.4rem;
 }
 
-.stat-icon {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-}
 
 .signup-button {
   background-color: #28a745;
@@ -138,7 +118,7 @@
   border-radius: 0.4rem;
   font-size: 1rem;
   cursor: pointer;
-  margin-left: 2rem;
+  margin-left: 1rem;
   margin-bottom: 0.5rem;
   min-width: 190px;
   text-align: center;
@@ -154,14 +134,44 @@
   font-weight: 500;
 }
 
+.course-stats li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.stat-icon {
+   width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+.thumbnail-image {
+  width: 500px;
+  height: 350px; /* LIMIT vertical height */
+  object-fit: cover; /* OR use 'contain' if you want full image but less height */
+  border-radius: 1rem 0 0 1rem;
+  display: block;
+}
+.signup-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 2rem; /* ← this shifts it to the right */
+  margin-bottom: 0.5rem;
+}
+
 .button-group {
   display: flex;
-  gap: 3.5rem;
+  gap: 3.5rem; /* Adds more horizontal space between buttons */
   flex-wrap: wrap;
   margin-top: 0;
   align-items: center;
 }
-
 .access-demo-button {
   display: flex;
   align-items: center;
@@ -181,9 +191,9 @@
 }
 
 .play-icon {
-  width: 45px;
-  height: 45px;
-  border-radius: 40%;
+  width: 40px;
+  height: 40px;
+  border-radius: 30%;
   background-color: transparent;
   padding: 7px;
   object-fit: contain;
@@ -216,9 +226,9 @@
   margin-top: 2rem;
 }
 
-.info-pill {
+.mlinfo-pill {
   background-color: #f0fdfa;
-  color: #065f46;
+  color: #0d0e28;
   font-weight: 500;
   padding: 0.6rem 1.2rem;
   border-radius: 9999px;
@@ -238,8 +248,8 @@
   flex-direction: column; /* Stack the lines vertically */
   align-items: center;     /* Center horizontally */
   justify-content: center; /* Center vertically */
-  background-color: #ecfdf5;
-  border: 2px solid #d1fae5;
+  background-color: #e2eef9;
+  border: 2px solid #b6dff6;
   border-radius: 0.75rem;
   padding: 1.25rem 2rem;
   margin: 1.5rem auto;
@@ -251,8 +261,8 @@
 
 
 .alert-icon {
-  background-color: #d1fae5;
-  color: #065f46;
+  background-color: #c8f4fb;
+  color: #121421;
   font-weight: bold;
   font-size: 1.2rem;
   border-radius: 50%;
@@ -263,7 +273,6 @@
   justify-content: center;
   flex-shrink: 0;
   margin-top: 0.4rem;
-  margin-bottom: -10px;
 }
 
 .alert-text {
@@ -287,21 +296,20 @@
   font-size: 17px;
   line-height: 1.7;
   color: #333;
-  margin-bottom: -30px;
 }
 
-.section-heading {
+.mlsection-heading {
   font-size: 28px;
   text-align: center;
   margin-bottom: 20px;
-  color: #1a5d48;
+  color: #1d1a42;
 }
 
-.overview-title {
+.mloverview-title {
   font-size: 20px;
   margin-top: 30px;
   font-weight: bold;
-  color: #1a5d48;
+  color: #453d98;
 }
 
 .overview-description {
@@ -312,23 +320,23 @@
   line-height: 1.6; /* slightly tighter spacing */
 }
 
-.course-overview-section h2,
-.course-overview-section h3 {
+.mlcourse-overview-section h2,
+.mlcourse-overview-section h3 {
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
-.course-overview-section p,
-.course-overview-section ul {
+.mlcourse-overview-section p,
+.mlcourse-overview-section ul {
   margin: 10px 0;
 }
 
-.course-highlights {
+.mlcourse-highlights {
   list-style: none;
   padding-left: 0;
 }
 
-.course-highlights li {
+.mlcourse-highlights li {
   margin-bottom: 10px;
   padding-left: 20px;
   position: relative;
@@ -336,35 +344,35 @@
 
 }
 
-.highlight-bullet {
+.mlhighlight-bullet {
   position: absolute;
   left: 0;
-  color: #1a5d48;
+  color: #1c1a5d;
   font-weight: bold;
 }
 
-.read-more-toggle {
+.mlread-more-toggle {
   text-align: center;
   margin-top: 20px;
 }
 
-.read-more-btn {
+.mlread-more-btn {
   background: none;
   border: none;
   outline: none;
   box-shadow: none;
-  color: #1a5d48;
+  color: #1a2e5d;
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
   text-decoration: underline;
 }
-.read-more-btn:focus {
+.mlread-more-btn:focus {
   outline: none;
   box-shadow: none;
 }
 
-.read-more-btn:focus:not(:focus-visible) {
+.mlread-more-btn:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
@@ -374,7 +382,7 @@
   font-style: italic;
   color: #333;
 }
-.instructor-section {
+.mlinstructor-section {
   max-width: 1100px;
   margin: 80px auto;
   padding: 30px;
@@ -384,14 +392,14 @@
   margin-bottom: 40px;
 }
 
-.instructor-heading {
+.mlinstructor-heading {
   text-align: center;
   font-size: 28px;
-  color: #1a5d48;
+  color: #1a2a5d;
   margin-bottom: 30px;
 }
 
-.instructor-container {
+.mlinstructor-container {
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
@@ -414,10 +422,10 @@
   color: #333;
 }
 
-.instructor-name {
+.mlinstructor-name {
   font-size: 24px;
   font-weight: bold;
-  color: #1a5d48;
+  color: #1a2a5d;
   margin-bottom: 8px;
 }
 
@@ -550,7 +558,7 @@
   font-weight: 600;
   color: #111827;
 }
-.testimonial-review-section {
+.mltestimonial-review-section {
   display: flex;
   justify-content: space-between;
   margin-top: 60px;
@@ -558,9 +566,9 @@
   flex-wrap: wrap;
 }
 
-.testimonial-card {
+.mltestimonial-card {
   flex: 1;
-  background-color: #333;
+  background-color: #080917;
   color: white;
   padding: 30px;
   border-radius: 12px;
@@ -583,7 +591,7 @@
 
 .testimonial-placement {
   text-align: center;
-  color: #21c55d;
+  color: #3dbb7a;
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -680,20 +688,20 @@
   display: none;
 }
 
-.faq-question {
+.mlfaq-question {
   display: flex;
   align-items: center;
   font-weight: bold;
   font-size: 18px;
   padding: 15px 20px;
-  border-left: 5px solid #21c55d;
+  border-left: 5px solid #291e62;
   cursor: pointer;
   background: #fff;
   color: #000;
 }
 
-.faq-question span {
-  color: #21c55d;
+.mlfaq-question span {
+  color: #291e62;
   font-weight: 700;
   margin-right: 10px;
   font-size: 20px;
@@ -712,12 +720,17 @@
   display: block;
 }
 
-/* Responsive for tablets and below (max-width: 1024px) */
 @media (max-width: 1024px) {
-  .course-card-java{
-    flex:none;
-    flex-direction: column;
-    align-items: center;
+  .ml-page {
+    padding: 2rem 1rem;
+    padding-top: 150px;
+  }
+
+  .course-card-ml {
+   flex-direction: column !important;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible; /* allow content to flow */
   }
 
   .thumbnail-image {
@@ -726,63 +739,67 @@
     border-radius: 1rem 1rem 0 0;
   }
 
-  .course-details-java {
+  .mlcourse-details {
     padding: 1rem;
   }
 
-  .testimonial-review-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .testimonial-card,
+  .mltestimonial-card,
   .review-section {
     max-width: 100%;
   }
 
-  .instructor-container {
+  .mltestimonial-review-section {
+    flex-direction: column;
+  }
+
+  .mlinstructor-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
+  .instructor-image {
+    margin-bottom: 1rem;
+  }
+
   .instructor-details {
     align-items: center;
   }
+}
 
-  .bottom-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+/* Mobile Devices (<= 768px) */
+@media (max-width: 768px) {
+  .mlcourse-title {
+    font-size: 1.6rem;
   }
 
-  .signup-button {
-    margin-left: 0;
+  .mlcourse-meta {
+    font-size: 0.95rem;
+  }
+
+  .mltestimonial-card,
+  .review-section {
+    padding: 20px;
+  }
+
+  .mlcourse-details {
+    padding: 1rem 0.5rem;
+  }
+
+  .course-stats {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .button-group {
     flex-direction: column;
     align-items: stretch;
-  }
-
-  .course-stats {
-    flex-direction: column;
-  }
-}
-
-/* Responsive for mobile devices (max-width: 600px) */
-@media (max-width: 600px) {
-  .course-title {
-    font-size: 1.6rem;
-  }
-
-  .course-meta {
-    font-size: 0.95rem;
+    gap: 1rem;
   }
 
   .signup-button {
+    margin-left: 0;
     width: 100%;
-    padding: 0.8rem;
     text-align: center;
   }
 
@@ -791,40 +808,48 @@
     justify-content: center;
   }
 
-  .course-overview-section {
-    padding: 16px;
+  .early-bird-alert {
+    width: 95%;
+    font-size: 0.95rem;
+    padding: 1rem;
   }
 
-  .section-heading {
-    font-size: 22px;
+  .mlinfo-pill {
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .upcoming-batches-content {
+    padding: 0 1rem;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .faq-section {
+    padding: 40px 20px;
+  }
+
+  .faq-title {
+    font-size: 24px;
+  }
+
+  .review-scroll-container {
+    max-height: 300px;
   }
 
   .review-name {
     font-size: 16px;
   }
 
-  .faq-question {
-    font-size: 16px;
-    padding: 12px 16px;
-  }
-
-  .faq-answer {
-    font-size: 15px;
-    padding: 12px 16px;
-  }
-
-  .upcoming-batches-content {
-    padding: 0 10px;
-  }
-
-  .row {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .testimonial-image {
-    width: 100%;
-    height: auto;
+  .review-text {
+    font-size: 14px;
   }
 }
-

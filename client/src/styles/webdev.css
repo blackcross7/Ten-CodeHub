@@ -1,7 +1,6 @@
-/* src/styles/BackendPage.css */
-.backend-page {
-  width: 100vw; /* Ensure full width */
-  background: linear-gradient(to bottom, #24373b,#dde2e4, #f0f4f3,#f4f6fb); /* Gradient Blue */
+.webdev-page {
+  width: 100vw;
+  background: linear-gradient(to bottom, #040610, #e9f3f6, #f0f4f3,#f4f6fb);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,44 +9,36 @@
   padding-top: 150px;
 }
 
-.backend-container {
-  width: 200%;
-  max-width: 1100px; /* Slightly wider */
+.webdev-container {
+  width: 100%;
+  max-width: 1100px;
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center inner content */
+  align-items: center;
   text-align: left;
 }
- 
+
 .breadcrumb {
   color: #cbd5e0;
   margin-bottom: 0.5rem;
   width: 100%;
-  text-align: left;
-}
-.course-header {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* ← this left-aligns breadcrumb & title */
 }
 
-
-.course-title {
+.webdevcourse-title {
   font-size: 2.2rem;
   font-weight: 700;
   margin: 0.5rem 0;
   width: 100%;
 }
 
-.course-meta {
+.webdevcourse-meta {
   font-size: 1rem;
   margin-bottom: 1.5rem;
   width: 100%;
 }
 
-.course-meta .stars {
+.webdevcourse-meta .stars {
   color: gold;
 }
 
@@ -56,7 +47,7 @@
   text-decoration: underline;
 }
 
-.course-card-java{
+.course-card-webdev {
   flex: 1 1 350px;
   display: flex;
   flex-direction: row;
@@ -67,25 +58,9 @@
   background: white;
   border-radius: 1rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  overflow: hidden; /* prevents scrollbars due to overflow */
+  overflow: hidden;
 }
 
-.thumbnail-image {
-  width: 400px;
-  height: 300%; /* Makes image stretch to match content height */
-  object-fit: cover;
-  border-radius: 1rem 0 0 1rem;
-  display: block;
-}
-
-.course-details-java {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: #333;
-  padding: 2rem 2rem;
-}
 .thumbnail-placeholder {
   width: 300px;
   height: 200px;
@@ -94,17 +69,26 @@
   flex-shrink: 0;
 }
 
-.course-details-java .interested {
+.webdevcourse-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #333;
+  padding: 0.5rem 0.5rem;
+}
+
+.webdevcourse-details .interested {
   font-weight: bold;
   margin-bottom: 0;
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Space between icon and text */
+  gap: 0.5rem;
 }
 
-.course-details-java .description {
+.webdevcourse-details .description {
   margin: 0.5rem 0 1rem;
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
 .course-stats {
@@ -124,12 +108,6 @@
   margin-bottom: 0.4rem;
 }
 
-.stat-icon {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-}
-
 .signup-button {
   background-color: #28a745;
   color: white;
@@ -138,7 +116,7 @@
   border-radius: 0.4rem;
   font-size: 1rem;
   cursor: pointer;
-  margin-left: 2rem;
+  margin-left: 1rem;
   margin-bottom: 0.5rem;
   min-width: 190px;
   text-align: center;
@@ -152,6 +130,20 @@
   color: #007bff;
   text-decoration: underline;
   font-weight: 500;
+}
+
+.stat-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.thumbnail-image {
+  width: 500px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 1rem 0 0 1rem;
+  display: block;
 }
 
 .button-group {
@@ -176,14 +168,14 @@
 }
 
 .access-demo-button:hover {
-  background-color: rgba(0, 123, 255, 0.1); /* subtle hover effect */
+  background-color: rgba(0, 123, 255, 0.1);
   border-radius: 0.5rem;
 }
 
 .play-icon {
-  width: 45px;
-  height: 45px;
-  border-radius: 40%;
+  width: 40px;
+  height: 40px;
+  border-radius: 30%;
   background-color: transparent;
   padding: 7px;
   object-fit: contain;
@@ -207,7 +199,7 @@
   color: #007bff;
   margin: 0;
 }
-/* Bottom pills */
+
 .bottom-info-bar {
   display: flex;
   flex-wrap: wrap;
@@ -216,9 +208,9 @@
   margin-top: 2rem;
 }
 
-.info-pill {
+.webdevinfo-pill {
   background-color: #f0fdfa;
-  color: #065f46;
+  color: #0d0e28;
   font-weight: 500;
   padding: 0.6rem 1.2rem;
   border-radius: 9999px;
@@ -231,15 +223,16 @@
   background-color: #d1fae5;
   cursor: default;
 }
+
 .early-bird-alert {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  flex-direction: column; /* Stack the lines vertically */
-  align-items: center;     /* Center horizontally */
-  justify-content: center; /* Center vertically */
-  background-color: #ecfdf5;
-  border: 2px solid #d1fae5;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e2eef9;
+  border: 2px solid #b6dff6;
   border-radius: 0.75rem;
   padding: 1.25rem 2rem;
   margin: 1.5rem auto;
@@ -249,10 +242,9 @@
   max-width: 1100px;
 }
 
-
 .alert-icon {
-  background-color: #d1fae5;
-  color: #065f46;
+  background-color: #c8f4fb;
+  color: #121421;
   font-weight: bold;
   font-size: 1.2rem;
   border-radius: 50%;
@@ -263,7 +255,6 @@
   justify-content: center;
   flex-shrink: 0;
   margin-top: 0.4rem;
-  margin-bottom: -10px;
 }
 
 .alert-text {
@@ -279,6 +270,7 @@
   color: #047857;
   font-weight: 600;
 }
+
 .course-overview-section {
   max-width: 900px;
   margin: 40px auto;
@@ -287,21 +279,20 @@
   font-size: 17px;
   line-height: 1.7;
   color: #333;
-  margin-bottom: -30px;
 }
 
-.section-heading {
+.webdevsection-heading {
   font-size: 28px;
   text-align: center;
   margin-bottom: 20px;
-  color: #1a5d48;
+  color: #1d1a42;
 }
 
-.overview-title {
+.webdevoverview-title {
   font-size: 20px;
   margin-top: 30px;
   font-weight: bold;
-  color: #1a5d48;
+  color: #453d98;
 }
 
 .overview-description {
@@ -309,62 +300,61 @@
 }
 .course-overview-section {
   padding: 20px;
-  line-height: 1.6; /* slightly tighter spacing */
+  line-height: 1.6;
 }
 
-.course-overview-section h2,
-.course-overview-section h3 {
+.webdevcourse-overview-section h2,
+.webdevcourse-overview-section h3 {
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
-.course-overview-section p,
-.course-overview-section ul {
+.webdevcourse-overview-section p,
+.webdevcourse-overview-section ul {
   margin: 10px 0;
 }
 
-.course-highlights {
+.webdevcourse-highlights {
   list-style: none;
   padding-left: 0;
 }
 
-.course-highlights li {
+.webdevcourse-highlights li {
   margin-bottom: 10px;
   padding-left: 20px;
   position: relative;
-  margin-bottom: 5px; /* Reduce vertical space between bullets */
-
+  margin-bottom: 5px;
 }
 
-.highlight-bullet {
+.webdevhighlight-bullet {
   position: absolute;
   left: 0;
-  color: #1a5d48;
+  color: #1c1a5d;
   font-weight: bold;
 }
 
-.read-more-toggle {
+.webdevread-more-toggle {
   text-align: center;
   margin-top: 20px;
 }
 
-.read-more-btn {
+.webdevread-more-btn {
   background: none;
   border: none;
   outline: none;
   box-shadow: none;
-  color: #1a5d48;
+  color: #1a2e5d;
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
   text-decoration: underline;
 }
-.read-more-btn:focus {
+.webdevread-more-btn:focus {
   outline: none;
   box-shadow: none;
 }
 
-.read-more-btn:focus:not(:focus-visible) {
+.webdevread-more-btn:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
@@ -374,7 +364,7 @@
   font-style: italic;
   color: #333;
 }
-.instructor-section {
+.webdevinstructor-section {
   max-width: 1100px;
   margin: 80px auto;
   padding: 30px;
@@ -384,14 +374,14 @@
   margin-bottom: 40px;
 }
 
-.instructor-heading {
+.webdevinstructor-heading {
   text-align: center;
   font-size: 28px;
-  color: #1a5d48;
+  color: #1a2a5d;
   margin-bottom: 30px;
 }
 
-.instructor-container {
+.webdevinstructor-container {
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
@@ -414,10 +404,10 @@
   color: #333;
 }
 
-.instructor-name {
+.webdevinstructor-name {
   font-size: 24px;
   font-weight: bold;
-  color: #1a5d48;
+  color: #1a2a5d;
   margin-bottom: 8px;
 }
 
@@ -550,7 +540,7 @@
   font-weight: 600;
   color: #111827;
 }
-.testimonial-review-section {
+.webdevtestimonial-review-section {
   display: flex;
   justify-content: space-between;
   margin-top: 60px;
@@ -558,9 +548,9 @@
   flex-wrap: wrap;
 }
 
-.testimonial-card {
+.webdevtestimonial-card {
   flex: 1;
-  background-color: #333;
+  background-color: #080917;
   color: white;
   padding: 30px;
   border-radius: 12px;
@@ -583,7 +573,7 @@
 
 .testimonial-placement {
   text-align: center;
-  color: #21c55d;
+  color: #3dbb7a;
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -680,20 +670,20 @@
   display: none;
 }
 
-.faq-question {
+.webdevfaq-question {
   display: flex;
   align-items: center;
   font-weight: bold;
   font-size: 18px;
   padding: 15px 20px;
-  border-left: 5px solid #21c55d;
+  border-left: 5px solid #291e62;
   cursor: pointer;
   background: #fff;
   color: #000;
 }
 
-.faq-question span {
-  color: #21c55d;
+.webdevfaq-question span {
+  color: #291e62;
   font-weight: 700;
   margin-right: 10px;
   font-size: 20px;
@@ -712,12 +702,17 @@
   display: block;
 }
 
-/* Responsive for tablets and below (max-width: 1024px) */
 @media (max-width: 1024px) {
-  .course-card-java{
-    flex:none;
-    flex-direction: column;
-    align-items: center;
+  .webdev-page {
+    padding: 2rem 1rem;
+    padding-top: 150px;
+  }
+
+  .course-card-webdev {
+    flex-direction: column !important;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
   }
 
   .thumbnail-image {
@@ -726,63 +721,66 @@
     border-radius: 1rem 1rem 0 0;
   }
 
-  .course-details-java {
+  .webdevcourse-details {
     padding: 1rem;
   }
 
-  .testimonial-review-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .testimonial-card,
+  .webdevtestimonial-card,
   .review-section {
     max-width: 100%;
   }
 
-  .instructor-container {
+  .webdevtestimonial-review-section {
+    flex-direction: column;
+  }
+
+  .webdevinstructor-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
+  .instructor-image {
+    margin-bottom: 1rem;
+  }
+
   .instructor-details {
     align-items: center;
   }
+}
 
-  .bottom-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+@media (max-width: 768px) {
+  .webdevcourse-title {
+    font-size: 1.6rem;
   }
 
-  .signup-button {
-    margin-left: 0;
+  .webdevcourse-meta {
+    font-size: 0.95rem;
+  }
+
+  .webdevtestimonial-card,
+  .review-section {
+    padding: 20px;
+  }
+
+  .webdevcourse-details {
+    padding: 1rem 0.5rem;
+  }
+
+  .course-stats {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .button-group {
     flex-direction: column;
     align-items: stretch;
-  }
-
-  .course-stats {
-    flex-direction: column;
-  }
-}
-
-/* Responsive for mobile devices (max-width: 600px) */
-@media (max-width: 600px) {
-  .course-title {
-    font-size: 1.6rem;
-  }
-
-  .course-meta {
-    font-size: 0.95rem;
+    gap: 1rem;
   }
 
   .signup-button {
+    margin-left: 0;
     width: 100%;
-    padding: 0.8rem;
     text-align: center;
   }
 
@@ -791,40 +789,49 @@
     justify-content: center;
   }
 
-  .course-overview-section {
-    padding: 16px;
+  .early-bird-alert {
+    width: 95%;
+    font-size: 0.95rem;
+    padding: 1rem;
   }
 
-  .section-heading {
-    font-size: 22px;
+  .webdevinfo-pill {
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .upcoming-batches-content {
+    padding: 0 1rem;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .faq-section {
+    padding: 40px 20px;
+  }
+
+  .faq-title {
+    font-size: 24px;
+  }
+
+  .review-scroll-container {
+    max-height: 300px;
   }
 
   .review-name {
     font-size: 16px;
   }
 
-  .faq-question {
-    font-size: 16px;
-    padding: 12px 16px;
-  }
-
-  .faq-answer {
-    font-size: 15px;
-    padding: 12px 16px;
-  }
-
-  .upcoming-batches-content {
-    padding: 0 10px;
-  }
-
-  .row {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .testimonial-image {
-    width: 100%;
-    height: auto;
+  .review-text {
+    font-size: 14px;
   }
 }
 

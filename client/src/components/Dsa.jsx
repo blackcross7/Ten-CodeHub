@@ -82,43 +82,43 @@ const courseData = [
 ];
 
 const tools = [
-    { name: 'C++', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg' },
-    { name: 'Python', logo: 'https://static.vecteezy.com/system/resources/previews/012/697/295/non_2x/3d-python-programming-language-logo-free-png.png' },
-    { name: 'HTML', logo: 'https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png' },
-    { name: 'CSS', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg' },
-    { name: 'JavaScript', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png' },
-    { name: 'Java', logo: 'https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg' },
-    { name: 'MongoDB', logo: 'https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png' },
-    { name: 'React', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg' },
-    { name: 'Express', logo: 'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/359/thumb/expressjslogo.png' },
-    { name: 'Spring', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg' },
-    { name: 'TensorFlow', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg' },
-    { name: 'Tableau', logo: 'https://www.edureka.co/blog/wp-content/uploads/2018/01/tableau-icon-what-is-tableau-blog-edureka.png' },
-    { name: 'Colab', logo: 'https://colab.research.google.com/img/colab_favicon_256px.png' },
-    { name: 'Jupyter', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg' },
-    { name: 'Excel', logo: 'https://static.vecteezy.com/system/resources/previews/022/101/030/original/microsoft-excel-logo-transparent-free-png.png' },
-  ];
+  { name: 'C++', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg' },
+  { name: 'Python', logo: 'https://static.vecteezy.com/system/resources/previews/012/697/295/non_2x/3d-python-programming-language-logo-free-png.png' },
+  { name: 'HTML', logo: 'https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png' },
+  { name: 'CSS', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg' },
+  { name: 'JavaScript', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png' },
+  { name: 'Java', logo: 'https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg' },
+  { name: 'MongoDB', logo: 'https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png' },
+  { name: 'React', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg' },
+  { name: 'Express', logo: 'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/359/thumb/expressjslogo.png' },
+  { name: 'Spring', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg' },
+  { name: 'TensorFlow', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg' },
+  { name: 'Tableau', logo: 'https://www.edureka.co/blog/wp-content/uploads/2018/01/tableau-icon-what-is-tableau-blog-edureka.png' },
+  { name: 'Colab', logo: 'https://colab.research.google.com/img/colab_favicon_256px.png' },
+  { name: 'Jupyter', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg' },
+  { name: 'Excel', logo: 'https://static.vecteezy.com/system/resources/previews/022/101/030/original/microsoft-excel-logo-transparent-free-png.png' },
+];
 
 const faqs = [
-    {
-      question: "I'm from a non-CS background. Will this course be a good fit for me?",
-      answer:
-        "Absolutely! This course is designed to be beginner-friendly and is suitable for learners from all backgrounds.",
-    },
-    {
-      question: "Is doubt support available in this program?",
-      answer:
-        "Yes, doubt support is provided through various channels like live sessions, forums, or direct mentorship (depending on the course).",
-    },
-    {
-      question: "What is the duration of this course?",
-      answer: "The course duration typically ranges from 8 to 12 weeks depending on your pace.",
-    },
-    {
-      question: "Is there any Phone number for query regarding this course?",
-      answer: "Yes, you can contact our support team at +91-9876543210 during working hours.",
-    },
-  ];  
+  {
+    question: "I'm from a non-CS background. Will this course be a good fit for me?",
+    answer:
+      "Absolutely! This course is designed to be beginner-friendly and is suitable for learners from all backgrounds.",
+  },
+  {
+    question: "Is doubt support available in this program?",
+    answer:
+      "Yes, doubt support is provided through various channels like live sessions, forums, or direct mentorship (depending on the course).",
+  },
+  {
+    question: "What is the duration of this course?",
+    answer: "The course duration typically ranges from 8 to 12 weeks depending on your pace.",
+  },
+  {
+    question: "Is there any Phone number for query regarding this course?",
+    answer: "Yes, you can contact our support team at +91-9876543210 during working hours.",
+  },
+];
 
 function Dsa() {
 
@@ -139,7 +139,7 @@ function Dsa() {
       <div className='text-white w-[90vw] max-w-7xl mx-auto rounded-xl text-start flex flex-col place-items-start px-6 lg:px-16 py-10'>
 
         {/* Breadcrumb */}
-        <Link to="/home">
+        <Link to="/course">
           <h2 className='text-sm flex gap-2 cursor-pointer'>
             <span className='text-slate-400'>All courses &gt;</span>
             <span className='text-white'>Live</span>
@@ -150,7 +150,7 @@ function Dsa() {
         <div className='flex flex-col-reverse lg:flex-row justify-between w-full h-[95vh] lg:h-[50vh] py-12 gap-8'>
           {/* Left */}
           <div className='lg:w-[50%] flex flex-col justify-between'>
-            <h1 className='text-3xl lg:text-4xl text-center md:text-left font-extrabold leading-snug mb-12 lg:mb-6 tracking-tight'>
+            <h1 className='text-3xl lg:text-4xl text-center lg:text-left font-extrabold leading-snug mb-12 lg:mb-6 tracking-tight'>
               DSA to Development<br />A Complete Guide
             </h1>
 
@@ -168,11 +168,11 @@ function Dsa() {
               </div>
             </div>
 
-            <div className='flex flex-col sm:flex-row items-center gap-4 mt-10 md:mt-6'>
-              <button className='bg-green-600 hover:bg-green-700 text-white w-52 py-2 rounded-md font-semibold transition'>
+            <div className='flex flex-col lg:flex-row items-center gap-4 mt-10 md:mt-6'>
+              <button className='bg-green-600 w-full hover:bg-green-700 text-white lg:w-52 py-2 rounded-md font-semibold transition'>
                 Sign Up Now
               </button>
-              <button className='border border-green-500 text-green-400 hover:bg-green-100 hover:text-green-700 w-52 py-2 rounded-md font-semibold transition flex items-center justify-center gap-2'>
+              <button className='border border-green-500 text-green-400 hover:bg-green-100 hover:text-green-700 w-full lg:w-52 py-2 rounded-md font-semibold transition flex items-center justify-center gap-2'>
                 Download Brochure <FontAwesomeIcon icon={faDownload} />
               </button>
             </div>
@@ -231,7 +231,7 @@ function Dsa() {
               />
               <span className='text-slate-400'>Beginner to Advanced</span>
             </div>
-            <button className='bg-green-600 hover:bg-green-700 text-white w-52 py-2 rounded-md font-semibold transition'>
+            <button className='bg-green-600 hover:bg-green-700 text-white w-full lg:w-52 py-2 rounded-md font-semibold transition'>
               Sign Up Now
             </button>
           </div>
@@ -243,15 +243,17 @@ function Dsa() {
         <div className='w-[90vw] max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-10'>
 
           {/* Text Content */}
-          <div className='lg:w-[60%] text-white space-y-6'>
-            <h2 className='text-3xl text-white font-bold border-b-2 border-green-300 inline-block pb-1'>
-              About The Course
-            </h2>
-            <div className='lg:w-[40%] lg:hidden flex  items-center justify-center'>
+          <div className='lg:w-[60%] w-full text-white space-y-6'>
+            <div className="w-full text-center lg:text-left">
+              <h3 className='text-2xl lg:text-3xl text-white font-bold border-b-2 border-green-300 inline-block pb-1'>
+                About The Course
+              </h3>
+            </div>
+            <div className='lg:w-[40%] lg:hidden flex items-center justify-center'>
               <img
                 src="/assets/image/dsa_page_about.jpg"
                 alt="About the course"
-                className='w-[80%] h-[300px] object-cover rounded-lg shadow-md'
+                className='w-full h-[300px] object-cover rounded-lg shadow-md'
               />
             </div>
             <p className='text-slate-300 leading-relaxed'>
@@ -267,7 +269,7 @@ function Dsa() {
           </div>
 
           {/* Image */}
-          <div className='lg:w-[40%] hidden lg:flex  items-center justify-center'>
+          <div className='lg:w-[40%] hidden lg:flex items-center justify-center'>
             <img
               src="/assets/image/dsa_page_about.jpg"
               alt="About the course"
@@ -278,11 +280,14 @@ function Dsa() {
       </div>
 
 
+
       {/* Course Content */}
       <div className="max-w-8xl mx-auto w-full px-6 lg:px-20 my-24 ">
+        <div className="w-full text-center lg:text-left">
 
-        <h1 className="text-3xl font-bold mb-8 border-b-2 border-green-300 inline-block pb-1 ">
-          Course Content</h1>
+          <h1 className="text-3xl  font-bold mb-8 border-b-2 border-green-300 inline-block pb-1 ">
+            Course Content</h1>
+        </div>
 
         <div className="grid gap-6 ">
           {displayedContent.map((weekItem, index) => (
@@ -314,54 +319,59 @@ function Dsa() {
 
       {/* Course Technoogies */}
       <div className="w-full bg-gray-900 py-16">
-      <div className="w-[90vw] max-w-6xl mx-auto ">
-        <h1 className="text-3xl font-bold text-white mb-10 border-b-2 border-green-500 inline-block pb-1">
-          Tools & Technologies
-        </h1>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-          {tools.map((tool, index) => (
-            <div key={index} className="bg-gray-800 p-4 rounded-xl flex flex-col  items-center shadow hover:scale-105 transition">
-              <img
-                src={tool.logo}
-                alt={tool.name}
-                className="w-10 h-10 md:w-16 md:h-16 object-contain mb-2"
-              />
-              <p className="text-white text-sm font-medium">{tool.name}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+        <div className="w-[90vw] max-w-6xl mx-auto ">
+          <div className="w-full text-center lg:text-left">
 
-        {/* FAQ  */}
-          <div className="w-full  mt-24 ">
-      <div className="w-[90vw] max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-10 border-b-2 border-green-500 inline-block pb-2">
-          FAQ's
-        </h2>
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="bg-slate-950  rounded-lg shadow px-6 py-4 cursor-pointer transition-all"
-              onClick={() => toggle(index)}
-            >
-              <div className="flex justify-between items-center">
-                <h3 className="text-lg font-medium text-white">{faq.question}</h3>
-                <ChevronDown
-                  className={`h-5 w-5 text-white transition-transform duration-300 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
+            <h1 className="text-3xl font-bold text-white mb-10 border-b-2 border-green-500 inline-block pb-1">
+              Tools & Technologies
+            </h1>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            {tools.map((tool, index) => (
+              <div key={index} className="bg-gray-800 p-4 rounded-xl flex flex-col  items-center shadow hover:scale-105 transition">
+                <img
+                  src={tool.logo}
+                  alt={tool.name}
+                  className="w-10 h-10 md:w-16 md:h-16 object-contain mb-2"
                 />
+                <p className="text-white text-sm font-medium">{tool.name}</p>
               </div>
-              {openIndex === index && (
-                <p className="mt-3 text-white text-sm">{faq.answer}</p>
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* FAQ  */}
+      <div className="w-full  mt-24 ">
+        <div className="w-[90vw] max-w-6xl mx-auto">
+          <div className="w-full text-center lg:text-left">
+
+            <h2 className="text-3xl font-bold text-center mb-10 border-b-2 border-green-500 inline-block pb-2">
+              FAQ's
+            </h2>
+          </div>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-slate-950  rounded-lg shadow px-6 py-4 cursor-pointer transition-all"
+                onClick={() => toggle(index)}
+              >
+                <div className="flex justify-between items-center">
+                  <h3 className="text-lg font-medium text-white">{faq.question}</h3>
+                  <ChevronDown
+                    className={`h-5 w-5 text-white transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""
+                      }`}
+                  />
+                </div>
+                {openIndex === index && (
+                  <p className="mt-3 text-white text-sm">{faq.answer}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
     </div>
   );

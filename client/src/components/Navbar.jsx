@@ -8,6 +8,10 @@ const Navbar = ({ isLoggedIn, user }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [showSearchSmall, setShowSearchSmall] = useState(false);
+
+  // Ref for the scrollable secondary links container
+  const scrollContainerRef = useRef(null);
+
   const toggleSearch = () => {
     setShowSearchSmall(prev => !prev);
   };
@@ -31,10 +35,19 @@ const Navbar = ({ isLoggedIn, user }) => {
     };
   }, []);
 
-  const scrollLeft = () => { }
+  // Implement scrollLeft function
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollLeft -= 300; // Scroll left by 200px
+    }
+  }
 
-  const scrollRight = () => { }
-
+  // Implement scrollRight function
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollLeft += 300; // Scroll right by 200px
+    }
+  }
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -144,13 +157,13 @@ const Navbar = ({ isLoggedIn, user }) => {
 
       {/* Secondary Navbar */}
       <div className="secondary-navbar">
-        <button className="scroll-btn" onClick={scrollLeft}>‹</button>
-        <div className="secondary-links" id="scrollable-links">
+        <button className="scroll-btn" onClick={scrollLeft}>&lt;</button> {/* Changed to HTML entity for less confusion */}
+        <div className="secondary-links" id="scrollable-links" ref={scrollContainerRef}>
           <Link to="/dsa" className="secondary-link">DSA</Link>
           <Link to="/problems" className="secondary-link">Practice Problems</Link>
           <Link to="/python" className="secondary-link">Python</Link>
           <Link to="/c" className="secondary-link">C</Link>
-          <Link to="/cpp" className="secondary-link">C++</Link> 
+          <Link to="/cpp" className="secondary-link">C++</Link>
           <Link to="/java" className="secondary-link">Java</Link>
           <Link to="/courses" className="secondary-link">Courses</Link>
           <Link to="/ml" className="secondary-link">Machine Learning</Link>
@@ -160,7 +173,7 @@ const Navbar = ({ isLoggedIn, user }) => {
           <Link to="/aptitude" className="secondary-link">Aptitude</Link>
           <Link to="/projects" className="secondary-link">Projects</Link>
         </div>
-        <button className="scroll-btn" onClick={scrollRight}>›</button>
+        <button className="scroll-btn" onClick={scrollRight}>&gt;</button> {/* Changed to HTML entity */}
       </div>
     </div>
   );
