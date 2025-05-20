@@ -1,136 +1,143 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Profile.css'; // Ensure styles handle .sidebar, .open, .hamburger, etc.
 
 const ProfilePage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
   return (
-    <main className="main-content">
-      {/* Hamburger and Sidebar */}
-      <div className="wrapper">
-        <button className="hamburger" onClick={toggleSidebar}>☰</button>
-        <nav className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
-          <ul>
-            <li><i className="fas fa-chart-line"></i><span>Contributions</span></li>
-            <li><i className="fas fa-bookmark"></i><span>Saved Items</span></li>
-            <li><i className="fas fa-university"></i><span>Colleges</span></li>
-            <li><i className="fas fa-building"></i><span>Companies</span></li>
-            <li><i className="fas fa-user-graduate"></i><span>Campus Ambassadors</span></li>
-            <li><i className="fas fa-user-plus"></i><span>Invite</span></li>
-            <li><Link to="/edit-profile"><i className="fas fa-edit"></i><span>Edit Profile</span></Link></li> {/* ✅ Added functional link */}
-            <li><i className="fas fa-cog"></i><span>Account Settings</span></li>
-            <li><i className="fas fa-sign-out-alt"></i><span>Logout</span></li>
+    <main className="min-h-screen bg-gray-100 text-gray-800 relative">
+      {/* Hamburger & Sidebar */}
+
+      <button
+        className="text-2xl md:hidden fixed top-4 left-4 mt-24 z-50 text-black shadow p-2 rounded"
+        onClick={toggleSidebar}
+      >
+        ☰
+      </button>
+      <div className="flex md:flex-row">
+        <nav
+          className={`fixed top-32 left-0 h-full bg-white shadow-lg transition-transform duration-300 z-40 w-64 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+            } md:translate-x-0 md:fixed md:w-64`}
+        >
+          <ul className="p-6 space-y-4">
+            <li className="flex items-center space-x-2 p-1 rounded-sm hover:bg-green-300 transition-colors duration-200"><i className="fas fa-chart-line" /><span>Contributions</span></li>
+            <li className="flex items-center space-x-2 p-1 rounded-sm hover:bg-green-300 transition-colors duration-200"><i className="fas fa-bookmark" /><span>Saved Items</span></li>
+            <li className="flex items-center space-x-2 p-1 rounded-sm hover:bg-green-300 transition-colors duration-200"><i className="fas fa-university" /><span>Colleges</span></li>
+            <li className="flex items-center space-x-2 p-1 rounded-sm hover:bg-green-300 transition-colors duration-200"><i className="fas fa-building" /><span>Companies</span></li>
+            <li className="flex items-center space-x-2 p-1 rounded-sm hover:bg-green-300 transition-colors duration-200"><i className="fas fa-user-graduate" /><span>Campus Ambassadors</span></li>
+            <li className="flex items-center space-x-2 p-1 rounded-sm hover:bg-green-300 transition-colors duration-200"><i className="fas fa-user-plus" /><span>Invite</span></li>
+            <li className="flex items-center space-x-2 p-1 rounded-sm hover:bg-green-300 transition-colors duration-200"><i className="fas fa-edit" /><Link to="/edit-profile">Edit Profile</Link></li>
+            <li className="flex items-center space-x-2 p-1 rounded-sm hover:bg-green-300 transition-colors duration-200"><i className="fas fa-cog" /><span>Account Settings</span></li>
+            <li className="flex items-center space-x-2 p-1 rounded-sm hover:bg-green-300 transition-colors duration-200"><i className="fas fa-sign-out-alt" /><span>Logout</span></li>
           </ul>
         </nav>
       </div>
 
       {/* Profile Section */}
-      <section className="profile-section">
-        <div className="profile-total-block"></div>
-        <div className="left-30">
-          <div className="profile-pic-wrapper">
-            <img src="/assets/image/profile_picture.jpg" alt="Profile Picture" />
-            <div className="username">Madhuri</div>
-            <div className="edit-icon">
-              <i className="material-icons">edit</i>
-            </div>
-          </div>
-
-          {/* Streak Block */}
-          <div className="streak-section">
-            <div className="streak-wrapper">
-              <div className="streak-label">Current POTD Streak</div>
-              <div className="circular-streak">
-                <div className="streak-content">
-                  <strong>STREAK</strong>
-                  <small>00 / 1375 days</small>
-                </div>
+      <section className="p-4 pt-36 md:pt-36 md:ml-64">
+        <div className="flex flex-col md:flex-row gap-6">
+          {/* Left */}
+          <div className="w-full md:w-1/3 flex flex-col items-center">
+            <div className="relative text-center">
+              <img
+                src="/assets/image/profile_picture.jpg"
+                alt="Profile"
+                className="w-32 h-32 rounded-full object-cover border-4 border-white shadow"
+              />
+              <div className="text-xl font-semibold mt-2">Madhuri</div>
+              <div className="absolute top-0 right-0 bg-gray-200 p-1 rounded-full">
+                <i className="material-icons text-sm">edit</i>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div className="right-70">
-          <div className="institution-info-row">
-            <div className="institution-header">
-              <h2 className="institute-heading">Institute</h2>
-              <button className="edit-button"><Link to="/edit-profile">Edit</Link></button> {/* ✅ Added functional edit button */}
+            <div className="mt-6 bg-white p-4 rounded-lg shadow w-full text-center">
+              <div className="text-sm text-gray-500">Current POTD Streak</div>
+              <div className="text-xl font-bold mt-2">STREAK</div>
+              <div className="text-xs">00 / 1375 days</div>
             </div>
-            <div className="institution-info">
-              <h3>Andhra Loyola Institute of Engineering & Technology</h3>
-              <p>Department of CSE</p>
+          </div>
+
+          {/* Right */}
+          <div className="w-full md:w-2/3 space-y-4">
+            <div className="bg-white p-4 rounded-lg shadow">
+              <div className="flex justify-between items-center">
+                <h2 className="text-lg text-gray-800 font-semibold">Institute</h2>
+                <button className="text-blue-600"><Link to="/edit-profile">Edit</Link></button>
+              </div>
+              <h3 className="mt-2 text-md text-gray-700 font-medium">Andhra Loyola Institute of Engineering & Technology</h3>
+              <p className="text-sm text-gray-600">Department of CSE</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Problem Solving Section */}
-      <section className="problem-solving">
-        <div className="problem-solving-card card-wrapper">
-          <div className="problem-image"></div>
-          <div className="problem-details">
-            <h3>Start solving a problem</h3>
-            <p>To view your submission here, solve a problem and submit it.</p>
-            <button className="solve-button">Solve Problems</button>
+      <section className="p-4 md:ml-64">
+        <div className="bg-white p-6 rounded-lg shadow flex flex-col md:flex-row gap-6 items-center">
+          <div className="w-24 h-24 bg-gray-200 rounded-full"></div>
+          <div>
+            <h3 className="text-lg text-gray-800 font-semibold">Start solving a problem</h3>
+            <p className="text-sm text-gray-600 mb-2">To view your submission here, solve a problem and submit it.</p>
+            <button className="bg-blue-600 text-white px-4 py-2 rounded">Solve Problems</button>
           </div>
         </div>
       </section>
 
       {/* Learning Section */}
-      <section className="learning">
-        <div className="learning-card">
-          <div className="learning-image"></div>
-          <div className="learning-details">
-            <h3>Learn from Industry Professionals</h3>
-            <p>Enroll in courses taught by experts and gain real-world skills that make a difference.</p>
-            <button className="explore-button">Explore Course</button>
+      <section className="p-4 md:ml-64">
+        <div className="bg-white p-6 rounded-lg shadow flex flex-col md:flex-row gap-6 items-center">
+          <div className="w-24 h-24 bg-green-200 rounded-full"></div>
+          <div>
+            <h3 className="text-lg text-gray-800 font-semibold">Learn from Industry Professionals</h3>
+            <p className="text-sm text-gray-600 mb-2">Enroll in courses taught by experts and gain real-world skills.</p>
+            <button className="bg-green-600 text-white px-4 py-2 rounded">Explore Course</button>
           </div>
         </div>
       </section>
 
       {/* Points System Section */}
-      <section className="points-system">
-        <div className="main-block">
-          <div className="badges-container">
+      <section className="p-4 md:ml-64">
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Badges */}
+          <div className="bg-white p-4 rounded-lg shadow flex flex-wrap gap-4 justify-center">
             {["Contributor", "Proficient", "Scholar", "Master", "Ace"].map((badge, i) => (
-              <div className="badge-item" key={i}>
-                <p>{badge}</p>
-                <img src={`/assets/image/img${i + 1}${i + 1}.png`} alt={badge} />
-                <span>{["1", "100", "1k", "10k", "50k"][i]} Points</span>
+              <div key={i} className="text-center w-24">
+                <p className="text-sm font-medium">{badge}</p>
+                <img src={`/assets/image/img${i + 1}${i + 1}.png`} alt={badge} className="w-16 h-16 mx-auto" />
+                <span className="text-xs">{["1", "100", "1k", "10k", "50k"][i]} Points</span>
               </div>
             ))}
           </div>
-          <div className="badges-right">
-            <div className="write-more-box">
-              <div className="write-content">
-                <div className="write-text">
-                  <h4>Write More to Win More</h4>
-                  <p>Share your thoughts and unlock badges as you progress.</p>
-                  <div className="buttons-row">
-                    <button className="start-btn">Start Writing</button>
-                    <button className="badge-info-btn">How Badges Work</button>
-                  </div>
-                </div>
-                <img src="https://media.geeksforgeeks.org/auth-dashboard-uploads/33953.png" alt="Write Illustration" className="write-image" />
+
+          {/* Write More Box */}
+          <div className="bg-white p-4 rounded-lg shadow flex flex-col md:flex-row items-center gap-4">
+            <div>
+              <h4 className="text-lg text-gray-800 font-semibold">Write More to Win More</h4>
+              <p className="text-sm text-gray-600 mb-3">Share your thoughts and unlock badges.</p>
+              <div className="flex gap-2">
+                <button className="bg-blue-600 text-white px-3 py-1 rounded">Start Writing</button>
+                <button className="bg-gray-200 text-gray-700 px-3 py-1 rounded">How Badges Work</button>
               </div>
             </div>
+            <img
+              src="https://media.geeksforgeeks.org/auth-dashboard-uploads/33953.png"
+              alt="Write"
+              className="w-32 h-32 hidden lg:block"
+            />
           </div>
         </div>
       </section>
 
-      {/* Contest Promotion */}
-      <section className="contest-promotion">
-        <div className="contest-card">
-          <div className="contest-image"></div>
-          <div className="contest-details">
-            <h3>Join the contest to boost your rating and win prizes!</h3>
-            <p>Challenge yourself and rise to the top.</p>
-            <button className="explore-button">Explore Course</button>
+      {/* Contest Section */}
+      <section className="p-4 md:ml-64">
+        <div className="bg-white p-6 rounded-lg shadow flex flex-col md:flex-row gap-6 items-center">
+          <div className="w-24 h-24 bg-purple-200 rounded-full"></div>
+          <div>
+            <h3 className="text-lg text-gray-800 font-semibold">Join the contest to boost your rating and win prizes!</h3>
+            <p className="text-sm text-gray-600 mb-2">Challenge yourself and rise to the top.</p>
+            <button className="bg-purple-600 text-white px-4 py-2 rounded">Explore Course</button>
           </div>
         </div>
       </section>

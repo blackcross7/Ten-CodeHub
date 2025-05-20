@@ -12,14 +12,14 @@ import Courses from './pages/Courses';
 import Explore from './pages/Explore'; // ✅ Added import for Explore
 import DiscussionsPage from './pages/DiscussionPage';
 import ForumPage from './components/ForumPage';
-import Dsa from './pages/Dsa';
+import Dsa from './components/Dsa';
 import JavaPage from './components/JavaPage';
 import Ml from './components/ml';
 import Webdev from './components/webdev';
 
 
 const AppRoutes = () => {
-  return (
+  return ( 
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
