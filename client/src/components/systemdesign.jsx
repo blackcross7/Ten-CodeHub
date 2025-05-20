@@ -8,95 +8,79 @@ const courseData = [
   {
     week: "Week 1",
     topics: [
-      "Analysis of Algorithms: Learn about the Order of Growth, Best, Average, and Worst cases of various algorithms using Asymptotic Notations and much more.",
-      "Mathematics: Build your maths foundation with problems like Factorial of a Number, HCF, LCM, and concepts like Sieve of Eratosthenes.",
-      "Bit Magic: Aquire Knowledge of Bitwise Operators with the help of important example tutorials.",
+      "Introduction to System Design: Understand the basics of system design, including scalability, reliability, and maintainability.",
+      "Designing Scalable Systems: Learn how to design systems that can handle increased load and traffic.",
+      "Load Balancing: Explore different load balancing techniques and their applications.",
     ],
   },
   {
     week: "Week 2",
     topics: [
-      "Recursion: Gain understanding of Recursion, base cases, and Tail Recursion, and solve problems like Rope Cutting, Tower of Hanoi, and Josephus Problem.",
-      "Arrays: Master Arrays from their Introduction and Operations to solving problems like Stock Buy and Sell, Trapping Rain Water, etc.",
-      "Searching: Get familiar with Binary Seach Technique with its analysis and various associated problems tutorials.",
+      "Database Design: Understand the principles of database design, normalization, and denormalization.",
+      "Caching Strategies: Learn about caching mechanisms and how to implement them effectively.",
+      "Microservices Architecture: Explore the benefits and challenges of microservices in system design.",
     ],
   },
   {
     week: "Week 3",
     topics: [
-      "Sorting: Learn about Insertion sort, Quick sort, and Radix sort.",
-      "Matrix: Solve problems like Matrix in a Snake Pattern, Spiral Matrix traversal, and more.",
-      "Hashing: Introduction, Time complexity, Applications, and Direct Address Table.",
+      "API Design: Learn how to design RESTful APIs and understand best practices.",
+      "Message Queues: Understand the role of message queues in system design and how to implement them.",
+      "Data Consistency: Explore strategies for maintaining data consistency across distributed systems.",
     ],
   },
   {
     week: "Week 4",
     topics: [
-      "String: From basics to Rabin Karp, KMP algorithm, etc.",
-      "Linked List: Singly, Doubly, and Circular, with problems like loop detection, intersection, and LRU Cache.",
+      "Monitoring and Logging: Learn about monitoring tools and logging best practices for system health.",
+      "Security in System Design: Understand the importance of security and how to implement secure systems.",
     ],
   },
   {
     week: "Week 5",
     topics: [
-      "Stack: Balanced Parentheses, Stock Span, Infix/Prefix/Postfix expressions.",
-      "Queue: Reversing a Queue, Generate numbers with given digits, and more.",
-      "Deque: Problems like Maximums of subarrays of size k, First Circular Tour, etc.",
-      "Tree: Height, Level order traversal, Burn a Binary tree, Serialize/Deserialize, etc.",
+      "Designing for Failure: Learn how to design systems that can gracefully handle failures.",
+      "Scalability Patterns: Explore various patterns for scaling applications effectively.",
+      "Real-world Case Studies: Analyze real-world systems and their design choices.",
     ],
   },
   {
     week: "Week 6",
     topics: [
-      "Binary Search Tree: Search, insert, delete, Check for BST, Vertical Sum, etc.",
-      "Heap: Min Heap, Max Heap, Priority Queue, and related problems.",
-      "Graph: BFS, DFS, Prim's, Dijkstra, Kosaraju, etc.",
+      "Performance Optimization: Learn techniques for optimizing system performance.",
+      "Cloud Services: Understand how to leverage cloud services for system design.",
+      "Deployment Strategies: Explore different deployment strategies and their implications.",
     ],
   },
   {
     week: "Week 7",
     topics: [
-      "Greedy: Activity Selection, Fractional Knapsack, and more.",
-      "Backtracking: Rat in a Maze, N Queen, Sudoku Problem, etc.",
-      "Dynamic Programming: Memoization, Tabulation, LCS, LIS, Coin Change, Egg Dropping.",
-    ],
-  },
-  {
-    week: "Week 8",
-    topics: [
-      "Trie: Representation, search, insert, delete, and problems.",
-      "Segment/BIT: Segment tree and Binary Indexed Tree examples.",
-      "Disjoint Set: Union, Find, Rank, and Path Compression.",
+      "System Design Interviews: Prepare for system design interviews with practical exercises.",
+      "Hands-on Project: Work on a capstone project to apply your system design knowledge.",
     ],
   },
   {
     week: "Projects",
     topics: [
-      "Sudoku Solver",
-      "Shortest Path Finder",
-      "Tic Tac Toe",
-      "N Queen Visualizer",
-      "Binary Tree Visualizer",
+      "Design a URL Shortener",
+      "Build a Chat Application",
+      "Create a Social Media Feed",
+      "Develop a Video Streaming Service",
+      "Implement a Ride-Sharing System",
     ],
   },
 ];
 
 const tools = [
-  { name: 'C++', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg' },
-  { name: 'Python', logo: 'https://static.vecteezy.com/system/resources/previews/012/697/295/non_2x/3d-python-programming-language-logo-free-png.png' },
-  { name: 'HTML', logo: 'https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png' },
-  { name: 'CSS', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg' },
-  { name: 'JavaScript', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png' },
-  { name: 'Java', logo: 'https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg' },
-  { name: 'MongoDB', logo: 'https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png' },
-  { name: 'React', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg' },
-  { name: 'Express', logo: 'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/359/thumb/expressjslogo.png' },
-  { name: 'Spring', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg' },
-  { name: 'TensorFlow', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg' },
-  { name: 'Tableau', logo: 'https://www.edureka.co/blog/wp-content/uploads/2018/01/tableau-icon-what-is-tableau-blog-edureka.png' },
-  { name: 'Colab', logo: 'https://colab.research.google.com/img/colab_favicon_256px.png' },
-  { name: 'Jupyter', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg' },
-  { name: 'Excel', logo: 'https://static.vecteezy.com/system/resources/previews/022/101/030/original/microsoft-excel-logo-transparent-free-png.png' },
+  { name: 'Lucidchart', logo: 'https://e7.pngegg.com/pngimages/625/214/png-clipart-lucidchart-logo-thumbnail-tech-companies-thumbnail.png' },
+  { name: 'Draw.io', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Diagrams.net_Logo.svg/2048px-Diagrams.net_Logo.svg.png' },
+  { name: 'AWS Architecture Diagrams', logo: 'https://www.pngmart.com/files/23/Aws-Logo-PNG-Image.png' },
+  { name: 'Microsoft Visio', logo: 'https://seeklogo.com/images/M/microsoft-visio-logo-616F638EA1-seeklogo.com.png' },
+  { name: 'Postman', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmtT98yfidU8hGRVTgArB2jtr4hxWjvFYr4g&s' },
+  { name: 'Docker', logo: 'https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png' },
+  { name: 'Kubernetes', logo: 'https://images.seeklogo.com/logo-png/27/1/kubernetes-logo-png_seeklogo-273594.png' },
+  { name: 'Terraform', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_3yP8N1mLoNDdo2gkMzRQfwMpw3ZjiGZeoQ&s' },
+  { name: 'Prometheus', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjDWOUUW8m3sTPB4OFNxDm3weHS1Y0ScE3cA&s' },
 ];
 
 const faqs = [
@@ -120,7 +104,7 @@ const faqs = [
   },
 ];
 
-function Dsa() {
+function SystemDesign() {
 
   const [showAll, setShowAll] = useState(false);
 
@@ -151,7 +135,7 @@ function Dsa() {
           {/* Left */}
           <div className='lg:w-[50%] flex flex-col justify-between'>
             <h1 className='text-3xl lg:text-4xl text-center lg:text-left font-extrabold leading-snug mb-12 lg:mb-6 tracking-tight'>
-              DSA to Development<br />A Complete Guide
+              System Design Course<br />A Complete Guide
             </h1>
 
             <div className='flex flex-col gap-4 text-lg'>
@@ -182,8 +166,8 @@ function Dsa() {
           <div className='lg:w-[50%] flex items-center justify-center lg:justify-end'>
             <img
               className='w-full max-w-lg'
-              src="/assets/image/dsa_page_hero.png"
-              alt="DSA Hero"
+              src="/assets/image/systemdesign_page_hero.png"
+              alt="System Design Hero"
             />
           </div>
         </div>
@@ -192,7 +176,7 @@ function Dsa() {
         <div className="mt-8 text-base w-full lg:w-[80%] mx-auto border-l-4 border-green-500 text-white p-6 rounded-md bg-gray-800 flex items-start gap-4 shadow-md ">
           <FontAwesomeIcon className="text-green-400 text-xl mt-1" icon={faWarning} />
           <p className="text-slate-300 leading-relaxed">
-            Join thousands of learners mastering DSA and landing top tech roles. This structured program guides you from core concepts to building real-world applications — all in one streamlined journey.
+            Join thousands of learners mastering System Design and landing top tech roles. This structured program guides you from core concepts to building real-world applications — all in one streamlined journey.
           </p>
         </div>
       </div>
@@ -207,8 +191,8 @@ function Dsa() {
         <div className='w-full lg:w-[40%] flex items-center justify-center'>
           <img
             className='rounded-lg object-cover w-full h-full max-h-[300px]'
-            src="/assets/image/ds_img.jpg"
-            alt="DSA Preview"
+            src="/assets/image/SystemDesign_image.jpg"
+            alt="System Design Preview"
           />
         </div>
 
@@ -218,7 +202,7 @@ function Dsa() {
               <span className='border-b-2 border-green-500 pb-1'>Course Description</span>
             </h2>
             <p className='text-sm text-slate-300 leading-relaxed'>
-              This course is your roadmap from mastering Data Structures and Algorithms to becoming a confident, job-ready developer. Whether you're pursuing full-stack development or focusing on a niche tech stack, you'll gain the core skills to build real-world solutions from the ground up.
+              This course is your roadmap from mastering System Design to becoming a confident, job-ready developer. Whether you're pursuing full-stack development or focusing on a niche tech stack, you'll gain the core skills to build real-world solutions from the ground up.
             </p>
           </div>
 
@@ -251,16 +235,16 @@ function Dsa() {
             </div>
             <div className='lg:w-[40%] lg:hidden flex items-center justify-center'>
               <img
-                src="/assets/image/dsa_page_about.jpg"
+                src="/assets/image/systemdesign_page_about.jpg"
                 alt="About the course"
                 className='w-full h-[300px] object-cover rounded-lg shadow-md'
               />
             </div>
             <p className='text-slate-300 leading-relaxed'>
-              The course begins with a solid foundation in DSA — a must-have for any developer. As you progress, you'll build hands-on projects, explore popular frameworks, and develop a strong understanding of scalable code and system design. Whether you're a student or a professional, this course adapts to your goals and equips you for real-world tech challenges.
+              The course begins with a solid foundation in System Design — a must-have for any developer. As you progress, you'll build hands-on projects, explore popular frameworks, and develop a strong understanding of scalable code and system design. Whether you're a student or a professional, this course adapts to your goals and equips you for real-world tech challenges.
             </p>
             <ul className='list-disc list-inside text-slate-400 space-y-1'>
-              <li>Foundational mastery of DSA concepts and techniques</li>
+              <li>Foundational mastery of System Design concepts and techniques</li>
               <li>Practical coding problems and industry-standard solutions</li>
               <li>Progressive learning from beginner to advanced levels</li>
               <li>Perfect for full-stack, backend, Android, or data science pathways</li>
@@ -271,7 +255,7 @@ function Dsa() {
           {/* Image */}
           <div className='lg:w-[40%] hidden lg:flex items-center justify-center'>
             <img
-              src="/assets/image/dsa_page_about.jpg"
+              src="/assets/image/systemdesign_page_about.jpg"
               alt="About the course"
               className='w-full h-[300px] object-cover rounded-lg shadow-md'
             />
@@ -317,7 +301,7 @@ function Dsa() {
       </div>
 
 
-      {/* Course Technoogies */}
+      {/* Course Technologies */}
       <div className="w-full bg-gray-900 py-16">
         <div className="w-[90vw] max-w-6xl mx-auto ">
           <div className="w-full text-center lg:text-left">
@@ -360,8 +344,7 @@ function Dsa() {
                 <div className="flex justify-between items-center">
                   <h3 className="text-lg font-medium text-white">{faq.question}</h3>
                   <ChevronDown
-                    className={`h-5 w-5 text-white transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""
-                      }`}
+                    className={`h-5 w-5 text-white transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""}`}
                   />
                 </div>
                 {openIndex === index && (
@@ -377,4 +360,4 @@ function Dsa() {
   );
 }
 
-export default Dsa;
+export default SystemDesign;

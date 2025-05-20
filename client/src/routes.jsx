@@ -19,6 +19,7 @@ import Python from './pages/Python'
 import Ml from './components/ml'
 import Webdev from './components/webdev'
 import DevOps from './components/DevOps'
+import SystemDesign from './components/systemdesign';
 
 
 
@@ -45,6 +46,7 @@ const AppRoutes = () => {
       <Route path="/ml" element={<Ml/>} />
       <Route path="/webdev" element={<Webdev/>} />
       <Route path="/devops" element={<DevOps/>} />
+      <Route path="/systemdesign" element={<SystemDesign/>}/>
 
      
 
