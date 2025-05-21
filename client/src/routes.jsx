@@ -20,6 +20,7 @@ import Ml from './components/ml'
 import Webdev from './components/webdev'
 import DevOps from './components/DevOps'
 import SystemDesign from './components/systemdesign';
+import Aptitude from './pages/Aptitude';
 
 
 
@@ -47,6 +48,7 @@ const AppRoutes = () => {
       <Route path="/webdev" element={<Webdev/>} />
       <Route path="/devops" element={<DevOps/>} />
       <Route path="/systemdesign" element={<SystemDesign/>}/>
+      <Route path="/aptitude" element={<Aptitude/>} />
 
      
 
