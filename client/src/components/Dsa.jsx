@@ -139,7 +139,7 @@ function Dsa() {
       <div className='text-white w-[90vw] max-w-7xl mx-auto rounded-xl text-start flex flex-col place-items-start px-6 lg:px-16 py-10'>
 
         {/* Breadcrumb */}
-        <Link to="/course">
+        <Link to="/course" >
           <h2 className='text-sm flex gap-2 cursor-pointer'>
             <span className='text-slate-400'>All courses &gt;</span>
             <span className='text-white'>Live</span>
@@ -152,7 +152,7 @@ function Dsa() {
           <div className='lg:w-[50%] flex flex-col justify-between'>
             <h1 className='text-3xl lg:text-4xl text-center lg:text-left font-extrabold leading-snug mb-12 lg:mb-6 tracking-tight'>
               DSA to Development<br />A Complete Guide
-            </h1>
+            </h1> 
 
             <div className='flex flex-col gap-4 text-lg'>
               <div className='flex items-center'>
