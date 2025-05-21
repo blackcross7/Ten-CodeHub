@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
+
   color: #333;
   line-height: 1.6;
   min-height: 100vh;
@@ -17,24 +17,61 @@ body {
 
 /* MAIN CONTENT */
 /* Large screen default */
-
-.main-div-practice{
-  background: linear-gradient(to bottom, rgb(211, 131, 131), #d5f2d5);
-  min-height: 100vh;
-  padding-top: 100px;
+.hero-section {
+  height: 100vh;
+  background-image: url('/assets/image/practice_bg2.jpeg'); /* use correct relative path */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
 }
+
+
+.problem-of-the-day
+ {
+  border: 2px solid rgb(0, 208, 255);
+  padding: 12px; /* Add this line */
+  box-sizing: border-box; 
+  border-radius: 12px;
+}
+.articles-grid  {
+  border: 2px solid rgb(0, 208, 255);
+  padding: 12px; /* Add this line */
+  box-sizing: border-box; 
+  border-radius: 12px;
+}
+
+
+.after-hero-bg {
+  background-color: 	#0a0f2c;/* Navy blue */
+  position: relative;
+  z-index: 0;
+  padding-top: 300px; /* Adjust to cover space under hero */
+}
+
+.main-div-practice {
+  position: relative;
+  margin-top: -850px; /* Keeps overlap */
+  z-index: 10; /* Keeps it above the hero */
+}
+
 .main-content-practice {
 
   max-width: 1200px;
   margin: 0px auto 0px;
-  padding: 20px 100px;
+  padding: 0px 100px;
   width: 100%;
   box-sizing: border-box;
 }
 
 /* Tiles section container */
 .tiles-section {
-  background: white;
+  background: linear-gradient(#050a30);
   margin-top: 60px;
   padding: 30px 40px;
   border-radius: 30px;
@@ -69,7 +106,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(2, minmax(280px, 1fr));
   gap: 30px;
-  padding: 20px 0;
+  padding: 18 22px; 
   box-sizing: border-box;
   width: 100%;
 }
@@ -94,7 +131,7 @@ h2 {
 
 /* ARTICLE CARD */
 .article-card {
-  background: var(--card-bg, #fff);
+  background: var(--card-bg, #5ecae7);
   border: 2px solid var(--border-color, #E0E6ED);
   border-radius: 16px;
   padding: 30px;

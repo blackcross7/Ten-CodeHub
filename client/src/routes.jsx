@@ -15,6 +15,7 @@ import ForumPage from './components/ForumPage';
 import Dsa from './components/Dsa';
 import JavaPage from './components/JavaPage';
 import C from './pages/C'
+import Cpp from  './components/Cpp'
 import Python from './pages/Python'
 import Ml from './components/ml'
 import Webdev from './components/webdev'
@@ -42,6 +43,7 @@ const AppRoutes = () => {
       <Route path= "/dsa" element={<Dsa/>} />
       <Route path="/java" element={<JavaPage/>} />
       <Route path="/c" element={<C/>} />
+      <Route path="/cpp" element={<Cpp/>} />
       <Route path="/python" element={<Python/>} />
       <Route path="/python" element={<Python/>} />
       <Route path="/ml" element={<Ml/>} />
