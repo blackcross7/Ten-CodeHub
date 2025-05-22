@@ -16,7 +16,7 @@ function AppContent() {
   const shouldHideLayout = hideLayoutRoutes.includes(location.pathname);
 
 return (
-    <div className="flex flex-col min-h-screen bg-gray-900 bg-[url('/assets/image/course_bg2.jpg')] bg-cover bg-center">
+    <div className="flex flex-col min-h-screen">
       {!shouldHideLayout && <Navbar />}
       <main className="flex-grow">
         <AppRoutes />
