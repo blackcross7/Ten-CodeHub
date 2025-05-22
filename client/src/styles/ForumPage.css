@@ -15,7 +15,7 @@
 /* Top-centered forum title */
 .forum-title {
   position: absolute;
-  top: 20px;
+  top: 30px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 2.5rem;
