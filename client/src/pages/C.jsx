@@ -137,7 +137,7 @@ function C() {
   return (
     <div className='min-h-screen w-full bg-gradient-to-t from-gray-800 to-black pt-40 pb-32'>
       {/* Container */}
-      <div className='text-white w-[90vw] max-w-7xl mx-auto rounded-xl text-start flex flex-col place-items-start px-6 lg:px-16 py-10 mt-20'>
+      <div className='text-white w-[90vw] max-w-7xl mx-auto rounded-xl text-start flex flex-col place-items-start px-6 lg:px-16 py-10'>
         {/* Breadcrumb */}
         <Link to="/home">
           <h2 className='text-sm flex gap-2 cursor-pointer'>
@@ -147,10 +147,10 @@ function C() {
         </Link>
 
         {/* Hero Section */}
-        <div className='flex flex-col-reverse lg:flex-row justify-between w-full h-[95vh] lg:h-[50vh] py-12 gap-8'>
+        <div className='flex flex-col-reverse lg:flex-row justify-between w-full lg:h-[50vh] py-12 gap-8'>
           {/* Left */}
           <div className='lg:w-[50%] flex flex-col justify-between'>
-            <h1 className='text-3xl lg:text-4xl text-center md:text-left font-extrabold leading-snug mb-12 lg:mb-6 tracking-tight'>
+            <h1 className='text-3xl text-center md:text-left font-extrabold leading-snug mb-12 lg:mb-6 tracking-tight'>
               C Programming<br />Master the Fundamentals
             </h1>
 
