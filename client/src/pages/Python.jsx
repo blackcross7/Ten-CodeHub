@@ -172,7 +172,7 @@ function Python() {
           <div className='lg:w-[50%] flex items-center justify-center lg:justify-center'>
             <img
               className='w-full max-w-[160px]'
-              src="/assets/image/python.png"
+              src="/assets/image/Python.png"
               alt="Python Hero"
             />
           </div>
@@ -197,7 +197,7 @@ function Python() {
         <div className='w-full lg:w-[40%] flex items-center justify-center'>
           <img
             className='rounded-lg object-cover w-[150px] h-full max-h-[100px]'
-            src="/assets/image/python.png"
+            src="/assets/image/Python.png"
             alt="Python Preview"
           />
         </div>
@@ -260,7 +260,7 @@ function Python() {
           {/* Image */}
           <div className='lg:w-[40%] hidden lg:flex items-center justify-center'>
             <img
-              src="/assets/image/python.png"
+              src="/assets/image/Python.png"
               alt="About the course"
               className='w-[150px] h-[100px] object-cover rounded-lg shadow-md'
             />
