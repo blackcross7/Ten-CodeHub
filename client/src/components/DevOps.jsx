@@ -142,7 +142,7 @@ function DevOps() {
         </Link>
 
         {/* Hero Section */}
-        <div className='flex flex-col-reverse lg:flex-row justify-between w-full h-[95vh] lg:h-[50vh] py-12 gap-8'>
+        <div className='flex flex-col-reverse lg:flex-row justify-between w-full lg:h-[50vh] py-12 gap-8'>
           {/* Left */}
           <div className='lg:w-[50%] flex flex-col justify-between'>
             <h1 className='text-3xl lg:text-4xl text-center lg:text-left font-extrabold leading-snug mb-12 lg:mb-6 tracking-tight'>

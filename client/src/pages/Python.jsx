@@ -138,6 +138,7 @@ function Python() {
 
         {/* Hero Section */}
         <div className='flex flex-col-reverse lg:flex-row justify-between w-full lg:h-[50vh] py-12 gap-8'>
+        <div className='flex flex-col-reverse lg:flex-row justify-between w-full  lg:h-[50vh] py-12 gap-8'>
           {/* Left */}
           <div className='lg:w-[50%] flex flex-col justify-between'>
             <h1 className='text-3xl lg:text-4xl text-center md:text-left font-extrabold leading-snug mb-12 lg:mb-6 tracking-tight'>
@@ -159,10 +160,10 @@ function Python() {
             </div>
 
             <div className='flex flex-col sm:flex-row items-center gap-4 mt-10 md:mt-6'>
-              <button className='bg-green-600 hover:bg-green-700 text-white w-52 py-2 rounded-md font-semibold transition'>
+              <button className='bg-green-600 hover:bg-green-700 text-white w-full lg:w-52 py-2 rounded-md font-semibold transition'>
                 Sign Up Now
               </button>
-              <button className='border border-green-500 text-green-400 hover:bg-green-100 hover:text-green-700 w-52 py-2 rounded-md font-semibold transition flex items-center justify-center gap-2'>
+              <button className='border border-green-500 text-green-400 hover:bg-green-100 hover:text-green-700 w-full lg:w-52 py-2 rounded-md font-semibold transition flex items-center justify-center gap-2'>
                 Download Brochure <FontAwesomeIcon icon={faDownload} />
               </button>
             </div>
@@ -221,7 +222,7 @@ function Python() {
               />
               <span className='text-slate-400'>Beginner to Advanced</span>
             </div>
-            <button className='bg-green-600 hover:bg-green-700 text-white w-52 py-2 rounded-md font-semibold transition'>
+            <button className='bg-green-600 hover:bg-green-700 text-white w-full lg:w-52 py-2 rounded-md font-semibold transition'>
               Sign Up Now
             </button>
           </div>
@@ -233,9 +234,11 @@ function Python() {
         <div className='w-[90vw] max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-10'>
           {/* Text Content */}
           <div className='lg:w-[60%] text-white space-y-6'>
-            <h2 className='text-3xl text-white font-bold border-b-2 border-green-300 inline-block pb-1'>
-              About The Course
-            </h2>
+           <div className="w-full text-center lg:text-left">
+              <h3 className='text-2xl lg:text-3xl text-white font-bold border-b-2 border-green-300 inline-block pb-1'>
+                About The Course
+              </h3>
+            </div>
             <div className='lg:w-[40%] lg:hidden flex items-center justify-center'>
               <img
                 src="/assets/image/python-icon.png"
@@ -268,10 +271,11 @@ function Python() {
 
       {/* Course Content */}
       <div className="max-w-8xl mx-auto w-full px-6 lg:px-20 my-24">
-        <h1 className="text-3xl font-bold mb-8 border-b-2 border-green-300 inline-block pb-1">
-          Course Content
-        </h1>
+       <div className="w-full text-center lg:text-left">
 
+          <h1 className="text-3xl  font-bold mb-8 border-b-2 border-green-300 inline-block pb-1 ">
+            Course Content</h1>
+        </div>
         <div className="grid gap-6">
           {displayedContent.map((weekItem, index) => (
             <div
@@ -302,9 +306,12 @@ function Python() {
       {/* Course Technologies */}
       <div className="w-full bg-gray-900 py-16">
         <div className="w-[90vw] max-w-6xl mx-auto">
-          <h1 className="text-3xl font-bold text-white mb-10 border-b-2 border-green-500 inline-block pb-1">
-            Tools & Technologies
-          </h1>
+          <div className="w-full text-center lg:text-left">
+
+            <h1 className="text-3xl font-bold text-white mb-10 border-b-2 border-green-500 inline-block pb-1">
+              Tools & Technologies
+            </h1>
+          </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
             {tools.map((tool, index) => (
               <div key={index} className="bg-gray-800 p-4 rounded-xl flex flex-col items-center shadow hover:scale-105 transition">
@@ -323,9 +330,12 @@ function Python() {
       {/* FAQ */}
       <div className="w-full mt-24">
         <div className="w-[90vw] max-w-6xl mx-auto">
+            <div className="w-full text-center lg:text-left">
+
           <h2 className="text-3xl font-bold text-center mb-10 border-b-2 border-green-500 inline-block pb-2">
             FAQ's
           </h2>
+            </div>
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div

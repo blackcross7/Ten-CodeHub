@@ -30,6 +30,7 @@
   width: 100%;
   height: 100vh; /* This makes it take full screen height */
   flex-direction: row;
+  
   text-align: left;
 }
 .promo-banner * {

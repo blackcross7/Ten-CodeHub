@@ -15,11 +15,13 @@ import ForumPage from './components/ForumPage';
 import Dsa from './components/Dsa';
 import JavaPage from './components/JavaPage';
 import C from './pages/C'
+import Cpp from  './components/Cpp'
 import Python from './pages/Python'
 import Ml from './components/ml'
 import Webdev from './components/webdev'
 import DevOps from './components/DevOps'
 import SystemDesign from './components/systemdesign';
+import Aptitude from './pages/Aptitude';
 
 
 
@@ -41,12 +43,14 @@ const AppRoutes = () => {
       <Route path= "/dsa" element={<Dsa/>} />
       <Route path="/java" element={<JavaPage/>} />
       <Route path="/c" element={<C/>} />
+      <Route path="/cpp" element={<Cpp/>} />
       <Route path="/python" element={<Python/>} />
       <Route path="/python" element={<Python/>} />
       <Route path="/ml" element={<Ml/>} />
       <Route path="/webdev" element={<Webdev/>} />
       <Route path="/devops" element={<DevOps/>} />
       <Route path="/systemdesign" element={<SystemDesign/>}/>
+      <Route path="/aptitude" element={<Aptitude/>} />
 
      
 
