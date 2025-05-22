@@ -7,7 +7,7 @@ const LoginModal = ({ onClose }) => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    onClose();        // Close modal
+    onClose();        // Close modal      
     navigate('/');    // Redirect to home
   };
 
@@ -16,17 +16,19 @@ const LoginModal = ({ onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+    <div className="min-h-screen inset-0 bg-black bg-opacity-40 flex mt-0 md:mt-20 items-center justify-center z-50">
       <div className="bg-white p-6 rounded-2xl shadow-xl w-[90%] md:w-[400px] relative">
 
         <button onClick={handleClose} className="absolute top-2 right-4 text-2xl">&times;</button>
 
-        <h2 className="text-2xl font-bold text-center mb-4">
+        <h2 className="text-2xl font-bold text-black text-center mb-4">
           {isSignup ? "Create Account" : "Login to Account"}
         </h2>
 
         <form className="space-y-3">
-          <input type="text" placeholder="Username" className="w-full px-3 py-2 border rounded-md" />
+          {isSignup && (
+            <input type="text" placeholder="Full Name" className="w-full px-3 py-2 border rounded-md" />
+          )}
           <input type="email" placeholder="Email" className="w-full px-3 py-2 border rounded-md" />
           <input type="password" placeholder="Password" className="w-full px-3 py-2 border rounded-md" />
           {isSignup && (
