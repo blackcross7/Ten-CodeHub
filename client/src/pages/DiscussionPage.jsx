@@ -54,7 +54,7 @@ const DiscussionsPage = () => {
 
       <div className="discussions-container text-white">
         <div className="discussions-header">
-          <h2 className="discussions-heading">Discussions</h2>
+          <h2 className="discussions-heading text-white">Discussions</h2>
           <button onClick={handleGoBack} className="back-to-forum-btn">
             Back to Forum
           </button>

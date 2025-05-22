@@ -135,7 +135,7 @@ function C() {
   };
 
   return (
-    <div className='min-h-screen w-full bg-gradient-to-t from-gray-800 to-black py-32'>
+    <div className='min-h-screen w-full bg-gradient-to-t from-gray-800 to-black pt-40 pb-32'>
       {/* Container */}
       <div className='text-white w-[90vw] max-w-7xl mx-auto rounded-xl text-start flex flex-col place-items-start px-6 lg:px-16 py-10'>
         {/* Breadcrumb */}

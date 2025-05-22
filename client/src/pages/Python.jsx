@@ -137,7 +137,7 @@ function Python() {
         </Link>
 
         {/* Hero Section */}
-        <div className='flex flex-col-reverse lg:flex-row justify-between w-full  lg:h-[50vh] py-12 gap-8'>
+        <div className='flex flex-col-reverse lg:flex-row justify-between w-full lg:h-[50vh] py-12 gap-8'>
           {/* Left */}
           <div className='lg:w-[50%] flex flex-col justify-between'>
             <h1 className='text-3xl lg:text-4xl text-center md:text-left font-extrabold leading-snug mb-12 lg:mb-6 tracking-tight'>
@@ -172,7 +172,7 @@ function Python() {
           <div className='lg:w-[50%] flex items-center justify-center lg:justify-center'>
             <img
               className='w-full max-w-[160px]'
-              src="/assets/image/Python.png"
+              src="/assets/image/python.png"
               alt="Python Hero"
             />
           </div>
@@ -197,7 +197,7 @@ function Python() {
         <div className='w-full lg:w-[40%] flex items-center justify-center'>
           <img
             className='rounded-lg object-cover w-[150px] h-full max-h-[100px]'
-            src="/assets/image/Python.png"
+            src="/assets/image/python.png"
             alt="Python Preview"
           />
         </div>
@@ -260,7 +260,7 @@ function Python() {
           {/* Image */}
           <div className='lg:w-[40%] hidden lg:flex items-center justify-center'>
             <img
-              src="/assets/image/python-icon.png"
+              src="/assets/image/python.png"
               alt="About the course"
               className='w-[150px] h-[100px] object-cover rounded-lg shadow-md'
             />
@@ -361,5 +361,4 @@ function Python() {
     </div>
   );
 }
-
 export default Python;

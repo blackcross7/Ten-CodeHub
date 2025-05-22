@@ -39,7 +39,7 @@ const ForumPage = () => {
 
       {/* Main forum content */}
       <div className="forum-container bg-white text-white-800">
-        <h1 className="forum-title">Discussion Forum</h1>
+        <h1 className="forum-title text-white">Discussion Forum</h1>
 
         <form onSubmit={handleSubmit}>
           <div className="input-group">
@@ -56,7 +56,7 @@ const ForumPage = () => {
           </div>
 
           <div className="input-group">
-            <label htmlFor="topic" className="text-gray-800">
+            <label htmlFor="topic" className="text-white">
               <img src="/assets/image/topic-icon.png" alt="Topic" className="icon-img" /> Discussion Topic:
             </label>
             <input
@@ -65,11 +65,12 @@ const ForumPage = () => {
               name="topic"
               value={topic}
               onChange={(e) => setTopic(e.target.value)}
+              className="text-white"
             />
           </div>
 
           <div className="input-group">
-            <label htmlFor="views" className="text-gray-800">
+            <label htmlFor="views" className="text-white">
               <img src="/assets/image/views-icon.png" alt="Views" className="icon-img" /> Your Views:
             </label>
             <textarea
@@ -77,7 +78,7 @@ const ForumPage = () => {
               name="views"
               value={views}
               onChange={(e) => setViews(e.target.value)}
-              className="text-gray-800"
+              className="text-white"
             ></textarea>
           </div>
 
