@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import '../styles/JavaPage.css';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion'; // Import motion from framer-motion
+import { motion } from 'framer-motion';
 
 const BackendPage = () => {
   const [showMore, setShowMore] = useState(false);
+  const [animationsShown, setAnimationsShown] = useState(false); // New state variable
 
   // Animation variants for the cards
   const fadeInUpEnhanced = {
@@ -41,7 +42,8 @@ const BackendPage = () => {
         <motion.div
           className="course-card-java"
           initial="hidden"
-          whileInView="visible"
+          whileInView={animationsShown ? "visible" : "hidden"} // Conditional animation
+          onViewportEnter={() => setAnimationsShown(true)} // Set animationsShown to true
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUpEnhanced}
         >
@@ -94,7 +96,9 @@ const BackendPage = () => {
               key={index}
               className="info-pill"
               initial="hidden"
-              whileInView="visible"
+              whileInView={animationsShown ? "visible" : "hidden"} // Conditional animation
+              onViewportEnter={() => setAnimationsShown(true)} // Set animationsShown to true
+               viewport={{ once: true, amount: 0.3 }}
               variants={fadeInUpEnhanced}
               custom={index}
             >
@@ -107,7 +111,9 @@ const BackendPage = () => {
         <motion.div
           className="early-bird-alert"
           initial="hidden"
-          whileInView="visible"
+          whileInView={animationsShown ? "visible" : "hidden"} // Conditional animation
+          onViewportEnter={() => setAnimationsShown(true)} // Set animationsShown to true
+           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUpEnhanced}
         >
           <div className="alert-icon">i</div>
@@ -192,7 +198,9 @@ const BackendPage = () => {
         <motion.div
           className="instructor-section"
           initial="hidden"
-          whileInView="visible"
+          whileInView={animationsShown ? "visible" : "hidden"} // Conditional animation
+          onViewportEnter={() => setAnimationsShown(true)} // Set animationsShown to true
+           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUpEnhanced}
         >
           <h2 className="instructor-heading">Course Instructor</h2>
@@ -273,7 +281,9 @@ const BackendPage = () => {
           <motion.div
             className="testimonial-card"
             initial="hidden"
-            whileInView="visible"
+            whileInView={animationsShown ? "visible" : "hidden"} // Conditional animation
+            onViewportEnter={() => setAnimationsShown(true)} // Set animationsShown to true
+             viewport={{ once: true, amount: 0.3 }}
             variants={fadeInUpEnhanced}
           >
             <img src="/assets/image/instructor-icon.jpg" alt="Thamim K" className="testimonial-image" />
@@ -295,7 +305,9 @@ const BackendPage = () => {
                   key={idx}
                   className="review-card"
                   initial="hidden"
-                  whileInView="visible"
+                  whileInView={animationsShown ? "visible" : "hidden"} // Conditional animation
+                  onViewportEnter={() => setAnimationsShown(true)} // Set animationsShown to true
+                   viewport={{ once: true, amount: 0.3 }}
                   variants={fadeInUpEnhanced}
                   custom={idx}
                 >
@@ -321,7 +333,9 @@ const BackendPage = () => {
               key={index}
               className="faq-item"
               initial="hidden"
-              whileInView="visible"
+              whileInView={animationsShown ? "visible" : "hidden"} // Conditional animation
+              onViewportEnter={() => setAnimationsShown(true)} // Set animationsShown to true
+               viewport={{ once: true, amount: 0.3 }}
               variants={fadeInUpEnhanced}
               custom={index}
             >
@@ -345,4 +359,3 @@ const BackendPage = () => {
 };
 
 export default BackendPage;
-

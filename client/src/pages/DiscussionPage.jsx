@@ -25,7 +25,7 @@ const DiscussionsPage = () => {
   ];
 
   const handleGoBack = () => {
-    navigate("/");
+    navigate("/forum");
   };
 
   const handleReplyChange = (id, value) => {

@@ -196,8 +196,8 @@ function Python() {
         </div>
         <div className='w-full lg:w-[40%] flex items-center justify-center'>
           <img
-            className='rounded-lg object-cover w-[150px] h-full max-h-[100px]'
-            src="/assets/image/Python.png"
+            className='rounded-lg object-contain w-[400px] h-[300px]'
+            src="/assets/image/python1.jpg"
             alt="Python Preview"
           />
         </div>
@@ -240,9 +240,9 @@ function Python() {
             </div>
             <div className='lg:w-[40%] lg:hidden flex items-center justify-center'>
               <img
-                src="/assets/image/python-icon.png"
+                src="/assets/image/python2.jpg"
                 alt="About the course"
-                className='w-[30%] h-[100px] object-cover rounded-lg shadow-md'
+                className='w-[400px] h-[300px] object-contain rounded-lg shadow-md'
               />
             </div>
             <p className='text-slate-300 leading-relaxed'>
@@ -260,9 +260,9 @@ function Python() {
           {/* Image */}
           <div className='lg:w-[40%] hidden lg:flex items-center justify-center'>
             <img
-              src="/assets/image/Python.png"
+              src="/assets/image/python2.jpg"
               alt="About the course"
-              className='w-[150px] h-[100px] object-cover rounded-lg shadow-md'
+              className='w-[350px] h-[250px] object-contain rounded-lg shadow-md'
             />
           </div>
         </div>

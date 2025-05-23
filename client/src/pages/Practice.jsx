@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/Practice.css';
 
 function Practice() {
+  useEffect(() => {
+    const cards = document.querySelectorAll('.article-card');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          observer.unobserve(entry.target); // Animate once
+        }
+      });
+    }, {
+      threshold: 0.1,
+    });
+
+    cards.forEach((card, index) => {
+      card.style.setProperty('--delay', `${0.1 * (index + 1)}s`);
+      observer.observe(card);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       {/* Hero Section */}

@@ -14,6 +14,61 @@ body {
   min-height: 100vh;
   overflow-x: hidden; 
 }
+/* ========== ANIMATIONS ========== */
+
+/* Fade-in for hero section */
+@keyframes fadeInHero {
+  from { opacity: 0; transform: scale(1.05); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.hero-section {
+  animation: fadeInHero 1.8s ease-out forwards;
+}
+
+/* Slide and fade-in for tiles section */
+@keyframes slideFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tiles-section {
+  animation: slideFadeUp 1.5s ease-out forwards;
+}
+
+/* Fade-up for each article card */
+.article-card {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.article-card.animate {
+  animation: articleFadeUp 0.8s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes articleFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* Animate cards on load (simple stagger using JS, optional) */
+.articles-grid .article-card:nth-child(1) { --delay: 0.1s; }
+.articles-grid .article-card:nth-child(2) { --delay: 0.2s; }
+.articles-grid .article-card:nth-child(3) { --delay: 0.3s; }
+.articles-grid .article-card:nth-child(4) { --delay: 0.4s; }
+/* Add more nth-child rules if more cards */
+
 
 /* MAIN CONTENT */
 /* Large screen default */

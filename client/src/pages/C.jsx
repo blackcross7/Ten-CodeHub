@@ -135,7 +135,7 @@ function C() {
   };
 
   return (
-    <div className='min-h-screen w-full bg-gradient-to-t from-gray-800 to-black pt-40 pb-32'>
+    <div className='min-h-screen w-full bg-gradient-to-t from-gray-800 to-black py-32'>
       {/* Container */}
       <div className='text-white w-[90vw] max-w-7xl mx-auto rounded-xl text-start flex flex-col place-items-start px-6 lg:px-16 py-10'>
         {/* Breadcrumb */}
@@ -181,7 +181,7 @@ function C() {
           {/* Right */}
           <div className='lg:w-[50%] flex items-center justify-center lg:justify-center'>
             <img
-              className='w-full max-w-[160px]'
+              className='w-full max-w-[200px] object-contain'
               src="/assets/image/c-icon.png"
               alt="C Programming Hero"
             />
@@ -206,8 +206,8 @@ function C() {
         </div>
         <div className='w-full lg:w-[40%] flex items-center justify-center'>
           <img
-            className='rounded-lg object-cover w-[150px] h-full max-h-[100px]'
-            src="/assets/image/c-icon.png"
+            className='rounded-lg object-contain w-[400px] h-[300px]'
+            src="/assets/image/c-lang.avif"
             alt="C Programming Preview"
           />
         </div>
@@ -248,9 +248,9 @@ function C() {
             </h2>
             <div className='lg:w-[40%] lg:hidden flex items-center justify-center'>
               <img
-                src="/assets/image/c-icon.png"
+                src="/assets/image/c-imag.avif"
                 alt="About the course"
-                className='w-[30%] h-[100px] object-cover rounded-lg shadow-md'
+                className='w-[400px] h-[300px] object-contain rounded-lg shadow-md'
               />
             </div>
             <p className='text-slate-300 leading-relaxed'>
@@ -268,9 +268,9 @@ function C() {
           {/* Image */}
           <div className='lg:w-[40%] hidden lg:flex items-center justify-center'>
             <img
-              src="/assets/image/c-icon.png"
+              src="/assets/image/c-imag.avif"
               alt="About the course"
-              className='w-[150px] h-[100px] object-cover rounded-lg shadow-md'
+              className='w-[400px] h-[300px] object-contain rounded-lg shadow-md'
             />
           </div>
         </div>
