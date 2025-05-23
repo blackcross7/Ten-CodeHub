@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { faCheck, faDownload, faWarning } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const courseData = [
   {
@@ -126,7 +127,6 @@ const courseData = [
   },
 ];
 
-
 const faqs = [
   {
     question: "What is Quantitative Aptitude?",
@@ -146,9 +146,21 @@ const faqs = [
   },
 ];
 
-function aptitude() {
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+    },
+  }),
+};
+
+function Aptitude() {
   const [showAll, setShowAll] = useState(false);
-  const displayedContent = showAll ? courseData : courseData.slice(0, 2); // Adjusted to show two main sections
+  const displayedContent = showAll ? courseData : courseData.slice(0, 2);
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggle = (index) => {
@@ -157,25 +169,49 @@ function aptitude() {
 
   return (
     <div className='min-h-screen w-full bg-gradient-to-t from-gray-800 to-black pt-40 pb-32'>
-      {/* Container */}
       <div className='text-white w-[90vw] max-w-7xl mx-auto rounded-xl text-start flex flex-col place-items-start px-6 lg:px-16 py-10 mt-20'>
-        {/* Breadcrumb */}
         <Link to="/home">
-          <h2 className='text-sm flex gap-2 cursor-pointer'>
+          <motion.h2
+            className='text-sm flex gap-2 cursor-pointer'
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            custom={0}
+          >
             <span className='text-slate-400'>All courses &gt;</span>
             <span className='text-white'>Aptitude</span>
-          </h2>
+          </motion.h2>
         </Link>
 
-        {/* Hero Section */}
-        <div className='flex flex-col-reverse lg:flex-row justify-between w-full h-[95vh] lg:h-[50vh] py-12 gap-8'>
-          {/* Left */}
+        <motion.div 
+          className='flex flex-col-reverse lg:flex-row justify-between w-full h-[95vh] lg:h-[50vh] py-12 gap-8'
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          custom={1}
+        >
           <div className='lg:w-[50%] flex flex-col justify-between'>
-            <h1 className='text-3xl lg:text-4xl text-center md:text-left font-extrabold leading-snug mb-12 lg:mb-6 tracking-tight'>
+            <motion.h1
+              className='text-3xl lg:text-4xl text-center md:text-left font-extrabold leading-snug mb-12 lg:mb-6 tracking-tight'
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              custom={2}
+            >
               Aptitude<br />Master the Essentials
-            </h1>
+            </motion.h1>
 
-            <div className='flex flex-col gap-4 text-lg'>
+            <motion.div
+              className='flex flex-col gap-4 text-lg'
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              custom={3}
+            >
               <div className='flex items-center'>
                 <FontAwesomeIcon className='text-green-400 mr-2' icon={faCheck} />
                 Comprehensive Aptitude Preparation
@@ -187,54 +223,93 @@ function aptitude() {
               <div className='text-green-400 font-medium'>
                 Perfect for Students and Professionals
               </div>
-            </div>
+            </motion.div>
 
-            <div className='flex flex-col sm:flex-row items-center gap-4 mt-10 md:mt-6'>
+            <motion.div
+              className='flex flex-col sm:flex-row items-center gap-4 mt-10 md:mt-6'
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              custom={4}
+            >
               <button className='bg-green-600 hover:bg-green-700 text-white w-52 py-2 rounded-md font-semibold transition'>
                 Start Learning Now
               </button>
               <button className='border border-green-500 text-green-400 hover:bg-green-100 hover:text-green-700 w-52 py-2 rounded-md font-semibold transition flex items-center justify-center gap-2'>
                 Download Resources <FontAwesomeIcon icon={faDownload} />
               </button>
-            </div>
+            </motion.div>
           </div>
 
-          {/* Right */}
-          <div className='lg:w-[70%] flex items-center justify-center lg:justify-center'>
+          <motion.div
+            className='lg:w-[70%] flex items-center justify-center lg:justify-center'
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            custom={5}
+          >
             <img
               className='w-full max-w-[160px]'
-              src="/assets/image/Aptitude.png" // Update with an appropriate image
+              src="/assets/image/Aptitude.png"
               alt="Aptitude Preparation"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* Course Description */}
-        <div className='w-[90vw] max-w-7xl mx-auto py-8 p-4 rounded-xl flex flex-col lg:flex-row justify-center items-stretch gap-10 bg-gradient-to-b lg:bg-gradient-to-r from-gray-800 to-black shadow-lg my-24'>
+        <motion.section
+          className='w-[90vw] max-w-7xl mx-auto py-8 p-4 rounded-xl flex flex-col lg:flex-row justify-center items-stretch gap-10 bg-gradient-to-b lg:bg-gradient-to-r from-gray-800 to-black shadow-lg my-24'
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          custom={6}
+        >
           <div>
             <h2 className="text-2xl lg:hidden font-semibold text-white mb-0">
               <span className='border-b-2 border-green-500 pb-1'>Course Overview</span>
             </h2>
           </div>
-          <div className='w-full lg:w-[40%] flex items-center justify-center'>
+          <motion.div
+            className='w-full lg:w-[40%] flex items-center justify-center'
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            custom={7}
+          >
             <img
               className='rounded-lg object-cover w-[250px] h-full max-h-[200px]'
-              src="/assets/image/Aptitude.png" // Update with an appropriate image
+              src="/assets/image/Aptitude.png"
               alt="Aptitude Overview"
             />
-          </div>
+          </motion.div>
 
           <div className='flex flex-col gap-4 lg:w-[60%] h-full justify-between'>
-            <div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              custom={8}
+            >
               <h2 className="text-2xl hidden lg:block font-semibold text-white mb-2">
                 <span className='border-b-2 border-green-500 pb-1'>Course Overview</span>
               </h2>
               <p className='text-sm text-slate-300 leading-relaxed'>
                 This comprehensive aptitude course covers essential topics in Quantitative Aptitude, Logical Reasoning, and Verbal Ability. Prepare effectively for competitive exams with a focus on practical problem-solving skills.
               </p>
-            </div>
+            </motion.div>
 
-            <div className='flex flex-col gap-4'>
+            <motion.div
+              className='flex flex-col gap-4'
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              custom={9}
+            >
               <div className='flex items-center gap-2'>
                 <img
                   className='w-7 h-7 bg-[#3b8346] rounded-full p-1'
@@ -246,21 +321,32 @@ function aptitude() {
               <button className='bg-green-600 hover:bg-green-700 text-white w-52 py-2 rounded-md font-semibold transition'>
                 Start Learning Now
               </button>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.section>
 
-        {/* Course Content */}
-        <div className="max-w-8xl mx-auto w-full px-6 lg:px-20 my-24">
+        <motion.section
+          className="max-w-8xl mx-auto w-full px-6 lg:px-20 my-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          custom={10}
+        >
           <h1 className="text-3xl font-bold mb-8 border-b-2 border-green-300 inline-block pb-1">
             Course Content
           </h1>
 
           <div className="grid gap-6">
             {displayedContent.map((weekItem, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="bg-slate-900 text-gray-300 shadow-lg rounded-2xl p-6 border border-gray-200 cursor-text"
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={index}
               >
                 <h3 className="text-xl font-semibold text-zinc-500 mb-4">
                   {weekItem.week}
@@ -270,7 +356,7 @@ function aptitude() {
                     <li key={idx}>{topic}</li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
           <div className="mt-6 text-center">
@@ -281,20 +367,31 @@ function aptitude() {
               {showAll ? "Read less" : "Read more"}
             </button>
           </div>
-        </div>
+        </motion.section>
 
-        {/* FAQ */}
-        <div className="w-full mt-24">
+        <motion.section
+          className="w-full mt-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          custom={11}
+        >
           <div className="w-[90vw] max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-10 border-b-2 border-green-500 inline-block pb-2">
               FAQ's
             </h2>
             <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div
+                <motion.div
                   key={index}
                   className="bg-slate-950 rounded-lg shadow px-6 py-4 cursor-pointer transition-all"
                   onClick={() => toggle(index)}
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={index}
                 >
                   <div className="flex justify-between items-center">
                     <h3 className="text-lg font-medium text-white">{faq.question}</h3>
@@ -307,14 +404,15 @@ function aptitude() {
                   {openIndex === index && (
                     <p className="mt-3 text-white text-sm">{faq.answer}</p>
                   )}
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
-        </div>
+        </motion.section>
       </div>
     </div>
   );
 }
 
-export default aptitude;
+export default Aptitude;
+
