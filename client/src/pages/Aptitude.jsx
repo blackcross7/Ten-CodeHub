@@ -168,7 +168,7 @@ function Aptitude() {
   };
 
   return (
-    <div className='min-h-screen w-full bg-gradient-to-t from-gray-800 to-black pt-40 pb-32'>
+    <div className='min-h-screen w-full bg-gradient-to-t from-gray-800 to-black py-10'>
       <div className='text-white w-[90vw] max-w-7xl mx-auto rounded-xl text-start flex flex-col place-items-start px-6 lg:px-16 py-10 mt-20'>
         <Link to="/home">
           <motion.h2
@@ -185,7 +185,7 @@ function Aptitude() {
         </Link>
 
         <motion.div 
-          className='flex flex-col-reverse lg:flex-row justify-between w-full h-[95vh] lg:h-[50vh] py-12 gap-8'
+          className='flex flex-col-reverse lg:flex-row justify-between w-full  lg:h-[50vh] py-12 gap-8'
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}

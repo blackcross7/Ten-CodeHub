@@ -172,7 +172,7 @@ function Python() {
           <div className='lg:w-[50%] flex items-center justify-center lg:justify-center'>
             <img
               className='w-full max-w-[160px]'
-              src="/assets/image/python.png"
+              src="/assets/image/Python.png"
               alt="Python Hero"
             />
           </div>
