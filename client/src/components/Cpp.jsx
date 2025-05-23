@@ -3,6 +3,8 @@ import { faCheck, faDownload, faWarning } from '@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
+import { motion } from 'framer-motion';
+
 
 const courseData = [
   {
@@ -113,7 +115,20 @@ const faqs = [
       answer:"Yes, the course includes lessons on how to effectively debug your C++ programs and teaches best coding practices to write clean, efficient, and maintainable code.",
      },
 ];
-
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (custom = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: custom,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
+const whileHoverScale = { scale: 1.05 };
 function Cpp() {
   const [showAll, setShowAll] = useState(false);
   const displayedContent = showAll ? courseData : courseData.slice(0, 4);
@@ -123,24 +138,49 @@ function Cpp() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  return (
-    <div className='min-h-screen w-full bg-gradient-to-t from-gray-800 to-black py-32'>
+ return (
+    <motion.div
+      className='min-h-screen w-full bg-gradient-to-t from-gray-800 to-black py-32'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
       {/* Container */}
-      <div className='text-white w-[90vw] max-w-7xl mx-auto rounded-xl text-start flex flex-col place-items-start px-6 lg:px-16 py-10'>
+      <motion.div
+        className='text-white w-[90vw] max-w-7xl mx-auto rounded-xl text-start flex flex-col place-items-start px-6 lg:px-16 py-10'
+        initial={{ y: 30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
         {/* Breadcrumb */}
         <Link to="/home">
-          <h2 className='text-sm flex gap-2 cursor-pointer'>
+          <motion.h2
+            className='text-sm flex gap-2 cursor-pointer'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
             <span className='text-slate-400'>All courses &gt;</span>
             <span className='text-white'>Live</span>
-          </h2>
+          </motion.h2>
         </Link>
 
         {/* Hero Section */}
-        <div className='flex flex-col-reverse lg:flex-row justify-between w-full h-[95vh] lg:h-[50vh] py-12 gap-8'>
+        <motion.div
+          className='flex flex-col-reverse lg:flex-row justify-between w-full h-[95vh] lg:h-[50vh] py-12 gap-8'
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           {/* Left */}
-          <div className='lg:w-[50%] flex flex-col justify-between'>
+          <motion.div
+            className='lg:w-[50%] flex flex-col justify-between'
+            initial={{ x: -40, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
             <h1 className='text-3xl lg:text-4xl text-center md:text-left font-extrabold leading-snug mb-12 lg:mb-6 tracking-tight'>
-             C++ Programming Language<br />From Basics to Advanced
+              C++ Programming Language<br />From Basics to Advanced
             </h1>
 
             <div className='flex flex-col gap-4 text-lg'>
@@ -153,7 +193,7 @@ function Cpp() {
                 Industry-Standard Projects
               </div>
               <div className='text-green-400 font-medium'>
-                Upgrade Your Skills 
+                Upgrade Your Skills
               </div>
             </div>
 
@@ -163,32 +203,48 @@ function Cpp() {
               </button>
               <button className='border border-green-500 text-green-400 hover:bg-green-100 hover:text-green-700 w-52 py-2 rounded-md font-semibold transition flex items-center justify-center gap-2'>
                 Download Brochure <FontAwesomeIcon icon={faDownload} />
-              </button> 
+              </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right */}
-          <div className='lg:w-[50%] flex items-center justify-center lg:justify-center'>
+          <motion.div
+            className='lg:w-[50%] flex items-center justify-center lg:justify-center'
+            initial={{ x: 40, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
             <img
               className='w-full max-w-[160px]'
               src="\assets\image\c++-icon.png"
               alt="Cpp Hero"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Footer Text Box */}
-        <div className="mt-8 text-base w-full lg:w-[80%] mx-auto border-l-4 border-green-500 text-white p-6 rounded-md bg-gray-800 flex items-start gap-4 shadow-md">
+        <motion.div
+          className="mt-8 text-base w-full lg:w-[80%] mx-auto border-l-4 border-green-500 text-white p-6 rounded-md bg-gray-800 flex items-start gap-4 shadow-md"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+        >
           <FontAwesomeIcon className="text-green-400 text-xl mt-1" icon={faWarning} />
           <p className="text-slate-300 leading-relaxed">
-           Master C++ From Syntax to System-Level Programming.
-           Learn everything from basics to advanced concepts in a structured, beginner-friendly course – perfect for students and professionals alike.
+            Master C++ From Syntax to System-Level Programming.
+            Learn everything from basics to advanced concepts in a structured, beginner-friendly course – perfect for students and professionals alike.
           </p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Course Description */}
-      <div className='w-[90vw] max-w-7xl mx-auto py-8 p-4 rounded-xl flex flex-col lg:flex-row justify-center items-stretch gap-10 bg-gradient-to-b lg:bg-gradient-to-r from-gray-800 to-black shadow-lg my-24'>
+      <motion.div
+        className='w-[90vw] max-w-7xl mx-auto py-8 p-4 rounded-xl flex flex-col lg:flex-row justify-center items-stretch gap-10 bg-gradient-to-b lg:bg-gradient-to-r from-gray-800 to-black shadow-lg my-24'
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         <div>
           <h2 className="text-2xl lg:hidden font-semibold text-white mb-0">
             <span className='border-b-2 border-green-500 pb-1'>Course Description</span>
@@ -208,7 +264,7 @@ function Cpp() {
               <span className='border-b-2 border-green-500 pb-1'>Course Description</span>
             </h2>
             <p className='text-sm text-slate-300 leading-relaxed'>
-              Start your journey into software development with this hands-on C++ course. Learn foundational programming skills, dive into object-oriented design, and work with advanced features like pointers and file I/O. Whether you're preparing for interviews or building projects, this course equips you with the skills needed to succeed in both academic and professional environments.
+              This all-in-one C++ programming course guides you from a complete beginner to a skilled developer. You'll start with the essentials of C++ syntax and gradually move into object-oriented programming, templates, memory management, and the Standard Template Library (STL). Through real-world projects, you’ll gain hands-on experience and learn to use industry-relevant tools and workflows.
             </p>
           </div>
 
@@ -226,124 +282,208 @@ function Cpp() {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* About The Course */}
-      <div className='w-full bg-slate-800 py-16 my-24'>
+      <motion.div
+        className='w-full bg-slate-800 py-16 my-24'
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         <div className='w-[90vw] max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-10'>
-          {/* Text Content */}
-          <div className='lg:w-[60%] text-white space-y-6'>
+          <motion.div
+            className='lg:w-[60%] text-white space-y-6'
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          >
             <h2 className='text-3xl text-white font-bold border-b-2 border-green-300 inline-block pb-1'>
               About The Course
             </h2>
-            
             <p className='text-slate-300 leading-relaxed'>
-             This C++ course starts with a strong foundation in core programming concepts essential for any developer. You’ll learn syntax, control structures, object-oriented programming, memory management, and file handling — all building blocks to writing efficient, scalable code. As you advance, you’ll work on hands-on projects that reinforce your learning and simulate real-world scenarios. Whether you’re a student or working professional, this course adapts to your learning pace and prepares you for challenges in software development and system design.
+             Master C++ from the ground up with this industry-aligned course. Starting with the fundamentals, you'll explore object-oriented programming, advanced C++ features, and real-time application development. From building efficient algorithms to mastering templates and the Standard Template Library (STL), this course equips you with the skills required for modern software development.
             </p>
             <ul className='list-disc list-inside text-slate-400 space-y-1'>
-              <li> Solid grounding in C++ fundamentals and advanced features</li>
-              <li> Practical coding exercises and industry-relevant best practices</li>
-              <li> Step-by-step progression from beginner concepts to complex programming techniques</li>
-              <li> Ideal for students, software developers, and anyone aiming to strengthen their C++ skills</li>
-              <li> Project-driven learning that focuses on real-world application and problem-solving</li>
+              <li> In-depth understanding of C++ syntax, logic, and paradigms</li>
+              <li>Real-world projects including game logic, file systems, and simulations</li>
+               <li>Deep dive into OOP, templates, STL, and exception handling</li>
+                <li>Focus on performance optimization and debugging techniques</li>
+            
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Image */}
-          <div className='lg:w-[40%] hidden lg:flex items-center justify-center'>
+          <motion.div
+            className='lg:w-[40%] hidden lg:flex items-center justify-center'
+            initial={{ x: 60, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          >
             <img
               src="/assets/image/c++Image22.jpg"
               alt="About the course"
               className='w-[450px] h-[300px] object-cover rounded-lg shadow-md'
             />
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Course Content */}
-      <div className="max-w-8xl mx-auto w-full px-6 lg:px-20 my-24">
-        <h1 className="text-3xl font-bold mb-8 border-b-2 border-green-300 inline-block pb-1">
-          Course Content
-        </h1>
+      <motion.div
+  className="max-w-8xl mx-auto w-full px-6 lg:px-20 my-24"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={fadeInUp}
+>
+  <h1 className="text-3xl font-bold mb-8 border-b-2 border-green-300 inline-block pb-1">
+    Course Content
+  </h1>
 
-        <div className="grid gap-6">
-          {displayedContent.map((weekItem, index) => (
-            <div
-              key={index}
-              className="bg-slate-900 text-gray-300 shadow-lg rounded-2xl p-6 border border-gray-200 cursor-text"
+  <div className="grid gap-6">
+    {displayedContent.map((weekItem, index) => (
+      <motion.div
+        key={index}
+        className="bg-slate-900 text-gray-300 shadow-lg rounded-2xl p-6 border border-gray-200 cursor-text"
+        variants={fadeInUp}
+        custom={index * 0.2}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        whileHover={{ scale: 1.02 }}
+      >
+        <h3 className="text-xl font-semibold text-zinc-500 mb-4">
+          {weekItem.week}
+        </h3>
+        <ul className="list-disc list-inside space-y-2">
+          {weekItem.topics.map((topic, idx) => (
+            <motion.li
+              key={idx}
+              variants={fadeInUp}
+              custom={index * 0.2 + idx * 0.05}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
             >
-              <h3 className="text-xl font-semibold text-zinc-500 mb-4">
-                {weekItem.week}
-              </h3>
-              <ul className="list-disc list-inside space-y-2">
-                {weekItem.topics.map((topic, idx) => (
-                  <li key={idx}>{topic}</li>
-                ))}
-              </ul>
-            </div>
+              {topic}
+            </motion.li>
           ))}
-        </div>
-        <div className="mt-6 text-center">
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="bg-zinc-200 p-2 px-4 rounded-full font-medium hover:underline"
-          >
-            {showAll ? "Read less" : "Read more"}
-          </button>
-        </div>
-      </div>
+        </ul>
+      </motion.div>
+    ))}
+  </div>
+
+  <div className="mt-6 text-center">
+    <motion.button
+      onClick={() => setShowAll(!showAll)}
+      className="bg-zinc-200 p-2 px-4 rounded-full font-medium hover:underline"
+      whileHover={whileHoverScale}
+      variants={fadeInUp}
+      custom={displayedContent.length * 0.2 + 0.5}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      {showAll ? "Read less" : "Read more"}
+    </motion.button>
+  </div>
+</motion.div>
 
       {/* Course Technologies */}
-      <div className="w-full bg-gray-900 py-16">
-        <div className="w-[90vw] max-w-6xl mx-auto">
-          <h1 className="text-3xl font-bold text-white mb-10 border-b-2 border-green-500 inline-block pb-1">
-            Tools & Technologies
-          </h1>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-            {tools.map((tool, index) => (
-              <div key={index} className="bg-gray-800 p-4 rounded-xl flex flex-col items-center shadow hover:scale-105 transition">
-                <img
-                  src={tool.logo}
-                  alt={tool.name}
-                  className="w-10 h-10 md:w-16 md:h-16 object-contain mb-2"
-                />
-                <p className="text-white text-sm font-medium">{tool.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+     <motion.div
+  className="w-full bg-gray-900 py-16"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={fadeInUp}
+>
+  <div className="w-[90vw] max-w-6xl mx-auto">
+    <motion.h1
+      className="text-3xl font-bold text-white mb-10 border-b-2 border-green-500 inline-block pb-1"
+      variants={fadeInUp}
+      custom={0}
+    >
+      Tools & Technologies
+    </motion.h1>
+
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      {tools.map((tool, index) => (
+        <motion.div
+          key={index}
+          className="bg-gray-800 p-4 rounded-xl flex flex-col items-center shadow"
+          variants={fadeInUp}
+          custom={index * 0.1}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          whileHover={whileHoverScale}
+        >
+          <img
+            src={tool.logo}
+            alt={tool.name}
+            className="w-10 h-10 md:w-16 md:h-16 object-contain mb-2"
+          />
+          <p className="text-white text-sm font-medium">{tool.name}</p>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</motion.div>
 
       {/* FAQ */}
-      <div className="w-full mt-24">
+      
+      <motion.div
+        className="w-full mt-24"
+        initial="hidden"
+        whileInView="visible"
+        variants={fadeInUp}
+        viewport={{once: true, amount: 0.2}}
+      >
         <div className="w-[90vw] max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-10 border-b-2 border-green-500 inline-block pb-2">
             FAQ's
           </h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="bg-slate-950 rounded-lg shadow px-6 py-4 cursor-pointer transition-all"
                 onClick={() => toggle(index)}
+                whileHover={{ scale: 1.01 }}
+               variants={fadeInUp}
+               custom={index * 0.1}
               >
                 <div className="flex justify-between items-center">
                   <h3 className="text-lg font-medium text-white">{faq.question}</h3>
+                  <motion.div
+                  animate={{rotate:openIndex == index ? 180 : 0}}
+                  transition={{ duration:0.3}}
+                  >
                   <ChevronDown
                     className={`h-5 w-5 text-white transition-transform duration-300 ${
                       openIndex === index ? "rotate-180" : ""
                     }`}
                   />
+                  </motion.div>
                 </div>
                 {openIndex === index && (
-                  <p className="mt-3 text-white text-sm">{faq.answer}</p>
+                  <motion.p
+                    className="mt-3 text-white text-sm"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                  >
+                    {faq.answer}
+                  </motion.p>
                 )}
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
