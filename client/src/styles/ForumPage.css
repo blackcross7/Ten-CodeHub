@@ -23,7 +23,7 @@
   font-weight: bold;
   z-index: 10;
   text-align: center;
-  color: #f3e9e9;
+  color: #252323;
   padding-top: 90px;
 }
 
@@ -39,8 +39,8 @@
 /* Ensure image maintains aspect ratio and scales properly */
 .image-container img {
   width: 100%;
-  max-width: 800px;
-  max-height: 800px;
+  max-width: 700px;
+  max-height: 700px;
   object-fit: contain;
 }
 
@@ -160,7 +160,7 @@
   .forum-wrapper {
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 100px;
+    padding-top: 150px;
     height: auto;
   }
 
@@ -183,7 +183,7 @@
 
   .forum-title {
     font-size: 2rem;
-    top: 10px;
+    top: 30px;
   }
 }
 
@@ -195,7 +195,7 @@
 
   .forum-title {
     font-size: 1.6rem;
-    top: 150px;
+    top: 200px;
     padding: 0 10px;
     text-align: center;
   }

@@ -42,7 +42,7 @@ html, body {
 
 .discussions-heading {
   font-size: 32px;
-  color: var(--text-light);
+  color: #141414;
   margin: 0;
   font-weight: 700;
   padding: var(--spacing-xs) 0;
@@ -80,7 +80,7 @@ html, body {
   transition: transform var(--transition-speed) ease;
   background-color: white;
   border-radius: 12px; 
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   box-sizing: border-box;  
 }
 
@@ -169,7 +169,7 @@ html, body {
 }
 
 .reply-submit-btn:hover {
-  background-color: var(--primary-hover);
+  background-color: rgb(70, 112, 203);
   transform: translateY(-1px);
   box-shadow: 0 2px 8px var(--shadow);
 }
@@ -219,6 +219,7 @@ html, body {
   .discussions-container {
     padding: 0 12px;
     max-width: 100%;
+    align-items: center;
   }
 
   .discussions-header {
@@ -275,6 +276,25 @@ html, body {
   font-size: 14px;           /* Optional: slightly smaller font on small screens */
   min-width: fit-content;    /* Ensure button doesn't shrink too much */
 }
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  .discussions-container {
+    margin: 0 auto; 
+    padding: 0 var(--spacing-md); 
+}
+}
+@media (max-width: 768px) {
+  .discussions-header {
+    flex-direction: row !important;  /* override column */
+    justify-content: space-between !important; /* keep heading left, button right */
+    align-items: center; /* vertically center */
+    margin-bottom: 2%;
+  }
+  
+  .back-to-forum-btn {
+    width: auto !important; /* keep natural size */
+    margin-bottom: 1%; /* remove bottom margin */
+  }
 }
 
 
