@@ -257,7 +257,7 @@ function Dsa() {
 
         {/* Footer Text Box */}
         <motion.div
-          className="mt-8 text-base w-full lg:w-[80%] mx-auto border-l-4 border-green-500 text-white p-6 rounded-md bg-gray-800 flex items-start gap-4 shadow-md "
+          className="mt-8 lg:mt-28 xl:mt-8  text-base w-full lg:w-[80%] mx-auto border-l-4 border-green-500 text-white p-6 rounded-md bg-gray-800 flex items-start gap-4 shadow-md "
           variants={fadeInUp}
           custom={2.2} // Stagger delay
         >
