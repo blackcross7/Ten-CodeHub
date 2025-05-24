@@ -1,7 +1,7 @@
 /* Wrapper for layout */
 .forum-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* Changed from space-between */
   align-items: center;
   height: 100vh;
   padding: 0;
@@ -10,6 +10,7 @@
   box-sizing: border-box;
   position: relative;
   padding-top: 150px;
+  gap: 20px; /* Added small gap instead of space-between */
 }
 
 /* Top-centered forum title */
@@ -46,14 +47,15 @@
 /* Forum container (right side, sticking to edge) */
 .forum-container {
   width: 500px;
-  margin-right: 150px;
-  margin-left: auto;
+  margin-right: 0; /* Removed large right margin */
+  margin-left:  0; /* Removed auto margin */
   padding: 30px;
   background: #ffffff;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   border: 1px solid #ccc;
   border-radius: 10px;
   color: #333; /* Added */
+  /* Removed margins to bring closer */
 }
 
 /* Center the buttons */
@@ -110,7 +112,7 @@
 /* Button styling */
 .forum-container form button {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #0059ff;
   color: white;
   border: none;
   border-radius: 6px;
@@ -219,3 +221,4 @@
     height: auto;
   }
 }
+
