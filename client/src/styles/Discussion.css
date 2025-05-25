@@ -74,7 +74,7 @@ html, body {
 
 /* Discussion card */
 .discussion-card {
-  padding: 2px 24px;;
+  padding: 3px 24px;;
   border-left: 5px solid #373a3d;
   box-shadow: 0 4px 10px var(--shadow);
   transition: transform var(--transition-speed) ease;
@@ -135,7 +135,7 @@ html, body {
 
 /* Reply section */
 .reply-box {
-  margin-top: var(--spacing-lg);
+  margin-top: 0;
 }
 
 .reply-textarea {
@@ -156,7 +156,7 @@ html, body {
 }
 
 .reply-submit-btn {
-  margin-top: var(--spacing-sm);
+  margin-bottom: 2%;
   padding:10px;
   background-color:rgb(50, 87, 167);
   color: var(--white);
@@ -259,6 +259,10 @@ html, body {
 @media (max-width: 480px) {
   .discussions-heading {
     font-size: 24px;
+  }
+
+  .discussion-card {
+  margin-bottom: 10px;
   }
 
   .discussion-card h3 {
