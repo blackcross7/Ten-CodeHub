@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from "framer-motion"; // Assuming you'll use Framer Motion for animations
+import { motion } from "framer-motion";
 
-// Framer Motion variants for subtle entrance animations
+// Framer Motion variants for subtle entrance animations (already defined)
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i = 1) => ({
@@ -15,10 +15,10 @@ const fadeInUp = {
   }),
 };
 
-// Define fadeIn variants for the overall banner component
+// Define fadeIn variants for the overall banner component (already defined)
 const fadeIn = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 1.0, ease: "easeOut" } }, // Adjust duration and ease as needed
+  visible: { opacity: 1, transition: { duration: 1.0, ease: "easeOut" } },
 };
 
 function CourseList() {
@@ -27,12 +27,12 @@ function CourseList() {
   return (
     <div className='overflow-x-hidden font-sans'>
       {/* Promo Banner - Background Image takes full height */}
-      <motion.div // <--- Changed from <div> to <motion.div>
+      <motion.div
         className="relative z-0 flex flex-col items-center justify-center bg-cover bg-center text-white min-h-screen py-16 px-4 sm:px-8 md:px-16 w-full text-center"
         style={{ backgroundImage: "url('/assets/image/course_bg2.jpg')" }}
-        initial="hidden" // <--- Add initial state
-        animate="visible" // <--- Animate to visible state
-        variants={fadeInUp}  // <--- Apply the fadeIn variants
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
       >
         {/* Dark overlay for better text readability and depth */}
         <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
@@ -62,7 +62,7 @@ function CourseList() {
             </button>
           </div>
         </div>
-      </motion.div> {/* <--- Closed <motion.div> */}
+      </motion.div>
 
       <PopularNow />
     </div>
@@ -130,25 +130,55 @@ function PopularNow() {
   };
 
   const getTitleSectionBackground = (cardIndex, sectionDataKey) => {
-    // This is a simplified approach, you might want a more robust mapping for all sections
-    if (sectionDataKey === 'courses') {
-      switch (cardIndex % 4) {
-        case 0: return 'linear-gradient(to right, #237259, #29a777)'; // Emerald green shades
-        case 1: return 'linear-gradient(to right, #560881, #7e2ba7)'; // Purple shades
-        case 2: return 'linear-gradient(to right, #036e698d, #4c9cac)'; // Teal shades
-        case 3: return 'linear-gradient(to right, #084d91, #106197)'; // Blue shades
-        default: return 'linear-gradient(to right, #237259, #29a777)';
-      }
-    } else if (sectionDataKey === 'classroomCourses') {
-      switch (cardIndex % 3) { // Adjusted for 3 cards specific colors
-        case 0: return 'linear-gradient(to right, #ff7f50, #ff6347)'; // Coral shades
-        case 1: return 'linear-gradient(to right, #6a5acd, #836fff)'; // Lavender shades
-        case 2: return 'linear-gradient(to right, #20b2aa, #3cb371)'; // Light teal shades
-        default: return 'linear-gradient(to right, #ff7f50, #ff6347)';
-      }
+    // Define a set of consistent gradients for each section to cycle through
+    const sectionGradients = {
+      courses: [
+        'linear-gradient(to right, #237259, #29a777)', // Emerald green shades
+        'linear-gradient(to right, #560881, #7e2ba7)', // Purple shades
+        'linear-gradient(to right, #036e698d, #4c9cac)', // Teal shades
+        'linear-gradient(to right, #084d91, #106197)', // Blue shades
+      ],
+      classroomCourses: [
+        'linear-gradient(to right, #ff7f50, #ff6347)', // Coral shades
+        'linear-gradient(to right, #6a5acd, #836fff)', // Lavender shades
+        'linear-gradient(to right, #20b2aa, #3cb371)', // Light teal shades
+      ],
+      liveCourses: [
+        'linear-gradient(to right, #e63946, #c20000)', // Red shades
+        'linear-gradient(to right, #2a9d8f, #264653)', // Dark Teal/Cyan
+        'linear-gradient(to right, #f4a261, #e76f51)', // Orange/Terracotta
+        'linear-gradient(to right, #8d99ae, #4a4e69)', // Grey/Blue-grey
+      ],
+      selfPacedCourses: [
+        'linear-gradient(to right, #457b9d, #a8dadc)', // Muted Blue shades
+        'linear-gradient(to right, #a7c957, #5c8b5e)', // Olive Green shades
+        'linear-gradient(to right, #e76f51, #f4a261)', // Sunset Orange shades
+        'linear-gradient(to right, #6d597a, #352a3b)', // Plum/Dark Purple
+      ],
+      foundationCourses: [
+        'linear-gradient(to right, #0077b6, #0096c7)', // Deep Sky Blue
+        'linear-gradient(to right, #ef233c, #bf0603)', // Strong Red
+        'linear-gradient(to right, #fca311, #ffc300)', // Bright Orange/Gold
+        'linear-gradient(to right, #1a759f, #168aad)', // Ocean Blue
+      ],
+      freeCourses: [
+        'linear-gradient(to right, #c77dff, #8a4bff)', // Light Purple
+        'linear-gradient(to right, #48cae4, #00b4d8)', // Light Blue/Cyan
+        'linear-gradient(to right, #70e000, #38b000)', // Vibrant Green
+        'linear-gradient(to right, #ffbe0b, #fb5607)', // Gold to Orange
+      ],
+    };
+
+    // Get the gradients for the current section
+    const currentSectionGradients = sectionGradients[sectionDataKey];
+
+    if (currentSectionGradients && currentSectionGradients.length > 0) {
+      // Cycle through the specific gradients for this section
+      return currentSectionGradients[cardIndex % currentSectionGradients.length];
     }
-    // Add more conditions for other sections if they have unique backgrounds
-    return 'linear-gradient(to right, #237259, #29a777)'; // Default background
+
+    // Fallback if no specific gradients are defined for a section or it's empty
+    return 'linear-gradient(to right, #237259, #29a777)'; // Default emerald green
   };
 
   return (
@@ -161,7 +191,7 @@ function PopularNow() {
                     bg-slate-500 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20
                     mt-[-40vh] py-8 "
         style={{
-          maxWidth: "1400px", // Increased max-width of the main section for grid
+          maxWidth: "1400px",
         }}
         initial="hidden"
         animate="visible"
@@ -178,7 +208,6 @@ function PopularNow() {
                 <img src="/assets/image/arrow-icon.png" alt="Arrow" className="w-4 h-auto ml-2 object-contain" />
               </button>
             </div>
-            {/* FLEX CONTAINER - Added justify-center */}
             <div className=" flex flex-wrap justify-center gap-6 w-full py-10 outline outline-2 outline-blue-800 rounded-2xl p-4 bg-gradient-to-br from-[#050a30] to-[#0a1140] shadow-inner ">
               {allCourses[section.dataKey].map((course, index) => (
                 <motion.div
@@ -188,22 +217,20 @@ function PopularNow() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.2 }}
-                  // Use whileHover for Framer Motion to handle the hover animation
                   whileHover={{
                     scale: 1.05,
-                    y: -8, // Slight lift
+                    y: -8,
                     boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
                   }}
                   transition={{
                     type: "spring",
-                    stiffness: 400, // Increased stiffness for more responsiveness
-                    damping: 18,    // Decreased damping for a slightly bouncier feel (but still controlled)
-                    mass: 1,        // Default mass is usually fine, but you can play with it
+                    stiffness: 400,
+                    damping: 18,
+                    mass: 1,
                   }}
                   className="group flex w-full md:w-[45%] lg:w-[40%] xl:w-[22%] flex-col justify-between bg-white rounded-xl
-                              transform transition-all duration-300 ease-in-out cursor-pointer "
+                                  transform transition-all duration-300 ease-in-out cursor-pointer "
                 >
-
                   <div
                     className="p-5 rounded-t-xl text-left h-28 flex items-center justify-center gap-3 text-white relative overflow-hidden"
                     style={{ background: getTitleSectionBackground(index, section.dataKey) }}
@@ -212,7 +239,6 @@ function PopularNow() {
                     <div className="w-10 h-10 flex-shrink-0 z-10">
                       <img src={course.titleIcon} alt={`${course.title} Icon`} className="w-full h-full object-contain" />
                     </div>
-                    {/* Subtle pattern overlay for UI enhancement */}
                     <div className="absolute inset-0 z-0 opacity-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'6\' height=\'6\' viewBox=\'0 0 6 6\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.2\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M5 0h1L0 6V5zm1 5v1H5zM6 0H5v1z\'%3E%3C/path%3E%3C/g%3E%3C/svg%3E")' }}></div>
                   </div>
                   <div className="flex-grow bg-white p-4 text-left rounded-b-xl flex flex-col justify-between gap-2">
@@ -232,14 +258,11 @@ function PopularNow() {
                   </div>
                   <Link
                     to={course.link || "#"}
-                    // Applied group-hover for the button
                     className="block text-center border-2 border-black rounded-full bg-transparent text-black py-2.5 px-8 text-sm font-medium mt-4 mb-6 mx-auto cursor-pointer transition-all duration-300 w-fit
                                   group-hover:bg-black group-hover:text-white group-hover:scale-105 group-hover:shadow-lg"
                   >
                     {course.buttonText}
                   </Link>
-
-
                 </motion.div>
               ))}
             </div>
@@ -256,16 +279,16 @@ function PopularNow() {
               <div
                 key={index}
                 className={`text-sm sm:text-base font-bold text-white rounded-lg cursor-pointer py-2.5 px-5 min-w-[120px] text-center
-                            transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
-                            ${category.className === 'all' ? 'bg-[#f4a261]' : ''}
-                            ${category.className === 'certification' ? 'bg-[#5e548e]' : ''}
-                            ${category.className === 'dsa' ? 'bg-[#2a9d8f]' : ''}
-                            ${category.className === 'development' ? 'bg-[#9d4edd]' : ''}
-                            ${category.className === 'ml' ? 'bg-[#0b494b]' : ''}
-                            ${category.className === 'programming' ? 'bg-[#457b9d]' : ''}
-                            ${category.className === 'cloud' ? 'bg-[#1d3557]' : ''}
-                            ${category.className === 'gate' ? 'bg-[#101011]' : ''}
-                          `}
+                                transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
+                                ${category.className === 'all' ? 'bg-[#f4a261]' : ''}
+                                ${category.className === 'certification' ? 'bg-[#5e548e]' : ''}
+                                ${category.className === 'dsa' ? 'bg-[#2a9d8f]' : ''}
+                                ${category.className === 'development' ? 'bg-[#9d4edd]' : ''}
+                                ${category.className === 'ml' ? 'bg-[#0b494b]' : ''}
+                                ${category.className === 'programming' ? 'bg-[#457b9d]' : ''}
+                                ${category.className === 'cloud' ? 'bg-[#1d3557]' : ''}
+                                ${category.className === 'gate' ? 'bg-[#101011]' : ''}
+                              `}
               >
                 {category.name}
               </div>
