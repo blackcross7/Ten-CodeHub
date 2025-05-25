@@ -15,21 +15,30 @@ const fadeInUp = {
   }),
 };
 
+// Define fadeIn variants for the overall banner component
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 1.0, ease: "easeOut" } }, // Adjust duration and ease as needed
+};
+
 function CourseList() {
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
     <div className='overflow-x-hidden font-sans'>
       {/* Promo Banner - Background Image takes full height */}
-      <div
+      <motion.div // <--- Changed from <div> to <motion.div>
         className="relative z-0 flex flex-col items-center justify-center bg-cover bg-center text-white min-h-screen py-16 px-4 sm:px-8 md:px-16 w-full text-center"
         style={{ backgroundImage: "url('/assets/image/course_bg2.jpg')" }}
+        initial="hidden" // <--- Add initial state
+        animate="visible" // <--- Animate to visible state
+        variants={fadeInUp}  // <--- Apply the fadeIn variants
       >
         {/* Dark overlay for better text readability and depth */}
         <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
 
         {/* Sale Info & Search Container */}
-        <div className='flex flex-col lg:gap-10 lg:flex-row items-center justify-around w-full relative z-20 -mt-36  '>
+        <div className='flex flex-col lg:gap-10 lg:flex-row items-center justify-around w-full relative z-20 -mt-36  '>
           <div className="w-full max-w-3xl p-4 mb-8 lg:mb-0 text-center lg:text-left">
             <h1 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight mb-3 drop-shadow-lg">
               CodeHub Courses
@@ -53,12 +62,13 @@ function CourseList() {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div> {/* <--- Closed <motion.div> */}
 
       <PopularNow />
     </div>
   );
 }
+
 
 function PopularNow() {
   const categories = [
@@ -180,16 +190,16 @@ function PopularNow() {
                   viewport={{ once: true, amount: 0.2 }}
                   // Use whileHover for Framer Motion to handle the hover animation
                   whileHover={{
-    scale: 1.05,
-    y: -8, // Slight lift
-    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-  }}
-  transition={{
-    type: "spring",
-    stiffness: 400, // Increased stiffness for more responsiveness
-    damping: 18,    // Decreased damping for a slightly bouncier feel (but still controlled)
-    mass: 1,        // Default mass is usually fine, but you can play with it
-  }}
+                    scale: 1.05,
+                    y: -8, // Slight lift
+                    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400, // Increased stiffness for more responsiveness
+                    damping: 18,    // Decreased damping for a slightly bouncier feel (but still controlled)
+                    mass: 1,        // Default mass is usually fine, but you can play with it
+                  }}
                   className="group flex w-full md:w-[45%] lg:w-[40%] xl:w-[22%] flex-col justify-between bg-white rounded-xl
                               transform transition-all duration-300 ease-in-out cursor-pointer "
                 >
