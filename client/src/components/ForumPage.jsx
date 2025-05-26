@@ -31,7 +31,7 @@ const ForumPage = () => {
   };
 
   return (
-    <div className="forum-wrapper bg-[url('/assets/image/HeroBg3.jpeg')] bg-cover bg-center text-white">
+    <div className="forum-wrapper bg-[url('/assets/image/HeroBg3.jpg')] bg-cover bg-center text-white">
       {/* Side image container */}
       <div className="image-container">
         <img src="/assets/image/discussion.png" alt="Discussion" />

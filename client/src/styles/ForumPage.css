@@ -1,32 +1,35 @@
 /* Wrapper for layout */
 .forum-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* Changed from space-between */
   align-items: center;
-  height: 150vh;
+  height: 100vh;
   padding: 0;
+  background-color: #f5f5f5;
   width: 100vw;
   box-sizing: border-box;
   position: relative;
-  padding-top: 0px;
-  margin-top: 0px;
+  padding-top: 150px;
+  gap: 20px; /* Added small gap instead of space-between */
 }
 
 /* Top-centered forum title */
 .forum-title {
   position: absolute;
-  top: 130px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 2.5rem;
   font-weight: bold;
   z-index: 10;
   text-align: center;
+  color: #fbfafa;
+  padding-top: 90px;
 }
 
 /* Image container (left side) */
 .image-container {
-  flex: 1;
+  width: 50%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -36,21 +39,23 @@
 /* Ensure image maintains aspect ratio and scales properly */
 .image-container img {
   width: 100%;
-  max-width: 900px;
-  max-height: 800px;
+  max-width: 700px;
+  max-height: 700px;
   object-fit: contain;
 }
 
-/* Forum container (right side) */
+/* Forum container (right side, sticking to edge) */
 .forum-container {
   width: 500px;
-  margin-right: 150px;
-  margin-left: auto;
-  padding: 50px;
+  margin-right: 0; /* Removed large right margin */
+  margin-left:  0; /* Removed auto margin */
+  padding: 30px;
+  background: #ffffff;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   border: 1px solid #ccc;
   border-radius: 10px;
-  color: #333;
+  color: #333; /* Added */
+  /* Removed margins to bring closer */
 }
 
 /* Center the buttons */
@@ -67,22 +72,25 @@
 }
 
 .forum-container form label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 500;
-  color: #333;
+  display: block;
   margin-bottom: 5px;
+  font-weight: 500;
+  color: #333; /* Added */
+  padding-left: 30px; /* Ensure space for icon */
+  position: relative;
 }
 
-.label-icon {
+/* NEW: Adjust icon position to be inline with label */
+.forum-container .icon-img {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   width: 18px;
   height: 18px;
-  flex-shrink: 0;
-  display: inline-block;
-  vertical-align: middle;
 }
 
+/* Inputs */
 .forum-container form input,
 .forum-container form textarea {
   width: 100%;
@@ -91,8 +99,8 @@
   border-radius: 6px;
   box-sizing: border-box;
   font-size: 14px;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #ffffff; /* Added */
+  color: #000000; /* Added */
 }
 
 /* Textarea specific styling */
@@ -104,7 +112,7 @@
 /* Button styling */
 .forum-container form button {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #0059ff;
   color: white;
   border: none;
   border-radius: 6px;
@@ -116,14 +124,6 @@
 .forum-container form button:hover {
   background-color: #0056b3;
   transform: scale(1.05);
-}
-
-/* Icon image inside the input fields */
-.icon-img {
-  width: 18px;
-  height: 18px;
-  margin-right: 8px;
-  vertical-align: middle;
 }
 
 /* Form status message */
@@ -155,63 +155,70 @@
   background-color: #218838;
 }
 
-/* Force light mode styling */
-body {
-  color: #333;
-}
-
-/* Responsive (tablets and below) */
-@media (max-width: 768px) {
+/* Medium screens (Tablets) */
+@media (max-width: 1024px) {
   .forum-wrapper {
     flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 150px;
     height: auto;
-    padding: 20px;
-    padding-top: 100px;
-    margin-top: 130px;
   }
 
   .image-container {
     width: 100%;
     padding-left: 0;
-    padding-bottom: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .image-container img {
+    max-width: 90%;
+    max-height: 400px;
   }
 
   .forum-container {
-    width: 100%;
-    margin-right: 0;
-    margin-left: 0;
-    padding: 20px;
+    width: 80%;
+    margin: 0 auto 40px;
   }
 
   .forum-title {
     font-size: 2rem;
-    top: 10px;
+    top: 30px;
   }
 }
 
-/* Mobile phones */
-@media (max-width: 480px) {
+/* Small screens (Mobile) */
+@media (max-width: 600px) {
   .forum-wrapper {
-    padding: 10px;
+    padding-top: 200px; /* Adjust as needed based on navbar height */
   }
 
   .forum-title {
-    font-size: 1.5rem;
-    top: 5px;
+    font-size: 1.6rem;
+    top: 150px;
+    padding: 0 10px;
+    text-align: center;
   }
 
   .forum-container {
     width: 100%;
-    padding: 15px;
+    padding: 20px;
   }
 
   .forum-container form input,
   .forum-container form textarea {
-    font-size: 12px;
+    padding-left: 35px; /* maintain room for icon if needed */
+    font-size: 13px;
   }
 
   .forum-container form button,
   .view-discussions-btn {
-    font-size: 14px;
+    width: 100%;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
   }
 }
+
