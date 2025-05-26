@@ -37,7 +37,7 @@ const EditProfile = () => {
 
   return (
     <motion.main
-      className="pt-36 relative min-h-screen px-4 md:px-20 py-10 bg-blue-50 text-blue-900"
+      className="pt-28 relative min-h-screen px-4 md:px-20 py-10 bg-blue-50 text-blue-900"
       initial="hidden"
       animate="visible"
       variants={fadeIn}
@@ -81,7 +81,7 @@ const EditProfile = () => {
               <motion.img
                 src="assets/image/avatar.png"
                 alt="Current Profile Picture"
-                className="w-28 h-28 rounded-full border-4 border-indigo-400 object-cover"
+                className="w-28 h-28 rounded-full border-4 border-indigo-400 object-cover brightness-100 transition-shadow duration-100 hover:brightness-110"
                 whileHover={{ scale: 1.05, boxShadow: "0px 0px 10px rgba(99, 102, 241, 0.5)" }}
                 transition={{ duration: 0.3 }}
               />
