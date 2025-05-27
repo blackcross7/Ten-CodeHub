@@ -17,36 +17,14 @@ const fadeInUp = {
 const Articles = () => {
   return (
     <div className="font-sans">
-      {/* Main background with subtle gradient */}
-      <div className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 min-h-screen pt-36 pb-20 relative overflow-hidden">
-        {/* Subtle animated gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 animate-gradient-x"></div>
-        
-        {/* Subtle moving effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/3 to-transparent animate-shimmer"></div>
-        
-        {/* Fewer, more subtle particles */}
-        <div className="absolute inset-0">
-          {[...Array(10)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-white/20 rounded-full animate-float"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${8 + Math.random() * 10}s`
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Single subtle glow */}
-        <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-
-        {/* Subtle pattern overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-black/10 to-black/20"></div>
-      </div>
+      {/* Main background with image */}
+<div 
+  className="min-h-screen pt-36 pb-20 relative bg-cover bg-center bg-no-repeat"
+  style={{ backgroundImage: "url('/assets/image/herobg5.jpg')" }}
+>
+  {/* Optional: overlay for contrast */}
+  <div className="absolute inset-0 bg-black/50"></div>
+</div>
 
       <div className="bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-900 py-10">
         <motion.section
@@ -60,18 +38,18 @@ const Articles = () => {
         >
           {/* Featured Articles */}
           <section className="mb-16 py-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 flex items-center gap-2 text-white">
-              <i className="fas fa-crown text-yellow-500"></i> Featured Articles
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">
+              Featured Articles
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
               <motion.article 
-                className="bg-slate-800/50 backdrop-blur-md p-6 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-slate-700/50"
+                className="bg-slate-800/50 backdrop-md p-6 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-slate-700/50"
                 variants={fadeInUp}
                 initial="hidden"
                 animate="visible"
               >
                 <div className="relative h-64 overflow-hidden mb-6 rounded-lg">
-                  <img src="/assets/image/Web_Dev_Article.png" alt="Article" className="w-full h-full object-cover" />
+                  <img src="/assets/image/react1.jpg" alt="Article" className="w-full h-full object-cover" />
                   <span className="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white text-xs font-semibold px-4 py-2 rounded-full"><i className="fas fa-code mr-1"></i> Web Development</span>
                 </div>
                 <div>
@@ -91,7 +69,7 @@ const Articles = () => {
                 animate="visible"
               >
                 <div className="relative h-64 overflow-hidden mb-6 rounded-lg">
-                  <img src="/assets/image/BST.jpeg" alt="Article" className="w-full h-full object-cover" />
+                  <img src="/assets/image/bi.jpg" alt="Article" className="w-full h-full object-cover" />
                   <span className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-purple-400 text-white text-xs font-semibold px-4 py-2 rounded-full"><i className="fas fa-code mr-1"></i> Data Structures</span>
                 </div>
                 <div>
@@ -108,8 +86,8 @@ const Articles = () => {
 
           {/* Categories */}
           <section className="mb-16 py-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 flex items-center gap-2 text-white">
-              <i className="fas fa-folder-tree text-green-500"></i> Categories
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">
+              Categories
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {[
@@ -139,8 +117,8 @@ const Articles = () => {
 
           {/* Latest Articles */}
           <section className="mb-16 py-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 flex items-center gap-2 text-white">
-              <i className="fas fa-bolt text-yellow-400"></i> Latest Articles
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">
+              Latest Articles
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
@@ -186,7 +164,7 @@ const Articles = () => {
                   <p className="text-gray-300 leading-relaxed mb-4">{art.summary}</p>
                   <div className="flex justify-between items-center">
                     <div className="flex items-center gap-2">
-                      <img src="/assets/image/Screenshot 2025-02-07 223101.png" alt="Author" className="w-8 h-8 rounded-full object-cover" />
+                      <img src="/assets/image/user.jpg" alt="Author" className="w-8 h-8 rounded-full object-cover" />
                       <span className="text-gray-400"><i className="fas fa-user-pen text-blue-400"></i> John Doe</span>
                     </div>
                     <div className="flex gap-4 text-gray-400 text-sm">
