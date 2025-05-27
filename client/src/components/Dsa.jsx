@@ -302,7 +302,7 @@ function Dsa() {
             <h2 className="text-2xl hidden lg:block font-semibold text-white mb-2">
               <span className='border-b-2 border-green-500 pb-1'>Course Description</span>
             </h2>
-            <p className='text-sm text-slate-300 leading-relaxed'>
+            <p className='text-sm text-center lg:text-left text-slate-300 leading-relaxed'>
               This course is your roadmap from mastering Data Structures and Algorithms to becoming a confident, job-ready developer. Whether you're pursuing full-stack development or focusing on a niche tech stack, you'll gain the core skills to build real-world solutions from the ground up.
             </p>
           </div>
@@ -352,10 +352,10 @@ function Dsa() {
                 className='w-full h-[300px] object-cover rounded-lg shadow-md'
               />
             </motion.div>
-            <p className='text-slate-300 leading-relaxed'>
+            <p className='text-slate-300 leading-relaxed text-center lg:text-left  '>
               The course begins with a solid foundation in DSA — a must-have for any developer. As you progress, you'll build hands-on projects, explore popular frameworks, and develop a strong understanding of scalable code and system design. Whether you're a student or a professional, this course adapts to your goals and equips you for real-world tech challenges.
             </p>
-            <ul className='list-disc list-inside text-slate-400 space-y-1'>
+            <ul className='list-disc list-inside text-slate-400 space-y-1 px-4'>
               <motion.li variants={fadeInUp} custom={0.9}>Foundational mastery of DSA concepts and techniques</motion.li>
               <motion.li variants={fadeInUp} custom={1.1}>Practical coding problems and industry-standard solutions</motion.li>
               <motion.li variants={fadeInUp} custom={1.3}>Progressive learning from beginner to advanced levels</motion.li>
@@ -384,7 +384,7 @@ function Dsa() {
 
       {/* Course Content */}
       <motion.div
-        className="max-w-8xl mx-auto w-full px-6 lg:px-20 my-24 "
+        className="max-w-8xl  mx-auto w-full px-6 lg:px-20 my-24 "
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
@@ -406,13 +406,18 @@ function Dsa() {
               <h3 className="text-xl font-semibold text-zinc-500 mb-4">
                 {weekItem.week}
               </h3>
-              <ul className="list-disc list-inside space-y-2">
-                {weekItem.topics.map((topic, idx) => (
-                  <motion.li key={idx} variants={fadeInUp} custom={index * 0.2 + idx * 0.05}> {/* Further stagger within topics */}
-                    {topic}
-                  </motion.li>
-                ))}
-              </ul>
+             <ul className="list-disc list-inside space-y-2">
+  {weekItem.topics.map((topic, idx) => (
+    <motion.li
+      key={idx}
+      variants={fadeInUp}
+      custom={index * 0.2 + idx * 0.05}
+      className="" /* Adjust this value as needed */
+    >
+      {topic}
+    </motion.li>
+  ))}
+</ul>
             </motion.div>
           ))}
         </div>
