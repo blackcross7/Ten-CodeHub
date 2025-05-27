@@ -9,14 +9,14 @@
   width: 100vw;
   box-sizing: border-box;
   position: relative;
-  padding-top: 80px;
-  margin-top: 0px;
+  padding-top: 150px;
+  gap: 20px; /* Added small gap instead of space-between */
 }
 
 /* Top-centered forum title */
 .forum-title {
   position: absolute;
-  top: 200px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 2.5rem;
@@ -159,10 +159,9 @@
 @media (max-width: 1024px) {
   .forum-wrapper {
     flex-direction: column;
-    min-height: 100vh;
-    padding: 20px;
-    padding-top: 80px;
-    margin-top: 0px;
+    justify-content: flex-start;
+    padding-top: 150px;
+    height: auto;
   }
 
   .image-container {
@@ -178,37 +177,32 @@
   }
 
   .forum-container {
-    width: 100%;
-    margin-right: 0;
-    margin-left: 0;
-    padding: 20px;
-    padding-top: 20px;
+    width: 80%;
+    margin: 0 auto 40px;
   }
 
   .forum-title {
     font-size: 2rem;
-    top: 80px;
+    top: 30px;
   }
 }
 
 /* Small screens (Mobile) */
 @media (max-width: 600px) {
   .forum-wrapper {
-    padding: 10px;
-    min-height: 100vh;
-    padding-top: 70px;
-    margin-top: 0px;
+    padding-top: 200px; /* Adjust as needed based on navbar height */
   }
 
   .forum-title {
-    font-size: 1.5rem;
-    top: 70px;
+    font-size: 1.6rem;
+    top: 150px;
+    padding: 0 10px;
+    text-align: center;
   }
 
   .forum-container {
     width: 100%;
-    padding: 15px;
-    padding-top: 10px;
+    padding: 20px;
   }
 
   .forum-container form input,
