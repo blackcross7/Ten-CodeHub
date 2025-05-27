@@ -16,7 +16,7 @@ html, body {
   box-sizing: border-box;
   margin-top: 0;
   min-height: 100vh;
-  padding-top: 130px;
+  padding-top: 90px;
 }
 
 /* Container for discussions page */
@@ -27,6 +27,7 @@ html, body {
   margin: 0 auto;
   box-sizing: border-box;
   margin-left: 2px;
+  margin-top: 6.5%;
 }
 
 /* Header row for discussions */
@@ -38,6 +39,7 @@ html, body {
   gap: var(--spacing-md);
   padding: 0 var(--spacing-sm);
   position: relative;
+  margin-bottom: 2%;
 }
 
 .discussions-heading {
@@ -74,7 +76,7 @@ html, body {
 
 /* Discussion card */
 .discussion-card {
-  padding: 3px 24px;;
+  padding: 2px 22px;;
   border-left: 5px solid #373a3d;
   box-shadow: 0 4px 10px var(--shadow);
   transition: transform var(--transition-speed) ease;
