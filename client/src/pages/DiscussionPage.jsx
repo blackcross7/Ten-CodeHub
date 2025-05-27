@@ -47,7 +47,7 @@ const DiscussionsPage = () => {
   };
 
   return (
-    <div className="main-container bg-[url('/assets/image/HeroBg3.jpeg')] bg-cover bg-center">
+    <div className="main-container bg-[url('/assets/image/HeroBg3.jpg')] bg-cover bg-center">
       <div className="image-container">
         <img src="/assets/image/discussion.png" alt="Discussion" />
       </div>
