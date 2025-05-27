@@ -10,7 +10,7 @@
   box-sizing: border-box;
   position: relative;
   padding-top: 150px;
-  gap: 20px; /* Added small gap instead of space-between */
+  gap: 2px; /* Added small gap instead of space-between */
 }
 
 /* Top-centered forum title */
@@ -25,22 +25,25 @@
   text-align: center;
   color: #fbfafa;
   padding-top: 90px;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 /* Image container (left side) */
 .image-container {
-  width: 50%;
+  width: 45%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-left: 40px;
+  margin-left: 10%;
+  margin-top: 2%;
 }
 
 /* Ensure image maintains aspect ratio and scales properly */
 .image-container img {
-  width: 100%;
-  max-width: 700px;
-  max-height: 700px;
+  width: 95%;
+  max-width: 750px;
+  max-height: 750px;
   object-fit: contain;
 }
 
@@ -166,24 +169,25 @@
 
   .image-container {
     width: 100%;
-    padding-left: 0;
+    padding-right: 5%;
     justify-content: center;
     margin-bottom: 20px;
   }
 
   .image-container img {
-    max-width: 90%;
+    max-width: 100%;
     max-height: 400px;
   }
 
   .forum-container {
-    width: 80%;
+    width: 90%;
     margin: 0 auto 40px;
   }
 
   .forum-title {
     font-size: 2rem;
     top: 30px;
+    margin-left: 2%;
   }
 }
 
@@ -195,7 +199,7 @@
 
   .forum-title {
     font-size: 1.6rem;
-    top: 150px;
+    top: 130px;
     padding: 0 10px;
     text-align: center;
   }
