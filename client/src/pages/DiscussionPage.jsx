@@ -1,11 +1,12 @@
 // src/components/DiscussionsPage.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import "../styles/Discussion.css";
 
 const DiscussionsPage = () => {
   const navigate = useNavigate();
-  const [replies, setReplies] = useState({}); // stores reply text per discussion
+  const [replies, setReplies] = useState({}); 
 
   const dummyDiscussions = [
     {
@@ -46,23 +47,58 @@ const DiscussionsPage = () => {
     }
   };
 
+  const cardVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const buttonVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
     <div className="main-container bg-[url('/assets/image/HeroBg3.jpg')] bg-cover bg-center">
       <div className="image-container">
-        <img src="/assets/image/discussion.png" alt="Discussion" />
+        <motion.img
+          src="/assets/image/discussion.png"
+          alt="Discussion"
+          initial="hidden"
+          animate="visible"
+          variants={cardVariant}
+        />
       </div>
 
       <div className="discussions-container text-white">
         <div className="discussions-header">
-          <h2 className="discussions-heading text-white">Discussions</h2>
-          <button onClick={handleGoBack} className="back-to-forum-btn">
+          <motion.h2
+            className="discussions-heading text-white"
+            initial="hidden"
+            animate="visible"
+            variants={cardVariant}
+          >
+            Discussions
+          </motion.h2>
+          <motion.button
+            onClick={handleGoBack}
+            className="back-to-forum-btn"
+            initial="hidden"
+            animate="visible"
+            variants={buttonVariant}
+          >
             Back to Forum
-          </button>
+          </motion.button>
         </div>
 
         {dummyDiscussions.length > 0 ? (
           dummyDiscussions.map((discussion) => (
-            <div key={discussion.id} className="discussion-card bg-white text-gray-800">
+            <motion.div
+              key={discussion.id}
+              className="discussion-card bg-white text-gray-800"
+              initial="hidden"
+              animate="visible"
+              variants={cardVariant}
+            >
               <h3>{discussion.topic}</h3>
               <p><strong>By:</strong> {discussion.name}</p>
               <p>{discussion.views}</p>
@@ -77,7 +113,6 @@ const DiscussionsPage = () => {
                 </button>
               </div>
 
-              {/* Reply Box */}
               <form onSubmit={(e) => handleReplySubmit(e, discussion.id)}>
                 <div className="reply-box">
                   <textarea
@@ -91,7 +126,7 @@ const DiscussionsPage = () => {
                   </button>
                 </div>
               </form>
-            </div>
+            </motion.div>
           ))
         ) : (
           <p>No discussions available.</p>
@@ -100,6 +135,5 @@ const DiscussionsPage = () => {
     </div>
   );
 };
-
 
 export default DiscussionsPage;

@@ -46,7 +46,6 @@ const ProfilePage = () => {
                 alt="Profile"
                 className="w-32 h-32 rounded-full object-cover border-4 border-white shadow"
               />
-              <div className="text-xl font-semibold mt-2">Madhuri</div>
               <div className="absolute top-0 right-0 bg-gray-200 p-1 rounded-full">
                 <i className="material-icons text-sm">edit</i>
               </div>
@@ -63,11 +62,12 @@ const ProfilePage = () => {
           <div className="w-full md:w-2/3 space-y-4">
             <div className="bg-white p-4 rounded-lg shadow">
               <div className="flex justify-between items-center">
-                <h2 className="text-lg text-gray-800 font-semibold">Institute</h2>
+                <h2 className="text-2xl text-gray-800 font-semibold">Madhuri</h2>
                 <button className="text-blue-600"><Link to="/edit-profile">Edit</Link></button>
               </div>
-              <h3 className="mt-2 text-md text-gray-700 font-medium">Andhra Loyola Institute of Engineering & Technology</h3>
-              <p className="text-sm text-gray-600">Department of CSE</p>
+              <h3 className="mt-1 text-xl text-gray-700 font-medium">Software Developer</h3>
+              <h3 className="mt-1 text-xl text-gray-700 font-medium">Xyz@gmail.com</h3>
+              <h3 className="mt-1 text-xl text-gray-700 font-medium">Indore, India</h3>
             </div>
           </div>
         </div>

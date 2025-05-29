@@ -1,5 +1,7 @@
+// src/components/ForumPage.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 import '../styles/ForumPage.css';
 
 const ForumPage = () => {
@@ -8,6 +10,21 @@ const ForumPage = () => {
   const [views, setViews] = useState('');
   const [statusMessage, setStatusMessage] = useState('');
   const navigate = useNavigate();
+
+  const fadeInUpEnhanced = {
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        delay: i * 0.12,
+        type: 'spring',
+        stiffness: 100,
+        damping: 15,
+      },
+    }),
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,19 +49,32 @@ const ForumPage = () => {
 
   return (
     <div className="forum-wrapper bg-[url('/assets/image/HeroBg3.jpg')] bg-cover bg-center text-white">
-      {/* Side image container */}
-      <div className="image-container">
+      {/* Side image container with animation */}
+      <motion.div
+        className="image-container"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInUpEnhanced}
+      >
         <img src="/assets/image/discussion.png" alt="Discussion" />
-      </div>
+      </motion.div>
 
-      {/* Main forum content */}
-      <div className="forum-container bg-white text-white-800">
+      {/* Main forum content with animation */}
+      <motion.div
+        className="forum-container bg-white text-white-800"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInUpEnhanced}
+      >
+        {/* Forum title remains here as plain element within forum-container */}
         <h1 className="forum-title text-white">Discussion Forum</h1>
 
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="name" className="text-gray-800">
-              <img src="/assets/image/user-icon.png" alt="User" className="icon-img" /> Name:
+              <img src="/assets/image/user-icon.png" alt="User " className="icon-img" /> Name:
             </label>
             <input
               type="text"
@@ -99,7 +129,7 @@ const ForumPage = () => {
             View Discussions
           </button>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
