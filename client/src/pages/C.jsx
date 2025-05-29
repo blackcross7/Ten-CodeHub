@@ -241,13 +241,13 @@ function C() {
 
           {/* Right */}
           <motion.div
-            className='lg:w-[50%] flex items-center justify-center lg:justify-end' /* Changed to justify-end for consistency */
+            className='relative lg:w-[50%] flex items-center justify-center lg:justify-end' /* Changed to justify-end for consistency */
             initial={{ opacity: 0, x: 50 }} // Slide in from right
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1, duration: 0.8 }} // Delayed animation for the image
           >
             <img
-              className='w-full max-w-[200px] object-contain'
+              className="w-[200px] h-auto absolute left-40"
               src="/assets/image/c-icon.png"
               alt="C Programming Hero"
             />

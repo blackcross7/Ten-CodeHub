@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion'; // Import motion
 
-// Define your animation variants (Copied directly from Dsa.jsx)
+// Define your animation variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i = 1) => ({
@@ -18,13 +18,13 @@ const fadeInUp = {
   }),
 };
 
-// Variants for scaling effect on hover (Copied directly from Dsa.jsx)
+// Variants for scaling effect on hover
 const whileHoverScale = {
   scale: 1.05,
   transition: { duration: 0.2 },
 };
 
-// Variants for FAQ accordion content (slide down/up) (Copied directly from Dsa.jsx)
+// Variants for FAQ accordion content (slide down/up)
 const accordionVariants = {
   hidden: { opacity: 0, height: 0 },
   visible: {
@@ -38,7 +38,6 @@ const accordionVariants = {
     transition: { duration: 0.3, ease: "easeOut" },
   },
 };
-
 
 const courseData = [
   {
@@ -234,16 +233,16 @@ function Python() {
 
           {/* Right */}
           <motion.div
-            className='lg:w-[50%] flex items-center justify-center lg:justify-end' /* Changed to justify-end for consistency with DSA hero */
+            className='relative lg:w-[50%] flex items-center justify-center lg:justify-end' /* Changed to justify-end for consistency with DSA hero */
             initial={{ opacity: 0, x: 50 }} // Slide in from right
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1, duration: 0.8 }} // Delayed animation for the image
           >
-            <img
-              className='w-full max-w-[160px]' /* Kept original max-width, adjust if needed */
-              src="/assets/image/Python.png"
-              alt="Python Hero"
-            />
+         <img
+  className="w-[250px] h-auto absolute left-40"
+  src="/assets/image/Python.png"
+  alt="Python Hero"
+/>
           </motion.div>
         </div>
 
@@ -375,147 +374,146 @@ function Python() {
 
 
       {/* Course Content */}
-      <motion.div
-        className="max-w-8xl mx-auto w-full px-6 lg:px-20 my-24 "
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInUp}
-      >
-        <div className="w-full text-center lg:text-left">
-          <h1 className="text-3xl font-bold mb-8 border-b-2 border-green-300 inline-block pb-1 ">
-            Course Content</h1>
-        </div>
+<motion.div
+  className="max-w-8xl mx-auto w-full px-6 lg:px-20 my-24 "
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={fadeInUp}
+>
+  <div className="w-full text-center lg:text-left">
+    <h1 className="text-3xl font-bold mb-8 border-b-2 border-green-300 inline-block pb-1 ">
+      Course Content
+    </h1>
+  </div>
 
-        <div className="grid gap-6 ">
-          {displayedContent.map((weekItem, index) => (
-            <motion.div // Wrap each week item
-              key={index}
-              className="bg-slate-900 text-gray-300 shadow-lg rounded-2xl p-6 border border-gray-200 cursor-text"
+  <div className="grid gap-6 ">
+    {displayedContent.map((weekItem, index) => (
+      <motion.div // Wrap each week item
+        key={index}
+        className="bg-slate-900 text-gray-300 shadow-lg rounded-2xl p-6 border border-gray-200 cursor-text"
+        variants={fadeInUp}
+        custom={index * 0.2} // Stagger effect for each week
+      >
+        <h3 className="text-xl font-semibold text-zinc-500 mb-4">
+          {weekItem.week}
+        </h3>
+        <ul className="list-disc list-inside space-y-2">
+          {weekItem.topics.map((topic, idx) => (
+            <motion.li
+              key={idx}
               variants={fadeInUp}
-              custom={index * 0.2} // Stagger effect for each week
+              custom={index * 0.2 + idx * 0.05}
+              className=""
             >
-              <h3 className="text-xl font-semibold text-zinc-500 mb-4">
-                {weekItem.week}
-              </h3>
-              <ul className="list-disc list-outside space-y-2 pl-4"> {/* Changed to list-outside and added pl-4 for bullet spacing */}
-                {weekItem.topics.map((topic, idx) => (
-                  <motion.li
-                    key={idx}
-                    variants={fadeInUp}
-                    custom={index * 0.2 + idx * 0.05}
-                    className=""
-                  >
-                    {topic}
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
+              {topic}
+            </motion.li>
           ))}
-        </div>
-        <div className="mt-6 text-center">
-          <motion.button
-            onClick={() => setShowAll(!showAll)}
-            className=" bg-zinc-200 p-2 px-4 rounded-full font-medium hover:underline"
-            whileHover={whileHoverScale}
-            variants={fadeInUp} // Animate the button itself
-            custom={displayedContent.length * 0.2 + 0.5} // Ensure it animates after the last card
-          >
-            {showAll ? "Read less" : "Read more"}
-          </motion.button>
-        </div>
+        </ul>
       </motion.div>
+    ))}
+  </div>
+  <div className="mt-6 text-center">
+    <motion.button
+      onClick={() => setShowAll(!showAll)}
+      className="bg-zinc-200 p-2 px-4 rounded-full font-medium hover:underline"
+      whileHover={whileHoverScale}
+      variants={fadeInUp} // Animate the button itself
+      custom={displayedContent.length * 0.2 + 0.5} // Ensure it animates after the last card
+    >
+      {showAll ? "Read less" : "Read more"}
+    </motion.button>
+  </div>
+</motion.div>
 
+{/* Course Technologies */}
+<motion.div
+  className="w-full bg-gray-900 py-16"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={fadeInUp}
+>
+  <div className="w-[90vw] max-w-6xl mx-auto ">
+    <div className="w-full text-center lg:text-left">
+      <h1 className="text-3xl font-bold text-white mb-10 border-b-2 border-green-500 inline-block pb-1">
+        Tools & Technologies
+      </h1>
+    </div>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      {tools.map((tool, index) => (
+        <motion.div // Wrap each tool card
+          key={index}
+          className="bg-gray-800 p-4 rounded-xl flex flex-col items-center shadow"
+          variants={fadeInUp} // Apply fadeInUp to each tool card
+          custom={index * 0.1} // Stagger effect for tools
+          whileHover={whileHoverScale} // Apply scale on hover
+        >
+          <img
+            src={tool.logo}
+            alt={tool.name}
+            className="w-10 h-10 md:w-16 md:h-16 object-contain mb-2"
+          />
+          <p className="text-white text-sm font-medium">{tool.name}</p>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</motion.div>
 
-      {/* Course Technologies */}
-      <motion.div
-        className="w-full bg-gray-900 py-16"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInUp}
-      >
-        <div className="w-[90vw] max-w-6xl mx-auto ">
-          <div className="w-full text-center lg:text-left">
-            <h1 className="text-3xl font-bold text-white mb-10 border-b-2 border-green-500 inline-block pb-1">
-              Tools & Technologies
-            </h1>
+{/* FAQ */}
+<motion.div
+  className="w-full mt-24 "
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={fadeInUp}
+>
+  <div className="w-[90vw] max-w-6xl mx-auto">
+    <div className="w-full text-center lg:text-left">
+      <h2 className="text-3xl font-bold text-center mb-10 border-b-2 border-green-500 inline-block pb-2">
+        FAQ's
+      </h2>
+    </div>
+    <div className="space-y-4">
+      {faqs.map((faq, index) => (
+        <motion.div // Wrap each FAQ item
+          key={index}
+          className="bg-slate-950 rounded-lg shadow px-6 py-4 cursor-pointer transition-all"
+          onClick={() => toggle(index)}
+          variants={fadeInUp} // Apply fadeInUp to each FAQ item
+          custom={index * 0.1} // Stagger effect for FAQs
+          whileHover={{ scale: 1.02 }} // Slight scale on hover
+        >
+          <div className="flex justify-between items-center">
+            <h3 className="text-lg font-medium text-white">{faq.question}</h3>
+            <motion.div // Animate the chevron icon
+              animate={{ rotate: openIndex === index ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ChevronDown
+                className={`h-5 w-5 text-white`}
+              />
+            </motion.div>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-            {tools.map((tool, index) => (
-              <motion.div // Wrap each tool card
-                key={index}
-                className="bg-gray-800 p-4 rounded-xl flex flex-col items-center shadow"
-                variants={fadeInUp} // Apply fadeInUp to each tool card
-                custom={index * 0.1} // Stagger effect for tools
-                whileHover={whileHoverScale} // Apply scale on hover
-              >
-                <img
-                  src={tool.logo}
-                  alt={tool.name}
-                  className="w-10 h-10 md:w-16 md:h-16 object-contain mb-2"
-                />
-                <p className="text-white text-sm font-medium">{tool.name}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-
-      {/* FAQ */}
-      <motion.div
-        className="w-full mt-24 "
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInUp}
-      >
-        <div className="w-[90vw] max-w-6xl mx-auto">
-          <div className="w-full text-center lg:text-left">
-            <h2 className="text-3xl font-bold text-center mb-10 border-b-2 border-green-500 inline-block pb-2">
-              FAQ's
-            </h2>
-          </div>
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <motion.div // Wrap each FAQ item
-                key={index}
-                className="bg-slate-950 rounded-lg shadow px-6 py-4 cursor-pointer transition-all"
-                onClick={() => toggle(index)}
-                variants={fadeInUp} // Apply fadeInUp to each FAQ item
-                custom={index * 0.1} // Stagger effect for FAQs
-                whileHover={{ scale: 1.02 }} // Slight scale on hover
-              >
-                <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-medium text-white">{faq.question}</h3>
-                  <motion.div // Animate the chevron icon
-                    animate={{ rotate: openIndex === index ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ChevronDown
-                      className={`h-5 w-5 text-white`}
-                    />
-                  </motion.div>
-                </div>
-                {/* Use AnimatePresence for exit animations on accordions - Note: AnimatePresence needs to wrap the conditionally rendered component */}
-                {openIndex === index && (
-                  <motion.p
-                    className="mt-3 text-white text-sm"
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit" // Important for exit animation
-                    variants={accordionVariants}
-                  >
-                    {faq.answer}
-                  </motion.p>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-
-    </motion.div>
-  );
+          {/* Use AnimatePresence for exit animations on accordions */}
+          {openIndex === index && (
+            <motion.p
+              className="mt-3 text-white text-sm"
+              initial="hidden"
+              animate="visible"
+              exit="exit" // Important for exit animation
+              variants={accordionVariants}
+            >
+              {faq.answer}
+            </motion.p>
+          )}
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</motion.div>
+</motion.div>
+);
 }
 export default Python;

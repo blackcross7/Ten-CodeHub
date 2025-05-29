@@ -226,13 +226,13 @@ function Cpp() {
 
           {/* Right */}
           <motion.div
-            className='lg:w-[50%] flex items-center justify-center lg:justify-end'
+            className='relative lg:w-[50%] flex items-center justify-center lg:justify-end'
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
           >
             <img
-              className='w-full max-w-[160px] object-contain'
+              className="w-[200px] h-auto absolute left-40"
               src="/assets/image/c++-icon.png"
               alt="Cpp Hero"
             />
