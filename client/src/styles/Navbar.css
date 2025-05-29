@@ -1,5 +1,5 @@
-/* Base Container */
-.nav-whole-container {
+ /* Base Container */
+ .nav-whole-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -92,7 +92,7 @@
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 15px;
+  gap: 20px;
   padding: 0;
   margin: 0;
   font-family: 'Roboto Slab', serif;
@@ -115,7 +115,7 @@
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   position: absolute;
   right: 60px;
   top: 50%;
