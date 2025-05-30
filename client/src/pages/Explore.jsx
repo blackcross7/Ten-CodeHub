@@ -1,4 +1,4 @@
-import React, { useState } from "react"; // Import useState
+import React, { useState } from "react";
 import ExploreCard from '../components/ExploreCard';
 import { Link } from 'react-router-dom';
 import OtherCards from '../components/OtherCards';
@@ -65,7 +65,7 @@ const Explore = () => {
     {
       title: "Web Development",
       color: "bg-[#5486bd]",
-      items: ['HTML', 'CSS', 'ReactJS', 'Node.js', 'Django', 'Frontend Development', 'Backend Development', 'Fullstack Projects', 'GraphQL', 'TypeScript'], // Added more items for demonstration
+      items: ['HTML', 'CSS', 'ReactJS', 'Node.js', 'Django', 'Frontend Development', 'Backend Development', 'Fullstack Projects', 'GraphQL', 'TypeScript'],
       flex: true
     },
     {
@@ -112,10 +112,8 @@ const Explore = () => {
     },
   ];
 
-  // State to manage which sections are expanded
   const [expandedSections, setExpandedSections] = useState({});
 
-  // Function to toggle the expanded state for a section
   const toggleExpanded = (sectionTitle) => {
     setExpandedSections(prevState => ({
       ...prevState,
@@ -126,15 +124,17 @@ const Explore = () => {
   return (
     <div className="font-sans">
       {/* Section with background image */}
-      <div className="bg-[url(/assets/image/explore_bg.webp)] bg-no-repeat bg-cover bg-center min-h-screen pt-36 pb-20">
-      </div>
+      <motion.div
+        initial={{ scale: 1.2 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 3, ease: "easeOut" }}
+        className="bg-[url(/assets/image/explore_bg.webp)] bg-no-repeat bg-cover bg-center min-h-screen pt-36 pb-20"
+      ></motion.div>
 
-      <div className=" bg-gradient-to-b from-black via-blue-950 to-slate-950 py-10 ">
+      <div className="bg-gradient-to-b from-black via-blue-950 to-slate-950 py-10">
         <motion.section
           className="px-6 md:pt-10 md:px-10 pb-10 -mt-[85vh] md:-mt-[75vh] w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col justify-around space-y-0 mx-auto border-2 border-slate-900 rounded-3xl shadow-2xl bg-slate-500 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20"
-          style={{
-            maxWidth: "1200px",
-          }}
+          style={{ maxWidth: "1200px" }}
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
@@ -150,8 +150,9 @@ const Explore = () => {
                 animate="visible"
                 className="flex justify-center"
               >
-                <div className={`p-6 rounded-xl ${item.color} relative overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105`}
-                  style={{ width: "250px", height: "260px" }} // fixed card size
+                <div
+                  className={`p-6 rounded-xl ${item.color} relative overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105`}
+                  style={{ width: "250px", height: "260px" }}
                 >
                   <div className="w-full h-[150px] bg-white rounded-lg flex items-center justify-center p-4">
                     <img
@@ -168,9 +169,8 @@ const Explore = () => {
         </motion.section>
 
         {sections.map((section, i) => {
-          // Determine which items to display
           const displayItems = expandedSections[section.title] ? section.items : section.items.slice(0, 4);
-          const showViewAllButton = section.items.length > 4; // Check if there are more than 4 items
+          const showViewAllButton = section.items.length > 4;
 
           return (
             <motion.section
@@ -183,7 +183,7 @@ const Explore = () => {
             >
               <div className="flex justify-between items-center mb-6 gap-4">
                 <h2 className="text-xl md:text-2xl font-bold text-left my-2 text-white">{section.title}</h2>
-                {showViewAllButton && ( // Only show "View All" if there are more than 4 items
+                {showViewAllButton && (
                   <button
                     onClick={() => toggleExpanded(section.title)}
                     className='border border-white text-white px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:text-black hover:shadow-lg transition duration-300 flex-shrink-0 whitespace-nowrap'
@@ -194,7 +194,7 @@ const Explore = () => {
               </div>
               {section.flex ? (
                 <div className="flex flex-wrap justify-center gap-4">
-                  {displayItems.map((item, idx) => ( // Use displayItems here
+                  {displayItems.map((item, idx) => (
                     <motion.div
                       key={idx}
                       className="w-full sm:w-[240px]"
@@ -209,8 +209,8 @@ const Explore = () => {
                   ))}
                 </div>
               ) : (
-                <div className={`grid ${section.cols} gap-4 `}>
-                  {displayItems.map((item, idx) => ( // Use displayItems here
+                <div className={`grid ${section.cols} gap-4`}>
+                  {displayItems.map((item, idx) => (
                     <motion.div
                       key={idx}
                       custom={idx}
