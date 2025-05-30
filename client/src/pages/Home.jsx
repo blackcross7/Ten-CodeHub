@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import CourseCard from '../components/CourseCard';
 import OtherCards from '../components/OtherCards';
-
+import Typewriter from 'typewriter-effect';
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i = 1) => ({
@@ -147,83 +147,95 @@ const Home = () => {
   ];
 
   return (
-    <div
-      className="font-sans min-h-screen py-24 "
-      style={{
-        background: "#000000",
-        height: "100%",
-
-      }}
+  <div
+    className="font-sans min-h-screen py-24"
+    style={{
+      background: "#000000",
+      height: "100%",
+    }}
+  >
+    {/* Hero Section */}
+    <motion.section
+      className="flex items-center justify-center h-screen bg-cover bg-center"
+      style={{ backgroundImage: "url('/assets/image/Herobg4.jpeg')" }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
     >
-      {/* Hero Section */}
-      <motion.section
-        className="flex items-center justify-center h-screen bg-cover bg-center"
-        style={{ backgroundImage: "url('/assets/image/Herobg4.jpeg')" }}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <div className="text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold mb-8 text-white">
-  Hello, What Do You Want To Learn?
-</h1>
-          <div className="w-full max-w-[90vw] sm:max-w-[70vw] p-4 mx-auto mb-6 relative">
-            <input
-              type="text"
-              placeholder={displayedText}
-              className="w-full border border-gray-300 px-4 py-4 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#c4ecc5] font-semibold text-base sm:text-lg"
-              onFocus={(e) => (e.target.placeholder = "")}
-            />
-            <img
-              src="/assets/image/search-icon.gif"
-              alt="Search"
-              className="absolute top-1/2 right-5 sm:right-10 transform -translate-y-1/2 w-6 sm:w-8 h-6 sm:h-8"
-            />
-          </div>
+      <div className="text-center">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold mb-8 text-white">
+          <Typewriter
+            options={{
+              strings: ["Hello, What Do You Want To Learn?"],
+              autoStart: true,
+              loop: true,
+            }}
+          />
+        </h1>
 
-          <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base ">
-            {[
-              "Full Stack Live Classes",
-              "DSA: Basic To Advanced Course",
-              "Master DS & ML",
-            ].map((label, idx) => (
-              <Link
-                to="#"
-                key={idx}
-                className="bg-white text-black border-2 border-gray-300 px-4 sm:px-6 py-2 rounded-lg hover:bg-gray-50 hover:border-gray-500 transition duration-300"
-              >
-                {label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Courses Section */}
-      <motion.section
-        className="py-4 px-4 w-full max-w-[95vw] md:w-[90vw] xl:w-[85vw] flex flex-col items-center mx-auto border-2 border-red-600 rounded-3xl shadow-xl"
-        style={{
-          background: "#000000",
-          marginTop: "2rem"
-        }}
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
-        {/* Header */}
-        <div className="flex justify-between items-center w-full gap-4">
-          <h2 className="text-xl my-2 sm:text-2xl font-bold text-white">Courses</h2>
-          <Link
-            to="/course"
-            className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300 hover:text-black text-white"
-          >
-            View All
-          </Link>
+        <div className="w-full max-w-[90vw] sm:max-w-[70vw] p-4 mx-auto mb-6 relative">
+          <input
+            type="text"
+            placeholder={displayedText}
+            className="w-full border border-gray-300 px-4 py-4 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#c4ecc5] font-semibold text-base sm:text-lg"
+            onFocus={(e) => (e.target.placeholder = "")}
+          />
+          <img
+            src="/assets/image/search-icon.gif"
+            alt="Search"
+            className="absolute top-1/2 right-5 sm:right-10 transform -translate-y-1/2 w-6 sm:w-8 h-6 sm:h-8"
+          />
         </div>
 
-        {/* Slider for smaller screens */}
+        <motion.div
+          className="flex flex-wrap justify-center gap-4 text-sm sm:text-base"
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          custom={2}
+        >
+          {[
+            "Full Stack Live Classes",
+            "DSA: Basic To Advanced Course",
+            "Master DS & ML",
+          ].map((label, idx) => (
+            <Link
+              to="#"
+              key={idx}
+              className="bg-white text-black border-2 border-gray-300 px-4 sm:px-6 py-2 rounded-lg hover:bg-gray-50 hover:border-gray-500 transition duration-300"
+            >
+              {label}
+            </Link>
+          ))}
+        </motion.div>
+      </div>
+    </motion.section>
+
+
+     {/* Courses Section */}
+<motion.section
+  className="pt-4 px-4 md:pt-10 md:px-10 mb-20 w-full max-w-[78vw] flex flex-col items-center mx-auto border-2 border-red-600 rounded-3xl shadow-xl"
+  style={{
+    background: "#000000",
+    marginTop: "2rem"
+  }}
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+  viewport={{ once: true }}
+>
+  {/* Header */}
+  <div className="flex justify-between items-center w-full max-w-[65vw] px-2 sm:px-4 md:px-6 mx-auto gap-4">
+    <h2 className="text-xl my-2 sm:text-2xl font-bold text-white">Courses</h2>
+    <Link
+      to="/course"
+      className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300 hover:text-black text-white"
+    >
+      View All
+    </Link>
+  </div>
+   {/* Slider for smaller screens */}
         <div className="flex xl:hidden overflow-x-auto gap-16 lg:gap-24 w-[100%] mt-10 py-8 px-4 scrollbar-hide">
           {courses.map((course, idx) => (
             <motion.div
@@ -268,34 +280,27 @@ const Home = () => {
         </div>
       </motion.section>
 
-      {/* Must Explore */}
-      <motion.section
-        className="mb-0 py-10 px-4 w-full max-w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col mx-auto"
-        style={{
-          background: "#000000",
-          marginTop: "2rem"
-        }}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
+     <motion.section
+  className="pt-2 pb-5 px-4 w-full max-w-[85vw] md:max-w-[80vw] xl:max-w-[75vw] flex flex-col mx-auto"
+  style={{ background: "#000000" }}
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+  viewport={{ once: true }}
+>
+  <h2 className="text-lg sm:text-2xl font-bold mb-4 text-white">Must Explore</h2>
+  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+    {infoItems.map((items, idx) => (
+      <motion.div
+        key={idx}
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.3 }}
       >
-        <h2 className="text-cl sm:text-2xl font-bold mb-2 text-white">Must Explore</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {infoItems.map((items, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              {/* <div className={`p-4 rounded-xl text-center ${item.color} hover:shadow-lg transition duration-300`}>
-                <h3 className="text-white font-bold">{item.title}</h3>
-              </div> */}
-              <OtherCards key={idx} title= {items.title } color={items.color} />
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
+        <OtherCards title={items.title} color={items.color} />
+      </motion.div>
+    ))}
+  </div>
+</motion.section>
 
       {/* Explore Categories */}
 <motion.section
