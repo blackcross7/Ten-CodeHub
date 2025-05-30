@@ -18,31 +18,31 @@ const Articles = () => {
   return (
     <div className="font-sans">
       {/* Main background with image */}
-<div 
-  className="min-h-screen pt-36 pb-20 relative bg-cover bg-center bg-no-repeat"
-  style={{ backgroundImage: "url('/assets/image/herobg5.jpg')" }}
->
-  {/* Optional: overlay for contrast */}
-  <div className="absolute inset-0 bg-black/50"></div>
-</div>
+      <motion.div
+        className="min-h-screen pt-36 pb-20 relative overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/assets/image/herobg5.jpg')" }}
+        initial={{ opacity: 0, scale: 1.2 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 3, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
+      </motion.div>
 
       <div className="bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-900 py-10">
         <motion.section
           className="px-6 md:pt-10 md:px-10 pb-10 -mt-[75vh] w-[90vw] md:w-[90vw] xl:w-[80vw] flex flex-col justify-around space-y-0 mx-auto border border-slate-700/50 rounded-3xl shadow-2xl bg-slate-900/50 bg-clip-padding backdrop-filter backdrop-blur-sm"
-          style={{
-            maxWidth: "1200px",
-          }}
+          style={{ maxWidth: "1200px" }}
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
         >
           {/* Featured Articles */}
           <section className="mb-16 py-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">
-              Featured Articles
-            </h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">Featured Articles</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-              <motion.article 
+              {/* Article Card 1 */}
+              <motion.article
                 className="bg-slate-800/50 backdrop-md p-6 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-slate-700/50"
                 variants={fadeInUp}
                 initial="hidden"
@@ -50,7 +50,9 @@ const Articles = () => {
               >
                 <div className="relative h-64 overflow-hidden mb-6 rounded-lg">
                   <img src="/assets/image/react1.jpg" alt="Article" className="w-full h-full object-cover" />
-                  <span className="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white text-xs font-semibold px-4 py-2 rounded-full"><i className="fas fa-code mr-1"></i> Web Development</span>
+                  <span className="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white text-xs font-semibold px-4 py-2 rounded-full">
+                    <i className="fas fa-code mr-1"></i> Web Development
+                  </span>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-3 text-white">Understanding React Hooks: A Comprehensive Guide</h3>
@@ -62,7 +64,8 @@ const Articles = () => {
                 </div>
               </motion.article>
 
-              <motion.article 
+              {/* Article Card 2 */}
+              <motion.article
                 className="bg-slate-800/50 backdrop-blur-md p-6 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-slate-700/50"
                 variants={fadeInUp}
                 initial="hidden"
@@ -70,7 +73,9 @@ const Articles = () => {
               >
                 <div className="relative h-64 overflow-hidden mb-6 rounded-lg">
                   <img src="/assets/image/bi.jpg" alt="Article" className="w-full h-full object-cover" />
-                  <span className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-purple-400 text-white text-xs font-semibold px-4 py-2 rounded-full"><i className="fas fa-code mr-1"></i> Data Structures</span>
+                  <span className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-purple-400 text-white text-xs font-semibold px-4 py-2 rounded-full">
+                    <i className="fas fa-code mr-1"></i> Data Structures
+                  </span>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-3 text-white">Mastering Binary Search Trees</h3>
@@ -86,9 +91,7 @@ const Articles = () => {
 
           {/* Categories */}
           <section className="mb-16 py-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">
-              Categories
-            </h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">Categories</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {[
                 { icon: 'laptop-code', name: 'Web Development', count: 125 },
@@ -98,9 +101,9 @@ const Articles = () => {
                 { icon: 'lock', name: 'Cyber Security', count: 64 },
                 { icon: 'robot', name: 'Machine Learning', count: 112 }
               ].map((cat, idx) => (
-                <motion.a 
-                  href="#" 
-                  className="block bg-slate-800/50 backdrop-blur-md p-6 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-slate-700/50 text-center no-underline text-white" 
+                <motion.a
+                  href="#"
+                  className="block bg-slate-800/50 backdrop-blur-md p-6 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-slate-700/50 text-center no-underline text-white"
                   key={idx}
                   variants={fadeInUp}
                   initial="hidden"
@@ -117,9 +120,7 @@ const Articles = () => {
 
           {/* Latest Articles */}
           <section className="mb-16 py-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">
-              Latest Articles
-            </h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">Latest Articles</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 {
@@ -144,8 +145,8 @@ const Articles = () => {
                   summary: 'Learn how to create stunning visualizations using Python libraries.'
                 }
               ].map((art, idx) => (
-                <motion.article 
-                  className="bg-slate-800/50 backdrop-blur-md p-6 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-slate-700/50" 
+                <motion.article
+                  className="bg-slate-800/50 backdrop-blur-md p-6 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-slate-700/50"
                   key={idx}
                   variants={fadeInUp}
                   initial="hidden"
@@ -175,7 +176,7 @@ const Articles = () => {
                 </motion.article>
               ))}
             </div>
-            <motion.button 
+            <motion.button
               className="block mx-auto mt-8 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center gap-2"
               variants={fadeInUp}
               initial="hidden"

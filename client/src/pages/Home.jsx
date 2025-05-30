@@ -156,13 +156,14 @@ const Home = () => {
   >
     {/* Hero Section */}
     <motion.section
-      className="flex items-center justify-center h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/assets/image/Herobg4.jpeg')" }}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
+  className="flex items-center justify-center h-screen bg-cover bg-center"
+  style={{ backgroundImage: "url('/assets/image/Herobg4.jpeg')" }}
+  initial={{ opacity: 0, scale: 1.2 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 1, ease: "easeOut" }}
+  viewport={{ once: true }}
+>
+
       <div className="text-center">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold mb-8 text-white">
           <Typewriter
@@ -326,22 +327,23 @@ const Home = () => {
         className="flex justify-center"
 
       >
-        <div className={`p-6 rounded-xl ${item.color} relative overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105`}
-        style={{ width: "250px", height: "260px" }} // fixed card size
->
-          <div className="w-full h-[150px] bg-white rounded-lg flex items-center justify-center p-4">
-            <img
-              src={item.img}
-              alt={item.title}
-              className="w-full h-full object-contain rounded"
-            />
-          </div>
-          <h3 className="text-white font-bold mt-2 text-center">{item.title}</h3>
+       <div
+                className={`p-6 rounded-xl ${item.color} relative overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105`}
+                style={{ width: "250px", height: "260px" }}
+              >
+                <div className="w-full h-[150px] bg-white rounded-lg flex items-center justify-center p-4">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-full h-full object-contain rounded"
+                  />
+                </div>
+                <h3 className="text-white font-bold mt-2 text-center">{item.title}</h3>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </motion.div>
-    ))}
-  </div>
-</motion.section>
+      </motion.section>
     </div>
   );
 };
