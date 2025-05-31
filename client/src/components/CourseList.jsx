@@ -24,6 +24,18 @@ const fadeIn = {
 function CourseList() {
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Zoom out animation variants
+  const zoomOutVariants = {
+    hidden: { scale: 1.2 }, // Start zoomed in (120%)
+    visible: {
+      scale: 1,
+      transition: {
+        duration: 2,      // duration of zoom out
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <div className='overflow-x-hidden font-sans'>
       {/* Promo Banner - Background Image takes full height */}
@@ -32,24 +44,30 @@ function CourseList() {
         style={{ backgroundImage: "url('/assets/image/course_bg2.jpg')" }}
         initial="hidden"
         animate="visible"
-        variants={fadeInUp}
+        variants={zoomOutVariants}
       >
         {/* Dark overlay for better text readability and depth */}
         <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
 
         {/* Sale Info & Search Container */}
-        <div className='flex flex-col lg:gap-10 lg:flex-row items-center justify-around w-full relative z-20 -mt-36  '>
-          <div className="w-full max-w-3xl p-4 mb-8 lg:mb-0 text-center lg:text-left">
-            <h1 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight mb-3 drop-shadow-lg">
-              CodeHub Courses
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-200">
-              Interactive LIVE & Self-Paced Courses
-            </p>
-          </div>
+        <motion.div
+          className='flex flex-col lg:gap-10 lg:flex-row items-center justify-around w-full relative z-20 -mt-36'
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+        >
+          <div className="w-full max-w-3xl p-4 mb-8 lg:mb-0 text-center lg:text-left ml-20">
+  <h1 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight mb-3 drop-shadow-lg">
+    CodeHub Courses
+  </h1>
+  <p className="text-lg sm:text-xl text-gray-200">
+    Interactive LIVE & Self-Paced Courses
+  </p>
+</div>
+
 
           {/* Search Container - Centered and prominent */}
-          <div className="w-full max-w-sm sm:max-w-md flex flex-row justify-between items-center p-3 sm:p-4 rounded-lg bg-white shadow-xl gap-3 mx-auto ">
+          <div className="w-full max-w-sm sm:max-w-md flex flex-row justify-between items-center p-3 sm:p-4 rounded-lg bg-white shadow-xl gap-3 mx-auto mr-20">
             <input
               type="text"
               placeholder="What do you want to learn today?"
@@ -61,7 +79,7 @@ function CourseList() {
               <img src="/assets/image/search-icon.gif" alt="Search" className="w-6 h-6 object-contain" />
             </button>
           </div>
-        </div>
+        </motion.div>
       </motion.div>
 
       <PopularNow />
@@ -181,123 +199,130 @@ function PopularNow() {
     return 'linear-gradient(to right, #237259, #29a777)'; // Default emerald green
   };
 
-  return (
-    <div className="bg-gradient-to-b from-slate-950 via-blue-900 to-slate-800 py-10">
-      <motion.section
-        className="relative px-3 md:pt-10 md:px-10 pb-10
-                    w-[90vw] xl:w-[90vw] 2xl:w-[80vw] mx-auto
-                    flex flex-col
-                    border-2 border-slate-900 rounded-3xl shadow-2xl
-                    bg-slate-500 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20
-                    mt-[-40vh] py-8 "
-        style={{
-          maxWidth: "1400px",
-        }}
-        initial="hidden"
-        animate="visible"
-        variants={fadeInUp}
-      >
-        {sections.map((section, idx) => (
-          <div key={idx} className={`mb-12 ${idx === sections.length - 1 ? 'lg:mb-0' : ''}`}>
-            <div className="flex flex-col sm:flex-row justify-between items-center pl-0 sm:pl-8 md:pl-0 mb-6">
-              <h3 className={`text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-0 text-center sm:text-left`}>
-                {section.title}
-              </h3>
-              <button className="flex items-center text-sm sm:text-base border border-gray-300 bg-gray-100 text-gray-800 cursor-pointer whitespace-nowrap py-2 px-4 rounded-full shadow-md hover:bg-gray-200 hover:text-black transition-colors hover:scale-105 duration-200">
-                View All
-                <img src="/assets/image/arrow-icon.png" alt="Arrow" className="w-4 h-auto ml-2 object-contain" />
-              </button>
-            </div>
-            <div className=" flex flex-wrap justify-center gap-6 w-full py-10 outline outline-2 outline-blue-800 rounded-2xl p-4 bg-gradient-to-br from-[#050a30] to-[#0a1140] shadow-inner ">
-              {allCourses[section.dataKey].map((course, index) => (
-                <motion.div
-                  key={index}
-                  custom={index}
-                  variants={fadeInUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.2 }}
-                  whileHover={{
-                    scale: 1.05,
-                    y: -8,
-                    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 18,
-                    mass: 1,
-                  }}
-                  className="group flex w-full md:w-[45%] lg:w-[40%] xl:w-[22%] flex-col justify-between bg-white rounded-xl
-                                  transform transition-all duration-300 ease-in-out cursor-pointer "
-                >
-                  <div
-                    className="p-5 rounded-t-xl text-left h-28 flex items-center justify-center gap-3 text-white relative overflow-hidden"
-                    style={{ background: getTitleSectionBackground(index, section.dataKey) }}
-                  >
-                    <h3 className="text-lg font-bold text-white z-10 text-center leading-tight">{course.title}</h3>
-                    <div className="w-10 h-10 flex-shrink-0 z-10">
-                      <img src={course.titleIcon} alt={`${course.title} Icon`} className="w-full h-full object-contain" />
-                    </div>
-                    <div className="absolute inset-0 z-0 opacity-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'6\' height=\'6\' viewBox=\'0 0 6 6\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.2\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M5 0h1L0 6V5zm1 5v1H5zM6 0H5v1z\'%3E%3C/path%3E%3C/g%3E%3C/svg%3E")' }}></div>
-                  </div>
-                  <div className="flex-grow bg-white p-4 text-left rounded-b-xl flex flex-col justify-between gap-2">
-                    <div className="flex flex-col items-start gap-1">
-                      <p className="flex items-center font-semibold text-left gap-1 text-sm text-gray-700">
-                        <img src="/assets/image/interested-icon.png" alt="Interested Icon" className="w-4 h-4 object-contain mr-1" />
-                        {course.interested}
-                      </p>
-                      <p className="border border-gray-300 bg-gray-100 text-gray-800 px-2 py-0.5 rounded-full text-xs font-medium">{course.rating}</p>
-                    </div>
-                    <p className="text-base font-semibold text-gray-900 mt-2 line-clamp-2">{course.title1}</p>
-                    <p className="inline-flex items-center text-sm text-gray-600 mt-1">
-                      <img src="/assets/image/level-icon.png" alt="Level" className="w-4 h-4 object-contain mr-2" />
-                      {course.level}
-                    </p>
-                    {course.seats && <p className="text-red-600 text-sm font-medium mt-1">{course.seats}</p>}
-                  </div>
-                  <Link
-                    to={course.link || "#"}
-                    className="block text-center border-2 border-black rounded-full bg-transparent text-black py-2.5 px-8 text-sm font-medium mt-4 mb-6 mx-auto cursor-pointer transition-all duration-300 w-fit
-                                  group-hover:bg-black group-hover:text-white group-hover:scale-105 group-hover:shadow-lg"
-                  >
-                    {course.buttonText}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
+ return (
+  <div className="bg-gradient-to-b from-slate-950 via-blue-900 to-slate-800 py-10">
+    <motion.section
+      className="relative px-3 md:pt-10 md:px-10 pb-10
+                  w-[90vw] xl:w-[90vw] 2xl:w-[80vw] mx-auto
+                  flex flex-col
+                  border-2 border-slate-900 rounded-3xl shadow-2xl
+                  bg-slate-500 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20
+                  mt-[-40vh] py-8 "
+      style={{ maxWidth: "1400px" }}
+      initial="hidden"
+      animate="visible"
+      variants={fadeInUp}
+    >
+      {sections.map((section, idx) => (
+        <div key={idx} className={`mb-12 ${idx === sections.length - 1 ? 'lg:mb-0' : ''}`}>
+          <div className="flex flex-col sm:flex-row justify-between items-center pl-0 sm:pl-8 md:pl-0 mb-6">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-0 text-center sm:text-left">
+              {section.title}
+            </h3>
+            <button className="flex items-center text-sm sm:text-base border border-gray-300 bg-gray-100 text-gray-800 cursor-pointer whitespace-nowrap py-2 px-4 rounded-full shadow-md hover:bg-gray-200 hover:text-black transition-colors hover:scale-105 duration-200">
+              View All
+              <img src="/assets/image/arrow-icon.png" alt="Arrow" className="w-4 h-auto ml-2 object-contain" />
+            </button>
           </div>
-        ))}
 
-        ---
-
-        {/* Course Categories Section - Enhanced UI */}
-        <div className="mt-16 text-left p-6 max-w-[95%] mx-auto border-2 border-blue-700 rounded-xl shadow-lg bg-[#0a1140]">
-          <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-white border-b-2 border-gray-700 pb-3">Course Categories</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category, index) => (
-              <div
+          <div className="flex flex-wrap justify-center gap-6 w-full py-10 outline outline-2 outline-blue-800 rounded-2xl p-4 bg-gradient-to-br from-[#050a30] to-[#0a1140] shadow-inner">
+            {allCourses[section.dataKey].map((course, index) => (
+              <motion.div
                 key={index}
-                className={`text-sm sm:text-base font-bold text-white rounded-lg cursor-pointer py-2.5 px-5 min-w-[120px] text-center
-                                transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
-                                ${category.className === 'all' ? 'bg-[#f4a261]' : ''}
-                                ${category.className === 'certification' ? 'bg-[#5e548e]' : ''}
-                                ${category.className === 'dsa' ? 'bg-[#2a9d8f]' : ''}
-                                ${category.className === 'development' ? 'bg-[#9d4edd]' : ''}
-                                ${category.className === 'ml' ? 'bg-[#0b494b]' : ''}
-                                ${category.className === 'programming' ? 'bg-[#457b9d]' : ''}
-                                ${category.className === 'cloud' ? 'bg-[#1d3557]' : ''}
-                                ${category.className === 'gate' ? 'bg-[#101011]' : ''}
-                              `}
+                custom={index}
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -8,
+                  boxShadow:
+                    "0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 18,
+                  mass: 1,
+                }}
+                className="group flex w-full md:w-[45%] lg:w-[40%] xl:w-[22%] flex-col justify-between bg-white rounded-xl transform transition-all duration-300 ease-in-out cursor-pointer"
               >
-                {category.name}
-              </div>
+                <div
+                  className="p-5 rounded-t-xl text-left h-28 flex items-center justify-center gap-3 text-white relative overflow-hidden"
+                  style={{ background: getTitleSectionBackground(index, section.dataKey) }}
+                >
+                  <h3 className="text-lg font-bold text-white z-10 text-center leading-tight">{course.title}</h3>
+                  <div className="w-10 h-10 flex-shrink-0 z-10">
+                    <img src={course.titleIcon} alt={`${course.title} Icon`} className="w-full h-full object-contain" />
+                  </div>
+                  <div
+                    className="absolute inset-0 z-0 opacity-10"
+                    style={{
+                      backgroundImage:
+                        'url("data:image/svg+xml,%3Csvg width=\'6\' height=\'6\' viewBox=\'0 0 6 6\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.2\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M5 0h1L0 6V5zm1 5v1H5zM6 0H5v1z\'%3E%3C/path%3E%3C/g%3E%3C/svg%3E")',
+                    }}
+                  ></div>
+                </div>
+
+                <div className="flex-grow bg-white p-4 text-left rounded-b-xl flex flex-col justify-between gap-2">
+                  <div className="flex flex-col items-start gap-1">
+                    <p className="flex items-center font-semibold text-left gap-1 text-sm text-gray-700">
+                      <img src="/assets/image/interested-icon.png" alt="Interested Icon" className="w-4 h-4 object-contain mr-1" />
+                      {course.interested}
+                    </p>
+                    <p className="border border-gray-300 bg-gray-100 text-gray-800 px-2 py-0.5 rounded-full text-xs font-medium">
+                      {course.rating}
+                    </p>
+                  </div>
+                  <p className="text-base font-semibold text-gray-900 mt-2 line-clamp-2">{course.title1}</p>
+                  <p className="inline-flex items-center text-sm text-gray-600 mt-1">
+                    <img src="/assets/image/level-icon.png" alt="Level" className="w-4 h-4 object-contain mr-2" />
+                    {course.level}
+                  </p>
+                  {course.seats && <p className="text-red-600 text-sm font-medium mt-1">{course.seats}</p>}
+                </div>
+
+                <Link
+                  to={course.link || "#"}
+                  className="block text-center border-2 border-black rounded-full bg-transparent text-black py-2.5 px-8 text-sm font-medium mt-4 mb-6 mx-auto cursor-pointer transition-all duration-300 w-fit group-hover:bg-black group-hover:text-white group-hover:scale-105 group-hover:shadow-lg"
+                >
+                  {course.buttonText}
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>
-      </motion.section>
-    </div>
-  );
+      ))}
+
+      {/* --- */}
+
+      {/* Course Categories Section - Enhanced UI */}
+      <div className="mt-16 text-left p-6 max-w-[95%] mx-auto border-2 border-blue-700 rounded-xl shadow-lg bg-[#0a1140]">
+        <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-white border-b-2 border-gray-700 pb-3">Course Categories</h3>
+        <div className="flex flex-wrap justify-center gap-4">
+          {categories.map((category, index) => (
+            <div
+              key={index}
+              className={`text-sm sm:text-base font-bold text-white rounded-lg cursor-pointer py-2.5 px-5 min-w-[120px] text-center
+                          transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
+                          ${category.className === 'all' ? 'bg-[#f4a261]' : ''}
+                          ${category.className === 'certification' ? 'bg-[#5e548e]' : ''}
+                          ${category.className === 'dsa' ? 'bg-[#2a9d8f]' : ''}
+                          ${category.className === 'development' ? 'bg-[#9d4edd]' : ''}
+                          ${category.className === 'ml' ? 'bg-[#0b494b]' : ''}
+                          ${category.className === 'programming' ? 'bg-[#457b9d]' : ''}
+                          ${category.className === 'cloud' ? 'bg-[#1d3557]' : ''}
+                          ${category.className === 'gate' ? 'bg-[#101011]' : ''}`}
+            >
+              {category.name}
+            </div>
+          ))}
+        </div>
+      </div>
+    </motion.section>
+  </div>
+);
 }
 
 export default CourseList;
