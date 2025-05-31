@@ -16,7 +16,8 @@ const fadeInUp = {
 
 const Articles = () => {
   return (
-    <div className="font-sans">
+    <div className="font-sans bg-slate-900">
+
       {/* Main background with image */}
       <motion.div
         className="min-h-screen pt-36 pb-20 relative overflow-hidden bg-cover bg-center bg-no-repeat"
@@ -26,7 +27,7 @@ const Articles = () => {
         transition={{ duration: 3, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0"></div>
       </motion.div>
 
       <div className="bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-900 py-10">
@@ -37,11 +38,11 @@ const Articles = () => {
           animate="visible"
           variants={fadeInUp}
         >
+
           {/* Featured Articles */}
           <section className="mb-16 py-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">Featured Articles</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-              {/* Article Card 1 */}
               <motion.article
                 className="bg-slate-800/50 backdrop-md p-6 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-slate-700/50"
                 variants={fadeInUp}
@@ -64,7 +65,6 @@ const Articles = () => {
                 </div>
               </motion.article>
 
-              {/* Article Card 2 */}
               <motion.article
                 className="bg-slate-800/50 backdrop-blur-md p-6 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-slate-700/50"
                 variants={fadeInUp}
