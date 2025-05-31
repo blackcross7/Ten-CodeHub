@@ -495,27 +495,43 @@ body, html {
 
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
-  /* Promo Banner */
+  /* General Reset */
+  body, html {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+
+  /* Ensure promo-banner flex container stacks and centers children */
   .promo-banner {
     flex-direction: column !important;
-    justify-content: space-around !important;
-    gap: 0;
-    padding: 30px 15px !important;
+    align-items: center !important;
+    justify-content: center !important;
     text-align: center !important;
-    padding-bottom: 120px !important; /* reduce bottom padding so overlap isn't too large */
-    height:90vh;
+    padding-bottom: 120px !important;
+    height: auto !important;
+    gap: 20px !important;
   }
+
   /* Sale info full width and centered */
-  .sale-info {
-    padding-left: 0 !important;
-    margin-left: 0 !important;
-    text-align: center !important;
+ .sale-info {
     width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     margin-top: 120px !important;
+    text-align: center !important;
+    display: block !important;
   }
   .sale-info h1 {
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 auto !important;
     font-size: 22px;
   }
+
   /* Search Wrapper */
   .search-wrapper {
     width: 100%;
@@ -526,6 +542,7 @@ body, html {
     z-index: 20;
     position: relative; /* make sure it's stacked above others */
   }
+
   .search-container {
     display: flex;
     flex-direction: row; /* keep it row to prevent button going below */
@@ -537,34 +554,35 @@ body, html {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     gap: 10px;
   }
+
   .search-bar {
     flex: 1;
     min-width: 0;
     font-size: 14px;
   }
+
   .search-btn {
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .search-icon {
-    width: 20px !important;
-    height: 20px !important;
-  }
+
   /* Popular Now Section */
   .popular-now {
-    margin-top: -10px;
+    margin-top: 0; /* Adjust margin */
     padding: 20px 10px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
   }
+
   .popular-header {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 10px;
   }
+
   /* Course Cards - General */
   .courses-container,
   .classroom-container,
@@ -577,15 +595,17 @@ body, html {
     justify-content: center;
     gap: 20px;
   }
+
   .course-card {
     flex: none;
-    width: 100%;
+    width: 100%; /* Full width for smaller screens */
     max-width: 360px;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
+
   .course-title-section {
     padding: 20px;
     min-height: 60px;
@@ -596,10 +616,11 @@ body, html {
     background-size: cover;
     background-position: center;
   }
+
   .course-title-section h3 {
     font-size: 16px;
-    
   }
+
   .course-details {
     padding: 16px;
     text-align: left;
@@ -631,7 +652,6 @@ body, html {
     white-space: normal;
     overflow: visible;
     text-overflow: unset;
-    
   }
 
   /* Rating + Interested Section */

@@ -56,18 +56,17 @@ function CourseList() {
           animate="visible"
           variants={fadeInUp}
         >
-          <div className="w-full max-w-3xl p-4 mb-8 lg:mb-0 text-center lg:text-left ml-20">
-  <h1 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight mb-3 drop-shadow-lg">
-    CodeHub Courses
-  </h1>
-  <p className="text-lg sm:text-xl text-gray-200">
-    Interactive LIVE & Self-Paced Courses
-  </p>
-</div>
-
+          <div className="w-full max-w-3xl p-4 mb-8 lg:mb-0 text-center lg:text-left">
+            <h1 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight mb-3 drop-shadow-lg">
+              CodeHub Courses
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-200">
+              Interactive LIVE & Self-Paced Courses
+            </p>
+          </div>
 
           {/* Search Container - Centered and prominent */}
-          <div className="w-full max-w-sm sm:max-w-md flex flex-row justify-between items-center p-3 sm:p-4 rounded-lg bg-white shadow-xl gap-3 mx-auto mr-20">
+          <div className="w-full max-w-sm sm:max-w-md flex flex-row justify-between items-center p-3 sm:p-4 rounded-lg bg-white shadow-xl gap-3 mx-auto ">
             <input
               type="text"
               placeholder="What do you want to learn today?"
