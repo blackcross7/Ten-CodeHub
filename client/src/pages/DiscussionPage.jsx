@@ -94,7 +94,7 @@ const DiscussionsPage = () => {
           dummyDiscussions.map((discussion) => (
             <motion.div
               key={discussion.id}
-              className="discussion-card bg-white text-gray-800"
+              className="discussion-card bg-white/10 backdrop-blur-md text-white border border-white/20"
               initial="hidden"
               animate="visible"
               variants={cardVariant}

@@ -1,65 +1,52 @@
 /* Wrapper for layout */
-.forum-wrapper {
-  display: flex;
-  justify-content: flex-start; /* Changed from space-between */
-  align-items: center;
-  height: 100vh;
-  padding: 0;
-  background-color: #f5f5f5;
-  width: 100vw;
-  box-sizing: border-box;
-  position: relative;
-  padding-top: 150px;
-  gap: 2px; /* Added small gap instead of space-between */
-}
-
-/* Top-centered forum title */
+/* FORUM TITLE - Remove absolute positioning */
+/* Title - Top of Page */
 .forum-title {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
   font-size: 2.5rem;
   font-weight: bold;
-  z-index: 10;
   text-align: center;
   color: #fbfafa;
-  padding-top: 90px;
-  margin-top: 1%;
-  margin-bottom: 1%;
+  margin: 40px 0 20px;
+  margin-top: 10%;
 }
 
-/* Image container (left side) */
-.image-container {
-  width: 45%;
+/* Wrapper */
+.forum-wrapper {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-left: 10%;
-  margin-top: 2%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background:transparent;
+  gap: 15px;
+  min-height: 70vh;
+  width: 90%;
+  box-sizing: border-box;
 }
 
-/* Ensure image maintains aspect ratio and scales properly */
+/* Image */
+.image-container {
+  flex: 1 1 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .image-container img {
-  width: 95%;
-  max-width: 750px;
-  max-height: 750px;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
   object-fit: contain;
 }
 
-/* Forum container (right side, sticking to edge) */
+/* Forum Form */
 .forum-container {
-  width: 500px;
-  margin-right: 0; /* Removed large right margin */
-  margin-left:  0; /* Removed auto margin */
+  flex: 1 1 50px;
   padding: 30px;
-  background: #ffffff;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  border: 1px solid #ccc;
   border-radius: 10px;
-  color: #333; /* Added */
-  /* Removed margins to bring closer */
 }
+
 
 /* Center the buttons */
 .forum-container form button,
@@ -78,7 +65,7 @@
   display: block;
   margin-bottom: 5px;
   font-weight: 500;
-  color: #333; /* Added */
+  color: #f3f1f1; /* Added */
   padding-left: 30px; /* Ensure space for icon */
   position: relative;
 }
@@ -158,72 +145,78 @@
   background-color: #218838;
 }
 
-/* Medium screens (Tablets) */
+/* Tablet screens (up to 1024px) */
 @media (max-width: 1024px) {
   .forum-wrapper {
     flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 150px;
-    height: auto;
+    align-items: center;
+    padding-top: 40px;
+    gap: 20px;
+    min-height: auto;
+    width: 95%;
   }
 
-  .image-container {
-    width: 100%;
-    padding-right: 5%;
-    justify-content: center;
-    margin-bottom: 20px;
+  .image-container,
+  .forum-container {
+    flex: none;  /* disable flex-grow/shrink */
+    width: 90%;
+    max-width: 700px; /* optional max width */
   }
 
   .image-container img {
     max-width: 100%;
-    max-height: 400px;
+    height: auto;
   }
 
   .forum-container {
-    width: 90%;
-    margin: 0 auto 40px;
+    padding: 20px;
   }
 
   .forum-title {
     font-size: 2rem;
-    top: 30px;
-    margin-left: 2%;
+    margin-top: 15%;
   }
 }
 
-/* Small screens (Mobile) */
+/* Mobile screens (up to 600px) */
 @media (max-width: 600px) {
   .forum-wrapper {
-    padding-top: 200px; /* Adjust as needed based on navbar height */
+    padding: 20px 10px 40px;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .image-container,
+  .forum-container {
+    width: 100%;
+    max-width: none;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .forum-container {
+    padding: 15px;
   }
 
   .forum-title {
     font-size: 1.6rem;
-    top: 130px;
+    margin: 20px 0 10px;
     padding: 0 10px;
-    text-align: center;
-
-  }
-
-  .forum-container {
-    width: 100%;
-    padding: 20px;
+    margin-top: 50%;
   }
 
   .forum-container form input,
   .forum-container form textarea {
-    padding-left: 35px; /* maintain room for icon if needed */
     font-size: 13px;
+    padding-left: 35px; /* icon space */
   }
 
   .forum-container form button,
   .view-discussions-btn {
     width: 100%;
   }
-
-  .image-container img {
-    max-width: 100%;
-    height: auto;
-  }
 }
-

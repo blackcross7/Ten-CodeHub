@@ -27,7 +27,8 @@ html, body {
   margin: 0 auto;
   box-sizing: border-box;
   margin-left: 2px;
-  margin-top: 6.5%;
+  margin-top: 2.6%;
+  margin-right: 5%;
 }
 
 /* Header row for discussions */
@@ -80,7 +81,6 @@ html, body {
   border-left: 5px solid #373a3d;
   box-shadow: 0 4px 10px var(--shadow);
   transition: transform var(--transition-speed) ease;
-  background-color: white;
   border-radius: 12px; 
   margin-bottom: 10px;
   box-sizing: border-box;  
@@ -212,83 +212,81 @@ html, body {
 *, *::before, *::after {
   box-sizing: border-box;
 }
-/* Responsive layout for tablets and smaller */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .main-container {
-    padding-top: 100px;
+    flex-direction: column;
+    align-items: center;
+    padding: 90px 20px 40px;
+    gap: 30px;
   }
 
   .discussions-container {
-    padding: 0 12px;
+    width: 90%;
     max-width: 100%;
-    align-items: center;
+    padding: 0 16px;
+    margin: 0 auto;
   }
 
   .discussions-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .discussions-heading {
+    font-size: 28px;
+    margin-left: 0;   /* ✅ removed auto */
+    order: 0;         /* ✅ reset to default */
   }
 
   .back-to-forum-btn {
-    width: 20%;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-  .discussion-actions {
-    flex-direction: column;
-    width: 50%;
-  }
-
-  .discussion-actions button {
-    width: 20%;
-    justify-content: center;
-  }
-
-  .reply-textarea {
-    font-size: 16px;
-    min-height: 2px; /* reduce height */
-  }
-
-  .reply-submit-btn {
-    width: 20%;
-    text-align: center;
-  }
-}
-
-/* Extra small screens (phones) */
-@media (max-width: 480px) {
-  .discussions-heading {
-    font-size: 24px;
+    order: 0;         /* ✅ reset to default */
+    padding: 10px 16px;
+    font-size: 15px;
   }
 
   .discussion-card {
-  margin-bottom: 10px;
+    padding: 16px;
+    margin-bottom: 15px;
   }
 
-  .discussion-card h3 {
-    font-size: 1rem;
+  .discussion-actions {
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .discussion-actions button,
+  .reply-submit-btn {
+    font-size: 14px;
+    padding: 10px 16px;
+    width: auto;
   }
 
   .reply-textarea {
-    min-height: 10px;
+    font-size: 15px;
+    min-height: 80px;
   }
 
-  .back-to-forum-btn,
-.reply-submit-btn {
-  text-align: center;        /* Keep text centered */
-  padding: 10px 16px;        /* Adjust padding if needed */
-  font-size: 14px;           /* Optional: slightly smaller font on small screens */
-  min-width: fit-content;    /* Ensure button doesn't shrink too much */
+  .image-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .image-container img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
 }
-}
-@media (max-width: 1024px) and (min-width: 769px) {
-  .discussions-container {
-    margin: 0 auto; 
-    padding: 0 var(--spacing-md); 
-}
-}
+
 @media (max-width: 768px) {
   .discussions-header {
     flex-direction: row !important;  /* override column */
@@ -296,10 +294,105 @@ html, body {
     align-items: center; /* vertically center */
     margin-bottom: 2%;
   }
+  .discussion-card {
+  margin-bottom: 10px;
+  align-items: center;
+  }
   
   .back-to-forum-btn {
     width: auto !important; /* keep natural size */
     margin-bottom: 1%; /* remove bottom margin */
+  }
+} 
+@media (max-width: 480px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 12px 30px;
+    gap: 24px;
+  }
+
+  .discussions-container {
+    width: 100%;
+    padding: 0 12px;
+  }
+
+
+  .discussions-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* spacing between title and button */
+    text-align: center;
+    width: 100%;
+  }
+
+  .discussions-heading {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .back-to-forum-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .discussion-card {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .discussion-card h3 {
+    font-size: 1rem;
+  }
+
+  .discussion-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .discussion-actions button {
+    font-size: 14px;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .reply-textarea {
+    font-size: 14px;
+    min-height: 70px;
+    width: 100%;
+  }
+
+  .reply-submit-btn {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .image-container {
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    margin-top: 3%;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .forum-container {
+    width: 100%;
+    padding: 20px 12px;
+  }
+
+  .forum-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-top: 20px;
   }
 }
 
