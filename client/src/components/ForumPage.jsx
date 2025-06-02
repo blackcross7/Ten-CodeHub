@@ -43,7 +43,12 @@ const ForumPage = () => {
   };
 
   return (
-    <div className="forum-page min-h-screen bg-[url('/assets/image/HeroBg3.jpg')] bg-cover bg-center bg-no-repeat text-white py-8">
+    <motion.div
+      className="forum-page min-h-screen bg-[url('/assets/image/HeroBg3.jpg')] bg-cover bg-center bg-no-repeat text-white py-8"
+      initial={{ scale: 1.2}}
+      animate={{ scale: 1 }}
+      transition={{ duration: 3, ease: 'easeOut' }}
+    >
       <h1 className="forum-title text-white">Discussion Forum</h1>
 
       <div className="forum-wrapper">
@@ -67,7 +72,12 @@ const ForumPage = () => {
           <form onSubmit={handleSubmit}>
             <div className="input-group">
               <label htmlFor="name" className="text-white">
-                <img src="/assets/image/user-icon.png" alt="User" className="icon-img" /> Name:
+                <img
+                  src="/assets/image/user-icon.png"
+                  alt="User"
+                  className="icon-img"
+                />{' '}
+                Name:
               </label>
               <input
                 type="text"
@@ -80,7 +90,12 @@ const ForumPage = () => {
 
             <div className="input-group">
               <label htmlFor="topic" className="text-white">
-                <img src="/assets/image/topic-icon.png" alt="Topic" className="icon-img" /> Discussion Topic:
+                <img
+                  src="/assets/image/topic-icon.png"
+                  alt="Topic"
+                  className="icon-img"
+                />{' '}
+                Discussion Topic:
               </label>
               <input
                 type="text"
@@ -93,7 +108,12 @@ const ForumPage = () => {
 
             <div className="input-group">
               <label htmlFor="views" className="text-white">
-                <img src="/assets/image/views-icon.png" alt="Views" className="icon-img" /> Your Views:
+                <img
+                  src="/assets/image/views-icon.png"
+                  alt="Views"
+                  className="icon-img"
+                />{' '}
+                Your Views:
               </label>
               <textarea
                 id="views"
@@ -109,7 +129,11 @@ const ForumPage = () => {
           </form>
 
           {statusMessage && (
-            <p className={`status-message ${statusMessage.includes('successfully') ? 'success' : 'error'} text-white mt-2`}>
+            <p
+              className={`status-message ${
+                statusMessage.includes('successfully') ? 'success' : 'error'
+              } text-white mt-2`}
+            >
               {statusMessage}
             </p>
           )}
@@ -121,7 +145,7 @@ const ForumPage = () => {
           </div>
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
