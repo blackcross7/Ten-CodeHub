@@ -66,11 +66,11 @@ function CourseList() {
           </div>
 
           {/* Search Container - Centered and prominent */}
-          <div className="w-full max-w-sm sm:max-w-md flex flex-row justify-between items-center p-3 sm:p-4 rounded-lg bg-white shadow-xl gap-3 mx-auto ">
+          <div className="w-[264px] max-w-md sm:w-[400px] flex flex-row justify-between items-center p-1.5 sm:p-3 rounded-lg bg-white shadow-xl gap-2 mx-auto ">
             <input
               type="text"
               placeholder="What do you want to learn today?"
-              className="flex-1 border-none outline-none text-base text-gray-800 placeholder-gray-400"
+              className="flex-1 border-none outline-none text-sm text-gray-800 placeholder-gray-400"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />

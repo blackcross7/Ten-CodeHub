@@ -661,3 +661,9 @@ body, html {
     gap: 6px;
   }
 }
+@media (max-width: 360px) {
+  input::placeholder {
+    font-size: 14px;
+  }
+}
+
