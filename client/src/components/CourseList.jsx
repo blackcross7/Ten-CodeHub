@@ -66,7 +66,7 @@ function CourseList() {
           </div>
 
           {/* Search Container - Centered and prominent */}
-          <div className="w-[264px] max-w-md sm:w-[400px] flex flex-row justify-between items-center p-1.5 sm:p-3 rounded-lg bg-white shadow-xl gap-2 mx-auto ">
+          <div className="w-[264px] max-w-md sm:w-[420px] flex flex-row justify-between items-center p-1.5 sm:p-3 rounded-lg bg-white shadow-xl gap-2 mx-auto ">
             <input
               type="text"
               placeholder="What do you want to learn today?"
