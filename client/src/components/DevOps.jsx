@@ -343,7 +343,7 @@ function DevOps() {
               <img
                 src="https://static.vecteezy.com/system/resources/previews/012/201/708/original/programmer-software-developer-coding-in-computer-office-flat-purple-illustration-design-concept-vector.jpg"
                 alt="About the course"
-                className='w-full h-[300px] object-cover rounded-lg shadow-md'
+                className='w-full h-auto max-h-[250px] object-contain rounded-lg shadow-md'
               />
             </motion.div>
             <p className='text-slate-300 leading-relaxed text-center lg:text-left'>
@@ -369,7 +369,7 @@ function DevOps() {
             <img
               src="https://static.vecteezy.com/system/resources/previews/012/201/708/original/programmer-software-developer-coding-in-computer-office-flat-purple-illustration-design-concept-vector.jpg"
               alt="About the course"
-              className='w-full h-[300px] object-cover rounded-lg shadow-md'
+               className="w-[90%] h-auto object-contain rounded-lg shadow-md"
             />
           </motion.div>
         </div>
@@ -494,9 +494,8 @@ function DevOps() {
                     animate={{ rotate: openIndex === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ChevronDown
-                      className={`h-5 w-5 text-white`}
-                    />
+                   <ChevronDown className="h-5 w-5 text-white" />
+
                   </motion.div>
                 </div>
                 {/* Use AnimatePresence for exit animations on accordions */}
