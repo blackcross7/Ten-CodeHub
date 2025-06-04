@@ -233,16 +233,23 @@ function Python() {
 
           {/* Right */}
           <motion.div
-            className='relative lg:w-[50%] flex items-center justify-center lg:justify-end' /* Changed to justify-end for consistency with DSA hero */
-            initial={{ opacity: 0, x: 50 }} // Slide in from right
+            className='lg:w-[50%] flex items-center justify-center lg:justify-end mb-8 lg:mb-0'
+            initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1, duration: 0.8 }} // Delayed animation for the image
+            transition={{ delay: 1, duration: 0.8 }}
           >
-         <img
-  className="w-[250px] h-auto absolute left-40"
-  src="/assets/image/Python.png"
-  alt="Python Hero"
-/>
+            <motion.div
+              className="w-[200px] h-auto"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.5 }}
+            >
+              <img
+                src="/assets/image/Python.png"
+                alt="Python Hero"
+                className="w-full h-auto"
+              />
+            </motion.div>
           </motion.div>
         </div>
 

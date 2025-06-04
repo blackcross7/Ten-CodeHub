@@ -185,7 +185,7 @@ function Aptitude() {
         </Link>
 
         <motion.div 
-          className='flex flex-col-reverse lg:flex-row justify-between w-full  lg:h-[50vh] py-12 gap-8'
+          className='flex flex-col-reverse lg:flex-row justify-between w-full lg:h-[50vh] py-12 gap-8'
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -251,15 +251,16 @@ function Aptitude() {
             custom={5}
           >
             <img
-              className='w-full max-w-[160px]'
+              className='w-full max-w-[220px]'
               src="/assets/image/Aptitude.png"
               alt="Aptitude Preparation"
             />
           </motion.div>
         </motion.div>
 
+        {/* Course Overview Section */}
         <motion.section
-          className='w-[90vw] max-w-7xl mx-auto py-8 p-4 rounded-xl flex flex-col lg:flex-row justify-center items-stretch gap-10 bg-gradient-to-b lg:bg-gradient-to-r from-gray-800 to-black shadow-lg my-24'
+          className='w-full max-w-7xl mx-auto py-8 p-4 rounded-xl flex flex-col lg:flex-row justify-center items-center gap-10 bg-gradient-to-b lg:bg-gradient-to-r from-gray-800 to-black shadow-lg my-24'
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -273,34 +274,29 @@ function Aptitude() {
           </div>
           <motion.div
             className='w-full lg:w-[40%] flex items-center justify-center'
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
             variants={fadeInUp}
-            custom={7}
+            custom={0.5}
           >
             <img
-              className='rounded-lg object-cover w-[250px] h-full max-h-[200px]'
+              className='rounded-lg object-cover w-full h-full max-h-[250px]'
               src="/assets/image/Aptitude.png"
               alt="Aptitude Overview"
             />
           </motion.div>
 
-          <div className='flex flex-col gap-4 lg:w-[60%] h-full justify-between'>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeInUp}
-              custom={8}
-            >
+          <motion.div
+            className='flex flex-col gap-4 lg:w-[60%] h-full justify-between'
+            variants={fadeInUp}
+            custom={0.7}
+          >
+            <div>
               <h2 className="text-2xl hidden lg:block font-semibold text-white mb-2">
                 <span className='border-b-2 border-green-500 pb-1'>Course Overview</span>
               </h2>
-              <p className='text-sm text-slate-300 leading-relaxed'>
+              <p className='text-sm text-center lg:text-left text-slate-300 leading-relaxed'>
                 This comprehensive aptitude course covers essential topics in Quantitative Aptitude, Logical Reasoning, and Verbal Ability. Prepare effectively for competitive exams with a focus on practical problem-solving skills.
               </p>
-            </motion.div>
+            </div>
 
             <motion.div
               className='flex flex-col gap-4'
@@ -310,7 +306,7 @@ function Aptitude() {
               variants={fadeInUp}
               custom={9}
             >
-              <div className='flex items-center gap-2'>
+              <div className='flex items-center gap-2 justify-center lg:justify-start'>
                 <img
                   className='w-7 h-7 bg-[#3b8346] rounded-full p-1'
                   src="/assets/image/interested-icon.png"
@@ -318,11 +314,11 @@ function Aptitude() {
                 />
                 <span className='text-slate-400'>Comprehensive Learning</span>
               </div>
-              <button className='bg-green-600 hover:bg-green-700 text-white w-52 py-2 rounded-md font-semibold transition'>
+              <button className='bg-green-600 hover:bg-green-700 text-white w-52 py-2 rounded-md font-semibold transition mx-auto lg:mx-0'>
                 Start Learning Now
               </button>
             </motion.div>
-          </div>
+          </motion.div>
         </motion.section>
 
         <motion.section
@@ -415,4 +411,3 @@ function Aptitude() {
 }
 
 export default Aptitude;
-
