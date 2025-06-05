@@ -49,38 +49,37 @@ function CourseList() {
         {/* Dark overlay for better text readability and depth */}
         <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
 
-        {/* Sale Info & Search Container */}
-        <motion.div
-          className='flex flex-col lg:gap-10 lg:flex-row items-center justify-around w-full relative z-20 -mt-36'
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-        >
-          <div className="w-full max-w-3xl p-4 mb-8 lg:mb-0 text-center lg:text-left">
-            <h1 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight mb-3 drop-shadow-lg">
-              CodeHub Courses
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-200">
-              Interactive LIVE & Self-Paced Courses
-            </p>
-          </div>
+      {/* Sale Info & Search Container */}
+<motion.div
+  className="flex flex-col lg:flex-row items-center justify-center lg:gap-20 w-full relative z-20 -mt-36"
+  initial="hidden"
+  animate="visible"
+  variants={fadeInUp}
+>
+  <div className="w-full max-w-3xl p-4 mb-8 lg:mb-0 text-center lg:text-left">
+    <h1 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight mb-3 drop-shadow-lg">
+      CodeHub Courses
+    </h1>
+    <p className="text-lg sm:text-xl text-gray-200">
+      Interactive LIVE & Self-Paced Courses
+    </p>
+  </div>
 
-          {/* Search Container - Centered and prominent */}
-          <div className="w-[264px] max-w-md sm:w-[420px] flex flex-row justify-between items-center p-1.5 sm:p-3 rounded-lg bg-white shadow-xl gap-2 mx-auto ">
-            <input
-              type="text"
-              placeholder="What do you want to learn today?"
-              className="flex-1 border-none outline-none text-sm text-gray-800 placeholder-gray-400"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <button className="bg-transparent border-none cursor-pointer p-1">
-              <img src="/assets/image/search-icon.gif" alt="Search" className="w-6 h-6 object-contain" />
-            </button>
-          </div>
-        </motion.div>
-      </motion.div>
-
+  {/* Search Container - Centered and prominent */}
+<div className="w-[92%] max-w-[420px] flex flex-row justify-between items-center p-1.5 sm:p-3 rounded-lg bg-white shadow-xl gap-2">
+    <input
+      type="text"
+      placeholder="What do you want to learn today?"
+      className="flex-1 border-none outline-none text-sm text-gray-800 placeholder-gray-400"
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+    />
+    <button className="bg-transparent border-none cursor-pointer p-1">
+      <img src="/assets/image/search-icon.gif" alt="Search" className="w-6 h-6 object-contain" />
+    </button>
+  </div>
+</motion.div>
+</motion.div>
       <PopularNow />
     </div>
   );
