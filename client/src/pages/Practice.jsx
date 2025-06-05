@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Eye, ThumbsUp } from "lucide-react";
+import { motion } from "framer-motion"; 
 
 function Practice() {
   useEffect(() => {
@@ -27,17 +28,27 @@ function Practice() {
 
   return (
     <>
-      {/* Hero Section */}
-      <div className="relative h-screen bg-cover bg-center bg-[url('/assets/image/practice_bg2.jpeg')] before:absolute before:inset-0 before:bg-black before:bg-opacity-40 flex items-center justify-center text-white text-5xl font-extrabold drop-shadow-lg"></div>
+     <motion.div
+  initial={{ scale: 1.1 }}
+  animate={{ scale: 1 }}
+  transition={{ duration: 2, ease: "easeOut" }}
+  className="relative h-screen bg-cover bg-center bg-[url('/assets/image/practice_bg2.jpeg')] before:absolute before:inset-0 before:bg-black before:bg-opacity-40 flex items-center justify-center text-white text-5xl font-extrabold drop-shadow-lg"
+/>
 
       {/* After Hero Background */}
       <div className="bg-[#0a0f2c] pt-[300px] relative z-0">
         <div className="relative -mt-[850px] z-10 max-w-[1200px] mx-auto px-6 sm:px-8">
           <main>
-            <section className="bg-white/10 backdrop-blur-md rounded-3xl shadow-lg p-6 sm:p-10 md:p-12">
-              <h2 className="text-center text-3xl font-extrabold text-[#f0f0f0] mb-8">
-                Challenges And Contests
-              </h2>
+            <motion.section
+  initial={{ scale: 1.1 }}
+  animate={{ scale: 1 }}
+  transition={{ duration: 1.2, ease: "easeOut" }}
+  className="bg-white/10 backdrop-blur-md rounded-3xl shadow-lg p-6 sm:p-10 md:p-12"
+>
+  <h2 className="text-center text-3xl font-extrabold text-[#f0f0f0] mb-8">
+    Challenges And Contests
+  </h2>
+
 
               {/* Problem of the Day */}
               <div className="border-2 border-cyan-400 rounded-xl p-4 mb-8 bg-white/10 backdrop-blur-md text-[#f0f0f0]">
@@ -129,7 +140,7 @@ function Practice() {
                   </div>
                 ))}
               </div>
-            </section>
+           </motion.section>
           </main>
         </div>
       </div>
