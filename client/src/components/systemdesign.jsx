@@ -109,7 +109,7 @@ const courseData = [
 const tools = [
   { name: 'Lucidchart', logo: 'https://e7.pngegg.com/pngimages/625/214/png-clipart-lucidchart-logo-thumbnail-tech-companies-thumbnail.png' },
   { name: 'Draw.io', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Diagrams.net_Logo.svg/2048px-Diagrams.net_Logo.svg.png' },
-  { name: 'AWS Architecture Diagrams', logo: 'https://www.pngmart.com/files/23/Aws-Logo-PNG-Image.png' },
+  { name: 'AWS', logo: 'https://www.pngmart.com/files/23/Aws-Logo-PNG-Image.png' },
   { name: 'Microsoft Visio', logo: 'https://seeklogo.com/images/M/microsoft-visio-logo-616F638EA1-seeklogo.com.png' },
   { name: 'Postman', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmtT98yfidU8hGRVTgArB2jtr4hxWjvFYr4g&s' },
   { name: 'Docker', logo: 'https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png' },
@@ -371,7 +371,7 @@ function SystemDesign() {
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInUp}
       >
-        <div className="w-full text-center lg:text-left">
+        <div className="w-full text-center lg:text-center">
           <h1 className="text-3xl font-bold mb-8 border-b-2 border-green-300 inline-block pb-1 ">
             Course Content</h1>
         </div>
@@ -424,7 +424,7 @@ function SystemDesign() {
         variants={fadeInUp}
       >
         <div className="w-[90vw] max-w-6xl mx-auto ">
-          <div className="w-full text-center lg:text-left">
+          <div className="w-full text-center lg:text-center">
             <h1 className="text-3xl font-bold text-white mb-10 border-b-2 border-green-500 inline-block pb-1">
               Tools & Technologies
             </h1>
@@ -459,7 +459,7 @@ function SystemDesign() {
         variants={fadeInUp}
       >
         <div className="w-[90vw] max-w-6xl mx-auto">
-          <div className="w-full text-center lg:text-left">
+          <div className="w-full text-center lg:text-center">
             <h2 className="text-3xl font-bold text-center mb-10 border-b-2 border-green-500 inline-block pb-2">
               FAQ's
             </h2>
