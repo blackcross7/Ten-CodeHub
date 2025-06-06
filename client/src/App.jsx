@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import AppRoutes from './routes';
 import 'font-awesome/css/font-awesome.min.css';
+import { Toaster } from 'react-hot-toast';
 
 
 function AppContent() {
@@ -29,6 +30,7 @@ function App() {
   return (
     <BrowserRouter>
       <AppContent />
+      <Toaster position="top-right" />
     </BrowserRouter>
   );
 }

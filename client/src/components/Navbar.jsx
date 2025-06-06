@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faSearch, faHome, faNewspaper, faComments, faBook, faEdit, faCompass } from '@fortawesome/free-solid-svg-icons';
+import useAuthStore from '../store/authStore';
 
-const Navbar = ({ isLoggedIn, user }) => {
+const Navbar = () => {
+  const { user, checkAuth } = useAuthStore();
   const [menuOpen, setMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [showSearchSmall, setShowSearchSmall] = useState(false);
+
 
   // Ref for the scrollable secondary links container
   const scrollContainerRef = useRef(null);
@@ -18,6 +21,11 @@ const Navbar = ({ isLoggedIn, user }) => {
 
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
+
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
+
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -125,10 +133,10 @@ const Navbar = ({ isLoggedIn, user }) => {
               />
             )}
           </div>
-          {isLoggedIn ? (
+          {user ? (
             <div className="profile-icon">
               <Link to="/profile">
-                <img src={user?.picture} alt="Profile" className="user-avatar" />
+                <img src="assets/image/user-icon.png" alt="Profile" className="user-avatar" />
               </Link>
             </div>
           ) : (

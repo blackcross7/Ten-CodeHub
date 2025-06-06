@@ -1,11 +1,46 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import authStore from '../store/authStore';
+import LogoutModal from '../components/LogoutModal';
 
 const ProfilePage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+  const navigate = useNavigate();
+
+  const { user, checkAuth, logout, clearError } = authStore();
+
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      clearError();
+      navigate('/');
+    } catch (err) {
+      console.error('Logout failed:', err.message);
+    }
+  };
+
+  const profilePicture = localStorage.getItem('codehub-profilePicture') || 'assets/image/avatar.png';
+
+  const sidebarItems = [
+    { label: 'Contributions' },
+    { label: 'Saved Items' },
+    { label: 'Colleges' },
+    { label: 'Companies' },
+    { label: 'Campus Ambassadors' },
+    { label: 'Invite' },
+    { label: 'Edit Profile', to: '/edit-profile' },
+    { label: 'Account Settings' },
+    { label: 'Logout', action: () => setShowLogoutModal(true) }
+  ];
+
 
   const metrics = [
     {
@@ -27,7 +62,7 @@ const ProfilePage = () => {
 
   return (
     <main className="min-h-screen w-full bg-gradient-to-b from-indigo-600 to-transparent z-0 text-gray-800 relative overflow-x-hidden">
-      {/* Hamburger Button */}
+      {/* Hamburger */}
       <button
         className="text-2xl md:hidden fixed top-4 left-4 mt-24 z-50 text-black shadow p-2 rounded"
         onClick={toggleSidebar}
@@ -35,7 +70,7 @@ const ProfilePage = () => {
         ☰
       </button>
 
-      {/* Sidebar with motion */}
+      {/* Sidebar */}
       <AnimatePresence>
         {(sidebarOpen || window.innerWidth >= 768) && (
           <motion.nav
@@ -45,52 +80,41 @@ const ProfilePage = () => {
             transition={{ type: 'spring', stiffness: 100 }}
             className="fixed top-28 left-0 h-full bg-teal-300 shadow-lg z-40 w-64 p-6 space-y-4 md:translate-x-0"
           >
-            {[
-              "Contributions",
-              "Saved Items",
-              "Colleges",
-              "Companies",
-              "Campus Ambassadors",
-              "Invite",
-              "Edit Profile",
-              "Account Settings",
-              "Logout",
-            ].map((item, index) => (
+            {sidebarItems.map((item, index) => (
               <motion.li
-                key={item}
-                className="flex items-center space-x-2 p-1 rounded-sm hover:bg-green-600 transition-colors duration-200 list-none"
+                key={index}
+                className="flex items-center space-x-2 p-1 rounded-sm hover:bg-green-600 transition-colors duration-200 list-none cursor-pointer"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.05 }}
+                onClick={() => item.action?.()}
               >
                 <i className="fas fa-angle-right" />
-                {item === "Edit Profile" ? <Link to="/edit-profile">{item}</Link> : <span>{item}</span>}
+                {item.to ? <Link to={item.to}>{item.label}</Link> : <span>{item.label}</span>}
               </motion.li>
             ))}
           </motion.nav>
         )}
       </AnimatePresence>
 
-      {/* Main content */}
+      {/* Content Section */}
       <section className="p-4 pt-36 md:pt-36 md:ml-64">
         <div className="flex flex-col md:flex-row gap-6">
-          {/* Left Profile Card */}
+          {/* Profile Info Card */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="w-full md:w-1/3 flex flex-col items-center"
           >
-            <div className="relative text-center">
+            <div className="relative text-center flex flex-col items-center">
               <img
-                src="assets/image/avatar.png"
+                src={profilePicture}
                 alt="Profile"
                 className="w-40 h-40 rounded-full object-cover border-4 border-white shadow"
               />
-              <div className="absolute top-0 right-0 bg-gray-200 p-1 rounded-full">
-                <i className="material-icons text-sm">edit</i>
-              </div>
-              <h2 className="text-2xl text-black font-bold">Tushar</h2>
+              <h2 className="text-2xl mt-4 text-black font-bold">{user?.fullName || 'No Name'}</h2>
+              <p className="text-gray-700 mt-1">{user?.email || 'No Email'}</p>
             </div>
 
             <div className="mt-6 bg-rose-400 p-4 rounded-lg shadow w-full h-full text-center">
@@ -100,9 +124,8 @@ const ProfilePage = () => {
             </div>
           </motion.div>
 
-          {/* Right Section */}
+          {/* Right Side Metrics */}
           <div className="w-full md:w-2/3 space-y-4">
-            {/* Institute */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -110,27 +133,24 @@ const ProfilePage = () => {
               className="bg-violet-400 p-4 rounded-lg shadow"
             >
               <div className="flex justify-between items-center">
-                <h3 className="mt-1 text-xl text-gray-900">Institute</h3>
+                <h3 className="mt-1 text-xl text-gray-900">{user?.jobTitle || 'No Job Title'}</h3>
                 <button className="bg-green-600 hover:bg-black text-white font-semibold px-3 py-1 rounded">
                   <Link to="/edit-profile">Edit</Link>
                 </button>
               </div>
-              <h3 className="mt-1 text-md text-gray-800 font-medium">LNCT, Indore</h3>
+              <h3 className="mt-1 text-md text-gray-800 ">{user?.location || 'No Location'}</h3>
+              <p className="mt-2 text-gray-700">{user?.bio || 'No bio available'}</p>
             </motion.div>
 
             {/* Badges */}
             <motion.div
+              className="bg-green-300 p-4 rounded-lg shadow flex flex-wrap gap-4 justify-center"
               initial="hidden"
               animate="visible"
               variants={{
                 hidden: {},
-                visible: {
-                  transition: {
-                    staggerChildren: 0.1,
-                  },
-                },
+                visible: { transition: { staggerChildren: 0.1 } },
               }}
-              className="bg-green-300 p-4 rounded-lg shadow flex flex-wrap gap-4 justify-center"
             >
               {["Contributor", "Proficient", "Scholar", "Master", "Ace"].map((badge, i) => (
                 <motion.div
@@ -146,7 +166,7 @@ const ProfilePage = () => {
               ))}
             </motion.div>
 
-            {/* ScoreCard */}
+            {/* Score Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -179,7 +199,7 @@ const ProfilePage = () => {
           btn: "Solve Problems",
           img: "/assets/image/problem_solving.png",
           color: "bg-blue-600",
-          bg:"bg-blue-300",
+          bg: "bg-blue-300",
         },
         {
           title: "Learn from Industry Professionals",
@@ -187,7 +207,7 @@ const ProfilePage = () => {
           btn: "Explore Course",
           img: "/assets/image/begin_learn.png",
           color: "bg-green-600",
-          bg:"bg-purple-400",
+          bg: "bg-purple-400",
         },
         {
           title: "Join the contest to boost your rating and win prizes!",
@@ -195,7 +215,7 @@ const ProfilePage = () => {
           btn: "Explore Course",
           img: "/assets/image/join_contest.png",
           color: "bg-purple-600",
-          bg:"bg-pink-300",
+          bg: "bg-pink-300",
         },
       ].map((section, i) => (
         <motion.section
@@ -243,6 +263,11 @@ const ProfilePage = () => {
           />
         </div>
       </motion.section>
+      <LogoutModal
+        isOpen={showLogoutModal}
+        onClose={() => setShowLogoutModal(false)}
+        onConfirm={handleLogout}
+      />
     </main>
   );
 };

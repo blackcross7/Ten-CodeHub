@@ -1,7 +1,98 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import useAuthStore from '../store/authStore';
+import toast from 'react-hot-toast';
 
 const EditProfile = () => {
+  const { user, updateProfile } = useAuthStore();
+
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    jobTitle: '',
+    location: '',
+    bio: '',
+    github: '',
+    linkedin: '',
+    twitter: '',
+  });
+
+  const [profilePic, setProfilePic] = useState(
+    localStorage.getItem('codehub-profilePicture') || 'assets/image/avatar.png'
+  );
+
+  useEffect(() => {
+    if (user) {
+      setFormData({
+        fullName: user.fullName || '',
+        email: user.email || '',
+        jobTitle: user.jobTitle || '',
+        location: user.location || '',
+        bio: user.bio || '',
+        github: user.socialLinks?.github || '',
+        linkedin: user.socialLinks?.linkedin || '',
+        twitter: user.socialLinks?.twitter || '',
+      });
+      if (localStorage.getItem('codehub-profilePicture')) {
+        setProfilePic(localStorage.getItem('codehub-profilePicture'));
+      }
+    }
+  }, [user]);
+
+  const [loading, setLoading] = useState(false); // loading state
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64 = reader.result;
+      localStorage.setItem('codehub-profilePicture', base64);
+      setProfilePic(base64);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const { fullName, jobTitle, location, bio, github, linkedin, twitter } = formData;
+
+    const success = await updateProfile({
+      fullName,
+      jobTitle,
+      location,
+      bio,
+      socialLinks: { github, linkedin, twitter },
+    });
+
+    if (success) {
+      toast.success('Profile updated successfully!');
+      // Update local formData explicitly, so form does not clear
+      setFormData((prev) => ({
+        ...prev,
+        fullName,
+        jobTitle,
+        location,
+        bio,
+        github,
+        linkedin,
+        twitter,
+      }));
+    } else {
+      toast.error('Failed to update profile');
+    }
+
+    setLoading(false);
+  };
+
+
   // Framer Motion variants
   const fadeIn = {
     hidden: { opacity: 0 },
@@ -10,7 +101,7 @@ const EditProfile = () => {
 
   const slideInUp = {
     hidden: { y: 50, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } },
   };
 
   const staggerContainer = {
@@ -31,8 +122,8 @@ const EditProfile = () => {
 
   const buttonHover = {
     scale: 1.05,
-    boxShadow: "0px 8px 15px rgba(0,0,0,0.2)",
-    transition: { duration: 0.2 }
+    boxShadow: '0px 8px 15px rgba(0,0,0,0.2)',
+    transition: { duration: 0.2 },
   };
 
   return (
@@ -42,10 +133,8 @@ const EditProfile = () => {
       animate="visible"
       variants={fadeIn}
     >
-      {/* Background gradient - Keeping indigo for the main theme */}
       <div className="absolute top-0 left-0 w-full h-[80vh] bg-gradient-to-b from-indigo-600 to-transparent z-0" />
 
-      {/* Page Header */}
       <motion.div
         className="relative z-10 flex justify-between items-center my-10"
         variants={slideInUp}
@@ -60,7 +149,7 @@ const EditProfile = () => {
         <motion.a
           href="/profile"
           className="text-indigo-900 font-semibold hover:underline flex items-center gap-2 hover:text-indigo-800 transition-colors duration-200 text-sm md:text-lg"
-          whileHover={{ x: -5 }} // Subtle slide left on hover
+          whileHover={{ x: -5 }}
           transition={{ duration: 0.2 }}
         >
           <i className="fas fa-arrow-left"></i> Back to Profile
@@ -68,54 +157,64 @@ const EditProfile = () => {
       </motion.div>
 
       <motion.form
+        onSubmit={handleSubmit}
         className="relative z-10 space-y-10 bg-white p-8 rounded-lg shadow-xl"
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
       >
-        {/* Profile Picture Section */}
         <motion.section variants={slideInUp}>
           <h2 className="text-xl font-semibold mb-4 text-blue-800">Profile Picture</h2>
           <div className="flex items-center justify-center gap-6">
             <label htmlFor="profile-pic" className="cursor-pointer relative group">
               <motion.img
-                src="assets/image/avatar.png"
-                alt="Current Profile Picture"
-                className="w-28 h-28 rounded-full border-4 border-indigo-400 object-cover brightness-100 transition-shadow duration-100 hover:brightness-110"
-                whileHover={{ scale: 1.05, boxShadow: "0px 0px 10px rgba(99, 102, 241, 0.5)" }}
+                src={profilePic}
+                alt="Current Profile"
+                className="w-28 h-28 rounded-full border-4 border-indigo-400 object-cover transition-shadow duration-100 hover:brightness-110"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: '0px 0px 10px rgba(99, 102, 241, 0.5)',
+                }}
                 transition={{ duration: 0.3 }}
               />
               <motion.img
                 src="assets/image/add.svg"
                 alt="add"
-                className="w-10 h-8 absolute bottom-2 left-20  group-hover:scale-125 transition-transform duration-200"
+                className="w-10 h-8 absolute bottom-2 left-20 group-hover:scale-125 transition-transform duration-200"
                 whileHover={{ scale: 1.25 }}
                 transition={{ duration: 0.2 }}
               />
             </label>
-            <input type="file" id="profile-pic" accept="image/*" className="hidden" />
+            <input
+              type="file"
+              id="profile-pic"
+              accept="image/*"
+              className="hidden"
+              onChange={handleImageChange}
+            />
           </div>
         </motion.section>
 
-        {/* Personal Information Section */}
         <motion.section variants={slideInUp}>
           <h2 className="text-xl font-semibold mb-4 text-blue-800">Personal Information</h2>
           <div className="grid gap-6 md:grid-cols-2">
             {[
-              { id: 'full-name', label: 'Full Name', type: 'text', defaultValue: '', placeholder: 'e.g., Jane Doe' },
-              { id: 'email', label: 'Email', type: 'email', defaultValue: '', placeholder: 'e.g., your.email@example.com' },
-              { id: 'job-title', label: 'Job Title', type: 'text', defaultValue: '', placeholder: 'e.g., Software Engineer' },
-              { id: 'location', label: 'Location', type: 'text', defaultValue: '', placeholder: 'e.g., New York, USA' },
-            ].map(({ id, label, type, defaultValue, placeholder }) => ( // Added placeholder to destructuring
+              { id: 'fullName', label: 'Full Name', type: 'text', placeholder: 'e.g., Jane Doe' },
+              { id: 'email', label: 'Email', type: 'email', placeholder: 'e.g., your.email@example.com', readOnly: true },
+              { id: 'jobTitle', label: 'Job Title', type: 'text', placeholder: 'e.g., Software Engineer' },
+              { id: 'location', label: 'Location', type: 'text', placeholder: 'e.g., New York, USA' },
+            ].map(({ id, label, type, placeholder, readOnly }) => (
               <motion.div className="flex flex-col" key={id} variants={itemFadeIn}>
                 <label htmlFor={id} className="mb-1 font-medium text-blue-800">{label}</label>
                 <input
                   type={type}
                   id={id}
-                  defaultValue={defaultValue}
-                  placeholder={placeholder} // Added placeholder prop
+                  value={formData[id]}
+                  placeholder={placeholder}
+                  onChange={handleChange}
+                  readOnly={readOnly || false}
                   required
-                  className="border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
+                  className={`border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all duration-300 shadow-sm hover:shadow-md ${readOnly ? 'bg-gray-100 cursor-not-allowed' : ''}`}
                 />
               </motion.div>
             ))}
@@ -124,21 +223,22 @@ const EditProfile = () => {
               <textarea
                 id="bio"
                 rows="4"
-                placeholder='Passionate coder and tech enthusiast. Love to learn and share knowledge about web development and programming.'
-                className="border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md resize-y"
+                placeholder="Passionate coder..."
+                value={formData.bio}
+                onChange={handleChange}
+                className="border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-y shadow-sm hover:shadow-md"
               />
             </motion.div>
           </div>
         </motion.section>
 
-        {/* Social Links Section */}
         <motion.section variants={slideInUp}>
           <h2 className="text-xl font-semibold mb-4 text-blue-800">Social Links</h2>
           <div className="grid gap-6 md:grid-cols-2">
             {[
-              { id: 'github', icon: 'fab fa-github', placeholder: 'https://github.com/your-username' }, // Updated placeholder
-              { id: 'linkedin', icon: 'fab fa-linkedin', placeholder: 'https://linkedin.com/in/your-profile' }, // Updated placeholder
-              { id: 'twitter', icon: 'fab fa-twitter', placeholder: 'https://twitter.com/your-handle' }, // Updated placeholder
+              { id: 'github', icon: 'fab fa-github', placeholder: 'https://github.com/your-username' },
+              { id: 'linkedin', icon: 'fab fa-linkedin', placeholder: 'https://linkedin.com/in/your-profile' },
+              { id: 'twitter', icon: 'fab fa-twitter', placeholder: 'https://twitter.com/your-handle' },
             ].map(({ id, icon, placeholder }) => (
               <motion.div className={`flex flex-col ${id === 'twitter' ? 'md:col-span-2' : ''}`} key={id} variants={itemFadeIn}>
                 <label htmlFor={id} className="mb-1 font-medium text-blue-800">
@@ -147,16 +247,17 @@ const EditProfile = () => {
                 <input
                   type="url"
                   id={id}
-                  placeholder={placeholder} // Added placeholder prop
-                  className="border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
+                  value={formData[id]}
+                  placeholder={placeholder}
+                  onChange={handleChange}
+                  className="border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 shadow-sm hover:shadow-md"
                 />
               </motion.div>
             ))}
           </div>
         </motion.section>
 
-        {/* Form Actions */}
-        <motion.div className="flex flex-col-reverse md:flex-row  justify-end gap-4 mt-8" variants={slideInUp}>
+        <motion.div className="flex flex-col-reverse md:flex-row justify-end gap-4 mt-8" variants={slideInUp}>
           <motion.button
             type="button"
             className="px-6 py-2 rounded-md text-white bg-red-600 hover:bg-red-700 font-medium"
@@ -167,11 +268,13 @@ const EditProfile = () => {
           </motion.button>
           <motion.button
             type="submit"
-            className="px-6 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 font-medium"
-            whileHover={buttonHover}
-            whileTap={{ scale: 0.95 }}
+            disabled={loading}  // disable button while loading
+            className={`px-6 py-2 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700 
+              ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+            whileHover={!loading ? buttonHover : {}}
+            whileTap={!loading ? { scale: 0.95 } : {}}
           >
-            Save Changes
+            {loading ? 'Saving...' : 'Save Changes'}
           </motion.button>
         </motion.div>
       </motion.form>
