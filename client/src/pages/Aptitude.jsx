@@ -322,16 +322,18 @@ function Aptitude() {
         </motion.section>
 
         <motion.section
-          className="max-w-8xl mx-auto w-full px-6 lg:px-20 my-24"
+          className="max-w-8xl mx-auto w-full px-6 lg:px-30 my-24"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
           custom={10}
         >
-          <h1 className="text-3xl font-bold mb-8 border-b-2 border-green-300 inline-block pb-1">
+          <div className="w-full text-center lg:text-center">
+          <h2 className="text-3xl font-bold text-center mb-10 border-b-2 border-green-500 inline-block pb-2">
             Course Content
-          </h1>
+          </h2>
+          </div>
 
           <div className="grid gap-6">
             {displayedContent.map((weekItem, index) => (
@@ -366,45 +368,46 @@ function Aptitude() {
         </motion.section>
 
         <motion.section
-          className="w-full mt-24"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          custom={11}
-        >
-          <div className="w-[90vw] max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-10 border-b-2 border-green-500 inline-block pb-2">
-              FAQ's
-            </h2>
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-slate-950 rounded-lg shadow px-6 py-4 cursor-pointer transition-all"
-                  onClick={() => toggle(index)}
-                  variants={fadeInUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  custom={index}
-                >
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-medium text-white">{faq.question}</h3>
-                    <ChevronDown
-                      className={`h-5 w-5 text-white transition-transform duration-300 ${
-                        openIndex === index ? "rotate-180" : ""
-                      }`}
-                    />
-                  </div>
-                  {openIndex === index && (
-                    <p className="mt-3 text-white text-sm">{faq.answer}</p>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.section>
+  className="w-full"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={fadeInUp}
+>
+  <div className="w-full text-center">
+    <h2 className="text-3xl font-bold text-center mb-10 border-b-2 border-green-500 inline-block pb-2">
+      FAQ's
+    </h2>
+  </div>
+
+  <div className="space-y-4 flex flex-col items-center"> {/* Centering the cards */}
+    {faqs.map((faq, index) => (
+      <motion.div
+        key={index}
+        className="bg-slate-950 rounded-lg shadow px-6 py-4 cursor-pointer transition-all w-full max-w-4xl" // Increased max-w to 3xl for larger screens
+        onClick={() => toggle(index)}
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        custom={index}
+      >
+        <div className="flex justify-between items-center">
+          <h3 className="text-lg font-medium text-white">{faq.question}</h3>
+          <ChevronDown
+            className={`h-5 w-5 text-white transition-transform duration-300 ${
+              openIndex === index ? "rotate-180" : ""
+            }`}
+          />
+        </div>
+        {openIndex === index && (
+          <p className="mt-3 text-white text-sm">{faq.answer}</p>
+        )}
+      </motion.div>
+    ))}
+  </div>
+</motion.section>
+
       </div>
     </div>
   );

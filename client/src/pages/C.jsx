@@ -394,7 +394,7 @@ function C() {
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInUp}
       >
-        <div className="w-full text-center lg:text-left">
+        <div className="w-full text-center lg:text-center">
           <h1 className="text-3xl font-bold mb-8 border-b-2 border-green-300 inline-block pb-1">
             Course Content
           </h1>
@@ -447,7 +447,7 @@ function C() {
         variants={fadeInUp}
       >
         <div className="w-[90vw] max-w-6xl mx-auto">
-          <div className="w-full text-center lg:text-left">
+          <div className="w-full text-center lg:text-center">
             <h1 className="text-3xl font-bold text-white mb-10 border-b-2 border-green-500 inline-block pb-1">
               Tools & Technologies
             </h1>
@@ -482,7 +482,7 @@ function C() {
         variants={fadeInUp}
       >
         <div className="w-[90vw] max-w-6xl mx-auto">
-          <div className="w-full text-center lg:text-left">
+          <div className="w-full text-center lg:text-center">
             <h2 className="text-3xl font-bold text-center mb-10 border-b-2 border-green-500 inline-block pb-2">
               FAQ's
             </h2>

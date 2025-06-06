@@ -41,6 +41,7 @@ html, body {
   padding: 0 var(--spacing-sm);
   position: relative;
   margin-bottom: 2%;
+  margin-top: 15%;
 }
 
 .discussions-heading {
