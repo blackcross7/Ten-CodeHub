@@ -15,8 +15,8 @@ const Footer = () => {
       {/* Corporate Address */}
       <div className="mb-4 text-center">
         <div className="flex items-center justify-center mb-1 text-green-500 font-bold">
-          <i className="fas fa-map-marker-alt mr-2"></i>
-          Corporate & Communications Address:
+          <i className="fas fa-map-marker-alt mr-2">Corporate & Communications Address:</i>
+          
         </div>
         <div className="text-gray-900 text-sm font-bold">
           India Accelarator, Noida, Uttar Pradesh (201301)
@@ -26,8 +26,8 @@ const Footer = () => {
       {/* Registered Address */}
       <div className="mb-4 text-center">
         <div className="flex items-center justify-center mb-1 text-green-500 font-bold">
-          <i className="fas fa-map-marker-alt mr-2"></i>
-          Registered Address:
+          <i className="fas fa-map-marker-alt mr-2">Registered Address:</i>
+          
         </div>
         <div className="text-gray-900 text-sm font-bold">
           India Accelarator, Noida, Uttar Pradesh (201301)

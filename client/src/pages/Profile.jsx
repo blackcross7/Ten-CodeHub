@@ -26,7 +26,7 @@ const ProfilePage = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-gray-900 text-gray-800 relative overflow-x-hidden">
+    <main className="min-h-screen w-full bg-gradient-to-b from-indigo-600 to-transparent z-0 text-gray-800 relative overflow-x-hidden">
       {/* Hamburger Button */}
       <button
         className="text-2xl md:hidden fixed top-4 left-4 mt-24 z-50 text-black shadow p-2 rounded"
@@ -43,7 +43,7 @@ const ProfilePage = () => {
             animate={{ x: 0 }}
             exit={{ x: -300 }}
             transition={{ type: 'spring', stiffness: 100 }}
-            className="fixed top-28 left-0 h-full bg-gray-300 shadow-lg z-40 w-64 p-6 space-y-4 md:translate-x-0"
+            className="fixed top-28 left-0 h-full bg-teal-300 shadow-lg z-40 w-64 p-6 space-y-4 md:translate-x-0"
           >
             {[
               "Contributions",
@@ -58,7 +58,7 @@ const ProfilePage = () => {
             ].map((item, index) => (
               <motion.li
                 key={item}
-                className="flex items-center space-x-2 p-1 rounded-sm hover:bg-green-300 transition-colors duration-200 list-none"
+                className="flex items-center space-x-2 p-1 rounded-sm hover:bg-green-600 transition-colors duration-200 list-none"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.05 }}
@@ -83,18 +83,18 @@ const ProfilePage = () => {
           >
             <div className="relative text-center">
               <img
-                src="/assets/image/profile_picture.jpg"
+                src="assets/image/avatar.png"
                 alt="Profile"
                 className="w-40 h-40 rounded-full object-cover border-4 border-white shadow"
               />
               <div className="absolute top-0 right-0 bg-gray-200 p-1 rounded-full">
                 <i className="material-icons text-sm">edit</i>
               </div>
-              <h2 className="text-md text-white font-semibold">Tushar</h2>
+              <h2 className="text-2xl text-black font-bold">Tushar</h2>
             </div>
 
-            <div className="mt-6 bg-gray-300 p-4 rounded-lg shadow w-full h-full text-center">
-              <div className="text-md text-gray-700">Current POTD Streak</div>
+            <div className="mt-6 bg-rose-400 p-4 rounded-lg shadow w-full h-full text-center">
+              <div className="text-md text-gray-800">Current POTD Streak</div>
               <div className="text-3xl font-bold mt-2">STREAK</div>
               <div className="text-xl mt-2">00 / 1375 days</div>
             </div>
@@ -107,7 +107,7 @@ const ProfilePage = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="bg-gray-300 p-4 rounded-lg shadow"
+              className="bg-violet-400 p-4 rounded-lg shadow"
             >
               <div className="flex justify-between items-center">
                 <h3 className="mt-1 text-xl text-gray-900">Institute</h3>
@@ -115,7 +115,7 @@ const ProfilePage = () => {
                   <Link to="/edit-profile">Edit</Link>
                 </button>
               </div>
-              <h3 className="mt-1 text-md text-gray-700 font-medium">LNCT, Indore</h3>
+              <h3 className="mt-1 text-md text-gray-800 font-medium">LNCT, Indore</h3>
             </motion.div>
 
             {/* Badges */}
@@ -130,7 +130,7 @@ const ProfilePage = () => {
                   },
                 },
               }}
-              className="bg-gray-300 p-4 rounded-lg shadow flex flex-wrap gap-4 justify-center"
+              className="bg-green-300 p-4 rounded-lg shadow flex flex-wrap gap-4 justify-center"
             >
               {["Contributor", "Proficient", "Scholar", "Master", "Ace"].map((badge, i) => (
                 <motion.div
@@ -151,7 +151,7 @@ const ProfilePage = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-gray-300 p-6 rounded-md shadow flex flex-col md:flex-row justify-around items-center space-y-6 md:space-y-0 border border-gray-200"
+              className="bg-yellow-200 p-6 rounded-md shadow flex flex-col md:flex-row justify-around items-center space-y-6 md:space-y-0 border border-gray-200"
             >
               {metrics.map((metric, index) => (
                 <motion.div
@@ -179,6 +179,7 @@ const ProfilePage = () => {
           btn: "Solve Problems",
           img: "/assets/image/problem_solving.png",
           color: "bg-blue-600",
+          bg:"bg-blue-300",
         },
         {
           title: "Learn from Industry Professionals",
@@ -186,6 +187,7 @@ const ProfilePage = () => {
           btn: "Explore Course",
           img: "/assets/image/begin_learn.png",
           color: "bg-green-600",
+          bg:"bg-purple-400",
         },
         {
           title: "Join the contest to boost your rating and win prizes!",
@@ -193,6 +195,7 @@ const ProfilePage = () => {
           btn: "Explore Course",
           img: "/assets/image/join_contest.png",
           color: "bg-purple-600",
+          bg:"bg-pink-300",
         },
       ].map((section, i) => (
         <motion.section
@@ -203,7 +206,7 @@ const ProfilePage = () => {
           transition={{ delay: i * 0.2 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gray-300 p-6 rounded-lg shadow flex flex-col md:flex-row gap-6 items-center justify-center">
+          <div className={`${section.bg} p-6 rounded-lg shadow flex flex-col md:flex-row gap-6 items-center justify-center`}>
             <div className="w-40">
               <img src={section.img} alt="#" />
             </div>
@@ -224,7 +227,7 @@ const ProfilePage = () => {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <div className="bg-gray-300 p-4 rounded-lg shadow flex flex-col md:flex-row items-center justify-around">
+        <div className="bg-orange-300 p-4 rounded-lg shadow flex flex-col md:flex-row items-center justify-around">
           <div>
             <h4 className="text-lg text-gray-800 font-semibold">Write More to Win More</h4>
             <p className="text-sm text-gray-600 mb-3">Share your thoughts and unlock badges.</p>
