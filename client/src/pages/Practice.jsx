@@ -38,7 +38,7 @@ function Practice() {
 
       {/* Main Content Overlapping the Hero */}
       <div className="bg-[#0a0f2c] pt-[200px] relative z-0">
-        <div className="relative -mt-[750px] z-10 max-w-[1200px] pb-10  mx-auto px-6 sm:px-8">
+        <div className="relative -mt-[750px] z-10 max-w-[1200px] pb-10 pt-20 sm:pt-20 mx-auto px-6 sm:px-8">
           <main>
             <motion.section
               initial={{ scale: 1.1 }}
@@ -144,16 +144,16 @@ function Practice() {
                       </div>
 
                      <button
-  className="participate-btn absolute bottom-2 right-2 bg-pink-600 text-white rounded-full 
-    px-3 py-1 text-xs font-medium shadow-md 
-    transition-all duration-300
-    hover:bg-white hover:text-pink-600
-    md:opacity-0 md:translate-y-2 md:hover:opacity-100 md:hover:translate-y-0
-    md:bottom-5 md:right-5 md:px-5 md:py-2 md:text-base md:font-semibold md:shadow-lg"
-  aria-label={`Participate in Weekly Contest ${index + 1}`}
->
-  Participate
-</button>
+                     className="participate-btn absolute bottom-2 right-2 bg-pink-600 text-white rounded-full 
+                     px-3 py-1 text-xs font-medium shadow-md 
+                     transition-all duration-300
+                     hover:bg-white hover:text-pink-600
+                     md:opacity-0 md:translate-y-2 md:hover:opacity-100 md:hover:translate-y-0
+                     md:bottom-5 md:right-5 md:px-5 md:py-2 md:text-base md:font-semibold md:shadow-lg"
+                    aria-label={`Participate in Weekly Contest ${index + 1}`}
+                     >
+                      Participate
+                    </button>
 
                     </div>
                   </div>
