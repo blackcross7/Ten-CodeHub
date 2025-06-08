@@ -23,7 +23,6 @@ const Articles = () => {
             .responsive-hide-image {
               display: none !important;
             }
-            /* Yeh parent container jiska height fixed tha, usko responsive banaya */
             .responsive-hide-image-parent {
               height: auto !important;
               min-height: 0 !important;
@@ -62,9 +61,8 @@ const Articles = () => {
                 initial="hidden"
                 animate="visible"
               >
-                {/* Add responsive-hide-image-parent here */}
-                <div className="relative h-0 md:h-64 overflow-hidden mb-6 rounded-lg responsive-hide-image-parent">
-                  <img src="/assets/image/react1.jpg" alt="Article" className="w-full h-full object-cover responsive-hide-image" />
+                <div className="relative h-auto lg:h-64 overflow-hidden mb-6 rounded-lg responsive-hide-image-parent">
+                  <img src="/assets/image/react1.jpg" alt="Article" className="w-full h-full object-contain responsive-hide-image" />
                   <span className="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white text-xs font-semibold px-4 py-2 rounded-full">
                     <i className="fas fa-code mr-1"></i> Web Development
                   </span>
@@ -85,8 +83,8 @@ const Articles = () => {
                 initial="hidden"
                 animate="visible"
               >
-                <div className="relative h-0 md:h-64 overflow-hidden mb-6 rounded-lg responsive-hide-image-parent">
-                  <img src="/assets/image/bi.jpg" alt="Article" className="w-full h-full object-cover responsive-hide-image" />
+                <div className="relative h-auto lg:h-64 overflow-hidden mb-6 rounded-lg responsive-hide-image-parent">
+                  <img src="/assets/image/bi.jpg" alt="Article" className="w-full h-full object-contain responsive-hide-image" />
                   <span className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-purple-400 text-white text-xs font-semibold px-4 py-2 rounded-full">
                     <i className="fas fa-code mr-1"></i> Data Structures
                   </span>
