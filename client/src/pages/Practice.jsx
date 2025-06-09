@@ -51,9 +51,9 @@ function Practice() {
               </h2>
 
               {/* Problem of the Day */}
-              <div className="border-2 border-cyan-400 rounded-xl p-4 mb-8 bg-white/10 backdrop-blur-md text-[#f0f0f0]">
+              <div className="  border-2 border-cyan-400 rounded-xl p-4 mb-8 bg-white/10 backdrop-blur-md text-[#f0f0f0]">
                 <div
-                  className="article-card opacity-0 translate-y-5 bg-[#101935]/80 border border-cyan-400/30 rounded-3xl p-6 flex flex-col md:flex-row justify-between text-white relative overflow-hidden cursor-pointer"
+                  className="article-card group  opacity-0 translate-y-5 bg-[#101935]/80 border border-cyan-400/30 rounded-3xl p-6 flex flex-col md:flex-row justify-between text-white relative overflow-hidden cursor-pointer"
                   style={{ animationDelay: "0.1s" }}
                 >
                   <div className="flex flex-col gap-4 w-full md:w-2/3 text-center md:text-left items-center md:items-start">
@@ -92,11 +92,13 @@ function Practice() {
                   />
 
                   <button
-                    className="participate-btn absolute bottom-5 right-5 bg-pink-600 hover:bg-white hover:text-pink-600 text-white rounded-full px-5 py-2 font-semibold shadow-lg transition-opacity opacity-0 translate-y-2 hover:opacity-100 hover:translate-y-0"
+                    className="participate-btn absolute bottom-5 right-5 bg-pink-600 text-white group-hover:bg-white group-hover:text-pink-600 rounded-full px-5 py-2 font-semibold shadow-lg transition-all duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 hidden group-hover:flex hover:scale-105"
                     aria-label="Solve Problem of the Day"
                   >
                     Solve
                   </button>
+
+
                 </div>
               </div>
 
@@ -143,17 +145,17 @@ function Practice() {
                         </div>
                       </div>
 
-                     <button
-                     className="participate-btn absolute bottom-2 right-2 bg-pink-600 text-white rounded-full 
+                      <button
+                        className="participate-btn absolute bottom-2 right-2 bg-pink-600 text-white rounded-full 
                      px-3 py-1 text-xs font-medium shadow-md 
                      transition-all duration-300
                      hover:bg-white hover:text-pink-600
                      md:opacity-0 md:translate-y-2 md:hover:opacity-100 md:hover:translate-y-0
                      md:bottom-5 md:right-5 md:px-5 md:py-2 md:text-base md:font-semibold md:shadow-lg"
-                    aria-label={`Participate in Weekly Contest ${index + 1}`}
-                     >
-                      Participate
-                    </button>
+                        aria-label={`Participate in Weekly Contest ${index + 1}`}
+                      >
+                        Participate
+                      </button>
 
                     </div>
                   </div>
