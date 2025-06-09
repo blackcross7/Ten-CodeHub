@@ -17,47 +17,54 @@ const fadeInUp = {
 };
 
 const Explore = () => {
-
   const exploreItems = [
     {
       title: 'Data Structures and Algorithms',
       color: 'bg-[linear-gradient(#4caf97,#51c6ab)]',
       img: '/assets/image/DSA.png',
+      link: '/dsa'
     },
     {
       title: 'Practice DSA',
       color: 'bg-[linear-gradient(rgb(90,94,183),rgb(112,117,234))]',
       img: '/assets/image/Practice dsa.png',
+      link: '/dsa'
     },
     {
       title: 'Web Development',
       color: 'bg-[linear-gradient(rgb(175,97,96),rgb(202,138,137))]',
       img: '/assets/image/Webdev.png',
+      link: '/webdev'
     },
     {
       title: 'Python',
       color: 'bg-[linear-gradient(rgb(103,74,152),rgb(165,148,195))]',
       img: '/assets/image/Python.png',
+      link: '/python'
     },
     {
       title: 'AI ML & Data Science',
       color: 'bg-[linear-gradient(rgb(37,135,156),rgb(84,195,219))]',
       img: '/assets/image/AIML.png',
+      link: '/ml'
     },
     {
       title: 'Machine Learning',
       color: 'bg-[linear-gradient(rgb(69,114,182),rgb(120,158,218))]',
       img: '/assets/image/ML.png',
+      link: '/ml'
     },
     {
       title: 'System Design',
       color: 'bg-[linear-gradient(rgb(204,115,62),rgb(234,163,120))]',
       img: '/assets/image/system.png',
+      link: '/systemdesign'
     },
     {
       title: 'DevOps',
       color: 'bg-[linear-gradient(rgb(241,99,124),rgb(227,153,166))]',
       img: '/assets/image/devops.png',
+      link: '/devops'
     },
   ];
 
@@ -65,65 +72,141 @@ const Explore = () => {
     {
       title: "Web Development",
       color: "bg-[#5486bd]",
-      items: ['HTML', 'CSS', 'ReactJS', 'Node.js', 'Django', 'Frontend Development', 'Backend Development', 'Fullstack Projects', 'GraphQL', 'TypeScript'],
+      items: [
+        { title: 'HTML' },
+        { title: 'CSS' },
+        { title: 'ReactJS' },
+        { title: 'Node.js' },
+        { title: 'Django' },
+        { title: 'Frontend Development' },
+        { title: 'Backend Development' },
+        { title: 'Fullstack Projects' },
+        { title: 'GraphQL' },
+        { title: 'TypeScript' }
+      ],
       flex: true
     },
     {
       title: "AI ML & Data Science",
       color: "bg-[#ae84d1]",
-      items: ['Machine Learning', 'Data Science', 'Data Analysis', 'Data Visualization', 'Deep Learning', 'Natural Language Processing', 'Computer Vision'],
+      items: [
+        { title: 'Machine Learning', link: '/ml' },
+        { title: 'Data Science' },
+        { title: 'Data Analysis' },
+        { title: 'Data Visualization' },
+        { title: 'Deep Learning' },
+        { title: 'Natural Language Processing' },
+        { title: 'Computer Vision' }
+      ],
       flex: true
     },
     {
       title: "Programming Languages",
       color: "bg-[#d5a05a]",
-      items: ['Python', 'Java', 'C++', 'C', 'R', 'PHP', 'Flutter', 'Golang', 'JavaScript', 'Kotlin'],
+      items: [
+        { title: 'Python', link: '/python' },
+        { title: 'Java', link:'/java' },
+        { title: 'C++' , link:'/cpp' },
+        { title: 'C' , link:'/c' },
+        { title: 'R' },
+        { title: 'PHP' },
+        { title: 'Flutter' },
+        { title: 'Golang' },
+        { title: 'JavaScript' },
+        { title: 'Kotlin' }
+      ],
       flex: true
     },
     {
       title: "Interview Preparation",
       color: "bg-[#cc8f8e]",
-      items: ['Company Preparation', 'SDE Sheet', 'Puzzles', 'Aptitude', 'Mock Interviews', 'Problem of the day', 'Interview Experiences', 'Interview Questions', 'Resume Building'],
+      items: [
+        { title: 'Company Preparation' },
+        { title: 'SDE Sheet' },
+        { title: 'Puzzles' },
+        { title: 'Aptitude' },
+        { title: 'Mock Interviews' },
+        { title: 'Problem of the day' },
+        { title: 'Interview Experiences' },
+        { title: 'Interview Questions' },
+        { title: 'Resume Building' }
+      ],
       flex: true
     },
     {
       title: "CS Subjects",
       color: "bg-[#79abb6]",
-      items: ['Operating System', 'DBMS', 'Computer Networks', 'Computer Architecture', 'Software Engineering', 'Compiler Design', 'Theory of Computation', 'Digital Logic Design'],
+      items: [
+        { title: 'Operating System' },
+        { title: 'DBMS' },
+        { title: 'Computer Networks' },
+        { title: 'Computer Architecture' },
+        { title: 'Software Engineering' },
+        { title: 'Compiler Design' },
+        { title: 'Theory of Computation' },
+        { title: 'Digital Logic Design' }
+      ],
       flex: true
     },
     {
       title: "Databases",
       color: "bg-[#8591cc]",
-      items: ['SQL', 'MongoDB', 'MySQL', 'PostgreSQL', 'Oracle', 'SQLite', 'Redis', 'Cassandra'],
+      items: [
+        { title: 'SQL' },
+        { title: 'MongoDB' },
+        { title: 'MySQL' },
+        { title: 'PostgreSQL' },
+        { title: 'Oracle' },
+        { title: 'SQLite' },
+        { title: 'Redis' },
+        { title: 'Cassandra' }
+      ],
       flex: true
     },
     {
       title: "DevOps",
       color: "bg-[#a0b783]",
-      items: ['Docker', 'Kubernetes', 'Jenkins', 'Ansible', 'Terraform', 'AWS', 'Azure', 'GCP'],
+      items: [
+        { title: 'Docker' },
+        { title: 'Kubernetes' },
+        { title: 'Jenkins' },
+        { title: 'Ansible' },
+        { title: 'Terraform' },
+        { title: 'AWS' },
+        { title: 'Azure' },
+        { title: 'GCP' }
+      ],
       flex: true
     },
     {
       title: "Tutorials",
       color: "bg-[#6a93b1]",
-      items: ['System Design', 'Android', 'Linux', 'Design Pattern', 'Software Testing', 'Product Management', 'Excel', 'Cloud Computing'],
+      items: [
+        { title: 'System Design', link: '/systemdesign' },
+        { title: 'Android' },
+        { title: 'Linux' },
+        { title: 'Design Pattern' },
+        { title: 'Software Testing' },
+        { title: 'Product Management' },
+        { title: 'Excel' },
+        { title: 'Cloud Computing' }
+      ],
       flex: true
-    },
+    }
   ];
 
   const [expandedSections, setExpandedSections] = useState({});
 
   const toggleExpanded = (sectionTitle) => {
-    setExpandedSections(prevState => ({
-      ...prevState,
-      [sectionTitle]: !prevState[sectionTitle]
+    setExpandedSections(prev => ({
+      ...prev,
+      [sectionTitle]: !prev[sectionTitle]
     }));
   };
 
   return (
     <div className="font-sans">
-      {/* Section with background image */}
+      {/* Background Image Section */}
       <motion.div
         initial={{ scale: 1.2 }}
         animate={{ scale: 1 }}
@@ -150,24 +233,27 @@ const Explore = () => {
                 animate="visible"
                 className="flex justify-center"
               >
-                <div
-                  className={`p-6 rounded-xl ${item.color} relative overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105`}
-                  style={{ width: "250px", height: "260px" }}
-                >
-                  <div className="w-full h-[150px] bg-white rounded-lg flex items-center justify-center p-4">
-                    <img
-                      src={item.img}
-                      alt={item.title}
-                      className="w-full h-full object-contain rounded"
-                    />
+                <Link to={item.link} className="w-full">
+                  <div
+                    className={`p-6 rounded-xl ${item.color} relative overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105`}
+                    style={{ width: "250px", height: "260px" }}
+                  >
+                    <div className="w-full h-[150px] bg-white rounded-lg flex items-center justify-center p-4">
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        className="w-full h-full object-contain rounded"
+                      />
+                    </div>
+                    <h3 className="text-white font-bold mt-2 text-center">{item.title}</h3>
                   </div>
-                  <h3 className="text-white font-bold mt-2 text-center">{item.title}</h3>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
         </motion.section>
 
+        {/* Category Sections */}
         {sections.map((section, i) => {
           const displayItems = expandedSections[section.title] ? section.items : section.items.slice(0, 4);
           const showViewAllButton = section.items.length > 4;
@@ -186,7 +272,7 @@ const Explore = () => {
                 {showViewAllButton && (
                   <button
                     onClick={() => toggleExpanded(section.title)}
-                    className='border border-white text-white px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:text-black hover:shadow-lg transition duration-300 flex-shrink-0 whitespace-nowrap'
+                    className="border border-white text-white px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:text-black hover:shadow-lg transition duration-300 flex-shrink-0 whitespace-nowrap"
                   >
                     {expandedSections[section.title] ? 'View Less' : 'View All'}
                   </button>
@@ -204,26 +290,15 @@ const Explore = () => {
                       whileInView="visible"
                       viewport={{ once: true }}
                     >
-                      <OtherCards title={item} color={section.color} />
+                      {item.link ? (
+                        <Link to={item.link}><OtherCards title={item.title} color={section.color} /></Link>
+                      ) : (
+                        <OtherCards title={item.title} color={section.color} />
+                      )}
                     </motion.div>
                   ))}
                 </div>
-              ) : (
-                <div className={`grid ${section.cols} gap-4`}>
-                  {displayItems.map((item, idx) => (
-                    <motion.div
-                      key={idx}
-                      custom={idx}
-                      variants={fadeInUp}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                    >
-                      <OtherCards title={item} color={section.color} />
-                    </motion.div>
-                  ))}
-                </div>
-              )}
+              ) : null}
             </motion.section>
           );
         })}
