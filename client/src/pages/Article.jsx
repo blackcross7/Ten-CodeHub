@@ -17,8 +17,20 @@ const fadeInUp = {
 const Articles = () => {
   return (
     <div className="font-sans bg-slate-900">
+      <style>
+        {`
+          @media (max-width: 800px) {
+            .responsive-hide-image {
+              display: none !important;
+            }
+            .responsive-hide-image-parent {
+              height: auto !important;
+              min-height: 0 !important;
+            }
+          }
+        `}
+      </style>
 
-      {/* Main background with image */}
       <motion.div
         className="min-h-screen pt-36 pb-20 relative overflow-hidden bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/assets/image/herobg5.jpg')" }}
@@ -41,7 +53,7 @@ const Articles = () => {
 
           {/* Featured Articles */}
           <section className="mb-16 py-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">Featured Articles</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white text-center">Featured Articles</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
               <motion.article
                 className="bg-slate-800/50 backdrop-md p-6 rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-slate-700/50"
@@ -49,8 +61,8 @@ const Articles = () => {
                 initial="hidden"
                 animate="visible"
               >
-                <div className="relative h-64 overflow-hidden mb-6 rounded-lg">
-                  <img src="/assets/image/react1.jpg" alt="Article" className="w-full h-full object-cover" />
+                <div className="relative h-auto lg:h-64 overflow-hidden mb-6 rounded-lg responsive-hide-image-parent">
+                  <img src="/assets/image/react1.jpg" alt="Article" className="w-full h-full object-contain responsive-hide-image" />
                   <span className="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white text-xs font-semibold px-4 py-2 rounded-full">
                     <i className="fas fa-code mr-1"></i> Web Development
                   </span>
@@ -71,8 +83,8 @@ const Articles = () => {
                 initial="hidden"
                 animate="visible"
               >
-                <div className="relative h-64 overflow-hidden mb-6 rounded-lg">
-                  <img src="/assets/image/bi.jpg" alt="Article" className="w-full h-full object-cover" />
+                <div className="relative h-auto lg:h-64 overflow-hidden mb-6 rounded-lg responsive-hide-image-parent">
+                  <img src="/assets/image/bi.jpg" alt="Article" className="w-full h-full object-contain responsive-hide-image" />
                   <span className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-purple-400 text-white text-xs font-semibold px-4 py-2 rounded-full">
                     <i className="fas fa-code mr-1"></i> Data Structures
                   </span>
@@ -91,7 +103,7 @@ const Articles = () => {
 
           {/* Categories */}
           <section className="mb-16 py-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">Categories</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white text-center">Categories</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {[
                 { icon: 'laptop-code', name: 'Web Development', count: 125 },
@@ -120,7 +132,7 @@ const Articles = () => {
 
           {/* Latest Articles */}
           <section className="mb-16 py-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">Latest Articles</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white text-center">Latest Articles</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 {
@@ -165,7 +177,7 @@ const Articles = () => {
                   <p className="text-gray-300 leading-relaxed mb-4">{art.summary}</p>
                   <div className="flex justify-between items-center">
                     <div className="flex items-center gap-2">
-                      <img src="/assets/image/user.jpg" alt="Author" className="w-8 h-8 rounded-full object-cover" />
+                      <img src="/assets/image/user.jpg" alt="Author" className="w-8 h-8 rounded-full object-cover responsive-hide-image" />
                       <span className="text-gray-400"><i className="fas fa-user-pen text-blue-400"></i> John Doe</span>
                     </div>
                     <div className="flex gap-4 text-gray-400 text-sm">

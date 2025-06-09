@@ -120,7 +120,6 @@ const tools = [
   { name: 'CLion', logo: '/assets/image/Clion.svg.png' },
   { name: 'Leetcode', logo: '/assets/image/LeetCode_logo.png' },
   { name: 'GitHub', logo: '/assets/image/github-logo-png_seeklogo-304612.png' },
-
 ];
 
 const faqs = [
@@ -226,7 +225,7 @@ function Cpp() {
 
           {/* Right */}
           <motion.div
-            className='lg:w-[50%] flex items-center justify-center lg:justify-end mb-8 lg:mb-0'
+            className='lg:w-[50%] flex items-center justify-center lg:justify-center lg:pr-12 mb-8 lg:mb-0' /* MODIFIED LINE */
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
