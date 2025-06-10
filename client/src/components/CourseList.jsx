@@ -88,14 +88,14 @@ function CourseList() {
 
 function PopularNow() {
   const categories = [
-    { name: "All", className: "all" },
-    { name: "Certification Courses", className: "certification" },
-    { name: "DSA / Placements", className: "dsa" },
-    { name: "Development / Testing", className: "development" },
-    { name: "Machine Learning / Data Science", className: "ml" },
-    { name: "Programming Languages", "className": "programming" },
-    { name: "Cloud / DevOps", className: "cloud" },
-    { name: "GATE", className: "gate" },
+    { name: "All", className: "all", link:"/course"  },
+    { name: "Certification Courses", className: "certification", link:"/course"},
+    { name: "DSA / Placements", className: "dsa", link:"/dsa"},
+    { name: "Development / Testing", className: "development", link:"/webdev" },
+    { name: "Machine Learning / Data Science", className: "ml",link:"/ml" },
+    { name: "Programming Languages", className: "programming",link:"/cpp"   },
+    { name: "Cloud / DevOps", className: "cloud",link:"/devops" },
+    { name: "GATE", className: "gate", link:"/aptitude" },
   ];
 
   const sections = [
@@ -132,15 +132,15 @@ function PopularNow() {
       { title: "SYSTEM Design", titleIcon: "/assets/image/system-icon.png", title1: "Mastering System Design:From Low-Level to High-Level Solutions", interested: "180k+ interested learners", rating: "⭐4.6", level: "Intermediate & Advanced", seats: "2 seats left", buttonText: "Explore", link: "/system-design" },
     ],
     foundationCourses: [
-      { title: "JAVA Programming", titleIcon: "/assets/image/java-icon.png", title1: "Java Programming Online Course [complete Beginner to Advanced]", interested: "450k+ interested learners", rating: "⭐4.8", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/java-programming" },
-      { title: "C++ Beginner to Advanced", titleIcon: "/assets/image/c++-icon.png", title1: "C++ Programming Course Online - Complete Beginner to Advanced", interested: "375k+ interested learners", rating: "⭐4.7", level: "Beginner", seats: "2 seats left", buttonText: "Explore", link: "/c++-programming" },
+      { title: "JAVA Programming", titleIcon: "/assets/image/java-icon.png", title1: "Java Programming Online Course [complete Beginner to Advanced]", interested: "450k+ interested learners", rating: "⭐4.8", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/java" },
+      { title: "C++ Beginner to Advanced", titleIcon: "/assets/image/c++-icon.png", title1: "C++ Programming Course Online - Complete Beginner to Advanced", interested: "375k+ interested learners", rating: "⭐4.7", level: "Beginner", seats: "2 seats left", buttonText: "Explore", link: "/cpp" },
       { title: "JavaScript Basic to Advanced", titleIcon: "/assets/image/javascript-icon.png", title1: "JavaScript Full Course Online | Learn JavaScript with Certification", interested: "295k+ interested learners", rating: "⭐4.6", level: "Beginner & Intermediate", seats: "2 seats left", buttonText: "Explore", link: "/javascript-full-course" },
-      { title: "Master C with Data Structures", titleIcon: "/assets/image/c-icon.png", title1: "C Programming Course Online - Learn C with Data Structures", interested: "180k+ interested learners", rating: "⭐4.5", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/c-programming" },
+      { title: "Master C with Data Structures", titleIcon: "/assets/image/c-icon.png", title1: "C Programming Course Online - Learn C with Data Structures", interested: "180k+ interested learners", rating: "⭐4.5", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/c" },
     ],
     freeCourses: [
       { title: "Cybersecurity Essentials", titleIcon: "/assets/image/cyber-icon.png", title1: "Become a Cybersecurity Expert", interested: "964k+ interested learners", rating: "⭐4.8", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/cybersecurity-essentials" },
-      { title: "BOOTCAMP Data Science", titleIcon: "/assets/image/bootcampdata-icon.png", title1: "Data Science BootCamp - From Analysing Data To Creating ML Models", interested: "328k+ interested learners", rating: "⭐4.7", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/data-science-bootcamp" },
-      { title: "FULL STACK Bootcamp", titleIcon: "/assets/image/bootcamp-icon.png", title1: "Full Stack Developer Bootcamp - Master Frontend to Backend", interested: "152k+ interested learners", rating: "⭐4.6", level: "Beginner to Advanced", seats: "3 seats left", buttonText: "Explore", link: "/full-stack-developer-bootcamp" },
+      { title: "BOOTCAMP Data Science", titleIcon: "/assets/image/bootcampdata-icon.png", title1: "Data Science BootCamp - From Analysing Data To Creating ML Models", interested: "328k+ interested learners", rating: "⭐4.7", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/ml" },
+      { title: "FULL STACK Bootcamp", titleIcon: "/assets/image/bootcamp-icon.png", title1: "Full Stack Developer Bootcamp - Master Frontend to Backend", interested: "152k+ interested learners", rating: "⭐4.6", level: "Beginner to Advanced", seats: "3 seats left", buttonText: "Explore", link: "/webdev" },
       { title: "IOS Development", titleIcon: "/assets/image/ios-icon.png", title1: "iOS Development for Beginners: Master Swift & App Building for Free", interested: "290k+ interested learners", rating: "⭐4.6", level: "Beginner to Advanced", seats: "4 seats left", buttonText: "Explore", link: "/ios-development" },
     ]
   };
@@ -299,24 +299,26 @@ function PopularNow() {
       <div className="mt-16 text-left p-6 max-w-[95%] mx-auto border-2 border-blue-700 rounded-xl shadow-lg bg-[#0a1140]">
         <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-white border-b-2 border-gray-700 pb-3">Course Categories</h3>
         <div className="flex flex-wrap justify-center gap-4">
-          {categories.map((category, index) => (
-            <div
-              key={index}
-              className={`text-sm sm:text-base font-bold text-white rounded-lg cursor-pointer py-2.5 px-5 min-w-[120px] text-center
-                          transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
-                          ${category.className === 'all' ? 'bg-[#f4a261]' : ''}
-                          ${category.className === 'certification' ? 'bg-[#5e548e]' : ''}
-                          ${category.className === 'dsa' ? 'bg-[#2a9d8f]' : ''}
-                          ${category.className === 'development' ? 'bg-[#9d4edd]' : ''}
-                          ${category.className === 'ml' ? 'bg-[#0b494b]' : ''}
-                          ${category.className === 'programming' ? 'bg-[#457b9d]' : ''}
-                          ${category.className === 'cloud' ? 'bg-[#1d3557]' : ''}
-                          ${category.className === 'gate' ? 'bg-[#101011]' : ''}`}
-            >
-              {category.name}
-            </div>
-          ))}
-        </div>
+  {categories.map((category, index) => (
+    <Link to={category.link} key={index}>
+      <div
+        className={`text-sm sm:text-base font-bold text-white rounded-lg cursor-pointer py-2.5 px-5 min-w-[120px] text-center
+                    transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
+                    ${category.className === 'all' ? 'bg-[#f4a261]' : ''}
+                    ${category.className === 'certification' ? 'bg-[#5e548e]' : ''}
+                    ${category.className === 'dsa' ? 'bg-[#2a9d8f]' : ''}
+                    ${category.className === 'development' ? 'bg-[#9d4edd]' : ''}
+                    ${category.className === 'ml' ? 'bg-[#0b494b]' : ''}
+                    ${category.className === 'programming' ? 'bg-[#457b9d]' : ''}
+                    ${category.className === 'cloud' ? 'bg-[#1d3557]' : ''}
+                    ${category.className === 'gate' ? 'bg-[#101011]' : ''}`}
+      >
+        {category.name}
+      </div>
+    </Link>
+  ))}
+</div>
+
       </div>
     </motion.section>
   </div>
