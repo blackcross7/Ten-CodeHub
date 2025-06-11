@@ -223,7 +223,7 @@ const Explore = () => {
           variants={fadeInUp}
         >
           <h2 className="text-2xl font-bold my-4 text-center text-white">Explore</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 p-2 place-items-center ">
             {exploreItems.map((item, idx) => (
               <motion.div
                 key={idx}
@@ -231,12 +231,12 @@ const Explore = () => {
                 variants={fadeInUp}
                 initial="hidden"
                 animate="visible"
-                className="flex justify-center"
+                className="flex justify-center "
               >
                 <Link to={item.link} className="w-full">
                   <div
-                    className={`p-6 rounded-xl ${item.color} relative overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105`}
-                    style={{ width: "250px", height: "260px" }}
+                    className={`p-6 rounded-xl ${item.color} relative overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105 h-[260px] w-[260px] md:w-[200px] xl:w-[250px] `}
+                    // style={{ width: "200px", height: "260px" }}
                   >
                     <div className="w-full h-[150px] bg-white rounded-lg flex items-center justify-center p-4">
                       <img

@@ -224,7 +224,7 @@ const Home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="flex justify-between items-center w-full max-w-[65vw] px-2 sm:px-4 md:px-6 mx-auto gap-4">
+        <div className="flex justify-between items-center w-full  lg:max-w-[65vw] px-2 sm:px-4 md:px-6 mx-auto gap-4">
           <h2 className="text-xl my-2 sm:text-2xl font-bold text-white">Courses</h2>
           <Link to="/course" className="border border-black px-4 py-2 rounded-full font-semibold hover:scale-105 hover:bg-gray-200 hover:shadow-lg transition duration-300 hover:text-black text-white">
             View All
@@ -237,7 +237,7 @@ const Home = () => {
               key={idx}
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 200 }}
-              className="snap-start shrink-0 w-[100vw] px-4"
+              className="snap-start shrink-0  px-4"
             >
               <CourseCard course={course} />
             </motion.div>
