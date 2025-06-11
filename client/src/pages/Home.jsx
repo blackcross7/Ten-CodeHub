@@ -218,6 +218,7 @@ const Home = () => {
       <motion.section
         className="pt-4 px-4 md:pt-10 md:px-10 mb-20 w-full max-w-[78vw] flex flex-col items-center mx-auto border-2 border-red-600 rounded-3xl shadow-xl"
         style={{
+          maxWidth: "1200px",
           background: "#000000",
           marginTop: "2rem"
         }}
