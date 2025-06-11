@@ -88,14 +88,14 @@ function CourseList() {
 
 function PopularNow() {
   const categories = [
-    { name: "All", className: "all" },
-    { name: "Certification Courses", className: "certification" },
-    { name: "DSA / Placements", className: "dsa" },
-    { name: "Development / Testing", className: "development" },
-    { name: "Machine Learning / Data Science", className: "ml" },
-    { name: "Programming Languages", "className": "programming" },
-    { name: "Cloud / DevOps", className: "cloud" },
-    { name: "GATE", className: "gate" },
+    { name: "All", className: "all", link:"/course"  },
+    { name: "Certification Courses", className: "certification", link:"/course"},
+    { name: "DSA / Placements", className: "dsa", link:"/dsa"},
+    { name: "Development / Testing", className: "development", link:"/webdev" },
+    { name: "Machine Learning / Data Science", className: "ml",link:"/ml" },
+    { name: "Programming Languages", className: "programming",link:"/cpp"   },
+    { name: "Cloud / DevOps", className: "cloud",link:"/devops" },
+    { name: "GATE", className: "gate", link:"/aptitude" },
   ];
 
   const sections = [
@@ -109,38 +109,38 @@ function PopularNow() {
 
   const allCourses = {
     courses: [
-      { title: "DSA to Development", titleIcon: "/assets/image/dsa-icon.png", interested: "556k+ interested learners", rating: "⭐4.4", title1: "DSA to Development: A Complete Guide", level: "Beginner to Advance", seats: "2 seats left", buttonText: "Explore", link: "/dsa-to-development" },
-      { title: "Backend Development", titleIcon: "/assets/image/backend-icon.png", interested: "304k+ interested learners", rating: "⭐4.7", title1: "JAVA Backend Development - Live", level: "Intermediate and Advance", seats: "2 seats left", buttonText: "Explore", link: "/backend-development" },
-      { title: "ML & DS", titleIcon: "/assets/image/ml-icon.png", title1: "Complete Machine Learning & Data Science Program", interested: "422k+ interested learners", rating: "⭐4.7", level: "Beginner to Advance", seats: "6 seats left", buttonText: "Explore", link: "/ml-and-ds" },
-      { title: "Data Structure and Algorithm with C++/Java", titleIcon: "/assets/image/dsa-icon.png", title1: "Data Structures and Algorithms - Self Paced [Online Course]", interested: "1369k+ interested learners", rating: "⭐4.7", level: "Beginner to Advance", seats: "2 seats left", buttonText: "Explore", link: "/data-structures-and-algorithms" },
+      { title: "DSA to Development", titleIcon: "/assets/image/dsa-icon.png", interested: "556k+ interested learners", rating: "⭐4.4", title1: "DSA to Development: A Complete Guide", level: "Beginner to Advance", seats: "2 seats left", buttonText: "Explore", link: "/dsa" },
+      { title: "Backend Development", titleIcon: "/assets/image/backend-icon.png", interested: "304k+ interested learners", rating: "⭐4.7", title1: "JAVA Backend Development - Live", level: "Intermediate and Advance", seats: "2 seats left", buttonText: "Explore", link: "/java" },
+      { title: "ML & DS", titleIcon: "/assets/image/ml-icon.png", title1: "Complete Machine Learning & Data Science Program", interested: "422k+ interested learners", rating: "⭐4.7", level: "Beginner to Advance", seats: "6 seats left", buttonText: "Explore", link: "/ml" },
+      { title: "Data Structure and Algorithm with C++/Java", titleIcon: "/assets/image/dsa-icon.png", title1: "Data Structures and Algorithms - Self Paced [Online Course]", interested: "1369k+ interested learners", rating: "⭐4.7", level: "Beginner to Advance", seats: "2 seats left", buttonText: "Explore", link: "/dsa" },
     ],
     classroomCourses: [
-      { title: "Complete Data Analytics", titleIcon: "/assets/image/completedata-icon.png", title1: "Complete Data Analytics Program", interested: "49k+ interested learners", rating: "⭐4.6", level: "Beginner to Advance", seats: "2 seats left", buttonText: "Explore", link: "/complete-data-analytics" },
-      { title: "DSA Interview", titleIcon: "/assets/image/interview-icon.png", title1: "DSA for Interview Preparation", interested: "87k+ interested learners", rating: "⭐4.6", level: "Beginner to Advance", seats: "3 seats left", buttonText: "Explore", link: "/dsa-interview" },
-      { title: "FULL STACK", titleIcon: "/assets/image/mern-icon.png", title1: "MERN Full Stack Web Development", interested: "94k+ interested learners", rating: "⭐4.6", level: "Beginner to Advance", seats: "2 seats left", buttonText: "Explore", link: "/mern-full-stack" },
+      { title: "Complete Data Analytics", titleIcon: "/assets/image/completedata-icon.png", title1: "Complete Data Analytics Program", interested: "49k+ interested learners", rating: "⭐4.6", level: "Beginner to Advance", seats: "2 seats left", buttonText: "Explore", link: "/webdev" },
+      { title: "DSA Interview", titleIcon: "/assets/image/interview-icon.png", title1: "DSA for Interview Preparation", interested: "87k+ interested learners", rating: "⭐4.6", level: "Beginner to Advance", seats: "3 seats left", buttonText: "Explore", link: "/dsa" },
+      { title: "FULL STACK", titleIcon: "/assets/image/mern-icon.png", title1: "MERN Full Stack Web Development", interested: "94k+ interested learners", rating: "⭐4.6", level: "Beginner to Advance", seats: "2 seats left", buttonText: "Explore", link: "/java" },
     ],
     liveCourses: [
-      { title: "TECH INTERVIEW", titleIcon: "/assets/image/tech-icon.png", title1: "Tech Interview 101 - From DSA to System Design for Working Professionals", interested: "333k+ interested learners", rating: "⭐4.9", level: "Beginner to Advance", seats: "2 seats left", buttonText: "Explore", link: "/tech-interview" },
-      { title: "FSRNL", titleIcon: "/assets/image/fsrnl-icon.png", title1: "Full Stack Development with React & Node JS - Live", interested: "354k+ interested learners", rating: "⭐4.7", level: "Beginner to Advance", seats: "2 seats left", buttonText: "Explore", link: "/full-stack-development" },
-      { title: "DEVOPS Engineering", titleIcon: "/assets/image/devops-icon.png", title1: "DevOps Engineering - Planning to Production", interested: "106k+ interested learners", rating: "⭐4.6", level: "Beginner to Advance", seats: "3 seats left", buttonText: "Explore", link: "/devops-engineering" },
-      { title: "Data Analytics Training program", titleIcon: "/assets/image/datatraining-icon.png", title1: "Data Analytics Training using Excel, SQL, Python & PowerBI", interested: "38k+ interested learners", rating: "⭐4.5", level: "Beginner to Advance", seats: "4 seats left", buttonText: "Explore", link: "/data-analytics-training" },
+      { title: "TECH INTERVIEW", titleIcon: "/assets/image/tech-icon.png", title1: "Tech Interview 101 - From DSA to System Design for Working Professionals", interested: "333k+ interested learners", rating: "⭐4.9", level: "Beginner to Advance", seats: "2 seats left", buttonText: "Explore", link: "/practice" },
+      { title: "FSRNL", titleIcon: "/assets/image/fsrnl-icon.png", title1: "Full Stack Development with React & Node JS - Live", interested: "354k+ interested learners", rating: "⭐4.7", level: "Beginner to Advance", seats: "2 seats left", buttonText: "Explore", link: "/java" },
+      { title: "DEVOPS Engineering", titleIcon: "/assets/image/devops-icon.png", title1: "DevOps Engineering - Planning to Production", interested: "106k+ interested learners", rating: "⭐4.6", level: "Beginner to Advance", seats: "3 seats left", buttonText: "Explore", link: "/devops" },
+      { title: "Data Analytics Training program", titleIcon: "/assets/image/datatraining-icon.png", title1: "Data Analytics Training using Excel, SQL, Python & PowerBI", interested: "38k+ interested learners", rating: "⭐4.5", level: "Beginner to Advance", seats: "4 seats left", buttonText: "Explore", link: "/webdev" },
     ],
     selfPacedCourses: [
-      { title: "INTERVIEW Preparation", titleIcon: "/assets/image/interview-icon.png", title1: "Complete Interview Preparation", interested: "200k+ interested learners", rating: "⭐4.8", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/interview-preparation" },
-      { title: "Python Programming", titleIcon: "/assets/image/python-icon.png", title1: "Python Programming - From Zero to Hero", interested: "425k+ interested learners", rating: "⭐4.7", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/python-programming" },
-      { title: "Data Structures & Algorithms with Python", titleIcon: "/assets/image/python-icon.png", title1: "Data Structures & Algorithms in Python-Self Paced", interested: "325k+ interested learners", rating: "⭐4.7", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/data-structures-and-algorithms-with-python" },
-      { title: "SYSTEM Design", titleIcon: "/assets/image/system-icon.png", title1: "Mastering System Design:From Low-Level to High-Level Solutions", interested: "180k+ interested learners", rating: "⭐4.6", level: "Intermediate & Advanced", seats: "2 seats left", buttonText: "Explore", link: "/system-design" },
+      { title: "INTERVIEW Preparation", titleIcon: "/assets/image/interview-icon.png", title1: "Complete Interview Preparation", interested: "200k+ interested learners", rating: "⭐4.8", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/practice" },
+      { title: "Python Programming", titleIcon: "/assets/image/python-icon.png", title1: "Python Programming - From Zero to Hero", interested: "425k+ interested learners", rating: "⭐4.7", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/python" },
+      { title: "Data Structures & Algorithms with Python", titleIcon: "/assets/image/python-icon.png", title1: "Data Structures & Algorithms in Python-Self Paced", interested: "325k+ interested learners", rating: "⭐4.7", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/dsa" },
+      { title: "SYSTEM Design", titleIcon: "/assets/image/system-icon.png", title1: "Mastering System Design:From Low-Level to High-Level Solutions", interested: "180k+ interested learners", rating: "⭐4.6", level: "Intermediate & Advanced", seats: "2 seats left", buttonText: "Explore", link: "/systemdesign" },
     ],
     foundationCourses: [
-      { title: "JAVA Programming", titleIcon: "/assets/image/java-icon.png", title1: "Java Programming Online Course [complete Beginner to Advanced]", interested: "450k+ interested learners", rating: "⭐4.8", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/java-programming" },
-      { title: "C++ Beginner to Advanced", titleIcon: "/assets/image/c++-icon.png", title1: "C++ Programming Course Online - Complete Beginner to Advanced", interested: "375k+ interested learners", rating: "⭐4.7", level: "Beginner", seats: "2 seats left", buttonText: "Explore", link: "/c++-programming" },
+      { title: "JAVA Programming", titleIcon: "/assets/image/java-icon.png", title1: "Java Programming Online Course [complete Beginner to Advanced]", interested: "450k+ interested learners", rating: "⭐4.8", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/java" },
+      { title: "C++ Beginner to Advanced", titleIcon: "/assets/image/c++-icon.png", title1: "C++ Programming Course Online - Complete Beginner to Advanced", interested: "375k+ interested learners", rating: "⭐4.7", level: "Beginner", seats: "2 seats left", buttonText: "Explore", link: "/cpp" },
       { title: "JavaScript Basic to Advanced", titleIcon: "/assets/image/javascript-icon.png", title1: "JavaScript Full Course Online | Learn JavaScript with Certification", interested: "295k+ interested learners", rating: "⭐4.6", level: "Beginner & Intermediate", seats: "2 seats left", buttonText: "Explore", link: "/javascript-full-course" },
-      { title: "Master C with Data Structures", titleIcon: "/assets/image/c-icon.png", title1: "C Programming Course Online - Learn C with Data Structures", interested: "180k+ interested learners", rating: "⭐4.5", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/c-programming" },
+      { title: "Master C with Data Structures", titleIcon: "/assets/image/c-icon.png", title1: "C Programming Course Online - Learn C with Data Structures", interested: "180k+ interested learners", rating: "⭐4.5", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/c" },
     ],
     freeCourses: [
       { title: "Cybersecurity Essentials", titleIcon: "/assets/image/cyber-icon.png", title1: "Become a Cybersecurity Expert", interested: "964k+ interested learners", rating: "⭐4.8", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/cybersecurity-essentials" },
-      { title: "BOOTCAMP Data Science", titleIcon: "/assets/image/bootcampdata-icon.png", title1: "Data Science BootCamp - From Analysing Data To Creating ML Models", interested: "328k+ interested learners", rating: "⭐4.7", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/data-science-bootcamp" },
-      { title: "FULL STACK Bootcamp", titleIcon: "/assets/image/bootcamp-icon.png", title1: "Full Stack Developer Bootcamp - Master Frontend to Backend", interested: "152k+ interested learners", rating: "⭐4.6", level: "Beginner to Advanced", seats: "3 seats left", buttonText: "Explore", link: "/full-stack-developer-bootcamp" },
+      { title: "BOOTCAMP Data Science", titleIcon: "/assets/image/bootcampdata-icon.png", title1: "Data Science BootCamp - From Analysing Data To Creating ML Models", interested: "328k+ interested learners", rating: "⭐4.7", level: "Beginner to Advanced", seats: "2 seats left", buttonText: "Explore", link: "/ml" },
+      { title: "FULL STACK Bootcamp", titleIcon: "/assets/image/bootcamp-icon.png", title1: "Full Stack Developer Bootcamp - Master Frontend to Backend", interested: "152k+ interested learners", rating: "⭐4.6", level: "Beginner to Advanced", seats: "3 seats left", buttonText: "Explore", link: "/webdev" },
       { title: "IOS Development", titleIcon: "/assets/image/ios-icon.png", title1: "iOS Development for Beginners: Master Swift & App Building for Free", interested: "290k+ interested learners", rating: "⭐4.6", level: "Beginner to Advanced", seats: "4 seats left", buttonText: "Explore", link: "/ios-development" },
     ]
   };
@@ -299,24 +299,26 @@ function PopularNow() {
       <div className="mt-16 text-left p-6 max-w-[95%] mx-auto border-2 border-blue-700 rounded-xl shadow-lg bg-[#0a1140]">
         <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-white border-b-2 border-gray-700 pb-3">Course Categories</h3>
         <div className="flex flex-wrap justify-center gap-4">
-          {categories.map((category, index) => (
-            <div
-              key={index}
-              className={`text-sm sm:text-base font-bold text-white rounded-lg cursor-pointer py-2.5 px-5 min-w-[120px] text-center
-                          transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
-                          ${category.className === 'all' ? 'bg-[#f4a261]' : ''}
-                          ${category.className === 'certification' ? 'bg-[#5e548e]' : ''}
-                          ${category.className === 'dsa' ? 'bg-[#2a9d8f]' : ''}
-                          ${category.className === 'development' ? 'bg-[#9d4edd]' : ''}
-                          ${category.className === 'ml' ? 'bg-[#0b494b]' : ''}
-                          ${category.className === 'programming' ? 'bg-[#457b9d]' : ''}
-                          ${category.className === 'cloud' ? 'bg-[#1d3557]' : ''}
-                          ${category.className === 'gate' ? 'bg-[#101011]' : ''}`}
-            >
-              {category.name}
-            </div>
-          ))}
-        </div>
+  {categories.map((category, index) => (
+    <Link to={category.link} key={index}>
+      <div
+        className={`text-sm sm:text-base font-bold text-white rounded-lg cursor-pointer py-2.5 px-5 min-w-[120px] text-center
+                    transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
+                    ${category.className === 'all' ? 'bg-[#f4a261]' : ''}
+                    ${category.className === 'certification' ? 'bg-[#5e548e]' : ''}
+                    ${category.className === 'dsa' ? 'bg-[#2a9d8f]' : ''}
+                    ${category.className === 'development' ? 'bg-[#9d4edd]' : ''}
+                    ${category.className === 'ml' ? 'bg-[#0b494b]' : ''}
+                    ${category.className === 'programming' ? 'bg-[#457b9d]' : ''}
+                    ${category.className === 'cloud' ? 'bg-[#1d3557]' : ''}
+                    ${category.className === 'gate' ? 'bg-[#101011]' : ''}`}
+      >
+        {category.name}
+      </div>
+    </Link>
+  ))}
+</div>
+
       </div>
     </motion.section>
   </div>

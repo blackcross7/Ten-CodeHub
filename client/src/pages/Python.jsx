@@ -233,7 +233,7 @@ function Python() {
 
           {/* Right */}
           <motion.div
-            className='lg:w-[50%] flex items-center justify-center lg:justify-end mb-8 lg:mb-0'
+            className='lg:w-[50%] flex items-center justify-center lg:justify-center lg:pr-12 mb-8 lg:mb-0' /* Changed lg:justify-end to lg:justify-center lg:pr-12 */
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
@@ -347,7 +347,7 @@ function Python() {
               <img
                 src="/assets/image/python2.webp"
                 alt="About the course"
-                className='w-full  object-contain rounded-lg shadow-md' /* Changed to w-full h-[300px] object-contain for consistency */
+                className='w-full object-contain rounded-lg shadow-md' /* Changed to w-full h-[300px] object-contain for consistency */
               />
             </motion.div>
             <p className='text-slate-300 leading-relaxed text-center lg:text-left'> {/* Added text-center lg:text-left */}
