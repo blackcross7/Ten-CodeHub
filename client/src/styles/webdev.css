@@ -670,16 +670,24 @@
   display: none;
 }
 
+/* Updated question layout with arrow */
 .webdevfaq-question {
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Pushes arrow to right */
   font-weight: bold;
   font-size: 18px;
   padding: 15px 20px;
   border-left: 5px solid #291e62;
   cursor: pointer;
-  background: #fff;
+  background: #e5eaf8;
   color: #000;
+}
+
+/* Wrapper for question text */
+.webdevfaq-text {
+  display: flex;
+  align-items: center;
 }
 
 .webdevfaq-question span {
@@ -687,6 +695,16 @@
   font-weight: 700;
   margin-right: 10px;
   font-size: 20px;
+}
+
+/* Arrow animation */
+.faq-arrow {
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow on open */
+.faq-item input[type="checkbox"]:checked + label .faq-arrow {
+  transform: rotate(180deg);
 }
 
 .faq-answer {
