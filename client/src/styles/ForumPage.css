@@ -184,6 +184,7 @@
     padding: 20px 10px 40px;
     gap: 15px;
     width: 100%;
+    margin: 0 auto; 
   }
 
   .image-container,
@@ -218,5 +219,30 @@
   .forum-container form button,
   .view-discussions-btn {
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .forum-wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 0 auto;   
+  }
+
+  .forum-container {
+    width: 90%;
+    max-width: 500px;
+    margin-top: 20px;
+  }
+
+  .image-container {
+    width: 80%;
+    text-align: center;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
   }
 }
