@@ -660,6 +660,7 @@
   box-sizing: border-box;
   margin-top: 50px;
 }
+
 .faq-title {
   text-align: center;
   font-size: 32px;
@@ -669,47 +670,61 @@
 }
 
 .faq-item {
-  background: white;
+  background: rgb(230, 244, 218);
   margin-bottom: 10px;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .faq-item input[type="checkbox"] {
   display: none;
 }
 
+/* When checkbox is checked, rotate the arrow */
+.faq-item input[type="checkbox"]:checked + label .faq-arrow {
+  transform: rotate(180deg);
+}
+
+/* Question section (label) */
 .faq-question {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-weight: bold;
   font-size: 18px;
   padding: 15px 20px;
-  border-left: 5px solid #21c55d;
+  border-left: 5px solid #1a5d48;
   cursor: pointer;
-  background: #fff;
+  background: #eff8ec;
   color: #000;
 }
 
 .faq-question span {
-  color: #21c55d;
+  color: #1a5d48;
   font-weight: 700;
   margin-right: 10px;
   font-size: 20px;
 }
 
+/* Answer section */
 .faq-answer {
   padding: 15px 20px;
   font-size: 16px;
   color: #333;
   line-height: 1.5;
   display: none;
-  background: #f9f9f9;
+  background: #d8f0cf;
 }
 
+/* Show answer when checkbox is checked */
 .faq-item input[type="checkbox"]:checked ~ .faq-answer {
   display: block;
+}
+
+.faq-arrow {
+  transition: transform 0.3s ease;
 }
 
 /* Responsive for tablets and below (max-width: 1024px) */

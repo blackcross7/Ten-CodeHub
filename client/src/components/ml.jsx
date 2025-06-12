@@ -7,6 +7,7 @@ import '../styles/ml.css';
 const Ml = () => {
   const [showMore, setShowMore] = useState(false);
   const [animationsShown, setAnimationsShown] = useState(false); // New state variable
+  const [openFAQIndex, setOpenFAQIndex] = useState(null); // State to track the open FAQ index
 
   // Animation variants for the cards
   const fadeInUpEnhanced = {
@@ -319,34 +320,44 @@ const Ml = () => {
         </div>
 
         <div className="faq-section">
-          <h2 className="faq-title">Frequently Asked Questions</h2>
+  <h2 className="faq-title">Frequently Asked Questions</h2>
 
-          {['How will these classes be conducted?', 'How does the admission process work for this course?', 'Is there any number to contact for query?', 'When can I access the recorded session of the class?', 'Is this a certification course?'].map((question, index) => (
-            <motion.div
-              key={index}
-              className="faq-item"
-              initial="hidden"
-              whileInView={animationsShown ? "visible" : "hidden"} // Conditional animation
-              onViewportEnter={() => setAnimationsShown(true)} // Set animationsShown to true
-              viewport={{ once: true, amount: 0.3 }}
-              variants={fadeInUpEnhanced}
-              custom={index}
-            >
-              <input type="checkbox" id={`faq${index + 1}`} />
-              <label htmlFor={`faq${index + 1}`} className="mlfaq-question">
-                <span>{`0${index + 1}`}</span> {question}
-              </label>
-              <div className="faq-answer">
-                {index === 0 && "It will be an online live (Live Stream) class, so you can attend from any geographical location. It's interactive, and you can ask doubts in real-time."}
-                {index === 1 && "Initially, you need to signup for this course & make the payment."}
-                {index === 2 && "Call us at: <strong>(+91) (0)8069285673</strong> or email: <strong>courses@codehub.org</strong>"}
-                {index === 3 && "The session will be uploaded within 2 working days."}
-                {index === 4 && "Yes, a certificate will be provided upon completion."}
-              </div>
-            </motion.div>
-          ))}
+  {['How will these classes be conducted?', 'How does the admission process work for this course?', 'Is there any number to contact for query?', 'When can I access the recorded session of the class?', 'Is this a certification course?'].map((question, index) => (
+    <motion.div
+      key={index}
+      className="faq-item"
+      initial="hidden"
+      whileInView={animationsShown ? "visible" : "hidden"} // Conditional animation
+      onViewportEnter={() => setAnimationsShown(true)} // Set animationsShown to true
+      viewport={{ once: true, amount: 0.3 }}
+      variants={fadeInUpEnhanced}
+      custom={index}
+    >
+      <input 
+        type="checkbox" 
+        id={`faq${index + 1}`} 
+        checked={openFAQIndex === index} 
+        onChange={() => setOpenFAQIndex(openFAQIndex === index ? null : index)} // Toggle open FAQ
+      />
+      <label htmlFor={`faq${index + 1}`} className="mlfaq-question">
+        <div className="mlfaq-text">
+          <span>{`0${index + 1}`}</span> {question}
         </div>
-     
+        <svg className="faq-arrow" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 2L10 10L18 2" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </label>
+
+      <div className="faq-answer" style={{ display: openFAQIndex === index ? 'block' : 'none' }}>
+        {index === 0 && "It will be an online live (Live Stream) class, so you can attend from any geographical location. It's interactive, and you can ask doubts in real-time."}
+        {index === 1 && "Initially, you need to signup for this course & make the payment."}
+        {index === 2 && "Call us at: (+91)(0)8069285673 or email: courses@codehub.org"}
+        {index === 3 && "The session will be uploaded within 2 working days."}
+        {index === 4 && "Yes, a certificate will be provided upon completion."}
+      </div>
+    </motion.div>
+  ))}
+</div>
       </div>
     </div>
   );

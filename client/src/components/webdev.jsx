@@ -7,6 +7,7 @@ import '../styles/webdev.css';
 const Webdev = () => {
   const [showMore, setShowMore] = useState(false);
   const [animationsShown, setAnimationsShown] = useState(false); // New state variable
+  const [openFAQIndex, setOpenFAQIndex] = useState(null); // State to track the open FAQ index
 
   // Animation variants for the cards
   const fadeInUpEnhanced = {
@@ -313,33 +314,44 @@ const Webdev = () => {
         </div>
 
         <div className="faq-section">
-          <h2 className="faq-title">Frequently Asked Questions</h2>
+  <h2 className="faq-title">Frequently Asked Questions</h2>
 
-          {['How will the Web Development classes be conducted?', 'What topics are covered in this Web Development course?', 'Are there any prerequisites to join this course?', 'Will I get a certificate after completing the course?', 'Who can I contact if I have any queries?'].map((question, index) => (
-            <motion.div
-              key={index}
-              className="faq-item"
-              initial="hidden"
-              whileInView={animationsShown ? "visible" : "hidden"} // Conditional animation
-              onViewportEnter={() => setAnimationsShown(true)} // Set animationsShown to true
-              viewport={{ once: true, amount: 0.3 }}
-              variants={fadeInUpEnhanced}
-              custom={index}
-            >
-              <input type="checkbox" id={`faq${index + 1}`} />
-              <label htmlFor={`faq${index + 1}`} className="webdevfaq-question">
-                <span>{`0${index + 1}`}</span> {question}
-              </label>
-              <div className="faq-answer">
-                {index === 0 && "The classes will be conducted online in a live, interactive format. You’ll be able to attend from anywhere and ask questions in real-time during the sessions."}
-                {index === 1 && "The course covers HTML, CSS, JavaScript, React.js, Node.js, Express.js, MongoDB, API development, version control with Git, and deployment on cloudplatforms."} 
-                {index === 2 && "No prior experience is required. This course is designed for beginners as well as those with some coding background who want to build full-stack web applications."} 
-                {index === 3 && "Yes, you will receive an industry-recognized certificate upon successful completion of the course and projects."} 
-                {index === 4 && "Feel free to reach out to us via Call/WhatsApp at: +91-9315257461 or email: courses@codehub.com"} 
-                </div> 
-                </motion.div> 
-                ))} 
-                </div> 
+  {['How will the Web Development classes be conducted?', 'What topics are covered in this Web Development course?', 'Are there any prerequisites to join this course?', 'Will I get a certificate after completing the course?', 'Who can I contact if I have any queries?'].map((question, index) => (
+    <motion.div
+      key={index}
+      className="faq-item"
+      initial="hidden"
+      whileInView={animationsShown ? "visible" : "hidden"} // Conditional animation
+      onViewportEnter={() => setAnimationsShown(true)} // Set animationsShown to true
+      viewport={{ once: true, amount: 0.3 }}
+      variants={fadeInUpEnhanced}
+      custom={index}
+    >
+      <input 
+        type="checkbox" 
+        id={`faq${index + 1}`} 
+        checked={openFAQIndex === index} 
+        onChange={() => setOpenFAQIndex(openFAQIndex === index ? null : index)} // Toggle open FAQ
+      />
+      <label htmlFor={`faq${index + 1}`} className="webdevfaq-question">
+        <div className="webdevfaq-text">
+          <span>{`0${index + 1}`}</span> {question}
+        </div>
+        <svg className="faq-arrow" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 2L10 10L18 2" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </label>
+
+      <div className="faq-answer" style={{ display: openFAQIndex === index ? 'block' : 'none' }}>
+        {index === 0 && "The classes will be conducted online in a live, interactive format. You’ll be able to attend from anywhere and ask questions in real-time during the sessions."}
+        {index === 1 && "The course covers HTML, CSS, JavaScript, React.js, Node.js, Express.js, MongoDB, API development, version control with Git, and deployment on cloud platforms."} 
+        {index === 2 && "No prior experience is required. This course is designed for beginners as well as those with some coding background who want to build full-stack web applications."} 
+        {index === 3 && "Yes, you will receive an industry-recognized certificate upon successful completion of the course and projects."} 
+        {index === 4 && "Feel free to reach out to us via Call/WhatsApp at: +91-9315257461 or email: courses@codehub.com"} 
+      </div>
+       </motion.div>
+        ))}
+           </div>
                 </div> 
                 </div> 
                 ); 

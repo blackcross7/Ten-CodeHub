@@ -681,22 +681,62 @@
   margin-bottom: 10px;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .faq-item input[type="checkbox"] {
   display: none;
 }
 
+/* Arrow rotation when checkbox is checked */
+.faq-item input[type="checkbox"]:checked + label .faq-arrow {
+  transform: rotate(180deg);
+}
+
+.faq-section {
+  width: 100%;
+  background: #fff;
+  padding: 60px 40px;
+  box-sizing: border-box;
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #000;
+}
+
+.faq-item {
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.faq-item input[type="checkbox"] {
+  display: none;
+}
+
+/* Only added arrow rotation logic — everything else stays the same */
+.faq-item input[type="checkbox"]:checked + label .faq-arrow {
+  transform: rotate(180deg);
+}
+
 .mlfaq-question {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-weight: bold;
   font-size: 18px;
   padding: 15px 20px;
   border-left: 5px solid #291e62;
   cursor: pointer;
-  background: #fff;
+  background: #e4e3ef;
   color: #000;
 }
 
@@ -718,6 +758,11 @@
 
 .faq-item input[type="checkbox"]:checked ~ .faq-answer {
   display: block;
+}
+
+/* Arrow animation transition */
+.faq-arrow {
+  transition: transform 0.3s ease;
 }
 
 @media (max-width: 1024px) {
