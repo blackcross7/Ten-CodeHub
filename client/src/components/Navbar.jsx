@@ -155,7 +155,7 @@ const Navbar = () => {
           <ul>
             <li><Link to="/" onClick={toggleMenu}><FontAwesomeIcon icon={faHome} /> Home</Link></li>
             <li><Link to="/articles" onClick={toggleMenu}><FontAwesomeIcon icon={faNewspaper} /> Articles</Link></li>
-            <li><Link to="/discussion" onClick={toggleMenu}><FontAwesomeIcon icon={faComments} /> Discussion</Link></li>
+            <li><Link to="/forum" onClick={toggleMenu}><FontAwesomeIcon icon={faComments} /> Discussion</Link></li>
             <li><Link to="/course" onClick={toggleMenu}><FontAwesomeIcon icon={faBook} /> Courses</Link></li>
             <li><Link to="/practice" onClick={toggleMenu}><FontAwesomeIcon icon={faEdit} /> Practice</Link></li>
             <li><Link to="/explore" onClick={toggleMenu}><FontAwesomeIcon icon={faCompass} /> Explore</Link></li>

@@ -10,19 +10,13 @@ const ForumPage = () => {
   const [statusMessage, setStatusMessage] = useState('');
   const navigate = useNavigate();
 
-  const fadeInUpEnhanced = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
-    visible: (i = 1) => ({
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
-      transition: {
-        delay: i * 0.12,
-        type: 'spring',
-        stiffness: 100,
-        damping: 15,
-      },
-    }),
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
   };
 
   const handleSubmit = (e) => {
@@ -44,20 +38,32 @@ const ForumPage = () => {
 
   return (
     <motion.div
-      className="forum-page min-h-screen bg-[url('/assets/image/HeroBg3.jpg')] bg-cover bg-center bg-no-repeat text-white py-8"
-      initial={{ scale: 1.2}}
+      className="forum-page min-h-screen text-white py-8"
+      style={{
+        backgroundImage: "url('/assets/image/HeroBg3.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+      initial={{ scale: 1.2 }}
       animate={{ scale: 1 }}
       transition={{ duration: 3, ease: 'easeOut' }}
     >
-      <h1 className="forum-title text-white">Discussion Forum</h1>
+      <motion.h1
+        className="forum-title text-white"
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+      >
+        Discussion Forum
+      </motion.h1>
 
       <div className="forum-wrapper">
         <motion.div
           className="image-container"
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInUpEnhanced}
+          animate="visible"
+          variants={fadeInUp}
         >
           <img src="/assets/image/discussion.png" alt="Discussion" />
         </motion.div>
@@ -65,9 +71,8 @@ const ForumPage = () => {
         <motion.div
           className="forum-container bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-lg p-6 shadow-lg"
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInUpEnhanced}
+          animate="visible"
+          variants={fadeInUp}
         >
           <form onSubmit={handleSubmit}>
             <div className="input-group">
