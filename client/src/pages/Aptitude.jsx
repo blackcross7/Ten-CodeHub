@@ -169,7 +169,7 @@ function Aptitude() {
 
   return (
     <div className='min-h-screen w-full bg-gradient-to-t from-gray-800 to-black py-10'>
-      <div className='text-white w-[90vw] max-w-7xl mx-auto rounded-xl text-start flex flex-col place-items-start px-6 lg:px-16 py-10 mt-20'>
+      <div className='text-white w-[100vw] max-w-7xl mx-auto rounded-xl text-start flex flex-col place-items-start px-6 lg:px-16 py-10 mt-20'>
         <Link to="/home">
           <motion.h2
             className='text-sm flex gap-2 cursor-pointer'
@@ -393,7 +393,7 @@ function Aptitude() {
         custom={index}
       >
         <div className="flex justify-between gap-2 items-center">
-          <h3 className="text-sm font-medium text-white">{faq.question}</h3>
+          <h3 className="text-md font-medium w-[80vw] text-white">{faq.question}</h3>
           <ChevronDown
             className={`h-5 w-5 text-white transition-transform duration-300 ${
               openIndex === index ? "rotate-180" : ""
