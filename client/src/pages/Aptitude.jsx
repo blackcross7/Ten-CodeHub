@@ -160,7 +160,7 @@ const fadeInUp = {
 
 function Aptitude() {
   const [showAll, setShowAll] = useState(false);
-  const displayedContent = showAll ? courseData : courseData.slice(0, 2);
+  const displayedContent = showAll ? courseData : courseData.slice(0, 4);
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggle = (index) => {
@@ -388,12 +388,12 @@ function Aptitude() {
         onClick={() => toggle(index)}
         variants={fadeInUp}
         initial="hidden"
-        whileInView="visible"
+        whileInView="visible" 
         viewport={{ once: true }}
         custom={index}
       >
-        <div className="flex justify-between items-center">
-          <h3 className="text-lg font-medium text-white">{faq.question}</h3>
+        <div className="flex justify-between gap-2 items-center">
+          <h3 className="text-sm font-medium text-white">{faq.question}</h3>
           <ChevronDown
             className={`h-5 w-5 text-white transition-transform duration-300 ${
               openIndex === index ? "rotate-180" : ""

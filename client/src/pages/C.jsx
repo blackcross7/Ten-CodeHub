@@ -3,7 +3,7 @@ import { faCheck, faDownload, faWarning } from '@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
-import { motion } from 'framer-motion'; // Import motion
+import { motion, AnimatePresence  } from 'framer-motion'; // Import motion
 
 // Define your animation variants
 const fadeInUp = {
@@ -12,7 +12,7 @@ const fadeInUp = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.1,
+      delay: i * 0.1, 
       duration: 0.5,
     },
   }),
@@ -400,31 +400,35 @@ function C() {
           </h1>
         </div>
 
-        <div className="grid gap-6">
-          {displayedContent.map((weekItem, index) => (
-            <motion.div // Wrap each week item
-              key={index}
-              className="bg-slate-900 text-gray-300 shadow-lg rounded-2xl p-6 border border-gray-200 cursor-text"
-              variants={fadeInUp}
-              custom={index * 0.2} // Stagger effect for each week
-            >
-              <h3 className="text-xl font-semibold text-zinc-500 mb-4">
-                {weekItem.week}
-              </h3>
-              <ul className="list-disc list-outside space-y-2 pl-4"> {/* Changed to list-outside and added pl-4 for bullet spacing */}
-                {weekItem.topics.map((topic, idx) => (
-                  <motion.li
-                    key={idx}
-                    variants={fadeInUp}
-                    custom={index * 0.2 + idx * 0.05}
-                  >
-                    {topic}
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
+         
+        <AnimatePresence initial={false}> 
+          <div className="grid gap-6">
+            {displayedContent.map((weekItem, index) => (
+              <motion.div // Wrap each week item
+                key={weekItem.week} // Crucial: Use a unique and stable key for each item
+                className="bg-slate-900 text-gray-300 shadow-lg rounded-2xl p-6 border border-gray-200 cursor-text"
+                variants={fadeInUp} // Apply fadeInUp to each week item
+                initial="hidden"
+                animate="visible"
+                exit="hidden" // Add an exit variant here. 'hidden' works with fadeInUp
+                custom={index * 0.1} // Stagger effect for each week
+              >
+                <h3 className="text-xl font-semibold text-zinc-500 mb-4">
+                  {weekItem.week}
+                </h3>
+                <ul className="list-disc list-outside space-y-2 pl-4">
+                  {weekItem.topics.map((topic, idx) => (
+                    <li key={idx}> {/* Using idx as key for topics within a week is usually fine if topics don't change order */}
+                      {topic}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </AnimatePresence>
+
+
         <div className="mt-6 text-center">
           <motion.button
             onClick={() => setShowAll(!showAll)}

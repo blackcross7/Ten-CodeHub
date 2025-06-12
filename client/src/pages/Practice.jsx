@@ -38,7 +38,7 @@ function Practice() {
 
       {/* Main Content Overlapping the Hero */}
       <div className="bg-[#0a0f2c] pt-[200px] relative z-0">
-        <div className="relative -mt-[100vh] z-10 max-w-[1200px] pb-10 pt-20 sm:pt-20 mx-auto px-6 sm:px-8">
+        <div className="relative -mt-[110vh] z-10 max-w-[1200px] pb-10 pt-20 sm:pt-20 mx-auto px-6 sm:px-8">
           <main>
             <motion.section
               initial={{ scale: 1.1 }}

@@ -376,6 +376,7 @@ function SystemDesign() {
             Course Content</h1>
         </div>
 
+<AnimatePresence initial={false}> 
         <div className="grid gap-6 ">
           {displayedContent.map((weekItem, index) => (
             <motion.div
@@ -401,6 +402,7 @@ function SystemDesign() {
             </motion.div>
           ))}
         </div>
+        </AnimatePresence>
         <div className="mt-6 text-center">
           <motion.button
             onClick={() => setShowAll(!showAll)}

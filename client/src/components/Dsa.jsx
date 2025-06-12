@@ -3,7 +3,7 @@ import { faCheck, faDownload, faWarning } from '@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
-import { motion } from 'framer-motion'; // Import motion
+import { motion, AnimatePresence } from 'framer-motion'; // Import motion
 
 // Define your animation variants
 const fadeInUp = {
@@ -395,32 +395,36 @@ function Dsa() {
             Course Content</h1>
         </div>
 
-        <div className="grid gap-6 ">
-          {displayedContent.map((weekItem, index) => (
-            <motion.div // Wrap each week item
-              key={index}
-              className="bg-slate-900 text-gray-300 shadow-lg rounded-2xl p-6 border border-gray-200 cursor-text"
-              variants={fadeInUp}
-              custom={index * 0.2} // Stagger effect for each week
-            >
-              <h3 className="text-xl font-semibold text-zinc-500 mb-4">
-                {weekItem.week}
-              </h3>
-             <ul className="list-disc list-inside space-y-2">
-  {weekItem.topics.map((topic, idx) => (
-    <motion.li
-      key={idx}
-      variants={fadeInUp}
-      custom={index * 0.2 + idx * 0.05}
-      className="" /* Adjust this value as needed */
-    >
-      {topic}
-    </motion.li>
-  ))}
-</ul>
-            </motion.div>
-          ))}
-        </div>
+        <AnimatePresence initial={false}> 
+          <div className="grid gap-6 ">
+            {displayedContent.map((weekItem, index) => (
+              <motion.div // Wrap each week item
+                key={index}
+                className="bg-slate-900 text-gray-300 shadow-lg rounded-2xl p-6 border border-gray-200 cursor-text"
+                variants={fadeInUp}
+                custom={index * 0.2} // Stagger effect for each week
+              >
+                <h3 className="text-xl font-semibold text-zinc-500 mb-4">
+                  {weekItem.week}
+                </h3>
+                <ul className="list-disc list-inside space-y-2">
+                  {weekItem.topics.map((topic, idx) => (
+                    <motion.li
+                      key={idx}
+                      variants={fadeInUp}
+                      custom={index * 0.2 + idx * 0.05}
+                      className="" /* Adjust this value as needed */
+                    >
+                      {topic}
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+
+        </AnimatePresence >
+
         <div className="mt-6 text-center">
           <motion.button
             onClick={() => setShowAll(!showAll)}

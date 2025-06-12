@@ -131,7 +131,7 @@ const EditProfile = () => {
 
          <div className="bg-[#091a33] min-h-screen w-full">
      {/* Main Form Section starting from Hero middle */}
-<motion.main className="relative -mt-[85vh] px-4 md:px-20 py-10 text-blue-900 rounded-t-3xl shadow-lg z-10">
+<motion.main className="relative -mt-[90vh] px-4 md:px-20 py-10 text-blue-900 rounded-t-3xl shadow-lg z-10">
 
         {/* Header */}
         <motion.div

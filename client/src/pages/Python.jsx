@@ -3,7 +3,7 @@ import { faCheck, faDownload, faWarning } from '@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
-import { motion } from 'framer-motion'; // Import motion
+import { motion, AnimatePresence } from 'framer-motion'; // Import motion
 
 // Define your animation variants
 const fadeInUp = {
@@ -394,6 +394,7 @@ function Python() {
     </h1>
   </div>
 
+<AnimatePresence initial={false}> 
   <div className="grid gap-6 ">
     {displayedContent.map((weekItem, index) => (
       <motion.div // Wrap each week item
@@ -420,6 +421,7 @@ function Python() {
       </motion.div>
     ))}
   </div>
+  </AnimatePresence>
   <div className="mt-6 text-center">
     <motion.button
       onClick={() => setShowAll(!showAll)}
