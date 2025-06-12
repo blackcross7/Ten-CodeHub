@@ -731,13 +731,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-weight: bold;
-  font-size: 18px;
   padding: 15px 20px;
+  font-size: 18px;
   border-left: 5px solid #291e62;
-  cursor: pointer;
   background: #e4e3ef;
   color: #000;
+  gap: 12px;
+  cursor: pointer;
 }
 
 .mlfaq-question span {
@@ -759,10 +759,46 @@
 .faq-item input[type="checkbox"]:checked ~ .faq-answer {
   display: block;
 }
+.mlfaq-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+}
+
+/* Number styling */
+.mlfaq-text span {
+  font-weight: 700;
+  font-size: 20px;
+  color: #291e62;
+  flex-shrink: 0;
+  white-space: nowrap;
+  min-width: 0; /* <- important for text truncation or wrapping correctly */
+}
+
 
 /* Arrow animation transition */
 .faq-arrow {
   transition: transform 0.3s ease;
+}
+@media (max-width: 425px) {
+  .mlfaq-question {
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+
+  .mlfaq-text span {
+    font-size: 18px;
+  }
+
+  .faq-arrow-wrapper {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
+  }
 }
 
 @media (max-width: 1024px) {
