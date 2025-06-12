@@ -189,7 +189,7 @@ const Articles = () => {
               ))}
             </div>
             <motion.button
-              className="block mx-auto mt-8 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center gap-2"
+              className="block mx-auto mt-8 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center gap-2 article-load-btn"
               variants={fadeInUp}
               initial="hidden"
               animate="visible"

@@ -260,26 +260,35 @@ const EditProfile = () => {
           </motion.section>
 
           {/* Buttons */}
-          <motion.div className="flex flex-col-reverse md:flex-row justify-end gap-4 mt-8" variants={slideInUp}>
-            <motion.button
-              type="button"
-              className="px-6 py-2 rounded-md text-white bg-red-700 hover:bg-red-800 font-medium"
-              whileHover={buttonHover}
-              whileTap={{ scale: 0.95 }}
-            >
-              Cancel
-            </motion.button>
-            <motion.button
-              type="submit"
-              disabled={loading}
-              className={`px-6 py-2 rounded-md bg-indigo-700 text-white font-medium hover:bg-indigo-800 
-                ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
-              whileHover={!loading ? buttonHover : {}}
-              whileTap={!loading ? { scale: 0.95 } : {}}
-            >
-              {loading ? 'Saving...' : 'Save Changes'}
-            </motion.button>
-          </motion.div>
+          <motion.div
+  className="flex flex-row gap-4 mt-8 justify-end items-center max-[425px]:justify-center"
+  variants={slideInUp}
+>
+  <motion.button
+    type="submit"
+    disabled={loading}
+    className={`
+      w-36 py-2 rounded-md bg-indigo-700 text-white font-medium hover:bg-indigo-800
+      ${loading ? 'opacity-50 cursor-not-allowed' : ''}
+      max-[425px]:w-32 max-[425px]:py-2 max-[425px]:text-base
+    `}
+    whileHover={!loading ? buttonHover : {}}
+    whileTap={!loading ? { scale: 0.95 } : {}}
+  >
+    {loading ? 'Saving...' : 'Save Changes'}
+  </motion.button>
+  <motion.button
+    type="button"
+    className="
+      w-36 py-2 rounded-md text-white bg-red-700 hover:bg-red-800 font-medium
+      max-[425px]:w-32 max-[425px]:py-2 max-[425px]:text-base
+    "
+    whileHover={buttonHover}
+    whileTap={{ scale: 0.95 }}
+  >
+    Cancel
+  </motion.button>
+</motion.div>
         </motion.form>
       </motion.main>
       </div>
