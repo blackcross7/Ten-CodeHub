@@ -126,8 +126,8 @@ const ProfilePage = () => {
             alt="Profile"
             className="w-40 h-40 rounded-full object-cover border-4 border-white shadow"
           />
-          <h2 className="text-2xl mt-4 text- white font-bold">{user?.fullName || 'No Name'}</h2>
-          <p className="text-gray-200 mt-1">{user?.email || 'No Email'}</p>
+          <h2 className="text-2xl mt-4 text- white font-bold line-clamp-2">{user?.fullName || 'No Name'}</h2>
+          <p className="text-gray-200 mt-1 line-clamp-2">{user?.email || 'No Email'}</p>
         </div>
         <div className="mt-6 bg-indigo-800 p-4 rounded-lg shadow w-full text-center text-white">
           <div className="text-md text-white-200">Current POTD Streak</div>
