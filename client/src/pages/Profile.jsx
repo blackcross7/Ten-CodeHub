@@ -22,18 +22,21 @@ const hamburgerRef = useRef(null);
     checkAuth();
   }, [checkAuth]);
 
-  useEffect(() => {
+ useEffect(() => {
   const handleResize = () => {
     if (window.innerWidth >= 1024) {
       setSidebarOpen(true);
+    } else {
+      setSidebarOpen(false); 
     }
   };
 
-  handleResize(); // Ensure correct initial state on mount
+  handleResize(); // call initially
 
   window.addEventListener('resize', handleResize);
   return () => window.removeEventListener('resize', handleResize);
 }, []);
+
 
 useEffect(() => {
   const handleClickOutside = (e) => {
@@ -147,7 +150,7 @@ useEffect(() => {
       </AnimatePresence>
 
       {/* Content Section */}
-      <section className="relative z-10 p-4 lg:ml-64 -mt-[75vh]">
+      <section className="relative z-10 p-4 lg:ml-64 -mt-[80vh]">
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     animate={{ opacity: 1, y: 0 }}
