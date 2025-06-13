@@ -51,8 +51,15 @@
 /* Center the buttons */
 .forum-container form button,
 .view-discussions-btn {
+  min-width: 8.5rem !important;   /* kam se kam itna ho */
+  width: auto !important;         /* jitna text ho utna ho */
+  max-width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
   display: block;
-  margin: 0 auto;
+  white-space: nowrap; /* text ek line me rahe */
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* Form styling */
