@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import authStore from '../store/authStore';
 import LogoutModal from '../components/LogoutModal';
 
 const ProfilePage = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth >= 1024);
+
+  const sidebarRef = useRef(null);
+const hamburgerRef = useRef(null);
+
+
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
@@ -16,6 +21,35 @@ const ProfilePage = () => {
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
+
+  useEffect(() => {
+  const handleResize = () => {
+    if (window.innerWidth >= 1024) {
+      setSidebarOpen(true);
+    }
+  };
+
+  handleResize(); // Ensure correct initial state on mount
+
+  window.addEventListener('resize', handleResize);
+  return () => window.removeEventListener('resize', handleResize);
+}, []);
+
+useEffect(() => {
+  const handleClickOutside = (e) => {
+    const sidebarClicked = sidebarRef.current?.contains(e.target);
+    const hamburgerClicked = hamburgerRef.current?.contains(e.target);
+
+    if (sidebarOpen && !sidebarClicked && !hamburgerClicked && window.innerWidth < 1024) {
+      setSidebarOpen(false);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => document.removeEventListener("mousedown", handleClickOutside);
+}, [sidebarOpen]);
+
+
 
   const handleLogout = async () => {
     try {
@@ -70,19 +104,22 @@ const ProfilePage = () => {
         initial={{ scale: 1.2 }}
         animate={{ scale: 1 }}
         transition={{ duration: 6, ease: "easeOut" }}
+        onClick={() => setSidebarOpen(false)}
       ></motion.section>
 
       {/* Hamburger */}
       <button
-        className="text-2xl md:hidden fixed top-4 left-4 mt-24 z-50 text-black shadow p-2 rounded"
+        className="text-2xl lg:hidden fixed top-4 left-4 mt-24 z-50 text-white shadow p-2 rounded"
         onClick={toggleSidebar}
+        ref={hamburgerRef}
       >
         ☰
       </button>
 
       {/* Sidebar */}
       <AnimatePresence>
-        {(sidebarOpen || window.innerWidth >= 768) && (
+        {(sidebarOpen || typeof window !== 'undefined' && window.innerWidth >= 1024) && (
+
           <motion.nav
             initial={{ x: -300 }}
             animate={{ x: 0 }}
@@ -110,7 +147,7 @@ const ProfilePage = () => {
       </AnimatePresence>
 
       {/* Content Section */}
-      <section className="relative z-10 p-4 md:ml-64 -mt-[75vh]">
+      <section className="relative z-10 p-4 lg:ml-64 -mt-[75vh]">
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     animate={{ opacity: 1, y: 0 }}
@@ -126,7 +163,7 @@ const ProfilePage = () => {
             alt="Profile"
             className="w-40 h-40 rounded-full object-cover border-4 border-white shadow"
           />
-          <h2 className="text-2xl mt-4 text- white font-bold line-clamp-2">{user?.fullName || 'No Name'}</h2>
+          <h2 className="text-2xl mt-4 text- white font-bold ">{user?.fullName || 'No name'}</h2>
           <p className="text-gray-200 mt-1 line-clamp-2">{user?.email || 'No Email'}</p>
         </div>
         <div className="mt-6 bg-indigo-800 p-4 rounded-lg shadow w-full text-center text-white">
@@ -212,7 +249,7 @@ const ProfilePage = () => {
 ].map((section, i) => (
   <motion.section
     key={i}
-    className="p-4 md:ml-64"
+    className="p-4 lg:ml-64"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ delay: i * 0.2 }}
@@ -233,7 +270,7 @@ const ProfilePage = () => {
 
 {/* Write More Section */}
 <motion.section
-  className="p-4 md:ml-64"
+  className="p-4 lg:ml-64"
   initial={{ opacity: 0, y: 40 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6 }}
