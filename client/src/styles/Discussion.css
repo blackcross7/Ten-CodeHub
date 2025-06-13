@@ -58,7 +58,7 @@ html, body {
 /* Back to forum button */
 .back-to-forum-btn {
   padding: 10px;
-  background-color:rgb(50, 87, 167);
+  background-color: rgb(50, 87, 167);
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -68,12 +68,24 @@ html, body {
   text-decoration: none;
   display: inline-block;
   margin-bottom: 5px;
+  margin-left: auto !important;    /* always push to right */
+  margin-right: 0 !important;
 }
 
-.back-to-forum-btn:hover {
-  background-color: #363f82a4;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px var(--shadow);
+/* Center and auto-size the back button and reply button */
+.back-to-forum-btn,
+.reply-submit-btn {
+  min-width: 8.5rem !important;   /* kam se kam itna ho */
+  width: auto !important;         /* jitna text ho utna ho */
+  max-width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  white-space: nowrap; /* text ek line me rahe */
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  font-size: 15px;
 }
 
 /* Discussion card */
@@ -244,9 +256,11 @@ html, body {
   }
 
   .back-to-forum-btn {
-    order: 0;         /* ✅ reset to default */
-    padding: 10px 16px;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    display: inline-block !important;
     font-size: 15px;
+    padding: 10px 16px;
   }
 
   .discussion-card {
@@ -366,10 +380,12 @@ html, body {
   }
 
   .reply-submit-btn {
-    width: 100%;
+    width: auto !important;
+    min-width: 8.5rem !important;
+    max-width: 90vw;
+    padding-left: 20px;
+    padding-right: 20px;
     font-size: 14px;
-    padding: 10px;
-    text-align: center;
   }
 
   .image-container {
