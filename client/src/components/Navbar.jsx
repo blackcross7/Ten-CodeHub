@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faSearch, faHome, faNewspaper, faComments, faBook, faEdit, faCompass } from '@fortawesome/free-solid-svg-icons';
@@ -14,6 +14,8 @@ const Navbar = () => {
 
   // Ref for the scrollable secondary links container
   const scrollContainerRef = useRef(null);
+  const location = useLocation();
+
 
   const toggleSearch = () => {
     setShowSearchSmall(prev => !prev);
@@ -160,26 +162,27 @@ const Navbar = () => {
             <li><Link to="/practice" onClick={toggleMenu}><FontAwesomeIcon icon={faEdit} /> Practice</Link></li>
             <li><Link to="/explore" onClick={toggleMenu}><FontAwesomeIcon icon={faCompass} /> Explore</Link></li>
           </ul>
-        </div> 
+        </div>
       )}
 
       {/* Secondary Navbar */}
       <div className="secondary-navbar">
         <button className="scroll-btn" onClick={scrollLeft}>&lt;</button> {/* Changed to HTML entity for less confusion */}
         <div className="secondary-links" id="scrollable-links" ref={scrollContainerRef}>
-          <Link to="/dsa" className="secondary-link">DSA</Link>
-          <Link to="/practice" className="secondary-link">Practice Problems</Link>
-          <Link to="/python" className="secondary-link">Python</Link>
-          <Link to="/c" className="secondary-link">C</Link>
-          <Link to="/cpp" className="secondary-link">C++</Link>
-          <Link to="/java" className="secondary-link">Java</Link>
-          <Link to="/course" className="secondary-link">Courses</Link>
-          <Link to="/ml" className="secondary-link">Machine Learning</Link>
-          <Link to="/devops" className="secondary-link">DevOps</Link>
-          <Link to="/webdev" className="secondary-link">Web Development</Link>
-          <Link to="/systemdesign" className="secondary-link">System Design</Link>
-          <Link to="/aptitude" className="secondary-link">Aptitude</Link>
-          
+
+          <Link to="/dsa" className={`secondary-link ${location.pathname === "/dsa" ? "active" : ""}`}>DSA</Link>
+          <Link to="/practice" className={`secondary-link ${location.pathname === "/practice" ? "active" : ""}`}>Practice Problems</Link>
+          <Link to="/python" className={`secondary-link ${location.pathname === "/python" ? "active" : ""}`}>Python</Link>
+          <Link to="/c" className={`secondary-link ${location.pathname === "/c" ? "active" : ""}`}>C</Link>
+          <Link to="/cpp" className={`secondary-link ${location.pathname === "/cpp" ? "active" : ""}`}>C++</Link>
+          <Link to="/java" className={`secondary-link ${location.pathname === "/java" ? "active" : ""}`}>Java</Link>
+          <Link to="/course" className={`secondary-link ${location.pathname === "/course" ? "active" : ""}`}>Courses</Link>
+          <Link to="/ml" className={`secondary-link ${location.pathname === "/ml" ? "active" : ""}`}>Machine Learning</Link>
+          <Link to="/devops" className={`secondary-link ${location.pathname === "/devops" ? "active" : ""}`}>DevOps</Link>
+          <Link to="/webdev" className={`secondary-link ${location.pathname === "/webdev" ? "active" : ""}`}>Web Development</Link>
+          <Link to="/systemdesign" className={`secondary-link ${location.pathname === "/systemdesign" ? "active" : ""}`}>System Design</Link>
+          <Link to="/aptitude" className={`secondary-link ${location.pathname === "/aptitude" ? "active" : ""}`}>Aptitude</Link>
+
         </div>
         <button className="scroll-btn" onClick={scrollRight}>&gt;</button> {/* Changed to HTML entity */}
       </div>

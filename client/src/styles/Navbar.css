@@ -332,7 +332,7 @@
 }
 
 .secondary-navbar a.active {
-  color: red;
+  color: rgb(192, 4, 4);
   font-weight: 600;
 }
 
