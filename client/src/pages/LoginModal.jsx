@@ -57,11 +57,11 @@ const LoginModal = () => {
   };
 
   return (
-    <div className="min-h-screen inset-0 bg-black bg-opacity-40 flex mt-0 md:mt-20 items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-2xl shadow-xl w-[90%] md:w-[400px] relative">
-        <button onClick={handleClose} className="absolute top-2 right-4 text-2xl">&times;</button>
+    <div className="min-h-screen inset-0  flex  items-center justify-center z-50 bg-[url(https://images.hdqwalls.com/download/graph-web-abstract-4k-hn-1920x1080.jpg)]">
+      <div className="bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-600 p-6 rounded-2xl shadow-xl w-[90%] md:w-2/3 lg:w-1/3 relative mt-16">
+        <button onClick={handleClose} className="absolute top-2 right-4 text-2xl text-white ">&times;</button>
 
-        <h2 className="text-2xl font-bold text-black text-center mb-4">
+        <h2 className="text-2xl font-bold text-white text-center mb-4">
           {isSignup ? "Create Account" : "Login to Account"}
         </h2>
 
@@ -116,7 +116,7 @@ const LoginModal = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 disabled:bg-green-300"
+            className="w-[50%] mx-auto flex justify-center  bg-blue-600 text-white py-2 rounded-md hover:bg-blue-800 disabled:bg-blue-300"
           >
             {isLoading ? 'Processing...' : (isSignup ? 'Create Account' : 'Login')}
           </button>
@@ -124,7 +124,7 @@ const LoginModal = () => {
 
         {isSignup && (
           <>
-            <p className="text-center text-sm text-gray-600 my-3">Or sign up with</p>
+            <p className="text-center text-sm text-gray-200 my-3">Or sign up with</p>
             <div className="flex justify-center gap-3 mb-4">
               <SocialIcon icon={<FaGoogle />} title="Google" />
               <SocialIcon icon={<FaFacebookF />} title="Facebook" />
@@ -134,12 +134,12 @@ const LoginModal = () => {
           </>
         )}
 
-        <p className="text-center mt-2 text-sm text-gray-700">
+        <p className="text-center mt-2 text-sm text-gray-300">
           {isSignup ? "Already have an account?" : "Don't have an account?"}{' '}
           <button
             type="button"
             onClick={() => setIsSignup(!isSignup)}
-            className="text-green-600 underline"
+            className="text-blue-400 font-medium hover:underline hover:text-blue-500 hover:scale-105 transition-transform duration-200"
           >
             {isSignup ? "Login" : "Sign up"}
           </button>

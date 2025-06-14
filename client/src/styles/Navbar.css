@@ -295,7 +295,7 @@
 .secondary-links a,
 .secondary-navbar a {
   flex: 0 0 90px;
-  color: red;
+  color:#cabdbd;
   text-decoration: none;
   font-weight: 700;
   padding: 8px 12px;
@@ -321,7 +321,7 @@
   height: 2px;
   bottom: 0;
   left: 50%;
-  background-color: red;
+  background-color: rgb(191, 43, 43);
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
@@ -347,7 +347,7 @@
   justify-content: center;
   cursor: pointer;
   font-size: 20px;
-  color: red;
+  color: #cabdbd;
   transition: all 0.3s ease;
   margin: 0 5px;
   height: 100%;
@@ -365,7 +365,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 0, 0, 0.2);
+  background-color: rgba(116, 105, 105, 0.2);
   border-radius: 50%;
 }
 

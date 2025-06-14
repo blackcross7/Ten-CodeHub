@@ -160,7 +160,7 @@ const Navbar = () => {
             <li><Link to="/practice" onClick={toggleMenu}><FontAwesomeIcon icon={faEdit} /> Practice</Link></li>
             <li><Link to="/explore" onClick={toggleMenu}><FontAwesomeIcon icon={faCompass} /> Explore</Link></li>
           </ul>
-        </div>
+        </div> 
       )}
 
       {/* Secondary Navbar */}

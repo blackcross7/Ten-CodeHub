@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 
 const useAuthStore = create(
   persist(
-    (set, get) => ({
+    (set) => ({
       user: null,
       isLoading: false,
       isCheckingAuth: true,
